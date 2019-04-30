@@ -138,6 +138,30 @@ public class JspController {
 		return "writeform";
 	}
 	
+	@RequestMapping(value="/clicktopost")
+	public String clicktopost() throws Exception{
+		return "clicktopost";
+	}
+
+	@RequestMapping(value="/create-guild")
+	public String create_guild() throws Exception{
+		return "create-guild";
+	}
+
+	@RequestMapping(value="/modification")
+	public String modification() throws Exception{
+		return "modification";
+	}
+
+	@RequestMapping(value="/admin")
+	public String amdin() throws Exception{
+		return "admin";
+	}
+
+	@RequestMapping(value="/find_user_info")
+	public String find_user_info() throws Exception{
+		return "find_user_info";
+	}
 	
 	
 	@RequestMapping("/mav")
