@@ -21,4 +21,8 @@ public class CommonController {
 		return "test";
 	}
 	
+	@RequestMapping("/asdd")
+	public String asdd() {
+		return "asdd";
+	}
 }
