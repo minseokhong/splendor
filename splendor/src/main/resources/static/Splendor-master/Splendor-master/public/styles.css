@@ -1,0 +1,270 @@
+body {
+	font-family: "Playfair Display SC", serif !important;
+	background-color: burlywood !important; 
+}
+
+.background-image {
+	height: 100%;
+	width: 66%;
+}
+
+.centered {
+	height: 100vh;
+}
+
+img:hover, .playing-card:hover {
+	cursor: pointer;
+}
+
+#messageInput {
+	padding-bottom: 25px;
+}
+
+#messages {
+	max-height: 350px;
+	overflow: auto;
+}
+
+#messages li:nth-child(even) {
+	background: #eee;
+}
+
+.page-header {
+	background-color: darkgoldenrod;
+	padding: 10px;
+}
+
+.modal-body.row {
+	margin: 0px;
+}
+
+.row {
+	margin-top: 10px;
+}
+
+#questions {
+	width: 100%;
+}
+
+.top-left-corner {
+	left: 10px;
+	top: 10px;
+}
+
+.lower-top-left-corner {
+	left: 10px;
+	top: 60px;
+}
+
+.top-right-corner {
+	right: 10px;
+	top: 10px;
+	
+}
+
+.top-right-corner, .top-left-corner, .lower-top-left-corner {
+	background-color: #6c757d;
+	border-radius: 5px;
+	box-shadow: 5px 5px #888888;
+	position: fixed;
+	width: 50px;
+	z-index: 100;
+}
+
+
+/*** Card styling ***/
+.deck-label {
+	margin-top: 85px;
+}
+
+.gem {
+	text-align: right;
+}
+
+.gem > img {
+	height: 50px;
+	width: 50px;
+}
+
+.playing-card {
+	border: 1px solid black;
+	border-radius: 10px;
+	height: 200px;
+	padding: 5px 10px 10px 10px;
+	margin: auto;
+	width: 140px;
+}
+
+/* Diamond Playing Card */
+.diamond {
+	/* background-image: url("/assets/backgrounds/diamond_bg.jpg"); */
+	background-color: navajowhite;
+}
+
+/* Sapphire Playing Card */
+.sapphire {
+	/* background-image: url("/assets/backgrounds/sapphire_bg.jpg"); */
+	background-color: royalblue;
+}
+
+/* Emerald Playing Card */
+.emerald {
+	/* background-image: url("/assets/backgrounds/emerald_bg.jpg"); */
+	background-color: darkseagreen;
+}
+
+/* Ruby Playing Card */
+.ruby {
+	/* background-image: url("/assets/backgrounds/ruby_bg.jpg"); */
+	background-color: indianred;
+}
+
+/* Onyx Playing Card */
+.onyx {
+	/* background-image: url("/assets/backgrounds/onyx_bg.jpg"); */
+	background-color: saddlebrown;
+}
+
+/* Playing Card Back */
+.pcb {
+	background-color: blue;
+	color: white;
+}
+
+/* Empty Deck */
+.empty {
+	background-color: whitesmoke;
+	color: black;
+}
+
+.points {
+	color: white;
+	float: left;
+	font-size: 200%;
+	padding-left: 5px;
+}
+
+.price {
+	/* border-color: white; */
+	border-radius: 15px;
+	color: white;
+	height: 30px;
+	margin-top: 2px;
+	padding-top: 3px;
+	width: 30px;	
+}
+
+.price-diamond {
+	background-color: white;
+	color: black;
+}
+
+.price-sapphire {
+	background-color: blue;
+}
+
+.price-emerald {
+	background-color: green;
+}
+
+.price-ruby {
+	background-color: red;
+}
+
+.price-onyx {
+	background-color: brown;
+}
+
+span {
+	display: block;
+	line-height: 1.3;
+}
+
+.top {
+	display: flow-root;
+	margin-bottom: 8px;
+}
+
+/* Token Styling */
+#tokensInHand {
+	height: 140px;
+}
+
+#goldTokens, #diamondTokens, #sapphireTokens, #emeraldTokens, #rubyTokens, #onyxTokens {
+	height: 105px;
+	opacity: 1; /* Change to 0.25 when token pile is empty */
+	padding-bottom: 5px;
+}
+
+.token {
+	border: 3px solid;
+	border-radius: 50px;
+}
+
+.gold-token {
+	border-color: darkgoldenrod;
+	background-color: palegoldenrod;
+}
+
+.diamond-token {
+	border-color: antiquewhite; /* navajowhite? */
+	background-color: whitesmoke;
+}
+
+.sapphire-token {
+	border-color: blue;
+	background-color: cornflowerblue;
+}
+
+.emerald-token {
+	border-color: green;
+	background-color: darkseagreen;
+}
+
+.ruby-token {
+	border-color: red;
+	background-color: indianred;
+}
+
+.onyx-token {
+	border-color: brown;
+	background-color: rosybrown;
+}
+
+/*
+    Used for notifying player of their turn.
+    Multiple classes for cross-browser compatibility.
+*/
+
+/* Default */
+
+@keyframes blink {
+	50% {
+		background: rgba(48, 230, 48, 0.534);
+		background-size: 75px 150px;
+	}
+}
+
+/* Safari */
+
+@-webkit-keyframes blink {
+	50% {
+		background: rgba(48, 230, 48, 0.534);
+		background-size: 75px 150px;
+	}
+}
+
+/* Firefox */
+
+@-moz-keyframes blink {
+	50% {
+		background: rgba(48, 230, 48, 0.534);
+		background-size: 75px 150px;
+	}
+}
+
+.notify {
+	animation: blink 1s;
+	-webkit-animation: blink 1s;
+	-moz-animation: blink 1s;
+}
