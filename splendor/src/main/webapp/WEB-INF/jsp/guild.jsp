@@ -23,52 +23,12 @@
     </head>
     <body class="guild_page">
         
+       <!--================Header Menu Area =================-->
+    
+   			<jsp:include page="header.jsp"></jsp:include>
+   
         <!--================Header Menu Area =================-->
-        <header class="header_area">
-            <div class="main_menu">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container">
-                        <!-- Brand and toggle get grouped for better mobile display -->
-                        <a class="navbar-brand logo_h" href="index"><img class="logo" src="img/joystick.png" alt="">R.N.G<aside></aside></a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse offset" id="navbarSupportedContent" >
-                            <ul class="nav navbar-nav menu_nav justify-content-center"style ="width:70%";">
-                                <li class="nav-item"><a class="nav-link" href="index">홈페이지</a></li>
-                                <li class="nav-item"><a class="nav-link" href="about-us">게임소개</a></li>
-                                <li class="nav-item"><a class="nav-link" href="screenshot">스크린샷</a></li>
-                                <li class="nav-item submenu dropdown active">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                     aria-expanded="false">커뮤니티</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="guild">길드</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="자유게시판">자유게시판</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="elements">공지사항</a>
-                                    </ul>
-                                </li>
-                                <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                    aria-expanded="false">고객센터</a>
-                                    <ul class="dropdown-menu">
-                                        <li class="nav-item"><a class="nav-link" href="BBS">FAQ</a></li>
-                                        <li class="nav-item"><a class="nav-link" href="나문의">1:1문의</a></li>
-                                        <li class="nav-item"><a class="nav-link" href=";;">신고</a>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right" > 
-                                <a href="login" class="primary_btn">로그인</a>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </header>
+        
         <!--================Home Banner Area =================-->
 		<section class="banner_area">
 			<div class="banner_inner d-flex align-items-center">
@@ -81,7 +41,7 @@
             </div>
 		</section>
 		<!--================End Home Banner Area =================-->
-        <!--================Header Menu Area =================-->
+     
 
         <!--================Home Banner Area =================-->
         <!-- <section class="home_banner_area">
