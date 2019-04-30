@@ -9,5 +9,6 @@ public class SplendorApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SplendorApplication.class, args);
 	}
+	
 
 }
