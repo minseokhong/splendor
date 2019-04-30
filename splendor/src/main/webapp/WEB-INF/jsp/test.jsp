@@ -364,12 +364,12 @@
 						<div class="home_left_img">
                             <!-- <img class="img-fluid" src="img/banner/home-left.png" alt=""> -->
                             <ul class="home_info">
-                                <li class="home_info2"><h1>´Ð³×ÀÓ : </h1><h2>À±Çöºó</h2></li>
-                                <li class="home_info2"><h1>·©Å· : </h1><h2>54À§</h2></li>
-                                <li class="home_info2"><h1>ÀüÀû : </h1><h2>4½Â2ÆÐ</h2></li>
-                                <li class="home_info2"><h1>±æµå¸í : </h1><h2>R.N.G</h2></li>
+                                <li class="home_info2"><h1>´Ð³×ÀÓ : </h1><h2>${user.user_name }</h2></li>
+                                <li class="home_info2"><h1>·©Å· : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>½ÂÁ¡ : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>±æµå¸í : </h1><h2> </h2></li>
 <!--                                 <li class="home_info2"><h1>±æµå ·©Å· : </h1><h2>45À§</h2></li> -->
-                                <li class="home_info2"><h1>±æµå ·©Å· : </h1><h2>${key } ${value }</h2></li>
+                                <li class="home_info2"><h1>±æµå ·©Å· : </h1><h2> </h2></li>
                                 
 
                             </ul>

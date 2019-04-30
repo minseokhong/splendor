@@ -12,7 +12,7 @@ public class UserData {
 	private boolean is_admin;
 	private boolean is_banned;
 	private Date ban_period;
-	private int ban_count;
+	private int ban_count; 
 	private String ban_reason;
 	
 	public String getUser_name() {

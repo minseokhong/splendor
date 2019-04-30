@@ -65,11 +65,14 @@
 					userPw: pw
 				},
 				success : function(data) {
-					alert(data);
 					if (data == 'true') {
+						alert(id + ' 님 환영합니다 ^.^')
+						
 						location.href = 'testView';
 					} else {
-						alert('로그인 실패요 ㅋ');
+						$('#userId').val('');
+						$('#usePw').val('');
+						alert('이메일 및 비밀번호가 일치하지 않습니다.');
 					}
 				}
 			});
