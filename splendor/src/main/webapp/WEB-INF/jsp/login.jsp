@@ -149,17 +149,14 @@
                </nav>
             </div>
          </header>
-=======
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="js/bootstrap.js"></script>
    
    		 <!--================Header Menu Area =================-->
     
-   			<jsp:include page="header.jsp"></jsp:include>
+   			<jsp:include page="/WEB-INF/jsp/header.jsp"></jsp:include>
    
         <!--================Header Menu Area =================-->
->>>>>>> branch 'master' of https://github.com/minseokhong/splendor.git
-   
 
    <section class="login"  style="margin-top: 200px; margin-bottom: 100px;">
         <div class="container d-flex justify-content-center">
