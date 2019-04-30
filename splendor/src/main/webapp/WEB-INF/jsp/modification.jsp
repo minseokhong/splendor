@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -38,10 +39,10 @@
             <div class="container">
                 <div class="banner_content text-center">
                     <div class="page_link">
-                        <a href="index">»®∆‰¿Ã¡ˆ</a>
-                        <a href="freeboard">¿⁄¿Ø∞‘Ω√∆«</a>
+                        <a href="index.html">ÌôàÌéòÏù¥ÏßÄ</a>
+                        <a href="freeboard.html">ÏûêÏú†Í≤åÏãúÌåê</a>
                     </div>
-                    <h2>¿⁄¿Ø∞‘Ω√∆«</h2>
+                    <h2>ÏûêÏú†Í≤åÏãúÌåê</h2>
                 </div>
             </div>
         </div>
@@ -60,11 +61,11 @@
 
             <tbody>
 
-                <h2 style="color:rgb(151, 137, 137); text-align: center; padding: 15px;"> ±€ ¿€º∫</h2>
-                <form action="write_ok" method="post" encType="multiplart/form-data">
+                <h2 style="color:rgb(151, 137, 137); text-align: center; padding: 15px;"> Í∏Ä ÏàòÏ†ï</h2>
+                <form action="write_ok.jsp" method="post" encType="multiplart/form-data">
                     
                     <tr>
-                        <th>¡¶∏Ò°°<input type="text" placeholder="¡¶∏Ò¿ª ¿‘∑¬«œººø‰. " name="subject" class="form-control"
+                        <th>Ï†úÎ™©„ÄÄ<input type="text" placeholder="Ï†úÎ™©ÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî. " name="subject" class="form-control"
                                 style="display: inline; width: 90%" /></th>
 
 
@@ -73,7 +74,7 @@
 
                         
                     <tr>
-                        <th>≥ªøÎ°°<input type=file name='file1' style='display: none;'>
+                        <th>ÎÇ¥Ïö©„ÄÄ<input type=file name='file1' style='display: none;'>
                             <img src='img/pictures.png' align="right" width="30" height="35" name='find' id='find'
                                 border='0'
                                 onclick='document.all.file1.click(); document.all.file2.value=document.all.file1.value'>
@@ -87,7 +88,7 @@
                         </th>
 
                     <tr>
-                        <th><textarea rows="15" cols="10" placeholder="≥ªøÎ¿ª ¿‘∑¬«œººø‰. " name="content" class="form-control"
+                        <th><textarea rows="15" cols="10" placeholder="ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî. " name="content" class="form-control"
                                 style=" width: 90%; margin-left: 40px;
                                     "></textarea></th>
                     </tr>
@@ -96,16 +97,16 @@
 
                     </tr>
                     <th>
-                        <secret style="margin-left: 850px;">∫Òπ–±€</secret>°°
-                        <input type="checkbox" id="secretcheck" name="∫Òπ–±€" />
+                        <secret style="margin-left: 850px;">ÎπÑÎ∞ÄÍ∏Ä</secret>„ÄÄ
+                        <input type="checkbox" id="secretcheck" name="ÎπÑÎ∞ÄÍ∏Ä" />
                     </th>
                     <tr>
-                        <th> <input type="button" value="±€æ≤±‚"
+                        <th> <input type="button" value="ÏàòÏ†ïÏôÑÎ£å"
                                 style=" width:100px; background-color: dodgerblue; border-radius: 5px;border: 0; outline: 0; color: white"
-                                ; a href="freeboard" onclick="alert('¿€º∫øœ∑·');" class="pull-right large" />
-                            <input type="button" value="√Î°°º“"
+                                ; onclick="alert('ÏàòÏ†ïÏôÑÎ£å'); location.href='clicktopost.html'" class="pull-right large" />
+                            <input type="button" value="Ï∑®„ÄÄÏÜå"
                                 style=" width:100px; background-color: dodgerblue; border-radius: 5px; border: 0; outline: 0; color: white"
-                                ; onclick="location.href='freeboard'" class="pull-left large" />
+                                ; onclick="location.href='freeboard.html'" class="pull-left large" />
 
                         </th>
                     </tr>
@@ -123,50 +124,50 @@
     <!--================guild Area =================-->
 
     <!--================Footer Area =================-->
-    <footer class="footer_area section_gap_top">
-        <div class="container">
-            <div class="row footer_inner">
-                <div class="col-lg-3 col-sm-6">
-                    <aside class="f_widget ab_widget">
-                        <div class="f_title">
-                            <h4>¿ØªÁ ∞‘¿”</h4>
-                        </div>
-                        <ul>
-                            <li><a href="#"></a>For Business</a></li><a href="#">
-                                <li><a href="#"></a>Premium Plans
-                            </a></li>
-                            <li><a href="#"></a>Reviews</a></li>
-                            <li><a href="#"></a>How it Works</a></li>
-                            <li><a href="#"></a>Farfly guild</a></li>
-                        </ul>
-                    </aside>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <aside class="f_widget ab_widget">
-                        <div class="f_title">
-                            <h4>∞≥πﬂ¿⁄</h4>
-                        </div>
-                        <ul>
-                            <li><a href="#"></a>±Ëµµ«¸</a></li><a href="#">
-                                <li><a href="#"></a>¡÷πŒº∑
-                            </a></li>
-                            <li><a href="#"></a>»´πŒºÆ</a></li>
-                            <li><a href="#"></a>π⁄øµøÌ</a></li>
-                            <li><a href="#"></a>¿±«ˆ∫Û</a></li>
-                        </ul>
-                    </aside>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <aside class="f_widget ab_widget">
-                        <div class="f_title">
-                            <h4>√£æ∆ø¿Ω√¥¬±Ê</h4>
-                        </div>
-                        <ul>
-                            <li><a href="#"></a>º≠øÔ ∞≠≥≤±∏...</a></li>
-                        </ul>
-                    </aside>
-                </div>
-                <!-- <div class="col-lg-3 col-sm-6">
+	<footer class="footer_area section_gap_top">
+		<div class="container">
+			<div class="row footer_inner">
+				<div class="col-lg-3 col-sm-6">
+					<aside class="f_widget ab_widget">
+						<div class="f_title">
+							<h4>Ïú†ÏÇ¨ Í≤åÏûÑ</h4>
+						</div>
+						<ul>
+							<li><a href="#"></a>For Business</a></li><a href="#">
+								<li><a href="#"></a>Premium Plans
+							</a></li>
+							<li><a href="#"></a>Reviews</a></li>
+							<li><a href="#"></a>How it Works</a></li>
+							<li><a href="#"></a>Farfly guild</a></li>
+						</ul>
+					</aside>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<aside class="f_widget ab_widget">
+						<div class="f_title">
+							<h4>Í∞úÎ∞úÏûê</h4>
+						</div>
+						<ul>
+							<li><a href="#"></a>ÍπÄÎèÑÌòï</a></li><a href="#">
+								<li><a href="#"></a>Ï£ºÎØºÏÑ≠
+							</a></li>
+							<li><a href="#"></a>ÌôçÎØºÏÑù</a></li>
+							<li><a href="#"></a>Î∞ïÏòÅÏö±</a></li>
+							<li><a href="#"></a>Ïú§ÌòÑÎπà</a></li>
+						</ul>
+					</aside>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<aside class="f_widget ab_widget">
+						<div class="f_title">
+							<h4>Ï∞æÏïÑÏò§ÏãúÎäîÍ∏∏</h4>
+						</div>
+						<ul>
+							<li><a href="#"></a>ÏÑúÏö∏ Í∞ïÎÇ®Íµ¨...</a></li>
+						</ul>
+					</aside>
+				</div>
+				<!-- <div class="col-lg-3 col-sm-6">
 					<aside class="f_widget ab_widget">
 						<div class="f_title">
 							<h4>Legal</h4>
@@ -180,33 +181,31 @@
 						</ul>
 					</aside>
 				</div> -->
-            </div>
-            <div class="row single-footer-widget">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="copy_right_text">
-                        <p>
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			</div>
+			<div class="row single-footer-widget">
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="copy_right_text">
+						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
-                            <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
+<!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
 All rights reserved | This template is made with 
 <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-                            ¿ÃªÛ¿‘¥œ¥Á
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                    <div class="social_widget">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--================End Footer Area =================-->
+Ïù¥ÏÉÅÏûÖÎãàÎãπ
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12">
+					<div class="social_widget">
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-dribbble"></i></a>
+						<a href="#"><i class="fa fa-behance"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================End Footer Area =================-->
 
 
 
