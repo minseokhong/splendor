@@ -16,8 +16,4 @@ public class CommonController {
 		return "Hello demo(/demo)";
 	}
 	
-	@RequestMapping("/asdd")
-	public String asdd() {
-		return "asdd";
-	}
 }
