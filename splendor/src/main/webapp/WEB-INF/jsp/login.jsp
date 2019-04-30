@@ -1,28 +1,83 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
    <!-- Required meta tags -->
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <link rel="icon" href="img/joystick.png" type="image/png">
+   <link rel="icon" href="/img/joystick.png" type="image/png">
 	<title>R.N.G Games</title>
    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="css1/bootstrap.css">
+   <link rel="stylesheet" href="/css1/css/bootstrap.css">
      
 
 
-   <link rel="stylesheet" href="css/bootstrap.css">
-   <link rel="stylesheet" href="vendors/linericon/style.css">
-   <link rel="stylesheet" href="css/font-awesome.min.css">
-   <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-   <link rel="stylesheet" href="css/magnific-popup.css">
-   <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-   <link rel="stylesheet" href="vendors/animate-css/animate.css">
-   <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+   <link rel="stylesheet" href="/css/bootstrap.css">
+   <link rel="stylesheet" href="/vendors/linericon/style.css">
+   <link rel="stylesheet" href="/css/font-awesome.min.css">
+   <link rel="stylesheet" href="/vendors/owl-carousel/owl.carousel.min.css">
+   <link rel="stylesheet" href="/css/magnific-popup.css">
+   <link rel="stylesheet" href="/vendors/nice-select/css/nice-select.css">
+   <link rel="stylesheet" href="/vendors/animate-css/animate.css">
+   <link rel="stylesheet" href="/vendors/flaticon/flaticon.css">
    <!-- main css -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="/css/style.css">
+<!--    <script src="/js/jquery-3.2.1.min.js"></script> -->
+   <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function() {
+			$('#loginForm').submit(function(e) {
+				e.preventDefault();
+				
+				var id = $('#userId');
+				var pw = $('#userPw');
+				
+				if(id.val() == '') {
+					alert('아이디를 입력해주세요!');
+					id.focus();
+					
+				} else if(pw.val() == '') {
+					alert('비밀번호를 입력해주세요!');
+					pw.focus();
+					
+				} else {
+					login(id.val(), pw.val());
+				}
+			})
+		});
+		
+// 		1. 아이디랑 비번을 GET / POST 방식으로 넘긴다
+// 		2. 어디로 넘기느냐
+// 		3. 넘겨서 어떤 결과값을 받아올건가
+// 		4. 로그인 성공 / 실패 여부에따라서 어떤 액션을 줄건가
+		
+		function login(id, pw) {
+			$.ajax({
+				type : "GET",
+				url : "http://localhost:8000/test",
+				dataType : "text",				//	결과를 받을 데이터 타입
+				data : {
+					userId: id,
+					userPw: pw
+				},
+				success : function(data) {
+					alert(data);
+					if (data == 'true') {
+						location.href = 'testView';
+					} else {
+						alert('로그인 실패요 ㅋ');
+					}
+				}
+			});
+		}
+	</script>
+
+
+   
 </head>
 <style>
     #search a:hover { 
@@ -41,8 +96,7 @@
 
 
 <body>
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
     <header class="header_area">
             <div class="main_menu">
                <nav class="navbar navbar-expand-lg navbar-light">
@@ -97,16 +151,16 @@
         <div class="container d-flex justify-content-center">
             <div class="col-lg-7 col-12">
                <div class="jumbotron">
-                  <form method="get" action='test'>
+                  <form id="loginForm">
                      <h3 style="text-align: center;">스플랜더 로그인</h3>
                      <div style="width:100%; height:30px;">
                         
                      </div>
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
+                        <input type="text" class="form-control" placeholder="아이디" id="userId" name="userId" maxlength="20">
                      </div>
                      <div class="form-group">
-                        <input type="password" class="form-control" placeholder="비밀번호" name="userID" maxlength="20" >
+                        <input type="password" class="form-control" placeholder="비밀번호" id="userPw" name="userPw" maxlength="20" autocomplete="off">
                      </div>
 <!--  -->
                      <div style="width:100%; height:30px;"></div>

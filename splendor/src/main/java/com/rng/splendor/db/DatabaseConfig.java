@@ -22,6 +22,7 @@ public class DatabaseConfig {
 		sessionFactory.setDataSource(dataSource);
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 		sessionFactory.setMapperLocations(resolver.getResources("classpath:mybatis/mapper/*.xml"));
+		sessionFactory.setTypeAliasesPackage("com.rng.splendor.db.dto");
 		return sessionFactory.getObject();
 	}
 	

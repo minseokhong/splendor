@@ -1,4 +1,4 @@
-package com.rng.splendor.controller;
+package com.rng.splendor.db.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,16 +7,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rng.splendor.db.dto.Test;
 import com.rng.splendor.db.service.TestService;
+import com.rng.splendor.db.service.UserService;
 
 @Controller
 public class JspController {
 	
 	@Autowired
 	TestService service;
+	
+	@Autowired
+	UserService userService;
 	
 	@RequestMapping("/index")
 	public String index() throws Exception{
@@ -107,7 +112,15 @@ public class JspController {
 	}
 
 	@RequestMapping(value="/test")
-	public String test() throws Exception{
+	@ResponseBody
+	public String test(String userId, String userPw) throws Exception{
+		System.out.println(userService.selectAllUser()); 
+		
+		return "true";
+	}
+	
+	@RequestMapping(value="/testView")
+	public String testView() {
 		return "test";
 	}
 
