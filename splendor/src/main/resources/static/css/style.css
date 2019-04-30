@@ -1718,8 +1718,231 @@ left: 110px;
   height: 25%;
 }
 /* End Profile Area css
-
 /*---------------------------------------------------- */
+/*============== Create-Guild_Area css ================*/
+#create-guild {
+  text-align: center;
+}
+.create-guild_title_area {
+  margin-top: 150px;
+}
+.create-guild_area {
+  display: flex;
+  margin: 10px auto 10px;
+  width: 100%;
+}
+/* .create-guild_area {
+  border: 1px solid red;
+}
+.guild_title {
+  border: 1px solid orange;
+}
+.guild_content {
+  border: 1px solid yellow;
+}
+.guild_image {
+  border: 1px solid green;
+}
+.guild_required {
+  border: 1px solid blue;
+}
+.guild_required_div {
+  border: 1px solid purple;
+} */
+.create-guild_area .genric-subjectblock {
+  margin: 15px auto 10px;
+}
+.create-guild_area_1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 10px 0 auto;
+  width: 50%;
+  height: 100%;
+  height: 500px;
+  background: #e6e6e6;
+}
+.guild_title {
+  margin-bottom: 26px;
+}
+.guild_title>input {
+  display: inline;
+  margin-left: 5px;
+  width: 70%;
+  height: 40px;
+}
+.guild_content>textarea {
+  margin: 0 auto 0;
+  width: 90%;
+  height: 300px;
+}
+.create-guild_area_2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto 0 10px;
+  width: 30%;
+  height: 500px;
+  background: #e6e6e6;
+}
+.guild_image {
+  color: lightgray
+}
+.guild_image>div {
+  margin: 0 auto 0;
+  /* width: 280px;
+  height: 157.5px;
+  line-height: 157.5; */
+  /* width: 14.4vw;
+  height: 8.1vw;
+  line-height: 8.1vw; */
+  width: 80%;
+  height: 157.5px;
+  line-height: 157.5px;
+  text-align: center;
+  background: #fff;
+}
+.guild_profile_image {
+  max-width: 100%;
+  max-height: 100%;
+}
+.guild_required>.genric-subjectblock {
+  display: block;
+  width: 150px;
+}
+.guild_required .guild_required_div {
+  display: flex;
+}
+.guild_required .select_result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: auto;
+  width: 40%;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid #ced4da;
+}
+.guild_required .select_result div {
+  margin-top: 1px;
+  height: 20px;
+}
+.guild_required .result_header {
+  margin-bottom: -4px;
+  color: #777;
+  font-weight: 900;
+}
+.guild_required .select_required {
+  margin-right: auto;
+  width: 40%;
+}
+.guild_required .nice-select {
+  width: 100%;
+  border: 1px solid #ced4da;
+}
+.create-guild_button_area {
+  margin: 20px auto 50px;
+}
+.create-guild_button_area div, .create-guild_button_area input {
+  font-size: 14px;
+}
+/* End Create-Guild Area css
+============================================================================================ */
+/*============== Find-User-Info Area css ================*/
+/* #find-user_container {
+} */
+.find-user-info_area {
+  display: flex;
+  flex-direction: column;
+  margin: 200px auto 150px;
+  width: 50%;
+  text-align: center;
+}
+/* .find-user-info_area {
+  border: 1px solid red;
+}
+.find_title {
+  border: 1px solid orange;
+}
+.find_id_area {
+  border: 1px solid yellow;
+} */
+.find_title {
+  display: flex;
+  width: 100%;
+}
+.find_select_area {
+  width: 50%;
+  height: 50px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 50px;
+  border-radius: 5px 5px 0 0;
+}
+#find_email {
+  color: gray;
+  background: #e9ecef;
+}
+#find_password {
+  color: lightgrey;
+  border: 1px dotted darkgray;
+}
+.find_email_area, .find_password_area {
+  padding: 50px 15% 40px;
+  background: #e9ecef;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.find_subtitle {
+  display: inline-block;
+  width: 25%;
+  font-size: 16px;
+}
+.find_contents {
+  display: inline-block;
+  width: 70%;
+}
+.find_period {
+  margin-top: 30px;
+}
+.find_period .find_subtitle {
+  height: 76px;
+}
+.find_period .find_contents {
+  text-align: left;
+}
+.find_email_area #find_email_start_date, #find_email_end_date {
+  display: inline-block;
+  margin-left: 0;
+  width: 70%;
+}
+.find_button_area {
+  margin-top: 50px;
+}
+#send_email_button {
+  margin-top: 10px;
+  width: 70%;
+}
+.find_varify {
+  margin-top: 30px;
+}
+.find_varify>.find_contents>input {
+  display: inline-block;
+  float: left;
+  width: 70%;
+}
+#varify_result {
+  color: red;
+  text-align: left;
+}
+/* .find_password_area {
+  padding: 50px 5% 40px;
+  background: #e9ecef;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+} */
+/* End Find-User-Info Area css
+============================================================================================ */
 /*----------------------------------------------------*/
 /*============== Elements Area css ================*/
 .mb-20 {
