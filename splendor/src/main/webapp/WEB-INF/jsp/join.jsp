@@ -20,6 +20,78 @@
         <!-- main css -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/responsive.css">
+        
+        <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  	$(document).ready(function() {
+  		$('#joinForm').submit(function(e) {
+  			e.preventDefault();
+  			
+  	  		var email = $('#email');
+  	  		var password = $('#password');
+  	  		var password_confirm = $('#password_confirm');
+  	  		var nickname = $('#nickname');
+  	  		
+  	  		if(email.val() == '') {
+  	  			alert('이메일을 입력해주세요.')
+  	  			email.focus();
+  	  		} else if(password.val() == '') {
+  	  			alert('비밀번호를 입력해주세요.');
+  	  			$('#password').val('');
+  	  			$('#password_confirm').val('');
+  	  			password.focus();
+  	  		} else if(password_confirm.val() == '') {
+  	  			alert('비밀번호를 재 입력해주세요');
+  	  			$('#password').val('');
+  	  			$('#password_confirm').val('');
+  	  			password_confirm.focus();
+  	  		} else if(nickname.val() == '') {
+  	  			alert('닉네임을 입력해주세요');
+  	  			$('#password').val('');
+  	  			$('#password_confirm').val('');
+  	  			nickname.focus();
+  	  		} else {
+  	  			join(email.val(), password.val(), password_confirm.val(), nickname.val());
+  	  		}
+  		});
+  	});
+  	
+  	function join(email, password, password_confirm, nickname) {
+		$.ajax({
+			type : "GET",
+			url : "http://localhost:8000/join2",
+			dataType : "text",				//	결과를 받을 데이터 타입
+			data : {
+				userEmail: email,
+				userPw: password,
+				userPwC: password_confirm,
+				nickName: nickname
+			},
+			success : function(data) {
+				if (data == 'true') {
+					alert(nickname + ' 님 회원가입이 완료되었습니다.')
+					
+					location.href = 'joinView';
+				} else if(data == 'nickFalse') {
+					alert('이미 등록된 닉네임 입니다.')
+	  	  			$('#nickname').val('');
+					$('#nickname').focus();
+					
+				} else if(data == pwFalse) {
+					alert('비밀번호가 일치하지 않습니다.');
+	  	  			$('#password').val('');
+	  	  			$('#password_confirm').val('');
+	  	  			$('#password').focus();
+				}
+			}
+		});
+	}
+  </script>
+        
     </head>
         
         <!--================Header Menu Area =================-->
@@ -37,7 +109,7 @@
                     <div class="genric-btn e-large logging radius">회원가입</div>
                 </div>
                 <div class="join_form_area radius">
-                    <form class="form-group" action="joinTest" method="GET">
+                    <form id="joinForm" class="form-group">
                         <!-- <div class="form-inline">
                             <img class="img-fluid" src="img/join/id.png">
                             <input type="text" class="form-control" id="id" name="id" placeholder="아이디를 입력해주세요." onkeyup="checkId(value)" onchange="checkId(value)">

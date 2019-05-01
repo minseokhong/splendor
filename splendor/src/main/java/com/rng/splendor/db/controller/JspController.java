@@ -14,6 +14,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rng.splendor.db.dto.Test;
+import com.rng.splendor.db.dto.UserData;
 import com.rng.splendor.db.service.TestService;
 import com.rng.splendor.db.service.UserService;
 
@@ -77,23 +78,19 @@ public class JspController {
 		return "guild";
 	}
 
-	@RequestMapping(value="/join")
-	public String join() throws Exception{
-		return "join";
-	}
 	
-	@RequestMapping("/joinTest")
-	public String joinTest(@RequestParam String id, 
-			@RequestParam String pw) {
-		System.out.println("여기 옴");
-		Test user = new Test();
-		user.setId(id);
-		user.setPw(pw);
-		System.out.println(id);
-		System.out.println(pw);
-		service.joinTest(user);
-		return "join";
-	}
+//	@RequestMapping("/joinTest")
+//	public String joinTest(@RequestParam String id, 
+//			@RequestParam String pw) {
+//		System.out.println("여기 옴");
+//		Test user = new Test();
+//		user.setId(id);
+//		user.setPw(pw);
+//		System.out.println(id);
+//		System.out.println(pw);
+//		service.joinTest(user);
+//		return "join";
+//	}
 
 	@RequestMapping(value="/login")
 	public String login() throws Exception{
@@ -113,6 +110,42 @@ public class JspController {
 	@RequestMapping(value="/single-guild")
 	public String single_guild() throws Exception{
 		return "single-guild";
+	}
+	
+	@RequestMapping(value="/join")
+	public String join() throws Exception{
+		return "join";
+	}
+	
+	@RequestMapping(value="/join2")
+	@ResponseBody
+	public String join2(String userEmail, String userPw, String userPwC, String nickName) throws Exception {
+		UserData userData = new UserData();
+		System.out.println();
+		int count = 0;
+		for(int i = 0; i < userService.nameCheck().size(); i ++) {
+			if(userService.nameCheck().equals(nickName)) {
+				System.out.println("닉네임중복");
+				count++;
+			}
+			if(count == 1) {
+				return "nickFalse";				
+			}
+		}
+		if(userPw.equals(userPwC)) {
+			System.out.println("성공~!ㄴ");
+			userData.setUser_mail(userEmail);
+			userData.setUser_password(userPw);
+			userData.setUser_name(nickName);
+			userService.insertUser(userData);
+			System.out.println(userData);
+			return "true";
+		} else {
+			System.out.println("패스유ㅝ드 틀림");
+			return "pwFalse";
+		}
+			
+		
 	}
 
 	@RequestMapping(value="/test")
@@ -140,6 +173,11 @@ public class JspController {
 	@RequestMapping(value="/testView")
 	public String testView() {
 		return "test";
+	}
+	
+	@RequestMapping(value="/joinView")
+	public String joinView() {
+		return "login";
 	}
 
 	@RequestMapping(value="/writeform")

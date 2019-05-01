@@ -16,7 +16,7 @@ public class UserService {
 	UserMapper userMapper;
 		
 	public void insertUser(UserData userData) {
-		
+		userMapper.insertUser(userData);
 	}
 	
 	public void updateUser(UserData userData) {
@@ -37,6 +37,10 @@ public class UserService {
 	
 	public UserData idCheck(String userEmail) {
 		return userMapper.selectOneUser(userEmail);
+	}
+	
+	public List<String> nameCheck() {
+		return userMapper.selectNameCheck();
 	}
 	
 	

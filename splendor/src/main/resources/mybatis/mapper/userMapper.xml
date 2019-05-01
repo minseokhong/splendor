@@ -14,4 +14,13 @@
     <select id="idCheck" resultType="userData">
         SELECT * FROM user_data WHERE user_email = #{userEmail}
     </select>
+    
+    <insert id="insertUser" parameterType="userData">
+    	INSERT INTO user_data (user_name, user_mail, user_password, is_admin, is_banned) VALUES (#{user_name}, #{user_mail}, #{user_password}, '0', '0')
+    </insert>
+    
+    <select id="selectNameCheck" resultType="String">
+    	SELECT user_name FROM user_data 
+    </select>
+    
 </mapper>

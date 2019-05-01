@@ -13,4 +13,6 @@ public interface UserMapper {
 	public List<UserData> selectAllUser() throws Exception;
 	
 	public UserData idCheck(String userEmail);
+	
+	public List<String> selectNameCheck();
 }
