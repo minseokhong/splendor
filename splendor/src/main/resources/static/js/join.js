@@ -8,14 +8,21 @@ function checkNickname(value) {
     var result = checkRegExp(nicknameRegExp, value);
 
     if(result == 0) {
-
-
-        
-        //!!!!!!!!!!!!!!!!!!!! Ajax로 닉네임 체크해서 결과 입력할 부분입니다. !!!!!!!!!!!!!!!!!!!!
-        $('#check_nickname_result').text("join.js파일 내에 변경할 부분이 표시되 있습니다!!!").css("color", "green");
-
-
-    
+    	$.ajax({
+    		type : "POST", 
+    		url : "http://localhost:8000/nicknameCheck", 
+    		dataType : "text", 
+    		data : {
+    			nickname : value
+    		}, 
+    		success : function(data) {
+    			if(data == "true") {
+    				$('#check_nickname_result').text("닉네임이 이미 사용 중입니다.").css("color", "red");
+    			} else {
+    				$('#check_nickname_result').text("사용 가능한 닉네임입니다.").css("color", "green");
+    			}
+    		}
+    	});
     } else if(result == 1) {
         $('#check_nickname_result').text("");
     } else if(result == 2) {
@@ -48,9 +55,23 @@ function checkPasswordConfirm(value) {
 
 function checkEmail(value) {
     var result = checkRegExp(emailRegExp, value);
-
+    
     if(result == 0) {
-        $('#check_email_result').text("사용 가능한 이메일 형식입니다.").css("color", "green");
+    	$.ajax({
+    		type : "POST", 
+    		url : "http://localhost:8000/emailCheck", 
+    		dataType : "text", 
+    		data : {
+    			email : value
+    		}, 
+    		success : function(data) {
+    			if(data == "true") {
+    				$('#check_email_result').text("이메일이 이미 존재합니다.").css("color", "red");
+    			} else {
+    				$('#check_email_result').text("사용 가능한 이메일 형식입니다.").css("color", "green");
+    			}
+    		}
+    	});
     } else if(result == 1) {
         $('#check_email_result').text("");
     } else if(result == 2) {

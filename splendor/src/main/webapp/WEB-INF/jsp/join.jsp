@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,20 +37,20 @@
   	  		var nickname = $('#nickname');
   	  		
   	  		if(email.val() == '') {
-  	  			alert('ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.')
+  	  			alert('ì´ë©”ì¼ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.')
   	  			email.focus();
   	  		} else if(password.val() == '') {
-  	  			alert('ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.');
+  	  			alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.');
   	  			$('#password').val('');
   	  			$('#password_confirm').val('');
   	  			password.focus();
   	  		} else if(password_confirm.val() == '') {
-  	  			alert('ºñ¹Ğ¹øÈ£¸¦ Àç ÀÔ·ÂÇØÁÖ¼¼¿ä');
+  	  			alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ ì¬ ì…ë ¥í•´ì£¼ì„¸ìš”');
   	  			$('#password').val('');
   	  			$('#password_confirm').val('');
   	  			password_confirm.focus();
   	  		} else if(nickname.val() == '') {
-  	  			alert('´Ğ³×ÀÓÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä');
+  	  			alert('ë‹‰ë„¤ì„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”');
   	  			$('#password').val('');
   	  			$('#password_confirm').val('');
   	  			nickname.focus();
@@ -62,9 +62,10 @@
   	
   	function join(email, password, password_confirm, nickname) {
 		$.ajax({
-			type : "GET",
+// 			type : "GET", ë¹„ë°€ë²ˆí˜¸ê°€ ìˆìœ¼ë‹ˆê¹ postë¡œ ìˆ˜ì • í•©ë‹ˆë‹¤.
+			type : "POST", 
 			url : "http://localhost:8000/join2",
-			dataType : "text",				//	°á°ú¸¦ ¹ŞÀ» µ¥ÀÌÅÍ Å¸ÀÔ
+			dataType : "text",				//	ê²°ê³¼ë¥¼ ë°›ì„ ë°ì´í„° íƒ€ì…
 			data : {
 				userEmail: email,
 				userPw: password,
@@ -73,16 +74,16 @@
 			},
 			success : function(data) {
 				if (data == 'true') {
-					alert(nickname + ' ´Ô È¸¿ø°¡ÀÔÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.');
+					alert(nickname + ' ë‹˜ íšŒì›ê°€ì…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.');
 					
 					location.href = 'joinView';
 				} else if(data == 'nickFalse') {
-					alert('ÀÌ¹Ì µî·ÏµÈ ´Ğ³×ÀÓ ÀÔ´Ï´Ù.')
+					alert('ì´ë¯¸ ë“±ë¡ëœ ë‹‰ë„¤ì„ ì…ë‹ˆë‹¤.')
 	  	  			$('#nickname').val('');
 					$('#nickname').focus();
 					
 				} else if(data == pwFalse) {
-					alert('ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');
+					alert('ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');
 	  	  			$('#password').val('');
 	  	  			$('#password_confirm').val('');
 	  	  			$('#password').focus();
@@ -106,42 +107,42 @@
         <section class="join">
             <div class="container">
                 <div class="join_title_area">
-                    <div class="genric-btn e-large logging radius">È¸¿ø°¡ÀÔ</div>
+                    <div class="genric-btn e-large logging radius">íšŒì›ê°€ì…</div>
                 </div>
                 <div class="join_form_area radius">
                     <form id="joinForm" class="form-group">
                         <!-- <div class="form-inline">
                             <img class="img-fluid" src="img/join/id.png">
-                            <input type="text" class="form-control" id="id" name="id" placeholder="¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." onkeyup="checkId(value)" onchange="checkId(value)">
+                            <input type="text" class="form-control" id="id" name="id" placeholder="ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”." onkeyup="checkId(value)" onchange="checkId(value)">
                             <span class="space"></span>
                             <p class="result_sp" id="check_id_result"></p>
                         </div> -->
                         <div class="form-inline">
                             <img class="img-fluid" src="img/join/email.png">
-                            <input type="text" name="id" class="form-control" id="email" name="email" placeholder="ÀÌ¸ŞÀÏ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." onkeyup="checkEmail(value)" onchange="checkEmail(value)">
-                            <span class="genric-btn info e-large radius" id="email_confirm">ÀÌ¸ŞÀÏ ÀÎÁõ</span>
+                            <input type="text" name="id" class="form-control" id="email" name="email" placeholder="ì´ë©”ì¼ ì£¼ì†Œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”." onkeyup="checkEmail(value)" onchange="checkEmail(value)">
+                            <span class="genric-btn info e-large radius" id="email_confirm">ì´ë©”ì¼ ì¸ì¦</span>
                             <p class="result_sp" id="check_email_result"></p>
                         </div>
                         <div class="form-inline">
                             <img class="img-fluid" src="img/join/password.png">
-                            <input type="password" name="pw" class="form-control" id="password" name="password" placeholder="ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä." onkeyup="checkPassword(value)" onchange="checkPassword(value)">
+                            <input type="password" name="pw" class="form-control" id="password" name="password" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”." onkeyup="checkPassword(value)" onchange="checkPassword(value)">
                             <span class="space"></span>
                             <p class="result_sp" id="check_password_result"></p>
                         </div>
                         <div class="form-inline">
                             <img class="img-fluid" src="img/join/password_.png">
-                            <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="ºñ¹Ğ¹øÈ£¸¦ Àç ÀÔ·ÂÇØÁÖ¼¼¿ä." onkeyup="checkPasswordConfirm(value)" onchange="checkPasswordConfirm(value)">
+                            <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ ì¬ ì…ë ¥í•´ì£¼ì„¸ìš”." onkeyup="checkPasswordConfirm(value)" onchange="checkPasswordConfirm(value)">
                             <span class="space"></span>
                             <p class="result_sp" id="check_password_confirm_result"></p>
                         </div>
                         <div class="form-inline">
                             <img class="img-fluid" src="img/join/nickname.png">
-                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="´Ğ³×ÀÓÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä." onkeyup="checkNickname(value)" onchange="checkNickname(value)">
+                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="ë‹‰ë„¤ì„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”." onkeyup="checkNickname(value)" onchange="checkNickname(value)">
                             <span class="space"></span>
                             <p class="result_sp" id="check_nickname_result"></p>
                         </div>
                         <div class="form-inline">
-                            <input type="submit" class="genric-btn success e-large radius" value="°¡ÀÔÇÏ±â"></div>
+                            <input type="submit" class="genric-btn success e-large radius" value="ê°€ì…í•˜ê¸°"></div>
                         </div>
                     </form>
                 </div>
@@ -157,7 +158,7 @@
                     <div class="col-lg-3 col-sm-6">
                         <aside class="f_widget ab_widget">
                             <div class="f_title">
-                                <h4>À¯»ç °ÔÀÓ</h4>
+                                <h4>ìœ ì‚¬ ê²Œì„</h4>
                             </div>
                             <ul>
                                 <li><a href="#"></a>For Business</a></li><a href="#">
@@ -172,25 +173,25 @@
                     <div class="col-lg-3 col-sm-6">
                         <aside class="f_widget ab_widget">
                             <div class="f_title">
-                                <h4>°³¹ßÀÚ</h4>
+                                <h4>ê°œë°œì</h4>
                             </div>
                             <ul>
-                                <li><a href="#"></a>±èµµÇü</a></li><a href="#">
-                                    <li><a href="#"></a>ÁÖ¹Î¼·
+                                <li><a href="#"></a>ê¹€ë„í˜•</a></li><a href="#">
+                                    <li><a href="#"></a>ì£¼ë¯¼ì„­
                                 </a></li>
-                                <li><a href="#"></a>È«¹Î¼®</a></li>
-                                <li><a href="#"></a>¹Ú¿µ¿í</a></li>
-                                <li><a href="#"></a>À±Çöºó</a></li>
+                                <li><a href="#"></a>í™ë¯¼ì„</a></li>
+                                <li><a href="#"></a>ë°•ì˜ìš±</a></li>
+                                <li><a href="#"></a>ìœ¤í˜„ë¹ˆ</a></li>
                             </ul>
                         </aside>
                     </div>
                     <div class="col-lg-3 col-sm-6">
                         <aside class="f_widget ab_widget">
                             <div class="f_title">
-                                <h4>Ã£¾Æ¿À½Ã´Â±æ</h4>
+                                <h4>ì°¾ì•„ì˜¤ì‹œëŠ”ê¸¸</h4>
                             </div>
                             <ul>
-                                <li><a href="#"></a>¼­¿ï °­³²±¸...</a></li>
+                                <li><a href="#"></a>ì„œìš¸ ê°•ë‚¨êµ¬...</a></li>
                             </ul>
                         </aside>
                     </div>
@@ -217,7 +218,7 @@
     <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
     All rights reserved | This template is made with 
     <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-    ÀÌ»óÀÔ´Ï´ç
+    ì´ìƒì…ë‹ˆë‹¹
     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                         </div>
                     </div>

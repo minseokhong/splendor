@@ -36,7 +36,8 @@ public class UserService {
 	}
 	
 	public UserData idCheck(String userEmail) {
-		return userMapper.selectOneUser(userEmail);
+//		return userMapper.selectOneUser(userEmail); 오타인 것 같아 바꿨습니다. 현빈씨 보는데로 주석은 지워주세요 ^^
+		return userMapper.idCheck(userEmail);
 	}
 	
 	public List<String> nameCheck() {

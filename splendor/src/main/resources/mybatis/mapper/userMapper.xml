@@ -12,7 +12,7 @@
     </select>
     
     <select id="idCheck" resultType="userData">
-        SELECT * FROM user_data WHERE user_email = #{userEmail}
+        SELECT * FROM user_data WHERE user_mail = #{userEmail}
     </select>
     
     <insert id="insertUser" parameterType="userData">
