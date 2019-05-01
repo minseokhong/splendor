@@ -119,7 +119,8 @@ public class JspController {
 	public String test(String userId, String userPw, Model model) throws Exception{
 		if(userService.selectOneUser(userId) == null) {
 			return "false";
-		} else if(userService.selectOneUser(userId).getUser_mail().equals(userId)) {
+		} else if(userService.selectOneUser(userId).getUser_mail().equals(userId)
+				&& userService.selectOneUser(userId).getUser_password().equals(userPw)) {
 			model.addAttribute("user", userService.selectOneUser(userId));
 			return "true";
 		} else {
