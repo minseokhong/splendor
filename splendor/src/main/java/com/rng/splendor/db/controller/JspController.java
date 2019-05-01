@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rng.splendor.db.dto.Test;
@@ -127,6 +128,13 @@ public class JspController {
 			return "false";
 		}
 		
+	}
+	
+	@RequestMapping(value="/logoutForm")
+	public String logout(SessionStatus session) {
+		System.out.println("들어왔니");
+		session.setComplete();
+		return "redirect:/index";
 	}
 	
 	@RequestMapping(value="/testView")

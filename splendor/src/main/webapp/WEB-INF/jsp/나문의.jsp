@@ -25,10 +25,10 @@
 <body>
 
 	<!--================Header Menu Area =================-->
-    
-   		<c:if test="${user ==''}"><jsp:include page="header.jsp"></jsp:include></c:if>
+    <c:set var="user" value="${user }"></c:set>
+   		<c:if test="${user == null}"><jsp:include page="header.jsp"></jsp:include></c:if>
 	
-		<c:if test="${user !=''}"><jsp:include page="loginHeader.jsp"></jsp:include></c:if>
+		<c:if test="${user != null}"><jsp:include page="loginHeader.jsp"></jsp:include></c:if>
    
         <!--================Header Menu Area =================-->
 

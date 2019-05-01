@@ -5,6 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  
+  </script>
+
 </head>
 <body>
 <!--================Header Menu Area =================-->
@@ -331,7 +340,7 @@
 						</div>
 
                         <a class="avatar" href="profile"><img src="img/avatar.png"></a>
-                        <a class="cancel" href="index"><img src="img/cancel.png"></a>
+                        <a class="cancel" href="logoutForm"><img src="img/cancel.png"></a>
 					</div>
 				</div>
 			</nav>

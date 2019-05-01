@@ -5,6 +5,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>R.N.G Gmaes</title>
+<script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
+ 	<script type="text/javascript">
+ 		$(document).ready(function() {
+//  			$('.nav-link').click(function() {
+//  				alert('a');
+//  			});
+ 		});
+ 	
+ 	</script> 
+  
+  
 </head>
 <body>
 
@@ -22,7 +36,7 @@
 					</button>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent" >
-						<ul class="nav navbar-nav menu_nav justify-content-center"style ="width:70%";">
+						<ul class="nav navbar-nav menu_nav justify-content-center"style ="width:70%">
 							<li class="nav-item"><a class="nav-link" href="index">홈페이지</a></li>
 							<li class="nav-item active"><a class="nav-link" href="about-us">게임소개</a></li>
 							<li class="nav-item"><a class="nav-link" href="screenshot">스크린샷</a></li>

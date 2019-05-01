@@ -25,15 +25,17 @@
 <body>
 
 	<!--================Header Menu Area =================-->
-    
-   		<c:if test="${user ==''}"><jsp:include page="header.jsp"></jsp:include></c:if>
+    	<c:set var="user" value="${user }"></c:set>
+   		<c:if test="${user == null}"><jsp:include page="header.jsp"></jsp:include></c:if>
 	
-		<c:if test="${user !=''}"><jsp:include page="loginHeader.jsp"></jsp:include></c:if>
+		<c:if test="${user != null}"><jsp:include page="loginHeader.jsp"></jsp:include></c:if>
    
         <!--================Header Menu Area =================-->
 
 	<!--================Home Banner Area =================-->
-	<section class="home_banner_area">
+	
+	<c:if test="${user == null}">
+		<section class="home_banner_area">
 		<div class="banner_inner">
 			<div class="container">
 				<div class="row">
@@ -554,6 +556,400 @@
 		</div>
 	</section> -->
 	<!--================ End Newsletter Area ================-->
+	
+	</c:if>
+	
+	<c:if test="${user != null}">
+		<!--================Home Banner Area =================-->
+	<section class="home_banner_area">
+		<div class="banner_inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="home_left_img">
+                            <!-- <img class="img-fluid" src="img/banner/home-left.png" alt=""> -->
+                            <ul class="home_info">
+                                <li class="home_info2"><h1>닉네임 : </h1><h2>${user.user_name }</h2></li>
+                                <li class="home_info2"><h1>랭킹 : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>승점 : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>길드명 : </h1><h2> </h2></li>
+<!--                                 <li class="home_info2"><h1>길드 랭킹 : </h1><h2>45위</h2></li> -->
+                                <li class="home_info2"><h1>길드 랭킹 : </h1><h2> </h2></li>
+                                
+
+                            </ul>
+
+
+                            
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="banner_content">
+							<h2>
+								wellcome <br>
+								to <br>
+								hell~
+							</h2>
+							<p>
+								남녀노소 불문하고 함께 즐길 수 있는 그 게임! 스플랜더를 통해 길드를 운영하고 경쟁을 통해 세계 최고가 되어보세요!
+							</p>
+							<div class="d-flex align-items-center">
+								<!-- <a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?v=vParh5wE-tM">
+									<span></span>
+								</a> -->
+								<a class='play' href="Splendor-master/Splendor-master/public/index">
+									<img class="play-img" src="img/casino.png">
+								</a>
+								<div class="watch_video text-uppercase">
+									<-게임 시작
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Home Banner Area =================-->
+
+	<!--================Start About Us Area =================-->
+	<section class="about_us_area section_gap_top">
+		<div class="container">
+			<div class="row about_content align-items-center">
+				<div class="col-lg-6">
+					<div class="section_content">
+						<h6>게임 소개</h6>
+						<h1>스플랜더란 <br>요런 게임 입니다.</h1>
+						<p>옆에 게임관련 유튜브 영상이 나오고 아래 버튼은 게임 방식을 글로 풀어 자세하게 설명한 메뉴 입니다.</p>
+						<a class="primary_btn" href="#">더 알아보기</a>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="about_us_image_box justify-content-center">
+							<iframe width="579" height="406" src="https://www.youtube.com/embed/mAKsZ26SabQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<!-- <img class="img-fluid w-100" src="img/about_img.png" alt=""> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!--================End About Us Area =================-->
+
+	<!--================First Upcoming Games Area =================-->
+	<!-- <section class="upcoming_games_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title">
+						<h2>Upcoming Games</h2>
+						<h1>Upcoming Games</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="new_games_item">
+						<img src="img/b_map1.png" alt="">
+						<div class="upcoming_title">
+							<h3><a href="games">Best Ps4 Games</a></h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="new_games_item">
+						<img src="img/b_map2.png" alt="">
+						<div class="upcoming_title">
+							<h3><a href="games">World Dart 2019</a></h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="new_games_item">
+						<img src="img/b_map3.png" alt="">
+						<div class="upcoming_title">
+							<h3><a href="games">New XBox Games</a></h3>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6 col-sm-6">
+					<div class="new_games_item">
+						<img src="img/b_map4.png" alt="">
+						<div class="upcoming_title">
+							<h3><a href="games">Amarican Football</a></h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
+	<!--================End Upcoming Games Area =================-->
+
+	<!--================Start Recent Update Area =================-->
+	<section class="recent_update_area section_gap">
+		<div class="container">
+			<div class="recent_update_inner">
+				<ul class="nav nav-tabs" id="myTab" role="tablist">
+					<li class="nav-item">
+						<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">
+							명예의 전당
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+						 aria-selected="false">
+							최고의 길드
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+						 aria-selected="true">
+							공지사항
+						</a>
+					</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+					<div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+						<div class="row recent_update_text">
+							<div class="col-lg-6">
+								<div class="chart_img">
+									<img class="img-fluid" src="img/jihyo.jpg" alt="">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="section_content">
+									<h6>명예의 전당</h6>
+									<h1>랭킹 1위 <br>'윤현빈' 님 </h1>
+									<p>오로지 실력으로 랭킹 1위에 등극 하신 '윤현빈'님 입니다. 실력을 키워 어서 뛰어넘도록 해보세요!</p>
+									<a class="primary_btn" href="#">랭킹 보러가기</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+						<div class="row recent_update_text">
+							<div class="col-lg-6">
+								<div class="chart_img">
+									<img class="img-fluid" src="img/recent_up.png" alt="">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="section_content">
+									<h6>최고의 길드</h6>
+									<h1>최고의 실력자들의 모임! <br>랭킹 1위 'R.N.G' !!!</h1>
+									<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
+										especially in the workplace. That’s why it’s crucial that as women.</p>
+									<a class="primary_btn" href="#">길드랭킹 보러가기</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+						<div class="row recent_update_text">
+							<div class="col-lg-6">
+								<div class="chart_img">
+									<img class="img-fluid" src="img/recent_up.png" alt="">
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="section_content">
+									<h6>공지사항</h6>
+									<h1>1.15 패치사항 <br>카드 스킨 출시...!!</h1>
+									<p>카드스킨이 계절에 맞게 벚꽃으로 변경되었...</p>
+									<a class="primary_btn" href="#">자세히 보러가기</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================End Recent Update Area =================-->
+
+
+	<!--================ Start screenshot Area =================-->
+	<section class="screenshot_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title">
+						<h2>스크린샤샤샤</h2>
+						<h1>스크린샷</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="single-screenshot">
+								<div class="overlay"></div>
+								<img class="img-fluid w-100" src="img/jihyo.jpg" alt="">
+								<div class="content">
+									<a class="pop-up-image" href="img/jihyo.jpg">
+										<i class="lnr lnr-eye"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="single-screenshot">
+								<div class="overlay"></div>
+								<img class="img-fluid w-100" src="img/screenshot_img2.png" alt="">
+								<div class="content">
+									<a class="pop-up-image" href="img/screenshot_img2.png">
+										<i class="lnr lnr-eye"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-12">
+							<div class="single-screenshot">
+								<div class="overlay"></div>
+								<img class="img-fluid w-100" src="img/screenshot_img3.png" alt="">
+								<div class="content">
+									<a class="pop-up-image" href="img/screenshot_img3.png">
+										<i class="lnr lnr-eye"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 hidden-md hidden-sm">
+					<div class="single-screenshot">
+						<div class="overlay"></div>
+						<img class="img-fluid w-100" src="img/screenshot_img4.png" alt="">
+						<div class="content">
+							<a class="pop-up-image" href="img/screenshot_img4.png">
+								<i class="lnr lnr-eye"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End screenshot Area =================-->
+
+	<!--================ Start Frequently Asked Questions Area ================-->
+	<section class="frequently_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title">
+						<h2>고객센터</h2>
+						<h1>고객센터</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row frequent_inner">
+				<div class="col-lg-5 col-md-5">
+					<div class="frequent_item">
+						<h3>FAQ</h3>
+						<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
+							especially in the workplace. That’s why it’s crucial that as women.</p>
+					</div>
+				</div>
+				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
+					<div class="frequent_item">
+						<h3>1:1 문의</h3>
+						<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
+							especially in the workplace. That’s why it’s crucial that as women.</p>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-5">
+					<div class="frequent_item">
+						<h3>오류신고</h3>
+						<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
+							especially in the workplace. That’s why it’s crucial that as women.</p>
+					</div>
+				</div>
+				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
+					<div class="frequent_item">
+						<h3>규정 및 정책</h3>
+						<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
+							especially in the workplace. That’s why it’s crucial that as women.</p>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+	<!--================ End Frequently Asked Questions Area ================-->
+
+	<!--================ Start guild Area ================-->
+	<section class="guild_area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="main_title">
+						<h2>자유게시판</h2>
+						<h1>자유게시판</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="guild_items">
+						<div class="guild_img_box">
+							<img class="img-fluid" src="img/jihyo.jpg" alt="">
+						</div>
+						<div class="guild_content">
+							<a class="title" href="guild">홈페이지 ui가 너무 예뻐유 ㅜㅜ</a>
+							<p>게임도 정말 인상적이네유 ㅜㅜ </p>
+							<div class="date">
+								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
+								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
+								<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="guild_items">
+						<div class="guild_img_box">
+							<img class="img-fluid" src="img/guild_img2.png" alt="">
+						</div>
+						<div class="guild_content">
+							<a class="title" href="guild">Portable Fashion for women</a>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+							<div class="date">
+								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
+								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
+								<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 hidden-md">
+					<div class="guild_items">
+						<div class="guild_img_box">
+							<img class="img-fluid" src="img/guild_img3.png" alt="">
+						</div>
+						<div class="guild_content">
+							<a class="title" href="guild">Portable Fashion for women</a>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+							<div class="date">
+								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
+								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
+								<a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 05</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End guild Area ================-->
+		
+
+	</c:if>
+	
+	
 
 	<!--================Footer Area =================-->
 	<footer class="footer_area section_gap_top">
