@@ -73,7 +73,7 @@
 			},
 			success : function(data) {
 				if (data == 'true') {
-					alert(nickname + ' 님 회원가입이 완료되었습니다.')
+					alert(nickname + ' 님 회원가입이 완료되었습니다.');
 					
 					location.href = 'joinView';
 				} else if(data == 'nickFalse') {
