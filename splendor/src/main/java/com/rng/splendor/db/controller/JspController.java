@@ -1,21 +1,17 @@
 package com.rng.splendor.db.controller;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.rng.splendor.db.dto.Test;
 import com.rng.splendor.db.dto.UserData;
 import com.rng.splendor.db.service.TestService;
+
 import com.rng.splendor.db.service.UserService;
 
 @Controller
@@ -121,31 +117,23 @@ public class JspController {
 	@ResponseBody
 	public String join2(String userEmail, String userPw, String userPwC, String nickName) throws Exception {
 		UserData userData = new UserData();
-		System.out.println();
-		int count = 0;
-		for(int i = 0; i < userService.nameCheck().size(); i ++) {
-			if(userService.nameCheck().equals(nickName)) {
-				System.out.println("닉네임중복");
-				count++;
+		System.out.println(userService.selectOneUser(nickName));
+		if(userService.selectOneUser(nickName) == null) {
+			if(userPw.equals(userPwC)) {
+				System.out.println("성공~!ㄴ");
+				userData.setUser_mail(userEmail);
+				userData.setUser_password(userPw);
+				userData.setUser_name(nickName);
+				userService.insertUser(userData);
+				System.out.println(userData);
+				return "true";
+			} else {
+				System.out.println("패스유ㅝ드 틀림");
+				return "pwFalse";
 			}
-			if(count == 1) {
-				return "nickFalse";				
-			}
-		}
-		if(userPw.equals(userPwC)) {
-			System.out.println("성공~!ㄴ");
-			userData.setUser_mail(userEmail);
-			userData.setUser_password(userPw);
-			userData.setUser_name(nickName);
-			userService.insertUser(userData);
-			System.out.println(userData);
-			return "true";
 		} else {
-			System.out.println("패스유ㅝ드 틀림");
-			return "pwFalse";
+			return "nickFalse";
 		}
-			
-		
 	}
 
 	@RequestMapping(value="/test")
@@ -156,6 +144,7 @@ public class JspController {
 		} else if(userService.idCheck(userId).getUser_mail().equals(userId)
 				&& userService.idCheck(userId).getUser_password().equals(userPw)) {
 			model.addAttribute("user", userService.idCheck(userId));
+			System.out.println("true");
 			return "true";
 		} else {
 			return "false";

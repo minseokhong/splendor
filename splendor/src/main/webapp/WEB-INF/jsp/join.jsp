@@ -54,8 +54,13 @@
   	  			$('#password').val('');
   	  			$('#password_confirm').val('');
   	  			nickname.focus();
-  	  		} else {
-  	  			join(email.val(), password.val(), password_confirm.val(), nickname.val());
+  	  		} else { //현빈씨 코드에 이 부분만 추가. 이 주석은 확인하면 지워주세요.
+  	  			if(!checkAll()) { //join.js 11라인 메서드. 회원정보 입력 체킹 통과 못하면 가입시키지 않고 리턴.. submit 무효화
+  	  				alert("입력된 정보를 다시한번 확인 해 주세요.");
+  	  				return;
+  	  			}
+  	  			else 
+  	  				join(email.val(), password.val(), password_confirm.val(), nickname.val());
   	  		}
   		});
   	});
@@ -82,7 +87,7 @@
 	  	  			$('#nickname').val('');
 					$('#nickname').focus();
 					
-				} else if(data == pwFalse) {
+				} else if(data == 'pwFalse') {
 					alert('비밀번호가 일치하지 않습니다.');
 	  	  			$('#password').val('');
 	  	  			$('#password_confirm').val('');

@@ -3,6 +3,18 @@ var passwordRegExp = /^[a-zA-Z0-9]{8,15}$/;// 숫자와 영문자 조합 8~15자
 var nicknameRegExp = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,15}$/;// 특수문자 제외한 2~15자
 var emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
+var checkNicknameFlag = 0; //값이 1일 경우 체킹 통과, 0일 경우 통과 못함
+var checkPasswordFlag = 0;
+var checkPasswordConfirmFlag = 0;
+var checkEmailFlag = 0;
+//var checkEmailVarifyFlag = 0; //추후에 필요
+
+function checkAll() {
+	if(checkNicknameFlag + checkPasswordFlag + checkPasswordConfirmFlag + checkEmailFlag == 4) { //값이 4일 경우 모든 입력값이 체킹 통과. 메일 인증 체크 필요
+		return true;
+	} else 
+		return false;
+}
 
 function checkNickname(value) {
     var result = checkRegExp(nicknameRegExp, value);
@@ -18,16 +30,20 @@ function checkNickname(value) {
     		success : function(data) {
     			if(data == "true") {
     				$('#check_nickname_result').text("닉네임이 이미 사용 중입니다.").css("color", "red");
+    				checkNicknameFlag = 0;
     			} else {
     				$('#check_nickname_result').text("사용 가능한 닉네임입니다.").css("color", "green");
+    				checkNicknameFlag = 1;
     			}
     		}
     	});
+    	return;
     } else if(result == 1) {
         $('#check_nickname_result').text("");
     } else if(result == 2) {
         $('#check_nickname_result').text("특수문자를 제외한 2~15자만 허용됩니다.").css("color", "red");
     }
+    checkNicknameFlag = 0;
 }
 
 function checkPassword(value) {
@@ -36,11 +52,14 @@ function checkPassword(value) {
 
     if(result == 0) {
         $('#check_password_result').text("사용 가능한 비밀번호 입니다.").css("color", "green");
+        checkPasswordFlag = 1;
+        return;
     } else if(result == 1) {
         $('#check_password_result').text("");
     } else if(result == 2) {
         $('#check_password_result').text("8~15자리의 숫자와 영문자 조합으로 구성해 주세요.").css("color", "red");
     }
+    checkPasswordFlag = 0;
 }
 
 function checkPasswordConfirm(value) {
@@ -48,9 +67,13 @@ function checkPasswordConfirm(value) {
         $('#check_password_confirm_result').text("");
     } else if($('#password').val() == value) {
         $('#check_password_confirm_result').text("비밀번호가 일치합니다.").css("color", "green");
+        checkPasswordConfirmFlag = 1;
+        return;
     } else {
         $('#check_password_confirm_result').text("비밀번호가 일치하지 않습니다.").css("color", "red");
     }
+    checkPasswordConfirmFlag = 0;
+    
 }
 
 function checkEmail(value) {
@@ -67,16 +90,20 @@ function checkEmail(value) {
     		success : function(data) {
     			if(data == "true") {
     				$('#check_email_result').text("이메일이 이미 존재합니다.").css("color", "red");
+    				checkEmailFlag = 0;
     			} else {
     				$('#check_email_result').text("사용 가능한 이메일 형식입니다.").css("color", "green");
+    				checkEmailFlag = 1;
     			}
     		}
     	});
+    	return;
     } else if(result == 1) {
         $('#check_email_result').text("");
     } else if(result == 2) {
         $('#check_email_result').text("올바르지 않은 이메일 형식입니다.").css("color", "red");
     }
+    checkEmailFlag = 0;
 }
 
 // function checkId(value) {
