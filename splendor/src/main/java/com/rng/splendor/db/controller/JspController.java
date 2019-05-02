@@ -151,11 +151,11 @@ public class JspController {
 	@RequestMapping(value="/test")
 	@ResponseBody
 	public String test(String userId, String userPw, Model model) throws Exception{
-		if(userService.selectOneUser(userId) == null) {
+		if(userService.idCheck(userId) == null) {
 			return "false";
-		} else if(userService.selectOneUser(userId).getUser_mail().equals(userId)
-				&& userService.selectOneUser(userId).getUser_password().equals(userPw)) {
-			model.addAttribute("user", userService.selectOneUser(userId));
+		} else if(userService.idCheck(userId).getUser_mail().equals(userId)
+				&& userService.idCheck(userId).getUser_password().equals(userPw)) {
+			model.addAttribute("user", userService.idCheck(userId));
 			return "true";
 		} else {
 			return "false";
