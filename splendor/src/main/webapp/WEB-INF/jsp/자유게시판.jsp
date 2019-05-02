@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,6 +24,29 @@
    <link rel="stylesheet" href="vendors/flaticon/flaticon.css">
    <!-- main css -->
    <link rel="stylesheet" href="css/style.css">
+   <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+	$('#write').on('click',function(e){
+		e.preventDefault();
+		var chUser ='<c:out value = '${user}'/>';
+		if(chUser == ''){
+			alert('ë¡œê·¸ì¸ì´ í•„ìš”í•©ë‹ˆë‹¤.');
+			
+		}else{
+			location.href="writeform";
+		}
+	
+	})
+});
+
+
+
+</script>
 
 <style>
    table > tbody > tr:hover {
@@ -35,6 +58,7 @@
 </head>
 
 <body>
+
    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
    <script src="js/bootstrap.js"></script>
    		
@@ -53,7 +77,7 @@
             <div class="container">
                <div class="banner_content text-center">
                
-                  <h2>ÀÚÀ¯°Ô½ÃÆÇ</h2>
+                  <h2>ìžìœ ê²Œì‹œíŒ</h2>
                </div>
             </div>
             </div>
@@ -66,59 +90,59 @@
                 <table id="contents" class="table" style="text-align: center; border:1px solid #dddddd;" >
                     <thead>
                         <tr>
-                            <th style="background-color: #eeeeee; text-align: center;">±¸ºÐ</th>
-                            <th style="background-color: #eeeeee; text-align: center;">Á¦¸ñ</th>
-                            <th style="background-color: #eeeeee; text-align: center;">ÀÛ¼ºÀÚ</th>
-                            <th style="background-color: #eeeeee; text-align: center;">ÀÛ¼ºÀÏ</th>
-                            <th style="background-color: #eeeeee; text-align: center;">Á¶È¸¼ö</th>
+                            <th style="background-color: #eeeeee; text-align: center;">êµ¬ë¶„</th>
+                            <th style="background-color: #eeeeee; text-align: center;">ì œëª©</th>
+                            <th style="background-color: #eeeeee; text-align: center;">ìž‘ì„±ìž</th>
+                            <th style="background-color: #eeeeee; text-align: center;">ìž‘ì„±ì¼</th>
+                            <th style="background-color: #eeeeee; text-align: center;">ì¡°íšŒìˆ˜</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1.</td>
-                            <td style="font-weight: bold; color: red" class="studgroup">[[[°øÁö»çÇ×]]]</td>
-                            <td style="font-weight: bold;">¿î¿µÀÚ</td>
+                            <td style="font-weight: bold; color: red" class="studgroup">[[[ê³µì§€ì‚¬í•­]]]</td>
+                            <td style="font-weight: bold;">ìš´ì˜ìž</td>
                             <td style="font-weight: bold;">2019-04-08</td>
                             <td style="font-weight: bold;">15</td>
 
                         </tr>
                         <tr>
                             <td>2.</td>
-                            <td style="font-weight: bold; color: red" class="studgroup">[[[°øÁö»çÇ×]]]</td>
-                            <td style="font-weight: bold;">¿î¿µÀÚ</td>
+                            <td style="font-weight: bold; color: red" class="studgroup">[[[ê³µì§€ì‚¬í•­]]]</td>
+                            <td style="font-weight: bold;">ìš´ì˜ìž</td>
                             <td style="font-weight: bold;">2019-04-08</td>
                             <td style="font-weight: bold;">15</td>
     
                         </tr>
                         <tr>
                             <td>3.</td>
-                            <td style="font-weight: bold; color: red" class="studgroup">[[[°øÁö»çÇ×]]]</td>
-                            <td style="font-weight: bold;">¿î¿µÀÚ</td>
+                            <td style="font-weight: bold; color: red" class="studgroup">[[[ê³µì§€ì‚¬í•­]]]</td>
+                            <td style="font-weight: bold;">ìš´ì˜ìž</td>
                             <td style="font-weight: bold;">2019-04-08</td>
                             <td style="font-weight: bold;">15</td>
     
                          </tr>
                          <tr>
                              <td>4.</td>
-                                <td>½ºÇÃ·£´õ³ëÀëÀÌ¾ß</td>
-                                <td>¹Ú¿µ¿í</td>
+                                <td>ìŠ¤í”Œëžœë”ë…¸ìž¼ì´ì•¼</td>
+                                <td>ë°•ì˜ìš±</td>
                                 <td>2019-04-08</td>
                                 <td>15</td>
     
                          </tr>
                          <tr>
                              <td>5.</td>
-                                <td>ÀðÀ¯°Ô½ÃÆÇ¸Â³ª¿ä?</td>
-                                <td>¹Ú¿µ¿í</td>
+                                <td>ìŸˆìœ ê²Œì‹œíŒë§žë‚˜ìš”?</td>
+                                <td>ë°•ì˜ìš±</td>
                                 <td>2019-04-08</td>
                                 <td>15</td>
     
                         </tr>
                         <tr>
                                 <td>6.</td>
-                                   <td>ÀðÀ¯°Ô½ÃÆÇ¸Â³ª¿ä?</td>
-                                   <td>¹Ú¿µ¿í</td>
+                                   <td>ìŸˆìœ ê²Œì‹œíŒë§žë‚˜ìš”?</td>
+                                   <td>ë°•ì˜ìš±</td>
                                    <td>2019-04-08</td>
                                    <td>15</td>
        
@@ -130,7 +154,7 @@
                 
             </div>
                     <div>
-                        <a href="writeform" class="btn btn-primary pull-right">±Û¾²±â</a>
+                        <a href="writeform" class="btn btn-primary pull-right" id="write">ê¸€ì“°ê¸°</a>
                         <nav class="blog-pagination justify-content-center d-flex">
                               <ul class="pagination">
                                   <li class="page-item">
@@ -158,18 +182,18 @@
                     <div class="blog-pagination justify-content-center d-flex" style="width:90%">
                         <select style="border: 1px solid; ">
                             <option>
-                                ÀüÃ¼
+                                ì „ì²´
                             </option>
                             <option>
-                                Á¦¸ñ
+                                ì œëª©
                             </option>
                             <option>
-                                ³»¿ë
+                                ë‚´ìš©
                             </option>    
                         </select>
 
-                        <input type="text" class="inputText" style="width: 30%;" placeholder="³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä">
-                        <a href="write.js" class="btn" style="border: 1px solid">°Ë»ö</a>
+                        <input type="text" class="inputText" style="width: 30%;" placeholder="ë‚´ìš©ì„ ìž…ë ¥í•˜ì„¸ìš”">
+                        <a href="write.js" class="btn" style="border: 1px solid">ê²€ìƒ‰</a>
                     </div>
         </div>
         <!--================Blog Area =================-->
