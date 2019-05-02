@@ -32,7 +32,7 @@
 	<script>
 		$(document).ready(function() {
 			$('#loginForm').submit(function(e) {
-				e.preventDefault();
+				e.preventDefault();//페이지 이동 막아줌
 				
 				var id = $('#userId');
 				var pw = $('#userPw');
@@ -63,7 +63,7 @@
 				dataType : "text",				//	결과를 받을 데이터 타입
 				data : {
 					userId: id,
-					userPw: pw
+					userPw: pw //userId를 controller에서 그대로사용
 				},
 				success : function(data) {
 					if (data == 'true') {
@@ -162,7 +162,8 @@
         <div class="container d-flex justify-content-center">
             <div class="col-lg-7 col-12">
                <div class="jumbotron">
-                  <form id="loginForm">
+                  <form id="loginForm"> 
+                  <!--action을 id로 바꾼다  -->
                      <h3 style="text-align: center;">스플랜더 로그인</h3>
                      <div style="width:100%; height:30px;">
                         
