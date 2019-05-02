@@ -82,7 +82,7 @@
 	  	  			$('#nickname').val('');
 					$('#nickname').focus();
 					
-				} else if(data == pwFalse) {
+				} else if(data == 'pwFalse') {
 					alert('비밀번호가 일치하지 않습니다.');
 	  	  			$('#password').val('');
 	  	  			$('#password_confirm').val('');

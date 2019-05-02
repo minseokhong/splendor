@@ -121,31 +121,23 @@ public class JspController {
 	@ResponseBody
 	public String join2(String userEmail, String userPw, String userPwC, String nickName) throws Exception {
 		UserData userData = new UserData();
-		System.out.println();
-		int count = 0;
-		for(int i = 0; i < userService.nameCheck().size(); i ++) {
-			if(userService.nameCheck().equals(nickName)) {
-				System.out.println("닉네임중복");
-				count++;
+		System.out.println(userService.selectOneUser(nickName));
+		if(userService.selectOneUser(nickName) == null) {
+			if(userPw.equals(userPwC)) {
+				System.out.println("성공~!ㄴ");
+				userData.setUser_mail(userEmail);
+				userData.setUser_password(userPw);
+				userData.setUser_name(nickName);
+				userService.insertUser(userData);
+				System.out.println(userData);
+				return "true";
+			} else {
+				System.out.println("패스유ㅝ드 틀림");
+				return "pwFalse";
 			}
-			if(count == 1) {
-				return "nickFalse";				
-			}
-		}
-		if(userPw.equals(userPwC)) {
-			System.out.println("성공~!ㄴ");
-			userData.setUser_mail(userEmail);
-			userData.setUser_password(userPw);
-			userData.setUser_name(nickName);
-			userService.insertUser(userData);
-			System.out.println(userData);
-			return "true";
 		} else {
-			System.out.println("패스유ㅝ드 틀림");
-			return "pwFalse";
+			return "nickFalse";
 		}
-			
-		
 	}
 
 	@RequestMapping(value="/test")
