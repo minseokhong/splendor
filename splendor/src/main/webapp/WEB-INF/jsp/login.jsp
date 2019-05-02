@@ -33,8 +33,6 @@
 		$(document).ready(function() {
 			$('#loginForm').submit(function(e) {
 				e.preventDefault();
-				var asd = (String)session.getAttribute("user");
-				alert(asd);
 				
 				var id = $('#userId');
 				var pw = $('#userPw');

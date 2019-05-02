@@ -144,6 +144,7 @@ public class JspController {
 		} else if(userService.idCheck(userId).getUser_mail().equals(userId)
 				&& userService.idCheck(userId).getUser_password().equals(userPw)) {
 			model.addAttribute("user", userService.idCheck(userId));
+			System.out.println("true");
 			return "true";
 		} else {
 			return "false";
