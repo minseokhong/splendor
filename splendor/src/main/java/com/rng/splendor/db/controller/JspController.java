@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.rng.splendor.db.dto.BoardData;
 import com.rng.splendor.db.dto.UserData;
+import com.rng.splendor.db.service.BoardService;
 import com.rng.splendor.db.service.TestService;
 
 import com.rng.splendor.db.service.UserService;
@@ -20,6 +23,9 @@ public class JspController {
 	
 	@Autowired
 	TestService service;
+	
+	@Autowired
+	BoardService BoardService;
 	
 	@Autowired
 	UserService userService;
@@ -172,6 +178,17 @@ public class JspController {
 	@RequestMapping(value="/writeform")
 	public String writeform() throws Exception{
 		return "writeform";
+	}
+	
+	@RequestMapping(value="/writeform2")
+	@ResponseBody
+	public String writeform(String boardTitle, String boardContent) throws Exception{
+		
+		BoardData boardData = new BoardData();
+		boardData.setBoard_title(boardTitle);
+		boardData.setBoard_content(boardContent);
+		BoardService.insertBoard(boardData);
+		return "true";
 	}
 	
 	@RequestMapping(value="/clicktopost")

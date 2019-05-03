@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>Nexus SaaS</title>
+    <title>R.N.G Games</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
@@ -21,6 +21,63 @@
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
+  
+  <script>
+  	$(document).ready(function(){
+  		$('#write_ok').submit(function(e){
+  			e.preventDefault();
+  			var title = $('#boardTitle');
+  			var content =  $('#boardContent');
+  			
+  			if(title.val() == ''){
+  				alert('제목을 입력해주세요.');
+  				title.focus();
+  			}else if(content.val() == ''){
+  				alert('내용글을 작성해주세요.');
+  				content.focus();
+  			} else {
+  				write(title.val(), content.val());
+  			}
+  			
+  			
+  			
+  		})
+  		
+  	});
+  	
+   	function write(title, content){
+  		$.ajax({
+  			type : "POST",
+  			url:"http://localhost:8000/writeform2",
+  			dataType : "text",
+  			data : {
+  				boardTitle : title,
+  				boardContent : content
+  			},
+  			success : function(data) {
+  				if(data == 'true') {
+  					alert('글 작성 완료!');
+  					location.href = '자유게시판';
+  				}
+  			}
+//   			error : function() {
+//   				alert('asdasd');
+//   			}
+  		})
+  		
+  	}
+  	 
+  	
+  	
+  
+  </script>
+    
+    
 </head>
 
 <body class="guild_page">
@@ -52,70 +109,68 @@
     <!--================End Home Banner Area =================-->
 
     <!--================boardform Area =================-->
-    <tr></tr>
 
     <div class="container radius"
         style="position:relative; border-radius: 5px; width:1000px; left:50% ; margin-left:-500px; margin-top:100px; margin-bottom: 100px; background-color:
         /* antiquewhite; */
         #e6e6e6;
          color:rgb(151, 137, 137);">
-        <table class="table table-bordered">
-
+        <form id="write_ok" method="post" encType="multipart/form-data">
+        <table class="table table-bordered text-center">
+			<thead>
+				<tr>
+                    <th colspan="2"> 
+					    <h2 style="color:rgb(151, 137, 137); text-align: center; padding: 15px;"> 글 작성</h2>
+					</th>
+				</tr>
+			</thead>
             <tbody>
 
-                <h2 style="color:rgb(151, 137, 137); text-align: center; padding: 15px;"> 글 작성</h2>
-                <form action="write_ok" method="post" encType="multiplart/form-data">
-                    
                     <tr>
-                        <th>제목　<input type="text" placeholder="제목을 입력하세요. " name="subject" class="form-control"
-                                style="display: inline; width: 90%" /></th>
-
-
-                               
+                    	<td class="align-middle">제목</td>
+                        <td class="align-middle">
+                        	<input type="text" placeholder="제목을 입력하세요. " name="subject" class="form-control" id="boardTitle" />
+                        </td>
                     </tr>
 
                         
                     <tr>
-                        <th>내용　<input type=file name='file1' style='display: none;'>
+                    	<td class="align-middle">파일</td>
+                        <td class="text-left align-middle">
+                        	<input type=file name='file1' style='display: none, background-color: red;'>
                             <img src='img/pictures.png' align="right" width="30" height="35" name='find' id='find'
                                 border='0'
                                 onclick='document.all.file1.click(); document.all.file2.value=document.all.file1.value'>
-
                             <img src='img/video-camera.png' style="margin-right: 15px;" align="right" width="30"
                                 height="35" name='find' id='find' border='0'
                                 onclick='document.all.file1.click(); document.all.file2.value=document.all.file1.value'>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> 
+                        	<textarea rows="15" cols="10" placeholder="내용을 입력하세요. " name="content" class="form-control" id="boardContent"></textarea>
+                        </td>
+                    </tr>
+                    
 
-
-
-                        </th>
 
                     <tr>
-                        <th><textarea rows="15" cols="10" placeholder="내용을 입력하세요. " name="content" class="form-control"
-                                style=" width: 90%; margin-left: 40px;
-                                    "></textarea></th>
+                        <td colspan="2" class="text-left"> 
+	                        <secret>비밀글</secret>　
+	                        <input type="checkbox" id="secretcheck" name="비밀글" />
+                    	</td>
                     </tr>
-
-
-
-                    </tr>
-                    <th>
-                        <secret style="margin-left: 850px;">비밀글</secret>　
-                        <input type="checkbox" id="secretcheck" name="비밀글" />
-                    </th>
                     <tr>
-                        <th> <input type="button" value="글쓰기"
-                                style=" width:100px; background-color: dodgerblue; border-radius: 5px;border: 0; outline: 0; color: white"
-                                ; a href="freeboard" onclick="alert('작성완료');" class="pull-right large" />
-                            <input type="button" value="취　소"
-                                style=" width:100px; background-color: dodgerblue; border-radius: 5px; border: 0; outline: 0; color: white"
-                                ; onclick="location.href='freeboard'" class="pull-left large" />
+                        <td colspan="2"> 
+                        	<input type="submit" value="글쓰기" class="btn btn-primary pull-right large" />
+                            <input type="button" value="취　소" onclick="location.href='자유게시판'" class="btn btn-primary pull-left large" />
 
-                        </th>
+                        </td>
                     </tr>
 
-                </form>
             </tbody>
         </table>
+        </form>
     </div>
 
 
