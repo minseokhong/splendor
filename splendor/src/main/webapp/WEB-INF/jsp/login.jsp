@@ -29,6 +29,7 @@
   src="https://code.jquery.com/jquery-2.2.4.js"
   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
   crossorigin="anonymous"></script>
+   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 	<script>
 		$(document).ready(function() {
 			$('#loginForm').submit(function(e) {
@@ -186,7 +187,18 @@
                      <div id="search" class="col-lg-7 col-12">
                         <a style="position:absolute; bottom:0px;" href="write.js" >아이디찾기 / 비밀번호찾기 </a>
                      </div>
-                     <a href="http://www.naver.com"><img src="img/네이버api.png" style="margin-bottom: auto; position: relative; width: 5%" class="pull-right"></a>
+					 <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+					 <div id="naver_id_login" style="margin-bottom: auto; position: relative; width: 5%" class="pull-right"></div>
+					 <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+					 <script type="text/javascript">
+					  var naver_id_login = new naver_id_login("kJZ3dXggDV9mMHj928wu", "http://localhost:8000/naver-callback", false);
+					  var state = naver_id_login.getUniqState();
+					  naver_id_login.setButton("green", 1, 28);
+					  naver_id_login.setDomain("http://localhost:8000");
+					  naver_id_login.setState(state);
+// 					  naver_id_login.setPopup();
+					  naver_id_login.init_naver_id_login();
+					 </script>
                      <a href="https://www.kakaocorp.com/service/KakaoTalk"><img src="img/카카오톡api.png" style="margin-bottom: auto; position: relative; width: 5%" class="pull-right"></a>
                      <a href="http://www.google.com"><img src="img/구글api.png" style="margin-bottom: auto; position: relative; width: 5%" class="pull-right"></a>
                   </form>
@@ -201,5 +213,11 @@
 	   	<jsp:include page="footer.jsp"></jsp:include>
    
  	<!--================End Footer Area =================-->
+        
+        
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- naver-api js -->
 </body>
 </html>

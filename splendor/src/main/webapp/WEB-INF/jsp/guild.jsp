@@ -87,6 +87,7 @@
         <section class="guild_categorie_area">
             <div class="container">
                 <div class="row">
+                
                     <div class="col-lg-4">
                         <div class="categories_post">
                             <img src="img/guild/cat-post/cat-post-3.jpg" alt="post">
@@ -99,6 +100,7 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-lg-4">
                         <div class="categories_post">
                             <img src="img/guild/cat-post/cat-post-2.jpg" alt="post">
@@ -134,6 +136,7 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="guild_left_sidebar" style="background-color: #eeeeee">
+                        
                             <article class="row guild_item" >
                                <div class="col-md-3">
                                    <div class="guild_info text-right">
@@ -151,15 +154,13 @@
                                     <div class="guild_post">
                                         <div class="guild_details">
                                             <a href="single-guild"><h2>메가박스</h2></a>
-                                            <p>점수 만들어서 우리 영화봐요 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                                Possimus facilis, veniam dolorum ullam ea aspernatur 
-                                                ipsum placeat rerum quia expedita laboriosam! Eum maxime eveniet 
-                                                fugit numquam illum autem nisi exercitationem.</p>
+                                            <p>${asd }</p>
                                             <a href="single-guild" class="guild_btn" style="border: 1px solid">View More</a>
                                         </div>
                                     </div>
                                 </div>
                             </article>
+                            
                             <article class="row guild_item">
                                <div class="col-md-3">
                                    <div class="guild_info text-right">
@@ -234,7 +235,7 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="guild_right_sidebar">
-                            <a href="write.js" class="primary_btn" style="width: 300px">길드생성</a>
+                            <a href="create-guild" class="primary_btn" style="width: 300px">길드생성</a>
                             <div style="margin-top: 20px">
 
                             </div>

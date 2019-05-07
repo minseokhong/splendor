@@ -347,6 +347,63 @@
 	</header>
 
 	<!--================Header Menu Area =================-->
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script>
 
+		$('.mail').on('click', function() {
+			$('.a1').slideToggle('fast');
+			$('.a2').hide('fast');
+		});
+
+		$('.notification').on('click', function() {
+			$('.a2').slideToggle('fast');
+			$('.a1').hide('fast');
+		});
+
+
+		$('.쪽지').hover(function() {
+			$('.쪽지').css('background-color', 'white');
+			$('.쪽지_내용').css('display', 'block');
+			$('.알림_내용').css('display', 'none');
+			$('.쪽지_내용').css('background-color', 'lightgreen');
+		}, function() {
+			$('.쪽지').css('background-color', 'lightgreen');
+		});
+
+		$('.알림').hover(function() {
+			$('.알림').css('background-color', 'white');
+			$('.쪽지_내용').css('display', 'none');
+			$('.알림_내용').css('display', 'block');
+			$('.알림_내용').css('background-color', 'white');
+		}, function() {
+			$('.알림').css('background-color', 'white');
+		});
+
+		$('#close').click(function() {
+			// $('.msg1').hide();
+			$('.msg1').remove();
+		});
+
+		$('#close_쪽지확인창').click(function() {
+			// $('.msg1').hide();
+			$('.message-box').hide();
+		});
+
+		$('#close_쪽지보내기').click(function() {
+			// $('.msg1').hide();
+			$('.a1').hide();
+		});
+
+		$('.msg_click').click(function() {
+			$('.message-box').show('fast');
+		});
+
+		$('.답장하기').on('click', function() {
+			$('.a1').slideToggle('fast');
+		});
+
+		
+		
+	</script>
 </body>
 </html>

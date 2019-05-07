@@ -4,61 +4,86 @@ import java.util.Date;
 
 public class GuildList {
 
-	private String guild_name;
-	private Date guild_date;
-	private String guild_logo;
-	private String guild_comm;
-	private int guild_l_score;
-	private int guild_l_play;
-	private int guild_l_winrate;
+	private String guildName;
+	private Date guildDate;
+	private String guildLogo;
+	private String guildComm;
+	private int guildScore;
+	private int guildPlay;
+	private int guildWinrate;
+	private int conScore;
+	private int conPlay;
+	private int conWinRate;
 	
-	public String getGuild_name() {
-		return guild_name;
+	public int getConScore() {
+		return conScore;
 	}
-	public void setGuild_name(String guild_name) {
-		this.guild_name = guild_name;
+	public void setConScore(int conScore) {
+		this.conScore = conScore;
 	}
-	public Date getGuild_date() {
-		return guild_date;
+	public int getConPlay() {
+		return conPlay;
 	}
-	public void setGuild_date(Date guild_date) {
-		this.guild_date = guild_date;
+	public void setConPlay(int conPlay) {
+		this.conPlay = conPlay;
 	}
-	public String getGuild_logo() {
-		return guild_logo;
+	public int getConWinRate() {
+		return conWinRate;
 	}
-	public void setGuild_logo(String guild_logo) {
-		this.guild_logo = guild_logo;
+	public void setConWinRate(int conWinRate) {
+		this.conWinRate = conWinRate;
 	}
-	public String getGuild_comm() {
-		return guild_comm;
+	public String getGuildName() {
+		return guildName;
 	}
-	public void setGuild_comm(String guild_comm) {
-		this.guild_comm = guild_comm;
+	public void setGuildName(String guildName) {
+		this.guildName = guildName;
 	}
-	public int getGuild_l_score() {
-		return guild_l_score;
+	public Date getGuildDate() {
+		return guildDate;
 	}
-	public void setGuild_l_score(int guild_l_score) {
-		this.guild_l_score = guild_l_score;
+	public void setGuildDate(Date guildDate) {
+		this.guildDate = guildDate;
 	}
-	public int getGuild_l_play() {
-		return guild_l_play;
+	public String getGuildLogo() {
+		return guildLogo;
 	}
-	public void setGuild_l_play(int guild_l_play) {
-		this.guild_l_play = guild_l_play;
+	public void setGuildLogo(String guildLogo) {
+		this.guildLogo = guildLogo;
 	}
-	public int getGuild_l_winrate() {
-		return guild_l_winrate;
+	public String getGuildComm() {
+		return guildComm;
 	}
-	public void setGuild_l_winrate(int guild_l_winrate) {
-		this.guild_l_winrate = guild_l_winrate;
+	public void setGuildComm(String guildComm) {
+		this.guildComm = guildComm;
+	}
+	public int getGuildScore() {
+		return guildScore;
+	}
+	public void setGuildScore(int guildScore) {
+		this.guildScore = guildScore;
+	}
+	public int getGuildPlay() {
+		return guildPlay;
+	}
+	public void setGuildPlay(int guildPlay) {
+		this.guildPlay = guildPlay;
 	}
 	
+	public int getGuildWinrate() {
+		return guildWinrate;
+	}
+	public void setGuildWinrate(int guildWinrate) {
+		this.guildWinrate = guildWinrate;
+	}
 	@Override
 	public String toString() {
-		return "guild_list [guild_name=" + guild_name + ", guild_date=" + guild_date + ", guild_logo=" + guild_logo
-				+ ", guild_comm=" + guild_comm + ", guild_l_score=" + guild_l_score + ", guild_l_play=" + guild_l_play
-				+ ", guild_l_winrate=" + guild_l_winrate + "]";
+		return "GuildList [guildName=" + guildName + ", guildDate=" + guildDate + ", guildLogo=" + guildLogo
+				+ ", guildComm=" + guildComm + ", guildScore=" + guildScore + ", guildPlay=" + guildPlay
+				+ ", guildWinrate=" + guildWinrate + ", conScore=" + conScore + ", conPlay=" + conPlay + ", conWinRate="
+				+ conWinRate + "]";
 	}
+
+	
+	
 }
