@@ -234,4 +234,9 @@ public class JspController {
 		
 		return mav;
 	}
+
+	@RequestMapping(value="/naver-callback")
+	public String naver_callback() throws Exception{
+		return "naver-callback";
+	}
 }
