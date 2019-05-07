@@ -1,5 +1,6 @@
 package com.rng.splendor.db.controller;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rng.splendor.db.dto.BoardData;
+import com.rng.splendor.db.dto.GuildList;
 import com.rng.splendor.db.dto.UserData;
 import com.rng.splendor.db.service.BoardService;
+import com.rng.splendor.db.service.GuildListService;
 import com.rng.splendor.db.service.TestService;
 
 import com.rng.splendor.db.service.UserService;
@@ -29,6 +32,9 @@ public class JspController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	GuildListService guildListService;
 	
 	@RequestMapping("/index")
 	public String index() throws Exception{
@@ -77,8 +83,23 @@ public class JspController {
 
 	@RequestMapping(value="/guild")
 	public String guild() throws Exception{
+//		for(GuildList data : guildListService.selectAll()) {
+//			System.out.println(data.getGuildName());
+//		}
+		System.out.println(guildListService.selectAll());
+//		System.out.println(guildListService.selectAll().toString());
 		return "guild";
 	}
+	
+//	@RequestMapping(value="/guild")
+//	public ModelAndView guild() throws Exception{
+//		ModelAndView mav = new ModelAndView();
+//		mav.addObject("asd", guildListService.selectAll());
+//		mav.setViewName("guild");
+//		
+//		
+//		return mav;
+//	}
 
 	
 //	@RequestMapping("/joinTest")
@@ -155,6 +176,24 @@ public class JspController {
 		} else {
 			return "false";
 		}
+		
+	}
+	
+	@RequestMapping(value="/createGuildForm")
+	@ResponseBody
+	public String createGuildForm(String guildName, String guildComm, String guildLogo, 
+		int conScore, int conPlay, int conWinRate) {
+		GuildList guildList = new  GuildList();
+		guildList.setGuildName(guildName);
+		guildList.setGuildDate(new Date());
+		guildList.setGuildComm(guildComm);
+		guildList.setGuildLogo(guildLogo);
+		guildList.setConScore(conScore);
+		guildList.setConPlay(conPlay);
+		guildList.setConWinRate(conWinRate);
+		guildListService.insertGuild(guildList);
+		System.out.println("들어갔ㄴ지?");
+		return "true";
 		
 	}
 	

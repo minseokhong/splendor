@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.rng.splendor.db.mapper.GuildListMapper">
+
+	<insert id="insertGuild" parameterType="GuildList">
+		INSERT INTO guild_list (guild_name, guild_date, guild_logo, guild_comm, guild_condition_score, guild_condition_play, guild_condition_winrate) VALUES (#{guildName}, #{guildDate}, #{guildLogo}, #{guildComm}, #{conScore}, #{conPlay}, #{conWinRate})
+	</insert>
+	
+	<select id="selectAll" resultType="GuildList">
+		select 
+			guild_name AS guildName, guild_date AS guildDate, guild_logo AS guildLogo, guild_comm AS guildComm,
+			guild_l_score AS guildScore, guild_l_play AS guildPlay, guild_l_winrate AS guildWinrate,
+			guild_condition_score AS conScore, guild_condition_play AS conPlay, guild_condition_winrate AS conWinrate
+		from guild_list
+	</select>
+</mapper>

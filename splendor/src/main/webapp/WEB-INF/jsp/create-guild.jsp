@@ -4,23 +4,83 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="img/favicon.png" type="image/png">
-        <title>길드 생성하기</title>
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="vendors/linericon/style.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="vendors/animate-css/animate.css">
-        <!-- main css -->
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-    </head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+    <title>길드 생성하기</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/linericon/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+    <link rel="stylesheet" href="vendors/animate-css/animate.css">
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+	<script src="https://code.jquery.com/jquery-2.2.4.js"
+	integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+	crossorigin="anonymous"></script>
+	
+	<script>
+		$(document).ready(function() {
+			$('#create-guild_form').submit(function(e) {
+				e.preventDefault();
+				
+				var guildName = $('#guild_name');
+				var guildComm = $('#guild_content');
+				var guildLogo = $('guild_img');
+				var conScore = $('#required_total_score');
+				var conPlay = $('#required_total_played');
+				var conWinRate = $('#required_win_rate');
+				
+				if(guildName.val() == '') {
+					alert('길드명을 입력해주세요');
+					guildName.focus();
+					
+				} else if(guildComm.val() == '')  {
+					guildComm.focus();
+					alert('길드소개을 입력해주세요');
+					
+				} else {
+					createGuild(guildName.val(), guildComm.val(), guildLogo.val(), 
+							conScore.val(), conPlay.val(), conWinRate.val());
+				}
+			});
+		})
+		
+		function createGuild(guildName, guildComm, guildLogo, conScore, conPlay, conWinRate) {
+			$.ajax({
+				type : "GET",
+				url : "http://localhost:8000/createGuildForm",
+				dataType : "text",
+				data : {
+					guildName : guildName,
+					guildComm : guildComm,
+					guildLogo : guildLogo,
+					conScore : conScore,
+					conPlay : conPlay,
+					conWinRate : conWinRate
+				},
+				success : function(data) {
+					if(data == 'true') {
+						location.href = 'guild';
+						alert('성공~~');
+					}
+				}
+				
+				
+				
+				
+				
+			})
+		}
+	</script>
+
+
+</head>
         
        <!--================Header Menu Area =================-->
     <c:set var="user" value="${user }"></c:set>
@@ -38,17 +98,17 @@
                     <div class="create-guild_area_1 radius">
                         <div class="guild_title">
                             <span class="genric-subjectblock radius">길드명</span>
-                            <input name="guild_name" type="text" class="form-control" placeholder="길드 이름을 입력해 주세요.">
+                            <input name="guild_name" id="guild_name" type="text" class="form-control" placeholder="길드 이름을 입력해 주세요.">
                         </div>
                         <div class="guild_content">
                             <span class="genric-subjectblock radius">길드 소개</span>
-                            <textarea name="guild_content" class="form-control" placeholder="내용을 입력해 주세요."></textarea>
+                            <textarea id="guild_content" name="guild_content" class="form-control" placeholder="내용을 입력해 주세요."></textarea>
                         </div>
                     </div>
                     <div class="create-guild_area_2 radius">
                         <div class="guild_image">
                             <span class="genric-subjectblock radius">대표 사진</span>
-                            <input name="guild_img" type="file" id="profile_image_input" hidden="hidden">
+                            <input id="guild_img" name="guild_img" type="file" id="profile_image_input" hidden="hidden">
                             <div class="guild_profile_image_div">
                                 <img class="guild_profile_image" src="img/screenshot_img2.png">
                             </div>
@@ -100,7 +160,7 @@
                     </div>
                 </div>
                 <div class="create-guild_button_area">
-                    <div class="genric-btn info large radius" onclick=returnPage();>돌아가기</div>
+                    <div class="genric-btn info large radius" onclick="location.href='guild'">돌아가기</div>
                     <input type="submit" class="genric-btn success large radius" value="길드 생성">
                 </div>
             </form>
