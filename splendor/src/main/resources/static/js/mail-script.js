@@ -17,7 +17,7 @@
                 beforeSend: function() {
                     alert.fadeOut();
                     submit.html('Sending....'); // change submit button text
-                },
+                },  
                 success: function(data) {
                     alert.html(data).fadeIn(); // fade in response data
                     form.trigger('reset'); // reset form
