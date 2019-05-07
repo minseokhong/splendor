@@ -84,7 +84,7 @@
 					<div class="col-md-6">
 						<select style="border: 1px solid;">
 							<option>전체</option>
-
+							<option>신고</option>
 							<option>버그</option>
 							<option>기타</option>
 						</select>

@@ -9,6 +9,7 @@
   src="https://code.jquery.com/jquery-3.4.0.js"
   integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
   crossorigin="anonymous"></script>
+  
  	<script type="text/javascript">
  		$(document).ready(function() {
 //  			$('.nav-link').click(function() {
@@ -37,8 +38,8 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent" >
 						<ul class="nav navbar-nav menu_nav justify-content-center"style ="width:70%">
-							<li class="nav-item"><a class="nav-link" href="index">홈페이지</a></li>
-							<li class="nav-item active"><a class="nav-link" href="about-us">게임소개</a></li>
+							<li class="nav-item" id="homepage"><a class="nav-link" href="index">홈페이지</a></li>
+							<li class="nav-item "><a class="nav-link" href="about-us">게임소개</a></li>
 							<li class="nav-item"><a class="nav-link" href="screenshot">스크린샷</a></li>
 							<li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -46,7 +47,6 @@
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="guild">길드</a></li>
 									<li class="nav-item"><a class="nav-link" href="자유게시판">자유게시판</a></li>
-									<li class="nav-item"><a class="nav-link" href="elements">공지사항</a>
 								</ul>
 							</li>
 							<li class="nav-item submenu dropdown">
@@ -55,7 +55,6 @@
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="BBS">FAQ</a></li>
 									<li class="nav-item"><a class="nav-link" href="나문의">1:1문의</a></li>
-									<li class="nav-item"><a class="nav-link" href=";;">신고</a>
 								</ul>
 							</li>
 						</ul>

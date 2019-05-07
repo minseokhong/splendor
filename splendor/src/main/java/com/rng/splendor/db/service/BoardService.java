@@ -12,7 +12,7 @@ public class BoardService {
 	@Autowired
 	BoardMapper boardMapper;
 	
-	public void insertBoard(BoardData boardData) {
+	public void insertBoard(BoardData boardData) throws Exception {
 		boardMapper.insertBoard(boardData);
 	}
 	

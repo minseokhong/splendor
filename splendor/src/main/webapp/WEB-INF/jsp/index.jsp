@@ -47,10 +47,13 @@
 					<div class="col-lg-6">
 						<div class="banner_content">
 							<h2>
-								wellcome <br>
-								to <br>
-								hell~
+								전략적 플레이!<br>
+								
 							</h2>
+							<h2 style="color: #CD5C5C">
+								스플랜더<br>
+							
+							</h2>							
 							<p>
 								남녀노소 불문하고 함께 즐길 수 있는 그 게임! 스플랜더를 통해 길드를 운영하고 경쟁을 통해 세계 최고가 되어보세요!
 							</p>
@@ -70,14 +73,14 @@
 				<div class="col-lg-6">
 					<div class="section_content">
 						<h6>게임 소개</h6>
-						<h1>스플랜더란 <br>요런 게임 입니다.</h1>
+						<h1>전략게임 스플랜더<br>R.N.G에서 즐겨보세요.</h1>
 						<p>옆에 게임관련 유튜브 영상이 나오고 아래 버튼은 게임 방식을 글로 풀어 자세하게 설명한 메뉴 입니다.</p>
-						<a class="primary_btn" href="#">더 알아보기</a>
+						<a class="primary_btn" href="about-us">더 알아보기</a>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="about_us_image_box justify-content-center">
-							<iframe width="579" height="406" src="https://www.youtube.com/embed/mAKsZ26SabQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="579" height="406" src="https://www.youtube.com/embed/78Ga9vT3eIE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						<!-- <img class="img-fluid w-100" src="img/about_img.png" alt=""> -->
 					</div>
 				</div>
@@ -430,31 +433,28 @@
 				<div class="col-lg-5 col-md-5">
 					<div class="frequent_item">
 						<h3>FAQ</h3>
-						<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
-							especially in the workplace. That’s why it’s crucial that as women.</p>
+						<p>아이디를 찾을수없거나 비밀번호를 잃어버리신경우 FAQ페이지에서 확인하세요. 계정문의,실행문의,신고접수카테고리가있습니다.</p>
 					</div>
 				</div>
 				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 					<div class="frequent_item">
 						<h3>1:1 문의</h3>
-						<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
-							especially in the workplace. That’s why it’s crucial that as women.</p>
+						<p>문의하기 어려운사항이나 1:1문의가 필요하신 유저분들은 1:1문의 페이지를 이용해주세요.신속한 답변할수있도록 노력하겟습니다.</p>
 					</div>
 				</div>
 				<div class="col-lg-5 col-md-5">
 					<div class="frequent_item">
 						<h3>오류신고</h3>
-						<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
-							especially in the workplace. That’s why it’s crucial that as women.</p>
+						<p>오류신고는 1:1문의를 통해 접수부탁드립니다.</p>
 					</div>
 				</div>
 				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 					<div class="frequent_item">
 						<h3>규정 및 정책</h3>
-						<p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards
-							especially in the workplace. That’s why it’s crucial that as women.</p>
+						<p>게임을 통한 유저들과의 건전한대화를 규정으로합니다. 도박및사기유도 욕설등은 삼가해주시기바랍니다.</p>
 					</div>
 				</div>
+				
 				
 			</div>
 		</div>

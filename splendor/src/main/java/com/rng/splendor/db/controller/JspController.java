@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -182,11 +183,8 @@ public class JspController {
 	
 	@RequestMapping(value="/writeform2")
 	@ResponseBody
-	public String writeform(String boardTitle, String boardContent) throws Exception{
+	public String writeform(@ModelAttribute("boardData") BoardData boardData, Model model) throws Exception{
 		
-		BoardData boardData = new BoardData();
-		boardData.setBoard_title(boardTitle);
-		boardData.setBoard_content(boardContent);
 		BoardService.insertBoard(boardData);
 		return "true";
 	}
