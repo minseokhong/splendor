@@ -23,7 +23,7 @@
 				<div class="container">
 				
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index"><img class="logo" src="img/joystick.png" alt="">R.N.G<aside>
+					<a class="navbar-brand logo_h" href="index" style="text-align: center; color: #777777;"><img class="logo" src="img/joystick.png" alt="">R.N.G<aside>
                         
                     </aside></a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -343,7 +343,7 @@
                         <a class="avatar" href="profile"><img src="img/avatar.png"></a>
                         <a class="cancel" href="logoutForm"><img src="img/cancel.png"></a>
 					</div>
-				</div>
+				</div>ㅇ
 			</nav>
 		</div>
 	</header>
@@ -404,7 +404,9 @@
 			$('.a1').slideToggle('fast');
 		});
 
-		
+		$(".cancel").click(function() {
+			alert("로그아웃 되었습니다. 안녕히가세요.~~")
+		});
 		
 	</script>
 </body>
