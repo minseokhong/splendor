@@ -371,12 +371,12 @@
             });
             
             $('#guildJoin').on('click', function() {
-            	if(${user} == null) {
-            		alert('로그인을 해주세요.')
-            	} else {
-            		alert('가입이 완료되었습니다.');
-	            	location.href="guildJoinForm";
-            	}
+//             	if(${user} == null) {
+//             		alert('로그인을 해주세요.')
+//             	} else {
+//             		alert('가입이 완료되었습니다.');
+// 	            	location.href="guildJoinForm";
+//             	}
             })
             
 //             function guildJoin() {
