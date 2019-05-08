@@ -113,4 +113,4 @@ function checkRegExp(regExp, value) {
     return result;
 }
 
-var passwordRegExp = /^[a-zA-Z0-9]{8,15}$/;// 숫자와 영문자 조합 8~15자리
+var passwordRegExp = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,15}$/;// 숫자와 영문자 조합 8~15자리
