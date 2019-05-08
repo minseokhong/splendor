@@ -56,7 +56,7 @@
 							</li>
 						</ul>
 						
-						<a class="notification"><img src="/img/notification.png"></a>
+						<a class="notification"><img src="/img/notification.png" title="알림"></a>
 
 
 						<div class="message-box" style="border: 1px solid black;">
@@ -305,7 +305,7 @@
 
 
 
-						<a class="mail"><img src="img/mail.png"></a>
+						<a class="mail"><img src="img/mail.png" title="쪽지"></a>
 
 						<div class="a1" style="border: 1px solid black;">
 							<div style="background-color: rgb(168, 9, 49); height: 40%; text-align: center;">
@@ -338,8 +338,8 @@
 							</div>
 						</div>
 
-                        <a class="avatar" href="profile"><img src="img/avatar.png"></a>
-                        <a class="cancel" href="logoutForm"><img src="img/cancel.png"></a>
+                        <a class="avatar" href="profile"><img src="img/avatar.png" title="프로필 설정"></a>
+                        <a class="cancel" href="logoutForm"><img src="img/cancel.png" title="로그아웃"></a>
 					</div>
 				</div>
 			</nav>

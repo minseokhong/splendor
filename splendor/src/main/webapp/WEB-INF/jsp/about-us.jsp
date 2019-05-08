@@ -96,12 +96,19 @@
                                  
                                  
                                  스플랜더 전략 탐구를 위해 여러가지를 시도해 봤지만 예를 들어 2티어 중득점 다매 전략을 시도해 보았지만, 생각 보다 승률이 좋지 않아 폐기한 전략 입니다.
+                                 <br>
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
                                  
                                  
                            </p>
                            
                         </div>
-
+						
+                        <div class="col-lg-12">
                         <div class="col-lg-12">
                            <div class="feature-img">
                               <img class="img-fluid" src="img/blog/feature-img2.jpg" alt="">
@@ -109,22 +116,27 @@
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
                               <h2>2인플과 3인플 4인플 전략의 변화</h2>
+                     
+                           <div class="quotes">
+                                 보석 토큰 : 에메랄드(녹색), 다이아몬드(백색), 사파이어(청색), 줄마노(흑색), 루비(적색) 토큰이 각각 7개 씩 있고, 황금(황색)[1]은 5개가 있다. 총 40개.<br>
+                                 개발 카드 : 1단계 카드(녹색) 40장, 2단계 카드(황색) 30장, 3단계 카드(청색) 20장으로 총 90장이 있다. 1단계에선 각 보석별로 8장씩, 2단계는 6장씩, 3단계는 4장씩 구성되어 있다.<br>
+                                 귀족 타일 : 총 10개로 실존했던 역사인물들로 구성되어 있다.                              
+                           </div>
                               <p class="excert">
                                     기본적인 전략을 비슷하게 갈 수 있지만 인원수에 따라 최대 사용 가능한 보석의 수가 달라서 다른 양상으로 플레이가 될 수 있습니다.
 
 
 
                                     특히 아래에 소개된 3티어 고득점 전략은 인원수별 운용이 크게 달라져야 합니다.
-                              </p>
+                                <br>
+								<br>
+								<br>
+								<br>
+								
+								
+								 </p>
                               
                         </div>
-                     
-                        <div class="col-lg-12">
-                           <div class="quotes">
-                                 보석 토큰 : 에메랄드(녹색), 다이아몬드(백색), 사파이어(청색), 줄마노(흑색), 루비(적색) 토큰이 각각 7개 씩 있고, 황금(황색)[1]은 5개가 있다. 총 40개.<br>
-                                 개발 카드 : 1단계 카드(녹색) 40장, 2단계 카드(황색) 30장, 3단계 카드(청색) 20장으로 총 90장이 있다. 1단계에선 각 보석별로 8장씩, 2단계는 6장씩, 3단계는 4장씩 구성되어 있다.<br>
-                                 귀족 타일 : 총 10개로 실존했던 역사인물들로 구성되어 있다.                              
-                           </div>
                            
                            <div class="col-lg-9 col-md-9 blog_details">
                                  <h2>2인플과 3인플 4인플 전략의 변화</h2>
@@ -134,6 +146,12 @@
    
    
                                        특히 아래에 소개된 3티어 고득점 전략은 인원수별 운용이 크게 달라져야 합니다.
+                                 <br>
+								<br>
+								<br>
+								<br>
+								<br>
+								
                                  </p>
                                  
                            </div>
@@ -148,12 +166,40 @@
                                  <img class="img-fluid" src="img/blog/feature-img2.jpg" alt="">
                               </div>   
                               <div class="col-lg-12 mt-25">
+                              	<h2>2인플 혹은 4인플이라면?</h2>
                                  <p>
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower.
+                                 2인플 일 때는 한 색상의 보석이 최대 4개 밖에 안되기 때문에 물론 황금 3개를 가져와 같은 방식으로 플레이가 가능하긴 하지만,<br>
+                                                        가능하면 1~3개 정도의 원하는 색상의 저렴한 카드를 먼저 구하고, 진행하는 플레이가 필요 합니다.<br>
+								4인플인 경우 역시 마지막 순서라면 첫 라운드 2개를 가져오기 힘들 수 있으니 개발 카드를 먼저 확보하는 것이 좋을 수 있습니다.
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
+
                                  </p>
+                              </div>                           
+                           </div>
+                           <div class="row">
+                              <div class="col-6">
+                                 <img class="img-fluid" src="img/blog/feature-img2.jpg" alt="">
+                              </div>
+                              <div class="col-6">
+                                 <img class="img-fluid" src="img/blog/feature-img2.jpg" alt="">
+                              </div>   
+                              <div class="col-lg-12 mt-25">
+                              	<h2 style="color:#DB7093 ">※많이 해보기※</h2>
                                  <p>
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower.
-                                 </p>                                 
+                                 	최종적으로 전략을 잘 쓰기 위해서는 많이 해봐야 합니다. 특히 3티어 고효율 고득점 전략의 경우는 제가 하는걸 보고 따라하려던 분에서 봤듯이 컨셉은 알아 봤지만, 잘 적용하지 못하는 것을 보았습니다.<br>
+									마구잡이로 고효율 카드를 킵하고, 보석을 모으는 방식을 사용했기 때문에, 실패한 경향을 볼 수 있었습니다.<br> 
+									예를 들어 킵에만 몰두한 나머지 3카드를 킵하는 바람에 더 이상 킵을 못하는 상황이 생겼고, 그 상황에 구매도 못하고, 원하는 색상의 보석은 품절 사태라 이 후 액션이 꼬이게 되었습니다.<br>
+									일일이 이럴땐 이렇게, 저럴땐 저렇게 나열하기에는 상황이 너무 많아서 힘들듯 합니다. 많이 해보는 방법이 좋기는 하지만, 상황이 여의치 않을 수 있습니다.<br>
+									전략을 탐구할 때는 개인적으로는 스플랜더 앱으로 (모바일/PC 스팀) 테스트해보는 것이 상당히 도움이 됩니다.<br>
+									비록 유료앱이기는 하지만 자주 할인을 하기 때문에, 할인때 구매하여 전략을 연습해 보도록 하세요.<br>
+									AI가 그렇게 잘하거나 하는 것은 아니지만, 그런 AI에도 이기지 못하는 전략이나 선택은 배제 시킬 수 있으며, 잘 먹히는 전략이나 상황에 따라 최적의 선택을 익히는데는 상당한 도움이 됩니다.<br>
+									<br>
+									이런 저런 다양한 설명을 했지만 결국엔 스타크래프트나, 리그오브레전드도 그렇듯, 많이 해봐야한다는 결론이 똑같은 점에서 포인트 바이 포인트 게임은 결국 다양한 경험이 필요한 듯 합니다.<br> 
+                                 </p>
                               </div>                           
                            </div>
                         </div>
