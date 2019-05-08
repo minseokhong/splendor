@@ -124,7 +124,7 @@ public class JspController {
 	
 	@RequestMapping
 	public void guildJoinForm(Model model) throws Exception {
-		model.g
+		
 	}
 
 	@RequestMapping(value="/login")
