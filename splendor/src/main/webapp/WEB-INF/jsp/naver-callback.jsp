@@ -58,31 +58,36 @@
     <!--================ Join Accept Area =================-->
     <section class="home_banner_area">
     	<div class="col-6 radius">
-    		<div>
+    		<div id="logoArea">
     			<img id="logo" src="/img/joystick.png">&nbsp; R. N. G &nbsp;
     		</div>
-    		<div>
+    		<div class="joinAcceptArea">
 			    <h4>확인된 정보로 가입하시겠습니까???</h4>
 			    <h5>(가입 절차는 한번만 이루어집니다.)</h5>
 			    <br><br>
+				<div class="primary_btn" onclick=submitApiData();>동의하고 가입하기</div>
     		</div>
-		    
-			<div class="primary_btn" onclick=submitApiData();>동의하고 가입하기</div>
+		    <div class="loginProceedArea" style="display: none;">
+		    	<br><h4>로그인 처리중입니다...</h4><br>... 잠시만 기다려 주세요 ...
+		    </div>
     	</div>
     </section>
     <!--================End Join Accept Area =================-->
+    
 	<script type="text/javascript">
 	  var id;
 	  var email;
 	  var nickname;
 	  var profile_image;
+	  
 	
 	  var naver_id_login = new naver_id_login("kJZ3dXggDV9mMHj928wu", "YOUR_CALLBACK_URL");
 	  // 접근 토큰 값 출력
-	//   alert(naver_id_login.oauthParams.access_token);
+	  // alert(naver_id_login.oauthParams.access_token);
 	  // 네이버 사용자 프로필 조회
 	  naver_id_login.get_naver_userprofile("naverSignInCallback()");
 	  // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+	  
 	  function naverSignInCallback() {
 		id = naver_id_login.getProfileData('id')
 		email = naver_id_login.getProfileData('email')
@@ -99,7 +104,11 @@
 		   		}, 
 		   		success : function(data) {
 		   			if(data == "true") { //이메일이 db에 존재, 가입 필요 X, 바로 로그인
-		   				loginDirect();
+			   			$('.joinAcceptArea').css("display", "none");
+			   			$('.loginProceedArea').css("display", "block");
+			   			setTimeout(function() {
+			   				loginDirect();
+			   			}, 200);
 		   			}
 		   		}
 		  });
@@ -115,7 +124,7 @@
                   userPw: email
               },
               success : function(data) {
-                  alert('네이버로 로그인 하셨습니다. 환영합니다 ^.^');
+                  alert('네이버 아이디로 로그인 하셨습니다. 환영합니다 ^.^');
                   location.href = 'testView';
               }
           });

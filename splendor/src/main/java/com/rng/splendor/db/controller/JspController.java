@@ -2,9 +2,14 @@ package com.rng.splendor.db.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -38,27 +43,32 @@ public class JspController {
 	GuildListService guildListService;
 	
 	@RequestMapping("/index")
-	public String index() throws Exception{
+	public String index(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "index"));
 		return "index";
 	}
 	
 	@RequestMapping(value="/about-us")
-	public String about_us() throws Exception{
+	public String about_us(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "about-us"));
 		return "about-us";
 	}
 	
 	@RequestMapping(value="/나문의")
-	public String 나문의() throws Exception{
+	public String 나문의(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "response"));
 		return "나문의";
 	}
 
 	@RequestMapping(value="/자유게시판")
-	public String 자유게시판() throws Exception{
+	public String 자유게시판(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "자유게시판"));
 		return "자유게시판";
 	}
 
 	@RequestMapping(value="/BBS")
-	public String BBS() throws Exception{
+	public String BBS(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "BBS"));
 		return "BBS";
 	}
 
@@ -72,10 +82,10 @@ public class JspController {
 		return "elements";
 	}
 
-	@RequestMapping(value="/freeboard")
-	public String freeboard() throws Exception{
-		return "freeboard";
-	}
+//	@RequestMapping(value="/freeboard")
+//	public String freeboard() throws Exception{
+//		return "freeboard";
+//	}
 
 	@RequestMapping(value="/games")
 	public String games() throws Exception{
@@ -83,7 +93,8 @@ public class JspController {
 	}
 
 	@RequestMapping(value="/guild")
-	public String guild() throws Exception{
+	public String guild(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "guild"));
 //		for(GuildList data : guildListService.selectAll()) {
 //			System.out.println(data.getGuildName());
 //		}
@@ -102,20 +113,6 @@ public class JspController {
 //		return mav;
 //	}
 
-	
-//	@RequestMapping("/joinTest")
-//	public String joinTest(@RequestParam String id, 
-//			@RequestParam String pw) {
-//		System.out.println("여기 옴");
-//		Test user = new Test();
-//		user.setId(id);
-//		user.setPw(pw);
-//		System.out.println(id);
-//		System.out.println(pw);
-//		service.joinTest(user);
-//		return "join";
-//	}
-
 	@RequestMapping(value="/login")
 	public String login() throws Exception{
 		return "login";
@@ -127,12 +124,14 @@ public class JspController {
 	}
 
 	@RequestMapping(value="/screenshot")
-	public String screenshot() throws Exception{
+	public String screenshot(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "screenshot"));
 		return "screenshot";
 	}
 
 	@RequestMapping(value="/single-guild")
-	public String single_guild() throws Exception{
+	public String single_guild(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "single-guild"));
 		return "single-guild";
 	}
 	
@@ -199,14 +198,21 @@ public class JspController {
 	}
 	
 	@RequestMapping(value="/logoutForm")
-	public String logout(SessionStatus session) {
-		System.out.println("들어왔니");
+	public String logout(SessionStatus session, 
+			@CookieValue(value="location", required=false) Cookie location) {
 		session.setComplete();
+		if(location != null) {
+//			return location.getValue();
+			return "redirect:/" + location.getValue();
+		}
 		return "redirect:/index";
 	}
 	
 	@RequestMapping(value="/testView")
-	public String testView() {
+	public String testView(@CookieValue(value="location", required=false) Cookie location) {
+		if(location != null) {
+			return location.getValue();
+		}
 		return "test";
 	}
 	
@@ -222,8 +228,11 @@ public class JspController {
 	
 	@RequestMapping(value="/writeform2")
 	@ResponseBody
-	public String writeform(@ModelAttribute("boardData") BoardData boardData, Model model) throws Exception{
+	public String writeform(String boardTitle, String boardContent) throws Exception{
 		
+		BoardData boardData = new BoardData();
+		boardData.setBoard_title(boardTitle);
+		boardData.setBoard_content(boardContent);
 		BoardService.insertBoard(boardData);
 		return "true";
 	}
