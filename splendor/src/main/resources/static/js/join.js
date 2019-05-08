@@ -1,5 +1,5 @@
 var idRegExp = /^[a-z]+[a-z0-9]{5,19}$/g;// 영문자로 시작하는 6~20자 조합
-var passwordRegExp = /^[a-zA-Z0-9]{8,15}$/;// 숫자와 영문자 조합 8~15자리
+var passwordRegExp = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,15}$/;// 숫자와 영문자 조합 8~15자리, profile.js 맨 아래 줄(116라인)도 수정 필요
 var nicknameRegExp = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,15}$/;// 특수문자 제외한 2~15자
 var emailRegExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 

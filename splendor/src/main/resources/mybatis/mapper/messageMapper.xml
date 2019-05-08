@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rng.splendor.db.mapper.MessageMapper">
+    
+    <select id="insertMessage" parameterType="MessageLog">
+    	insert into message_log values (
+    	0, 
+    	#{mess_sender}, 
+    	#{mess_receiver}, 
+    	#{mess_send_date}, 
+    	0, 
+    	#{mess_content} 
+    	)
+    </select>
+    
+    <select id="selectAll" resultType="java.util.List">
+    	select * from message_log
+    </select>
+</mapper>
