@@ -92,26 +92,40 @@ public class JspController {
 		return "games";
 	}
 
+//	@RequestMapping(value="/guild")
+//	public String guild(HttpServletResponse response) throws Exception{
+//		response.addCookie(new Cookie("location", "guild"));
+////		for(GuildList data : guildListService.selectAll()) {
+////			System.out.println(data.getGuildName());
+////		}
+//		System.out.println(guildListService.selectAll());
+////		System.out.println(guildListService.selectAll().toString());
+//		return "guild";
+//	}
+	
 	@RequestMapping(value="/guild")
-	public String guild(HttpServletResponse response) throws Exception{
+	public ModelAndView guild(HttpServletResponse response) throws Exception{
 		response.addCookie(new Cookie("location", "guild"));
-//		for(GuildList data : guildListService.selectAll()) {
-//			System.out.println(data.getGuildName());
-//		}
-		System.out.println(guildListService.selectAll());
-//		System.out.println(guildListService.selectAll().toString());
-		return "guild";
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("guildList", guildListService.selectAll());
+		mav.setViewName("guild");
+		return mav;
 	}
 	
-//	@RequestMapping(value="/guild")
-//	public ModelAndView guild() throws Exception{
-//		ModelAndView mav = new ModelAndView();
-//		mav.addObject("asd", guildListService.selectAll());
-//		mav.setViewName("guild");
-//		
-//		
-//		return mav;
-//	}
+	@RequestMapping(value="/single-guild")
+	public ModelAndView single_guild(HttpServletResponse response, String guildName) throws Exception{
+		response.addCookie(new Cookie("location", "single-guild"));
+		ModelAndView mav = new ModelAndView();
+		System.out.println(guildListService.selectOne(guildName));
+		mav.addObject("guildInfo", guildListService.selectOne(guildName));
+		mav.setViewName("single-guild");
+		return mav;
+	}
+	
+	@RequestMapping
+	public void guildJoinForm(Model model) throws Exception {
+		model.g
+	}
 
 	@RequestMapping(value="/login")
 	public String login() throws Exception{
@@ -129,11 +143,7 @@ public class JspController {
 		return "screenshot";
 	}
 
-	@RequestMapping(value="/single-guild")
-	public String single_guild(HttpServletResponse response) throws Exception{
-		response.addCookie(new Cookie("location", "single-guild"));
-		return "single-guild";
-	}
+	
 	
 	@RequestMapping(value="/join")
 	public String join() throws Exception{
@@ -171,7 +181,6 @@ public class JspController {
 		} else if(userService.idCheck(userId).getUser_mail().equals(userId)
 				&& userService.idCheck(userId).getUser_password().equals(userPw)) {
 			model.addAttribute("user", userService.idCheck(userId));
-			System.out.println("true");
 			return "true";
 		} else {
 			return "false";

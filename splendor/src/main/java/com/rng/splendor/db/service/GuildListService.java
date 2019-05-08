@@ -21,4 +21,8 @@ public class GuildListService {
 	public List<GuildList> selectAll() {
 		return guildListMapper.selectAll();
 	}
+	
+	public GuildList selectOne(String guildName) {
+		return guildListMapper.selectOne(guildName);
+	}
 }

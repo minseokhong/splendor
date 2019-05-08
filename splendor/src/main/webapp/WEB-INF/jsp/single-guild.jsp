@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -37,7 +37,7 @@
             	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
 				<div class="container">
 					<div class="banner_content text-center">
-						<h2>±ÊµÂ</h2>
+						<h2>Í∏∏Îìú</h2>
 					</div>
 				</div>
             </div>
@@ -45,12 +45,14 @@
         <!--================End Home Banner Area =================-->
         
         <!--================guild Area =================-->
+        <c:set var="guildInfo" value="${guildInfo }"></c:set>
         <section class="guild_area single-post-area section_gap">
             <div class="container">
                 <div class="row">
-
-                    
                     <div class="each_guild" style="width: 80%; margin: auto;">
+	                    <div style=" height: 50px;">
+	                    	<button id="guildJoin" class="primary-btn primary_btn" style="position:absolute; right: 25%;">Í∞ÄÏûÖÌïòÍ∏∞</button>
+	                    </div>
                         <div class="single-post row">
                             <div class="col-lg-12" style="text-align: center;">
                                 <!-- <div class="feature-img">
@@ -60,10 +62,10 @@
                             <div class="col-lg-3  col-md-3">
                                 <div class="guild_info text-right">
                                     <ul class="guild_meta list">
-                                        <li><a href="#">«ˆ∫Û<i class="lnr lnr-user"></i></a></li>
-                                        <li><a href="#">12∏Ì<i class="lnr lnr-home"></i></a></li>
-                                        <li><a href="#">«ˆ∫Û<i class="lnr lnr-"></i></a></li>
-                                        <li><a href="#">12∏Ì<i class="lnr lnr-home"></i></a></li>
+                                        <li><a href="#">ÌòÑÎπà<i class="lnr lnr-user"></i></a></li>
+                                        <li><a href="#">12Î™Ö<i class="lnr lnr-home"></i></a></li>
+                                        <li><a href="#">ÌòÑÎπà<i class="lnr lnr-"></i></a></li>
+                                        <li><a href="#">12Î™Ö<i class="lnr lnr-home"></i></a></li>
                                     </ul>
                                     <img class="img-fluid" src="img/guild/feature-img1.jpg" alt="" style="width: 100%;">
                                     <!-- <ul class="social-links">
@@ -75,92 +77,84 @@
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-9 guild_details">
-                                <h1 style="text-align: center;">< øÏ¡÷√÷∞≠ > </h1>
-                                <div class="excert">
-                                    øÏ∏Æ ±ÊµÂ¥¬ ƒ£∏Ò ¿ß¡÷¿« .....
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet excepturi eaque ullam quasi, odit animi alias officia ab recusandae dignissimos rem explicabo, voluptatibus harum veniam? Maxime dicta est similique!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet excepturi eaque ullam quasi, odit animi alias officia ab recusandae dignissimos rem explicabo, voluptatibus harum veniam? Maxime dicta est similique!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet excepturi eaque ullam quasi, odit animi alias officia ab recusandae dignissimos rem explicabo, voluptatibus harum veniam? Maxime dicta est similique!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet excepturi eaque ullam quasi, odit animi alias officia ab recusandae dignissimos rem explicabo, voluptatibus harum veniam? Maxime dicta est similique!
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui amet excepturi eaque ullam quasi, odit animi alias officia ab recusandae dignissimos rem explicabo, voluptatibus harum veniam? Maxime dicta est similique!
-                                </div>
-                                <!-- <p class="excert">
-                                    MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.
-                                </p>
-                                <p>
-                                    Boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed
-                                </p>
-                                <p>
-                                    Boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed
-                                </p> -->
+                                <h1 style="text-align: center;">  ${guildInfo.guildName }  </h1>
+                                <div class="excert" style="text-align: center;">
+									${guildInfo.guildComm }
+								</div>
                             </div>
                             <div class="col-lg-12" style="text-align: center; margin-top: 10%; overflow-y: scroll; height: 500px;">
-                                <h2>±∏º∫ø¯</h2>
+                                <h2>Íµ¨ÏÑ±Ïõê</h2>
                                 <div class="quotes">
                                     
                                     <table style="font-size: 20px; width: 100%;">
                                         <thead style="width: 100%;">
                                             <tr>
-                                                <th style="padding: 10px 0;">¥–≥◊¿”</th>
-                                                <th style="padding: 10px 0;">µÓ±ﬁ</th>
-                                                <th style="padding: 10px 0;">¡°ºˆ</th>
-                                                <th style="padding: 10px 0;">Ω¬∑¸</th>
+                                                <th style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ</th>
+                                                <th style="padding: 10px 0;">Îì±Í∏â</th>
+                                                <th style="padding: 10px 0;">Ï†êÏàò</th>
+                                                <th style="padding: 10px 0;">ÏäπÎ•†</th>
                                             </tr>
                                         </thead>
+                                        
+                                        
+                                        
                                         <tr>
-                                            <td style="padding: 10px 0;">¥–≥◊¿”1</td>
-                                            <td style="padding: 10px 0;">±ÊµÂøÓøµ¿⁄</td>
+                                            <td style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ1</td>
+                                            <td style="padding: 10px 0;">Í∏∏ÎìúÏö¥ÏòÅÏûê</td>
                                             <td style="padding: 10px 0;">45</td>
                                             <td style="padding: 10px 0;">50%</td>
                                         </tr>
+                                        
+                                        
+                                        
                                         <tr>
-                                            <td style="padding: 10px 0;">¥–≥◊¿”2</td>
-                                            <td style="padding: 10px 0;">»∏ø¯</td>
+                                            <td style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ2</td>
+                                            <td style="padding: 10px 0;">ÌöåÏõê</td>
                                             <td style="padding: 10px 0;">20</td>
                                             <td style="padding: 10px 0;">50%</td>
                                         </tr>
                                         <tr>
-                                            <td style="padding: 10px 0;">¥–≥◊¿”3</td>
-                                            <td style="padding: 10px 0;">»∏ø¯</td>
+                                            <td style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ3</td>
+                                            <td style="padding: 10px 0;">ÌöåÏõê</td>
                                             <td style="padding: 10px 0;">11</td>
                                             <td style="padding: 10px 0;">50%</td>
                                         </tr>
                                         <tr>
-                                                <td style="padding: 10px 0;">¥–≥◊¿”3</td>
-                                                <td style="padding: 10px 0;">»∏ø¯</td>
-                                                <td style="padding: 10px 0;">11</td>
-                                                <td style="padding: 10px 0;">50%</td>
-                                            </tr>
-                                            <tr>
-                                                    <td style="padding: 10px 0;">¥–≥◊¿”3</td>
-                                                    <td style="padding: 10px 0;">»∏ø¯</td>
-                                                    <td style="padding: 10px 0;">11</td>
-                                                    <td style="padding: 10px 0;">50%</td>
-                                                </tr>
-                                                <tr>
-                                                        <td style="padding: 10px 0;">¥–≥◊¿”3</td>
-                                                        <td style="padding: 10px 0;">»∏ø¯</td>
-                                                        <td style="padding: 10px 0;">11</td>
-                                                        <td style="padding: 10px 0;">50%</td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td style="padding: 10px 0;">¥–≥◊¿”3</td>
-                                                            <td style="padding: 10px 0;">»∏ø¯</td>
-                                                            <td style="padding: 10px 0;">11</td>
-                                                            <td style="padding: 10px 0;">50%</td>
-                                                        </tr>
-                                                        <tr>
-                                                                <td style="padding: 10px 0;">¥–≥◊¿”3</td>
-                                                                <td style="padding: 10px 0;">»∏ø¯</td>
-                                                                <td style="padding: 10px 0;">11</td>
-                                                                <td style="padding: 10px 0;">50%</td>
-                                                            </tr>
-                                                            <tr>
-                                                                    <td style="padding: 10px 0;">¥–≥◊¿”3</td>
-                                                                    <td style="padding: 10px 0;">»∏ø¯</td>
-                                                                    <td style="padding: 10px 0;">11</td>
-                                                                    <td style="padding: 10px 0;">50%</td>
-                                                                </tr>
+                                            <td style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ3</td>
+                                            <td style="padding: 10px 0;">ÌöåÏõê</td>
+                                            <td style="padding: 10px 0;">11</td>
+                                            <td style="padding: 10px 0;">50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ3</td>
+                                            <td style="padding: 10px 0;">ÌöåÏõê</td>
+                                            <td style="padding: 10px 0;">11</td>
+                                            <td style="padding: 10px 0;">50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ3</td>
+                                            <td style="padding: 10px 0;">ÌöåÏõê</td>
+                                            <td style="padding: 10px 0;">11</td>
+                                            <td style="padding: 10px 0;">50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ3</td>
+                                            <td style="padding: 10px 0;">ÌöåÏõê</td>
+                                            <td style="padding: 10px 0;">11</td>
+                                            <td style="padding: 10px 0;">50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ3</td>
+                                            <td style="padding: 10px 0;">ÌöåÏõê</td>
+                                            <td style="padding: 10px 0;">11</td>
+                                            <td style="padding: 10px 0;">50%</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 10px 0;">ÎãâÎÑ§ÏûÑ3</td>
+                                            <td style="padding: 10px 0;">ÌöåÏõê</td>
+                                            <td style="padding: 10px 0;">11</td>
+                                            <td style="padding: 10px 0;">50%</td>
+                                        </tr>
                                     </table>									
                                 </div>
                                 <!-- <div class="row">
@@ -219,27 +213,27 @@
                                             <img src="img/guild/c1.jpg" alt="">
                                         </div>
                                         <div class="desc">
-                                            <h5><a href="#">ø°π–∏Æ</a></h5>
+                                            <h5><a href="#">ÏóêÎ∞ÄÎ¶¨</a></h5>
                                             <p class="date">2019.5.16___15:12</p>
                                             <p class="comment">
-                                                æ»≥Á«œººø‰ ^^
+                                                ÏïàÎÖïÌïòÏÑ∏Ïöî ^^	 
                                             </p>
                                         </div>
                                     </div>
                                     <div class="reply-btn">
-                                           <a id="¥Î¥Ò±€¥ﬁ±‚" class="btn-reply text-uppercase">¥Î¥Ò±€¥ﬁ±‚</a> 
+                                           <a id="ÎåÄÎåìÍ∏ÄÎã¨Í∏∞" class="btn-reply text-uppercase">ÎåÄÎåìÍ∏ÄÎã¨Í∏∞</a> 
                                     </div>
                                 </div>
 
-                                <div class="¥Î¥Ò±€√¢" style="position: relative; display: none;">
+                                <div class="ÎåÄÎåìÍ∏ÄÏ∞Ω" style="position: relative; display: none;">
                                     <form>
                                         <div class="form-group form-inline">
                                         </div>
                                         <div style="display: inline-block; width: 80%;">
-                                            <textarea class="form-control mb-10" rows="5" name="message" placeholder="≥ªøÎ¿ª ¿‘∑¬«ÿ¡÷ººø‰" onfocus="this.placeholder = ''" onblur="this.placeholder = '≥ªøÎ¿ª ¿‘∑¬«ÿ¡÷ººø‰'" required=""></textarea>
+                                            <textarea class="form-control mb-10" rows="5" name="message" placeholder="ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî'" required=""></textarea>
                                         </div>
                                         <div style="position: absolute; display: inline-block; top: 60%;">
-                                            <a href="#" class="primary-btn primary_btn">µÓ∑œ</a>	
+                                            <a href="#" class="primary-btn primary_btn">Îì±Î°ù</a>	
 
                                         </div>
                                     </form>
@@ -255,15 +249,15 @@
                                             <img src="img/guild/c2.jpg" alt="">
                                         </div>
                                         <div class="desc">
-                                            <h5><a href="#">πÃ≈∞</a></h5>
+                                            <h5><a href="#">ÎØ∏ÌÇ§</a></h5>
                                             <p class="date">2019.5.16___15:12</p>
                                             <p class="comment">
-                                                æ»≥Á«œººø‰ ^^
+                                                ÏïàÎÖïÌïòÏÑ∏Ïöî ^^
                                             </p>
                                         </div>
                                     </div>
                                     <div class="reply-btn">
-                                           <a href="" class="btn-reply text-uppercase">¥Î¥Ò±€¥ﬁ±‚</a> 
+                                           <a href="" class="btn-reply text-uppercase">ÎåÄÎåìÍ∏ÄÎã¨Í∏∞</a> 
                                     </div>
                                 </div>
                             </div>	
@@ -274,15 +268,15 @@
                                             <img src="img/guild/c3.jpg" alt="">
                                         </div>
                                         <div class="desc">
-                                            <h5><a href="#">æ÷¥œ</a></h5>
+                                            <h5><a href="#">Ïï†Îãà</a></h5>
                                             <p class="date">2019.5.16___15:12</p>
                                             <p class="comment">
-                                                æ»≥Á«œººø‰ ^^
+                                                ÏïàÎÖïÌïòÏÑ∏Ïöî ^^
                                             </p>
                                         </div>
                                     </div>
                                     <div class="reply-btn">
-                                           <a href="" class="btn-reply text-uppercase">¥Î¥Ò±€¥ﬁ±‚</a> 
+                                           <a href="" class="btn-reply text-uppercase">ÎåÄÎåìÍ∏ÄÎã¨Í∏∞</a> 
                                     </div>
                                 </div>
                             </div>	
@@ -293,15 +287,15 @@
                                             <img src="img/guild/c4.jpg" alt="">
                                         </div>
                                         <div class="desc">
-                                            <h5><a href="#">∏∂∏Ææ∆</a></h5>
+                                            <h5><a href="#">ÎßàÎ¶¨ÏïÑ</a></h5>
                                             <p class="date">2019.5.16___15:12</p>
                                             <p class="comment">
-                                                æ»≥Á«œººø‰ ^^
+                                                ÏïàÎÖïÌïòÏÑ∏Ïöî ^^
                                             </p>
                                         </div>
                                     </div>
                                     <div class="reply-btn">
-                                           <a href="" class="btn-reply text-uppercase">¥Î¥Ò±€¥ﬁ±‚</a> 
+                                           <a href="" class="btn-reply text-uppercase">ÎåÄÎåìÍ∏ÄÎã¨Í∏∞</a> 
                                     </div>
                                 </div>
                             </div>	
@@ -312,28 +306,28 @@
                                             <img src="img/guild/c5.jpg" alt="">
                                         </div>
                                         <div class="desc">
-                                            <h5><a href="#">Ω∫πÃΩ∫</a></h5>
+                                            <h5><a href="#">Ïä§ÎØ∏Ïä§</a></h5>
                                             <p class="date">2019.5.16___15:12</p>
                                             <p class="comment">
-                                                æ»≥Á«œººø‰ ^^
+                                                ÏïàÎÖïÌïòÏÑ∏Ïöî ^^
                                             </p>
                                         </div>
                                     </div>
                                     <div class="reply-btn">
-                                           <a href="" class="btn-reply text-uppercase">¥Î¥Ò±€¥ﬁ±‚</a> 
+                                           <a href="" class="btn-reply text-uppercase">ÎåÄÎåìÍ∏ÄÎã¨Í∏∞</a> 
                                     </div>
                                 </div>
                             </div>	                                             				
                         </div>
                         <div class="comment-form">
-                            <h4>¥Ò±€¥ﬁ±‚</h4>
+                            <h4>ÎåìÍ∏ÄÎã¨Í∏∞</h4>
                             <form>
                                 <div class="form-group form-inline">
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control mb-10" rows="5" name="message" placeholder="≥ªøÎ¿ª ¿‘∑¬«ÿ¡÷ººø‰" onfocus="this.placeholder = ''" onblur="this.placeholder = '≥ªøÎ¿ª ¿‘∑¬«ÿ¡÷ººø‰'" required=""></textarea>
+                                    <textarea class="form-control mb-10" rows="5" name="message" placeholder="ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî'" required=""></textarea>
                                 </div>
-                                <a href="#" class="primary-btn primary_btn">µÓ∑œ</a>	
+                                <a href="#" class="primary-btn primary_btn">Îì±Î°ù</a>	
                             </form>
                         </div>
                     </div>
@@ -372,9 +366,22 @@
         <script src="js/theme.js"></script>
 
         <script>
-            $('#¥Î¥Ò±€¥ﬁ±‚').click(function() {
-                $('.¥Î¥Ò±€√¢').toggle('normal');
+            $('#ÎåÄÎåìÍ∏ÄÎã¨Í∏∞').click(function() {
+                $('.ÎåÄÎåìÍ∏ÄÏ∞Ω').toggle('normal');
             });
+            
+            $('#guildJoin').on('click', function() {
+            	if(${user} == null) {
+            		alert('Î°úÍ∑∏Ïù∏ÏùÑ Ìï¥Ï£ºÏÑ∏Ïöî.')
+            	} else {
+            		alert('Í∞ÄÏûÖÏù¥ ÏôÑÎ£åÎêòÏóàÏäµÎãàÎã§.');
+	            	location.href="guildJoinForm";
+            	}
+            })
+            
+//             function guildJoin() {
+				            	
+//             }
         </script>
     </body>
 </html>

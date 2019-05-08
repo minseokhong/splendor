@@ -10,4 +10,7 @@ public interface GuildListMapper {
 	public void updateinsertGuild(GuildList guildList);
 	public void deleteinsertGuild();
 	public List<GuildList> selectAll();
+	
+	public GuildList selectOne(String guildName);
+	
 }
