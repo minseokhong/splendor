@@ -1,4 +1,5 @@
 package com.rng.splendor.db.controller;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -113,7 +114,7 @@ public class JspController {
 	
 	@RequestMapping(value="/single-guild")
 	public ModelAndView single_guild(HttpServletResponse response, String guildName) throws Exception{
-		response.addCookie(new Cookie("location", "single-guild"));
+		response.addCookie(new Cookie("location", "single-guild?guildName=" + URLEncoder.encode(guildName, "UTF-8")));
 		ModelAndView mav = new ModelAndView();
 		System.out.println(guildListService.selectOne(guildName));
 		mav.addObject("guildInfo", guildListService.selectOne(guildName));
@@ -217,9 +218,10 @@ public class JspController {
 	}
 	
 	@RequestMapping(value="/testView")
-	public String testView(@CookieValue(value="location", required=false) Cookie location) {
+	public String testView(@CookieValue(value="location", required=false) Cookie location) throws Exception {
 		if(location != null) {
-			return location.getValue();
+			System.out.println();
+			return "redirect:/" + location.getValue();
 		}
 		return "test";
 	}
