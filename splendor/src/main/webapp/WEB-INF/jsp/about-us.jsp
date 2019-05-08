@@ -78,7 +78,8 @@
                   <div class="col-lg-22 posts-list">
                      <div class="single-post row">
                         <div class="col-lg-9 col-md-9 blog_details">
-                           <h2>스플랜더 필승 전략</h2>
+                           <h2>메뉴얼</h2>
+              
                            <p class="excert">
                                  제목은 스플랜더 필승 전략 탐구라고 했지만, 처음에 뭐하고 다음에 뭐하고 이렇게 이렇게 하면 필승!! 이런건 아쉽게도 불가능 합니다.
 

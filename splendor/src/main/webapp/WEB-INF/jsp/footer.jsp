@@ -8,21 +8,21 @@
 </head>
 <body>
 
-<footer class="footer_area section_gap_top">
-      <div class="container">
-         <div class="row footer_inner">
+<footer class="footer_area section_gap_top" style="padding-top:10px; padding-bottom:10px">
+      <div class="container" style="padding-top: 10px; padding-bottom: 10px">
+         <div class="row footer_inner" style="padding-top: 5px; padding-bottom: 5px" >
             <div class="col-lg-3 col-sm-6">
-               <aside class="f_widget ab_widget">
+               <aside class="f_widget ab_widget" >
                   <div class="f_title">
                      <h4>ÃßÃµ °ÔÀÓ»çÀÌÆ®</h4>
                   </div>
                   <ul>
-                     <li><a href="#"></a>For Business</a></li><a href="#">
-                        <li><a href="#"></a>Premium Plans
-                     </a></li>
-                     <li><a href="#"></a>Reviews</a></li>
-                     <li><a href="#"></a>How it Works</a></li>
-                     <li><a href="#"></a>Farfly Blog</a></li>
+                     <li style="padding-bottom:0px"><a href="http://kr.zxgame9.com/">zxGame9</a></li>
+                     <li style="padding-bottom:0px"><a href="https://norara.dreamx.com/">Á¡½É¸Ô°í³ë¶ó¶ó</a></li>
+                     <li style="padding-bottom:0px"><a href="http://flash365.dreamx.com/game/zboard.php?id=game">ÇÃ·¡½Ã365</a></li>
+                     <li style="padding-bottom:0px"><a href="http://fg.gameangel.com/">°ÔÀÓ¿£Á©</a></li>
+                     <li style="padding-bottom:0px"><a href="http://www.arcadeprehacks.com/">ArcadePrehacks</a></li>
+                   
                   </ul>
                </aside>
             </div>
@@ -32,12 +32,11 @@
                      <h4>¿î¿µÁø ÀÌ¸ÞÀÏ</h4>
                   </div>
                   <ul>
-                     <li><a href="#"></a>didlshadk97@nate.com</a></li><a href="#">
-                        <li><a href="#"></a>À±Çöºó
-                     </a></li>
-                     <li><a href="#"></a>ÁÖ¹Î¼·</a></li>
-                     <li><a href="#"></a>È«¹Î¼®</a></li>
-                     <li><a href="#"></a>±èµµÇü</a></li>
+                     <li style="padding-bottom:0px"><a href="#">didlshadk97@nate.com</a></li>
+                     <li style="padding-bottom:0px"><a href="#">À±Çöºó</a></li>
+                     <li style="padding-bottom:0px"><a href="#">ÁÖ¹Î¼·</a></li>
+                     <li style="padding-bottom:0px"><a href="#">È«¹Î¼®</a></li>
+                     <li style="padding-bottom:0px"><a href="#">±èµµÇü</a></li>
                   </ul>
                </aside>
             </div>
@@ -58,16 +57,6 @@
             </div> -->
             <div class="col-lg-3 col-sm-6">
                <aside class="f_widget ab_widget">
-                  <div class="f_title">
-                     <h4>Legal</h4>
-                  </div>
-                  <ul>
-                     <li><a href="#"></a>Terms and conditions</a></li><a href="#">
-                        <li><a href="#"></a>Privacy Policy
-                     </a></li>
-                     <li><a href="#"></a>Cookie Information</a></li>
-                     <li><a href="#"></a>Opt - Out</a></li>
-                  </ul>
                </aside>
             </div>
          </div>
@@ -80,12 +69,6 @@
                </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12">
-               <div class="social_widget">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                  <a href="#"><i class="fa fa-dribbble"></i></a>
-                  <a href="#"><i class="fa fa-behance"></i></a>
-               </div>
             </div>
          </div>
       </div>
