@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,7 +38,7 @@
 				<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
 				<div class="container">
 					<div class="banner_content text-center">
-						<h2>±ÊµÂ</h2>
+						<h2>Í∏∏Îìú</h2>
 					</div>
 				</div>
             </div>
@@ -95,7 +95,7 @@
                                 <div class="categories_text">
                                     <a href="single-guild"><h5>1st</h5></a>
                                     <div class="border_line"></div>
-                                    <p>∏ﬁ∞°π⁄Ω∫</p>
+                                    <p>Î©îÍ∞ÄÎ∞ïÏä§</p>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                                 <div class="categories_text">
                                     <a href="single-guild"><h5>2nd</h5></a>
                                     <div class="border_line"></div>
-                                    <p>ªÔº∫¿¸¿⁄</p>
+                                    <p>ÏÇºÏÑ±Ï†ÑÏûê</p>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +120,7 @@
                                 <div class="categories_text">
                                     <a href="single-guild"><h5>3rd</h5></a>
                                     <div class="border_line"></div>
-                                    <p>ƒ∑«¡</p>
+                                    <p>Ï∫†ÌîÑ</p>
                                 </div>
                             </div>
                         </div>
@@ -136,8 +136,8 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="guild_left_sidebar" style="background-color: #eeeeee">
-                        
-                            <article class="row guild_item" >
+                        <c:forEach var="item" items="${guildList }">
+                        	<article class="row guild_item" >
                                <div class="col-md-3">
                                    <div class="guild_info text-right">
                                         <div class="post_tag">
@@ -145,68 +145,22 @@
                                         <ul class="guild_meta list" >
                                             <li style="text-align: center;"><img src="img/jihyo.jpg" style="width: 80%"></li>
                                             <li style="height: 20px;"></li>
-                                            <li><a href="#">≥ª∞°¿œµÓ¿Ø¿˙<i class="lnr lnr-user"></i></a></li>
-                                            <li><a href="#">12∏Ì<i class="lnr lnr-home"></i></a></li>
+                                            <li><a href="#">ÎÇ¥Í∞ÄÏùºÎì±Ïú†Ï†Ä<i class="lnr lnr-user"></i></a></li>
+                                            <li><a href="#">12Î™Ö<i class="lnr lnr-home"></i></a></li>
                                         </ul>
                                     </div>
                                </div>
                                 <div class="col-md-9">
                                     <div class="guild_post">
                                         <div class="guild_details">
-                                            <a href="single-guild"><h2>∏ﬁ∞°π⁄Ω∫</h2></a>
-                                            <p>${asd }</p>
-                                            <a href="single-guild" class="guild_btn" style="border: 1px solid">View More</a>
+                                            <a href="single-guild?guildName=${item.guildName }"><h2>${item.guildName }</h2></a>
+                                            <p>${item.guildComm }</p>
+                                            <a href="single-guild?guildName=${item.guildName }" class="guild_btn" style="border: 1px solid">View More</a>
                                         </div>
                                     </div>
                                 </div>
                             </article>
-                            
-                            <article class="row guild_item">
-                               <div class="col-md-3">
-                                   <div class="guild_info text-right">
-                                        <div class="post_tag">
-                                          
-                                        </div>
-                                        <ul class="guild_meta list">
-                                            <li><a href="#">≥™¥¬¿ÃµÓ¿Ø¿˙<i class="lnr lnr-user"></i></a></li>
-                                            <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                                            <li><a href="#">8∏Ì<i class="lnr lnr-home"></i></a></li>
-                                        </ul>
-                                    </div>
-                               </div>
-                                <div class="col-md-9">
-                                    <div class="guild_post">
-                                        <div class="guild_details">
-                                            <a href="single-guild"><h2>ªÔº∫¿¸¿⁄</h2></a>
-                                            <p>∞‘¿”«ÿº≠ ªÔº∫¿¸¬˜ √Îæ˜ ∞°¡Óæ∆!</p>
-                                            <a href="single-guild" class="guild_btn" style="border: 1px solid">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="row guild_item">
-                               <div class="col-md-3">
-                                   <div class="guild_info text-right">
-                                        <div class="post_tag">
-                                            
-                                        </div>
-                                        <ul class="guild_meta list">
-                                            <li><a href="#">≥™¥¬ªÔµÓ¿Ø¿˙<i class="lnr lnr-user"></i></a></li>
-                                            <li><a href="#">12 Dec, 2017<i class="lnr lnr-calendar-full"></i></a></li>
-                                            <li><a href="#">9∏Ìs<i class="lnr lnr-home"></i></a></li>
-                                        </ul>
-                                    </div>
-                               </div>
-                                <div class="col-md-9">
-                                    <div class="guild_post">
-                                        <div class="guild_details">
-                                            <a href="single-guild"><h2>ƒ∑«¡</h2></a>
-                                            <p>∫Ò∆Æƒ∑«¡∏¶¿ß«œø©!</p>
-                                            <a href="single-guild" class="guild_btn" style="border: 1px solid">View More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                        </c:forEach>
                             
                             <nav class="guild-pagination justify-content-center d-flex">
 		                        <ul class="pagination">
@@ -217,11 +171,18 @@
 		                                    </span>
 		                                </a>
 		                            </li>
-		                            <li class="page-item"><a href="#" class="page-link">01</a></li>
-		                            <li class="page-item active"><a href="#" class="page-link">02</a></li>
-		                            <li class="page-item"><a href="#" class="page-link">03</a></li>
-		                            <li class="page-item"><a href="#" class="page-link">04</a></li>
-		                            <li class="page-item"><a href="#" class="page-link">09</a></li>
+		                            <c:forEach var="item" items="${guildList }">
+		                            	<c:if test="item.size()3>">
+			                            	<li class="page-item active"><a href="#" class="page-link">01</a></li>
+		                            	</c:if>
+		                            
+		                            </c:forEach>
+		                            
+		                            
+<!-- 		                            <li class="page-item"><a href="#" class="page-link">02</a></li> -->
+<!-- 		                            <li class="page-item"><a href="#" class="page-link">03</a></li> -->
+<!-- 		                            <li class="page-item"><a href="#" class="page-link">04</a></li> -->
+<!-- 		                            <li class="page-item"><a href="#" class="page-link">09</a></li> -->
 		                            <li class="page-item">
 		                                <a href="#" class="page-link" aria-label="Next">
 		                                    <span aria-hidden="true">
@@ -235,13 +196,13 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="guild_right_sidebar">
-                            <a href="create-guild" class="primary_btn" style="width: 300px">±ÊµÂª˝º∫</a>
+                            <a href="create-guild" class="primary_btn" style="width: 300px">Í∏∏ÎìúÏÉùÏÑ±</a>
                             <div style="margin-top: 20px">
 
                             </div>
                             <aside class="single_sidebar_widget search_widget">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="±ÊµÂ¿Ã∏ß∞Àªˆ">
+                                    <input type="text" class="form-control" placeholder="Í∏∏ÎìúÏù¥Î¶ÑÍ≤ÄÏÉâ">
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
                                     </span>
@@ -250,9 +211,9 @@
                             </aside>
                             <aside class="single_sidebar_widget author_widget">
                                 <img class="author_img rounded-circle" src="img/guild/author.png" alt="">
-                                <h4>¥–≥◊¿”</h4>
-                                <p>º“º” ±ÊµÂ</p>
-                                <p>±ÊµÂ ∞°¿‘Ω≈√ª«’¥œ¥Ÿ πﬁæ∆¡÷ººø‰ »∞µø«“∞‘ø‰.</p>
+                                <h4>ÎãâÎÑ§ÏûÑ</h4>
+                                <p>ÏÜåÏÜç Í∏∏Îìú</p>
+                                <p>Í∏∏Îìú Í∞ÄÏûÖÏã†Ï≤≠Ìï©ÎãàÎã§ Î∞õÏïÑÏ£ºÏÑ∏Ïöî ÌôúÎèôÌï†Í≤åÏöî.</p>
                                 <div class="br"></div>
                             </aside>
                         </div>
