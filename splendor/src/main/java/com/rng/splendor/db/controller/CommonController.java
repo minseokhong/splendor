@@ -47,7 +47,9 @@ public class CommonController {
 		model.addAttribute("user", userData);
 	}
 	
-	
-	
+	@RequestMapping("/sendMessage")
+	public void sendMessage(String mess_sender, String mess_receiver, String mess_content) {
+		System.out.println("\n\n=================================" + mess_sender + "==================\n\n");
+	}
 	
 }

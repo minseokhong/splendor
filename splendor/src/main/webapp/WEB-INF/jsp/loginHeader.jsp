@@ -11,7 +11,11 @@
   crossorigin="anonymous"></script>
   
   <script type="text/javascript">
-  
+  	$(document).ready(function() {
+  		
+  		$('.${activeLocation }').addClass('active');
+  		
+  	});
   </script>
 
 </head>
@@ -35,10 +39,10 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav justify-content-center">
-							<li class="nav-item active"><a class="nav-link" href="index">홈페이지</a></li>
-							<li class="nav-item"><a class="nav-link" href="about-us">게임소개</a></li>
-							<li class="nav-item"><a class="nav-link" href="screenshot">스크린샷</a></li>
-							<li class="nav-item submenu dropdown">
+							<li class="nav-item index"><a class="nav-link" href="index">홈페이지</a></li>
+							<li class="nav-item about-us"><a class="nav-link" href="about-us">게임소개</a></li>
+							<li class="nav-item screenshot"><a class="nav-link" href="screenshot">스크린샷</a></li>
+							<li class="nav-item community submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">커뮤니티</a>
 								<ul class="dropdown-menu">
@@ -46,7 +50,7 @@
 									<li class="nav-item"><a class="nav-link" href="자유게시판">자유게시판</a></li>
 								</ul>
 							</li>
-							<li class="nav-item submenu dropdown">
+							<li class="nav-item service submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false">고객센터</a>
 								<ul class="dropdown-menu">
@@ -319,7 +323,7 @@
 							</div>
 							<div style="background-color: white; height: 60%; text-align: center;">
 								<div style="margin-left: 5%; height: 20%; font-size: 20px;">
-									to. <input type="text" placeholder="받는사람의 닉네임을 입력하세요." 
+									to. <input id="receiver" type="text" placeholder="받는사람의 닉네임을 입력하세요." 
 									onfocus="this.placeholder = ''" onblur="this.placeholder = '받는사람의 닉네임을 입력하세요.'"
 									style="width: 80%; height: 80%; font-size: 15px; border: none; margin-top: 5%;">
 								</div>
@@ -332,7 +336,7 @@
 								</div>
 								<div>
 									<input type="button" value="보내기" 
-									style="text-align: right; background-color: white; color: rgb(168, 9, 49); border: none; cursor: pointer;">
+									style="text-align: right; background-color: white; color: rgb(168, 9, 49); border: none; cursor: pointer;" onclick=sendMessage();>
 
 								</div>
 							</div>
@@ -405,6 +409,23 @@
 		$(".cancel").click(function() {
 			alert("로그아웃 되었습니다. 안녕히가세요.~~")
 		});
+		
+		function sendMessage() {
+			alert($('#receiver').val());
+	    	$.ajax({
+	    		type : "POST", 
+	    		url : "http://localhost:8000/sendMessage", 
+	    		dataType : "text", 
+	    		data : {
+	    			mess_sender : '${user.user_name }', 
+	    			mess_receiver : $('#receiver').val(), 
+	    			mess_content : 'gdgdgdgd'
+	    		}, 
+	    		success : function(data) {
+	    			alert("일단 메시지는 보냈다.. 보내긴 했어...");
+	    		};
+	    	});
+		};
 		
 	</script>
 </body>

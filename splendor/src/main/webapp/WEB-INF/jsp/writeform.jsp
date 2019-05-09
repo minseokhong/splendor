@@ -162,7 +162,7 @@
                     </tr>
                     <tr>
                         <td colspan="2"> 
-                        	<input type="submit" value="글쓰기" class="btn btn-primary pull-right large" />
+                        	<input type="submit" value="등　록" class="btn btn-primary pull-right large" />
                             <input type="button" value="취　소" onclick="location.href='자유게시판'" class="btn btn-primary pull-left large" />
 
                         </td>

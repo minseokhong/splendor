@@ -10,7 +10,7 @@
     	#{mess_receiver}, 
     	#{mess_send_date}, 
     	0, 
-    	#{mess_content} 
+    	#{mess_content}
     	)
     </select>
     
