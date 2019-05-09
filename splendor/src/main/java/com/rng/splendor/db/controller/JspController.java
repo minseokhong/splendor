@@ -57,15 +57,14 @@ public class JspController {
 	}
 	
 	@RequestMapping(value="/나문의")
-	public String 나문의(HttpServletResponse response, Model model) throws Exception{
-		response.addCookie(new Cookie("location", "response"));
+	public String 나문의(Model model) throws Exception{
 		model.addAttribute("activeLocation", "service");
 		return "나문의";
 	}
 
 	@RequestMapping(value="/자유게시판")
 	public String 자유게시판(HttpServletResponse response, Model model) throws Exception{
-		response.addCookie(new Cookie("location", "자유게시판"));
+		response.addCookie(new Cookie("location", URLEncoder.encode("자유게시판", "UTF-8")));
 		model.addAttribute("activeLocation", "community");
 		return "자유게시판";
 	}
