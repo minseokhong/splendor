@@ -71,6 +71,11 @@ public class JspController {
 		response.addCookie(new Cookie("location", "BBS"));
 		return "BBS";
 	}
+	@RequestMapping(value="/글목록")
+	public String 글목록(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "response"));
+		return "글목록";
+	}
 
 	@RequestMapping(value="/contact")
 	public String contact() throws Exception{
@@ -122,9 +127,9 @@ public class JspController {
 		return mav;
 	}
 	
-	@RequestMapping
-	public void guildJoinForm(Model model) throws Exception {
-	}
+//	@RequestMapping
+//	public void guildJoinForm(Model model) throws Exception {
+//	}
 
 	@RequestMapping(value="/login")
 	public String login() throws Exception{

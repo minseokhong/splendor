@@ -182,7 +182,7 @@
                 
             </div>
                     <div>
-                        <a class="primary_btn pull-right" href="write.js">1:1문의</a>
+                        <a class="primary_btn pull-right" href="나문의">1:1문의</a>
                     </div>
         </div>
         <!--================Blog Area =================-->

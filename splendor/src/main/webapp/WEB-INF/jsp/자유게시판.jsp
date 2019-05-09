@@ -44,6 +44,20 @@ $(document).ready(function(){
 	})
 });
 
+$(document).ready(function(){
+	$('#contents').on('click',function(e){
+		e.preventDefault();
+		var chUser ='<c:out value = '${user}'/>';
+		if(chUser == ''){
+			alert('로그인이 필요합니다.');
+			
+		}else{
+			location.href="글목록";
+		}
+		
+	})
+});
+
 
 
 </script>
