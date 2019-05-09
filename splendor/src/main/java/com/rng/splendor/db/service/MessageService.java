@@ -8,7 +8,7 @@ import com.rng.splendor.db.mapper.MessageMapper;
 public class MessageService {
 	
 	@Autowired
-	MessageMapper messMapper;
+	MessageMapper msgMapper;
 	
 	public void sendMessage() {
 		
