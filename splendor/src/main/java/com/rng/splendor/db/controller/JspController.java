@@ -48,6 +48,12 @@ public class JspController {
 		return "index";
 	}
 	
+	@RequestMapping("/")
+	public String index1(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "index"));
+		return "index";
+	}
+	
 	@RequestMapping(value="/about-us")
 	public String about_us(HttpServletResponse response) throws Exception{
 		response.addCookie(new Cookie("location", "about-us"));
@@ -117,14 +123,20 @@ public class JspController {
 		response.addCookie(new Cookie("location", "single-guild?guildName=" + URLEncoder.encode(guildName, "UTF-8")));
 		ModelAndView mav = new ModelAndView();
 		System.out.println(guildListService.selectOne(guildName));
+		
 		mav.addObject("guildInfo", guildListService.selectOne(guildName));
+		
+		mav.addObject("guildMaster", guildListService.guildMaster(guildName));
+		mav.addObject("guildMemberCount", guildListService.guildMemberCount(guildName));
+		mav.addObject("guildMemberList", guildListService.guildMemberList(guildName));
+		
 		mav.setViewName("single-guild");
 		return mav;
 	}
 	
-	@RequestMapping
-	public void guildJoinForm(Model model) throws Exception {
-	}
+//	@RequestMapping
+//	public void guildJoinForm(Model model) throws Exception {
+//	}
 
 	@RequestMapping(value="/login")
 	public String login() throws Exception{
