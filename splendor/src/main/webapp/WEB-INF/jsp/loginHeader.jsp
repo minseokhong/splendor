@@ -323,7 +323,7 @@
 							</div>
 							<div style="background-color: white; height: 60%; text-align: center;">
 								<div style="margin-left: 5%; height: 20%; font-size: 20px;">
-									to. <input type="text" placeholder="받는사람의 닉네임을 입력하세요." 
+									to. <input id="receiver" type="text" placeholder="받는사람의 닉네임을 입력하세요." 
 									onfocus="this.placeholder = ''" onblur="this.placeholder = '받는사람의 닉네임을 입력하세요.'"
 									style="width: 80%; height: 80%; font-size: 15px; border: none; margin-top: 5%;">
 								</div>
@@ -336,7 +336,7 @@
 								</div>
 								<div>
 									<input type="button" value="보내기" 
-									style="text-align: right; background-color: white; color: rgb(168, 9, 49); border: none; cursor: pointer;">
+									style="text-align: right; background-color: white; color: rgb(168, 9, 49); border: none; cursor: pointer;" onclick=sendMessage();>
 
 								</div>
 							</div>
@@ -409,6 +409,23 @@
 		$(".cancel").click(function() {
 			alert("로그아웃 되었습니다. 안녕히가세요.~~")
 		});
+		
+		function sendMessage() {
+			alert($('#receiver').val());
+	    	$.ajax({
+	    		type : "POST", 
+	    		url : "http://localhost:8000/sendMessage", 
+	    		dataType : "text", 
+	    		data : {
+	    			mess_sender : '${user.user_name }', 
+	    			mess_receiver : $('#receiver').val(), 
+	    			mess_content : 'gdgdgdgd'
+	    		}, 
+	    		success : function(data) {
+	    			alert("일단 메시지는 보냈다.. 보내긴 했어...");
+	    		};
+	    	});
+		};
 		
 	</script>
 </body>

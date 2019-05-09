@@ -3,19 +3,19 @@
 
 <mapper namespace="com.rng.splendor.db.mapper.BoardMapper">
 
-<!-- 	<select id="insertBoard" parameterType="BoardData"> -->
-<!-- 		INSERT INTO board_data(board_writer,board_date, board_is_show, -->
-<!-- 		board_title, board_content)  -->
-<!-- 		VALUES('hyunbin' , '2002-09-24','1',#{boardData.board_title},#{boardData.board_content}) -->
-<!-- 	</select> -->
-
 	<select id="insertBoard" parameterType="BoardData">
 		INSERT INTO board_data(board_writer,board_date, board_is_show,
-		board_title, board_content
-		, board_type, board_count, board_like, board_dislike) 
-		VALUES('도형' , '2002-09-24','1',#{board_title},#{board_content}
-		, 1, 53, 0, 0
-		)
+		board_title, board_content) 
+		VALUES('hyunbin' , '2002-09-24','1',#{boardData.board_title},#{boardData.board_content})
 	</select>
+
+<!-- 	<select id="insertBoard" parameterType="BoardData"> -->
+<!-- 		INSERT INTO board_data(board_writer,board_date, board_is_show, -->
+<!-- 		board_title, board_content -->
+<!-- 		, board_type, board_count, board_like, board_dislike)  -->
+<!-- 		VALUES('도형' , '2002-09-24','1',#{board_title},#{board_content} -->
+<!-- 		, 1, 53, 0, 0 -->
+<!-- 		) -->
+<!-- 	</select> -->
 
 </mapper>
