@@ -43,32 +43,37 @@ public class JspController {
 	GuildListService guildListService;
 	
 	@RequestMapping("/index")
-	public String index(HttpServletResponse response) throws Exception{
+	public String index(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "index"));
+		model.addAttribute("activeLocation", "index");			//헤더의 active 동작을 위해서 'header.jsp' 파일의 20번 라인에서 받을 데이터를 전달합니다.
 		return "index";
 	}
 	
 	@RequestMapping(value="/about-us")
-	public String about_us(HttpServletResponse response) throws Exception{
+	public String about_us(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "about-us"));
+		model.addAttribute("activeLocation", "about-us");
 		return "about-us";
 	}
 	
 	@RequestMapping(value="/나문의")
-	public String 나문의(HttpServletResponse response) throws Exception{
+	public String 나문의(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "response"));
+		model.addAttribute("activeLocation", "service");
 		return "나문의";
 	}
 
 	@RequestMapping(value="/자유게시판")
-	public String 자유게시판(HttpServletResponse response) throws Exception{
+	public String 자유게시판(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "자유게시판"));
+		model.addAttribute("activeLocation", "community");
 		return "자유게시판";
 	}
 
 	@RequestMapping(value="/BBS")
-	public String BBS(HttpServletResponse response) throws Exception{
+	public String BBS(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "BBS"));
+		model.addAttribute("activeLocation", "service");
 		return "BBS";
 	}
 
@@ -107,6 +112,7 @@ public class JspController {
 	public ModelAndView guild(HttpServletResponse response) throws Exception{
 		response.addCookie(new Cookie("location", "guild"));
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("activeLocation", "community");
 		mav.addObject("guildList", guildListService.selectAll());
 		mav.setViewName("guild");
 		return mav;
@@ -117,6 +123,7 @@ public class JspController {
 		response.addCookie(new Cookie("location", "single-guild?guildName=" + URLEncoder.encode(guildName, "UTF-8")));
 		ModelAndView mav = new ModelAndView();
 		System.out.println(guildListService.selectOne(guildName));
+		mav.addObject("activeLocation", "community");
 		mav.addObject("guildInfo", guildListService.selectOne(guildName));
 		mav.setViewName("single-guild");
 		return mav;
@@ -137,8 +144,9 @@ public class JspController {
 	}
 
 	@RequestMapping(value="/screenshot")
-	public String screenshot(HttpServletResponse response) throws Exception{
+	public String screenshot(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "screenshot"));
+		model.addAttribute("activeLocation", "screenshot");
 		return "screenshot";
 	}
 
@@ -253,11 +261,13 @@ public class JspController {
 
 	@RequestMapping(value="/create-guild")
 	public String create_guild() throws Exception{
+//		mav.addObject("activeLocation", "community");
 		return "create-guild";
 	}
 
 	@RequestMapping(value="/modification")
 	public String modification() throws Exception{
+//		mav.addObject("activeLocation", "community");
 		return "modification";
 	}
 
