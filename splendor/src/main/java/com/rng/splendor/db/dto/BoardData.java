@@ -4,16 +4,16 @@ import java.util.Date;
 
 public class BoardData {
 
-	private int board_num;
-	private String board_type;
-	private String board_writer;
-	private Date board_date;
-	private boolean board_is_show;
-	private String board_title;
-	private int board_count;
-	private int board_like;
-	private int board_dislike;
-	private String board_content;
+	private int board_num; //게시물 번호
+	private String board_type; //게시물타입
+	private String board_writer; //게시물 작성자
+	private Date board_date; //게시물 작성일자
+	private boolean board_is_show; // 게시물 공개여부
+	private String board_title; //게시물 제목
+	private int board_count; // 게시물 조회수
+	private int board_like; // 게시물 좋아요 수
+	private int board_dislike; // 게시물 싫어요 수
+	private String board_content; // 게시물 내용
 	
 	public int getBoard_num() {
 		return board_num;

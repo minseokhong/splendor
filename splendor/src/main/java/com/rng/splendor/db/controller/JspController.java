@@ -122,9 +122,9 @@ public class JspController {
 		return mav;
 	}
 	
-	@RequestMapping
-	public void guildJoinForm(Model model) throws Exception {
-	}
+//	@RequestMapping
+//	public void guildJoinForm(Model model) throws Exception {
+//	}
 
 	@RequestMapping(value="/login")
 	public String login() throws Exception{
