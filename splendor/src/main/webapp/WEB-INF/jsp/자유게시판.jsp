@@ -113,54 +113,16 @@ $(document).ready(function(){
                         </tr>
                     </thead>
                     <tbody>
+                    	<c:forEach var="l" items="${list}">
                         <tr>
-                            <td>1.</td>
-                            <td style="font-weight: bold; color: red" class="studgroup">[[[공지사항]]]</td>
-                            <td style="font-weight: bold;">운영자</td>
-                            <td style="font-weight: bold;">2019-04-08</td>
-                            <td style="font-weight: bold;">15</td>
+                            <td>${l.board_num}</td>
+                            <td>${l.board_title}</td>
+                            <td>${l.board_writer}</td>
+                            <td>${l.board_date}</td>
+                            <td>${l.board_count}</td>
 
                         </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td style="font-weight: bold; color: red" class="studgroup">[[[공지사항]]]</td>
-                            <td style="font-weight: bold;">운영자</td>
-                            <td style="font-weight: bold;">2019-04-08</td>
-                            <td style="font-weight: bold;">15</td>
-    
-                        </tr>
-                        <tr>
-                            <td>3.</td>
-                            <td style="font-weight: bold; color: red" class="studgroup">[[[공지사항]]]</td>
-                            <td style="font-weight: bold;">운영자</td>
-                            <td style="font-weight: bold;">2019-04-08</td>
-                            <td style="font-weight: bold;">15</td>
-    
-                         </tr>
-                         <tr>
-                             <td>4.</td>
-                                <td>스플랜더노잼이야</td>
-                                <td>박영욱</td>
-                                <td>2019-04-08</td>
-                                <td>15</td>
-    
-                         </tr>
-                         <tr>
-                             <td>5.</td>
-                                <td>쟈유게시판맞나요?</td>
-                                <td>박영욱</td>
-                                <td>2019-04-08</td>
-                                <td>15</td>
-    
-                        </tr>
-                        <tr>
-                                <td>6.</td>
-                                   <td>쟈유게시판맞나요?</td>
-                                   <td>박영욱</td>
-                                   <td>2019-04-08</td>
-                                   <td>15</td>
-       
-                           </tr>    
+                    	</c:forEach>
 
                     </tbody>
                     

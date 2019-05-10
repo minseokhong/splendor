@@ -39,17 +39,11 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav justify-content-center">
-<<<<<<< HEAD
-							<li class="nav-item"><a class="nav-link" href="index">홈페이지</a></li>
-							<li class="nav-item"><a class="nav-link" href="about-us">게임소개</a></li>
-							<li class="nav-item"><a class="nav-link" href="screenshot">스크린샷</a></li>
 							<li class="nav-item submenu dropdown">
-=======
 							<li class="nav-item index"><a class="nav-link" href="index">홈페이지</a></li>
 							<li class="nav-item about-us"><a class="nav-link" href="about-us">게임소개</a></li>
 							<li class="nav-item screenshot"><a class="nav-link" href="screenshot">스크린샷</a></li>
 							<li class="nav-item community submenu dropdown">
->>>>>>> branch 'master' of https://github.com/minseokhong/splendor.git
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">커뮤니티</a>
 								<ul class="dropdown-menu">

@@ -1,5 +1,7 @@
 package com.rng.splendor.db.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ public class BoardService {
 		boardMapper.insertBoard(boardData);
 	}
 	
+	public List<BoardData> boardListService() throws Exception{
+		return boardMapper.selectBoardList();
+	}
 	
 
 }

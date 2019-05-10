@@ -71,6 +71,8 @@ public class JspController {
 	@RequestMapping(value="/자유게시판")
 	public String 자유게시판(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", URLEncoder.encode("자유게시판", "UTF-8")));
+		model.addAttribute("list", BoardService.boardListService());
+//		System.out.println(BoardService.boardListService());
 		model.addAttribute("activeLocation", "community");
 		return "자유게시판";
 	}
@@ -144,14 +146,6 @@ public class JspController {
 		return mav;
 	}
 	
-<<<<<<< HEAD
-//	@RequestMapping
-//	public void guildJoinForm(Model model) throws Exception {
-=======
-//	@RequestMapping
-//	public void guildJoinForm(Model model) throws Exception {
->>>>>>> branch 'master' of https://github.com/minseokhong/splendor.git
-//	}
 
 	@RequestMapping(value="/login")
 	public String login() throws Exception{
