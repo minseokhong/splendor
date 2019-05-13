@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,11 +15,106 @@
   <script type="text/javascript">
   	$(document).ready(function() {
   		
-  		$('.${activeLocation }').addClass('active');
+			$('.${activeLocation }').addClass('active');
+			
+  		$.ajax({
+  			url : 'http://localhost:8000/getSenderList', 
+  			type : 'POST', 
+  			data : {
+  				receiver : '${user.user_name}'
+  			}, 
+  			dataType : "json", 
+  			success : function(data) {
+					console.log(data);
+  				data.forEach(msgMeta => {
+						var isNew = '';
+						if(msgMeta.mess_is_show == 0) {
+							isNew = '"new"';
+						}
+						$('.쪽지_내용').append(
+							$('<div></div>').addClass('msg1 messStyle1').append(
+								$('<div></div>').addClass('messStyle2').append(
+									$('<img src="/img/no_profile.png"></img>').addClass('messStyle3')
+								), 
+								$('<div></div>').addClass('msg_click messStyle4').attr('onclick', 'msg_click('+msgMeta.mess_num+')').append(
+									$('<div>'+isNew+'<div>').addClass('mess'+msgMeta.mess_num+' messIsNew'), 
+									$("<div>'"+msgMeta.mess_sender+"'님<br>에게 쪽지가 도착했습니다.</div>").addClass('messStyle5'), 
+									$('<div>'+msgMeta.mess_send_date+'</div>').addClass('messStyle6')
+								), 
+								$('<div></div>').addClass('messStyle7').append(
+									$('<button type="button" class="close" id="close" aria-label="Close"></button>').addClass('messStyle8').append(
+										$('<span aria-hidden="true">&times;</span>')
+									)
+								)
+							)
+						)
+					});
+  			}, 
+  			error : function() {
+  				alert("쪽지 데이터를 가져오는 데 실패하였습니다.");
+  			}
+  		});
   		
   	});
-  </script>
-
+	</script>
+	<style type="text/css">
+		.messStyle1 {
+			padding: 5%;
+			height: 30%;
+			border: 1px solid;
+		}
+		.messStyle2 {
+			/* float: left; */
+			position: relative;
+			display: inline-block;
+			width: 30%;
+			margin-right: 5%;
+			height: 100%;
+		}
+		.messStyle3 {
+			position: absolute;
+			top: auto;
+			margin-right: 5%;
+		}
+		.messStyle4 {
+			/* float: left; */
+			position: relative;
+			color: black;
+			display: inline-block;
+			width: 60%;
+			font-size: 12px;
+		}
+		.messStyle5 {
+			width: 100%;
+			/* line-height: 27px; */
+			cursor: pointer;
+		}
+		.messStyle6 {
+			margin-top: 9px;
+			color: #777777;
+		}
+		.messStyle7 {
+			/* float: right; */
+			position: relative;
+			display: inline-block;
+			width: 5%;
+			height: 100%;
+			font-size: 12px;
+		}
+		.messStyle8 {
+			position: absolute;
+			right: 0;
+			top: -5px;
+		}
+		.messIsNew {
+			position: absolute;
+			width: 145px;
+			top: -5px;
+			text-align: right;
+			color: rgb(201, 168, 22);
+		}
+	</style>
+	
 </head>
 <body>
 <!--================Header Menu Area =================-->
@@ -63,7 +160,7 @@
 						<a class="notification"><img src="/img/notification.png" title="알림"></a>
 
 
-						<div class="message-box" style="border: 1px solid black;">
+						<div class="message-box" style="border: 1px solid black; z-index: 1;">
 							<div style="background-color: rgb(205, 216, 54); height: 40%; text-align: center;">
 								<button type="button" class="close" id="close_쪽지확인창" aria-label="Close"
 								style="position: absolute; right: 0; top: 2%; right: 5%;">
@@ -76,19 +173,19 @@
 							<div style="position: relative; background-color: white; height: 60%; text-align: center;">
 								<div style="margin-left: 5%; height: 20%; font-size: 20px;">
 									from. <div
-									style="display: inline-block; width: 60%; height: 80%; font-size: 15px; border: none; margin-top: 5%;"> 윤현빈</div> 
+									id="mess_sender_area" style="display: inline-block; width: 60%; height: 80%; font-size: 15px; border: none; margin-top: 5%;"> 윤현빈</div> 
 									
 								</div>
 
-								<div style="position: absolute; margin-left: 10%; height: 60%;">
-									<div cols="30" rows="10"
-									style="font-size: 10px; text-align: left; width: 80%; height: 60%; border: none; margin-top: 8%; margin-right: 10%; overflow-y: scroll;">
-										안녕 현빈아 ^^ 잘 지내지????
-										Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem similique tenetur molestiae, quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum?
+								<div style="position: absolute; margin-left: 15%; width: 80%; height: 60%;">
+									<div id="mess_content_area" cols="30" rows="10"
+									style="font-size: 10px; text-align: left; height: 60%; border: none; margin-top: 8%; margin-right: 10%; overflow-y: scroll;">
+										<!-- 안녕 현빈아 ^^ 잘 지내지????
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem similique tenetur molestiae, quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? -->
 									</div>
 								</div>
 								<div style="position: absolute; bottom: 10%; text-align: center; width: 100%;">
-									<input class="답장하기" type="button" value="답장하기"
+									<input class="답장하기" type="button" value="답장하기" sender=""
 									style="background-color: white; color: rgb(205, 216, 54); border: none; cursor: pointer;">
 
 								</div>
@@ -103,21 +200,56 @@
 								<div class="알림" style="display: inline-block; background-color: skyBlue; width: 49%; height: 100%;">알림</div>
 							</div>
 
-							<div class="쪽지_내용" style="background-color: lightgreen; height: 92%; overflow-y: scroll; ">
+							<div class="쪽지_내용" style="background-color: lightgreen; height: 92%; overflow-y: scroll;">
 
-								<div class="msg1" style="padding: 5%; height: 30%; border: 1px solid;">
-									<div style="position: relative; display: inline-block; width: 30%; margin-right: 5%; height: 100%;">
+								<div param="나야나" class="msg1" style="padding: 5%; height: 30%; border: 1px solid;">
+									<div style="position: relative; display: inline-block; float: left; width: 30%; margin-right: 5%; height: 100%;">
 										<img src="/img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;">
 									</div>
-									<div style="display: inline-block; width: 50%; font-size: 12px;">
+									<div class="msg_click" param="나야나" style="display: inline-block; width: 60%; float: left; font-size: 12px;">
+										<a style="color: black; width: 100%; cursor: pointer;">
+											지효' 님<br>에게 쪽지가 도착했습니다.
+										</a>
+										<div style="margin-top: 10px">2018.9.9___17:16</div>
+									</div>
+									<div style="position: relative; display: inline-block; float: right; width: 5%; height: 100%; font-size: 12px;">
+											<button type="button" class="close" id="close" aria-label="Close"
+											style="position: absolute; right: 0; top: -5px">
+													<span aria-hidden="true">&times;</span>
+											</button>
+									</div>
+								</div>
+
+								<div class="msg1">
+									<div>
+										<img src="/img/jihyo.jpg">
+									</div>
+									<div class="msg_click" mess_no="gdgd">
+										<a>
+											지효' 님<br>에게 쪽지가 도착했습니다.
+										</a>
+										<div>2018.9.9___17:16</div>
+									</div>
+									<div>
+											<button type="button" id="close" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+											</button>
+									</div>
+								</div>
+
+								<div class="msg1" style="padding: 5%; height: 30%; border: 1px solid;">
+									<div style="position: relative; display: inline-block; float: left; width: 30%; margin-right: 5%; height: 100%;">
+										<img src="/img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;">
+									</div>
+									<div style="display: inline-block; width: 50%; float: left; font-size: 12px;">
 										<a class="msg_click" style="color: black; width: 100%; cursor: pointer;">
 											지효' 님에게 쪽지가 도착했습니다.
 										</a>
-										<br>2018.9.9___17:16
+										<div>2018.9.9___17:16</div>
 									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%; font-size: 12px;">
+									<div style="position: relative; display: inline-block; float: right; width: 5%; height: 100%; font-size: 12px;">
 											<button type="button" class="close" id="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
+											style="position: absolute; right: 0; top: -5px">
 													<span aria-hidden="true">&times;</span>
 											</button>
 									</div>
@@ -323,16 +455,17 @@
 							</div>
 							<div style="background-color: white; height: 60%; text-align: center;">
 								<div style="margin-left: 5%; height: 20%; font-size: 20px;">
-									to. <input id="receiver" type="text" placeholder="받는사람의 닉네임을 입력하세요." 
+									to. <input id="msg_receiver" type="text" placeholder="받는사람의 닉네임을 입력하세요." 
 									onfocus="this.placeholder = ''" onblur="this.placeholder = '받는사람의 닉네임을 입력하세요.'"
 									style="width: 80%; height: 80%; font-size: 15px; border: none; margin-top: 5%;">
 								</div>
 
 								<div style="margin-left: 10%; height: 60%;">
-									<textarea cols="30" rows="10" placeholder="내용을 입력하세요." 
+									<textarea id="msg_content" cols="30" rows="10" placeholder="내용을 입력하세요." 
 									onfocus="this.placeholder = ''" onblur="this.placeholder = '내용을 입력하세요.'"
 									style="font-size: 10px; width: 80%; height: 60%; border: none; margin-top: 8%; margin-right: 10%;"></textarea>
 									</textarea>
+									<div id="msg_send_result" style="margin-top: 5px; margin-right: 40px; text-align: right; color: green; font-size: 6px;"></div>
 								</div>
 								<div>
 									<input type="button" value="보내기" 
@@ -395,6 +528,8 @@
 
 		$('#close_쪽지보내기').click(function() {
 			// $('.msg1').hide();
+			$('#msg_receiver').val('');
+			$('#msg_content').val('');
 			$('.a1').hide();
 		});
 
@@ -403,6 +538,7 @@
 		});
 
 		$('.답장하기').on('click', function() {
+			$('#msg_receiver').val($(this).attr('sender'));
 			$('.a1').slideToggle('fast');
 		});
 
@@ -411,21 +547,49 @@
 		});
 		
 		function sendMessage() {
-			alert($('#receiver').val());
 	    	$.ajax({
 	    		type : "POST", 
 	    		url : "http://localhost:8000/sendMessage", 
-	    		dataType : "text", 
 	    		data : {
 	    			mess_sender : '${user.user_name }', 
-	    			mess_receiver : $('#receiver').val(), 
-	    			mess_content : 'gdgdgdgd'
+	    			mess_receiver : $('#msg_receiver').val(), 
+	    			mess_content : $('#msg_content').val()
 	    		}, 
-	    		success : function(data) {
-	    			alert("일단 메시지는 보냈다.. 보내긴 했어...");
-	    		};
-	    	});
+	    		success : function() {
+	    			$('#msg_receiver').val('');
+	    			$('#msg_content').val('');
+					$('#msg_send_result').text('메시지를 전송하였습니다.');
+					setTimeout(function() {
+						$('#msg_send_result').text('');
+						$('.a1').slideToggle('fast');
+					}, 1000);
+	    		}
+	    		, error : function() {
+	    			alert("자네.. 메시지를 보내는데 실패하였다.. 미안하네..");
+	    		}
+	    	})
 		};
+
+		function msg_click(mess_num) {
+			$.ajax({
+				type : "POST", 
+				url : "http://localhost:8000/readMessage", 
+				data : {
+					mess_num : mess_num
+				}, 
+				dataType : "json", 
+				success : function(msg) {
+					$('#mess_sender_area').text(msg.mess_sender);
+					$('#mess_content_area').text(msg.mess_content);
+					$('.답장하기').attr("sender", msg.mess_sender);
+					$('.message-box').show('fast');
+					$('.mess'+mess_num).text('')
+				}, 
+				error : function() {
+					alert('메시지 로딩 실패!!!!!햇떠')
+				}
+			});
+		}
 		
 	</script>
 </body>

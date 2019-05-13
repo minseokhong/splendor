@@ -22,6 +22,7 @@ import com.rng.splendor.db.dto.GuildList;
 import com.rng.splendor.db.dto.UserData;
 import com.rng.splendor.db.service.BoardService;
 import com.rng.splendor.db.service.GuildListService;
+import com.rng.splendor.db.service.MessageService;
 import com.rng.splendor.db.service.TestService;
 
 import com.rng.splendor.db.service.UserService;
@@ -41,6 +42,9 @@ public class JspController {
 	
 	@Autowired
 	GuildListService guildListService;
+	
+	@Autowired
+	MessageService messageService;
 	
 	@RequestMapping("/index")
 	public String index(HttpServletResponse response, Model model) throws Exception{
@@ -179,7 +183,7 @@ public class JspController {
 		}
 	}
 
-	@RequestMapping(value="/test")
+	@RequestMapping(value="/test")// 로그인 하는 기능
 	@ResponseBody
 	public String test(String userId, String userPw, Model model) throws Exception{
 		if(userService.idCheck(userId) == null) {
@@ -223,10 +227,9 @@ public class JspController {
 		return "redirect:/index";
 	}
 	
-	@RequestMapping(value="/testView")
-	public String testView(@CookieValue(value="location", required=false) Cookie location) throws Exception {
+	@RequestMapping(value="/testView")// 로그인 후 페이지로 이동하는 기능
+	public String testView(@CookieValue(value="location", required=false)Cookie location) throws Exception {
 		if(location != null) {
-			System.out.println();
 			return "redirect:/" + location.getValue();
 		}
 		return "test";
