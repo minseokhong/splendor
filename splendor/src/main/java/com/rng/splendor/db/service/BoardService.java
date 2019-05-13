@@ -22,5 +22,9 @@ public class BoardService {
 		return boardMapper.selectBoardList();
 	}
 	
+	public BoardData boardDetailService(int board_num) throws Exception{
+		return boardMapper.boardDetail(board_num);
+	}
+	
 
 }

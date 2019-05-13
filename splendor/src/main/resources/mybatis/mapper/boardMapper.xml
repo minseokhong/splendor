@@ -3,15 +3,20 @@
 
 <mapper namespace="com.rng.splendor.db.mapper.BoardMapper">
 
-	<select id="insertBoard" parameterType="BoardData">
+	<insert id="insertBoard" parameterType="com.rng.splendor.db.dto.BoardData">
 		INSERT INTO board_data(board_writer,board_date, board_is_show,
 		board_type, board_count, board_like, board_dislike, 
 		board_title, board_content) 
-		VALUES('aaa' , '2019-05-20','1',3, 3, 3, 3,#{board_title},#{board_content})
-	</select>
+		VALUES('aaa' , now(),'1',3, 3, 3, 3,#{board_title},#{board_content})
+	</insert>
 	
 	<select id="selectBoardList" resultType="com.rng.splendor.db.dto.BoardData">
 		SELECT * FROM board_data
+	</select>
+	
+	<select id="boardDetail" parameterType="int" resultType="com.rng.splendor.db.dto.BoardData">
+		SELECT * FROM board_data WHERE board_num = #{board_num}
+	
 	</select>
 <!-- 	<select id="insertBoard" parameterType="BoardData"> -->
 <!-- 		INSERT INTO board_data(board_writer,board_date, board_is_show, -->

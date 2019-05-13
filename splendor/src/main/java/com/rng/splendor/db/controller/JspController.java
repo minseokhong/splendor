@@ -1,10 +1,13 @@
 package com.rng.splendor.db.controller;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,7 +70,8 @@ public class JspController {
 		model.addAttribute("activeLocation", "service");
 		return "나문의";
 	}
-
+	
+	
 	@RequestMapping(value="/자유게시판")
 	public String 자유게시판(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", URLEncoder.encode("자유게시판", "UTF-8")));
@@ -83,9 +87,12 @@ public class JspController {
 		model.addAttribute("activeLocation", "service");
 		return "BBS";
 	}
-	@RequestMapping(value="/글목록")
-	public String 글목록(HttpServletResponse response) throws Exception{
+	@RequestMapping(value="/글목록")//수정해보자
+	public String 글목록(HttpServletResponse response,int board_num, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "response"));
+		System.out.println("/\n\n///////////////////////////"+board_num);
+		model.addAttribute("detail", BoardService.boardDetailService(board_num));
+	
 		return "글목록";
 	}
 
@@ -164,7 +171,7 @@ public class JspController {
 		return "screenshot";
 	}
 
-	
+
 	
 	@RequestMapping(value="/join")
 	public String join() throws Exception{
