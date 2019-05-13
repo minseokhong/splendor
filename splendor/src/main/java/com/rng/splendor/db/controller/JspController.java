@@ -53,6 +53,12 @@ public class JspController {
 		return "index";
 	}
 	
+	@RequestMapping("/")
+	public String index1(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "index"));
+		return "index";
+	}
+	
 	@RequestMapping(value="/about-us")
 	public String about_us(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "about-us"));
@@ -69,6 +75,8 @@ public class JspController {
 	@RequestMapping(value="/자유게시판")
 	public String 자유게시판(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", URLEncoder.encode("자유게시판", "UTF-8")));
+		model.addAttribute("list", BoardService.boardListService());
+//		System.out.println(BoardService.boardListService());
 		model.addAttribute("activeLocation", "community");
 		return "자유게시판";
 	}
@@ -78,6 +86,11 @@ public class JspController {
 		response.addCookie(new Cookie("location", "BBS"));
 		model.addAttribute("activeLocation", "service");
 		return "BBS";
+	}
+	@RequestMapping(value="/글목록")
+	public String 글목록(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "response"));
+		return "글목록";
 	}
 
 	@RequestMapping(value="/contact")
@@ -128,13 +141,15 @@ public class JspController {
 		System.out.println(guildListService.selectOne(guildName));
 		mav.addObject("activeLocation", "community");
 		mav.addObject("guildInfo", guildListService.selectOne(guildName));
+		
+		mav.addObject("guildMaster", guildListService.guildMaster(guildName));
+		mav.addObject("guildMemberCount", guildListService.guildMemberCount(guildName));
+		mav.addObject("guildMemberList", guildListService.guildMemberList(guildName));
+		
 		mav.setViewName("single-guild");
 		return mav;
 	}
 	
-//	@RequestMapping
-//	public void guildJoinForm(Model model) throws Exception {
-//	}
 
 	@RequestMapping(value="/login")
 	public String login() throws Exception{

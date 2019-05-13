@@ -145,8 +145,8 @@
                                         <ul class="guild_meta list" >
                                             <li style="text-align: center;"><img src="img/jihyo.jpg" style="width: 80%"></li>
                                             <li style="height: 20px;"></li>
-                                            <li><a href="#">내가일등유저<i class="lnr lnr-user"></i></a></li>
-                                            <li><a href="#">12명<i class="lnr lnr-home"></i></a></li>
+                                            <li><a href="#">${item.guildMember }<i class="lnr lnr-user"></i></a></li>
+<!--                                             <li><a href="#">12명<i class="lnr lnr-home"></i></a></li> -->
                                         </ul>
                                     </div>
                                </div>

@@ -64,6 +64,10 @@
 			</div>
 		</div>
 	</section>
+	
+	
+	
+	
 	<!--================End Home Banner Area =================-->
 
 	<!--================Start About Us Area =================-->
@@ -585,10 +589,10 @@
 					</div>
 					<div class="col-lg-6">
 						<div class="banner_content">
-							<h2>
-								wellcome <br>
-								to <br>
-								hell~
+							<h2 style="color: #98FB98">
+								R.N.G Splender<br>
+								<br>
+								
 							</h2>
 							<p>
 								남녀노소 불문하고 함께 즐길 수 있는 그 게임! 스플랜더를 통해 길드를 운영하고 경쟁을 통해 세계 최고가 되어보세요!
@@ -619,14 +623,14 @@
 				<div class="col-lg-6">
 					<div class="section_content">
 						<h6>게임 소개</h6>
-						<h1>스플랜더란 <br>요런 게임 입니다.</h1>
+						<h1>전략게임 스플랜더<br>R.N.G에서 즐겨보세요.</h1>
 						<p>옆에 게임관련 유튜브 영상이 나오고 아래 버튼은 게임 방식을 글로 풀어 자세하게 설명한 메뉴 입니다.</p>
-						<a class="primary_btn" href="#">더 알아보기</a>
+						<a class="primary_btn" href="about-us">더 알아보기</a>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="about_us_image_box justify-content-center">
-							<iframe width="579" height="406" src="https://www.youtube.com/embed/mAKsZ26SabQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+							<iframe width="579" height="406" src="https://www.youtube.com/embed/78Ga9vT3eIE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 						<!-- <img class="img-fluid w-100" src="img/about_img.png" alt=""> -->
 					</div>
 				</div>

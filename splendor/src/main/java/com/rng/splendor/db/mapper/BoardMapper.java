@@ -6,7 +6,7 @@ import com.rng.splendor.db.dto.BoardData;
 
 public interface BoardMapper {
 	
-	public List<BoardData> selectBoardList(BoardData boardData) throws Exception; //게시물 리스트 조회
+	public List<BoardData> selectBoardList() throws Exception; //게시물 리스트 조회
 	
 	public void insertBoard(BoardData boardData) throws Exception; //게시물 등록
 	
