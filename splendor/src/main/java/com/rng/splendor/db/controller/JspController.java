@@ -22,6 +22,7 @@ import com.rng.splendor.db.dto.GuildList;
 import com.rng.splendor.db.dto.UserData;
 import com.rng.splendor.db.service.BoardService;
 import com.rng.splendor.db.service.GuildListService;
+import com.rng.splendor.db.service.MessageService;
 import com.rng.splendor.db.service.TestService;
 
 import com.rng.splendor.db.service.UserService;
@@ -42,10 +43,19 @@ public class JspController {
 	@Autowired
 	GuildListService guildListService;
 	
+	@Autowired
+	MessageService messageService;
+	
 	@RequestMapping("/index")
 	public String index(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "index"));
 		model.addAttribute("activeLocation", "index");			//헤더의 active 동작을 위해서 'header.jsp' 파일의 20번 라인에서 받을 데이터를 전달합니다.
+		return "index";
+	}
+	
+	@RequestMapping("/")
+	public String index1(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "index"));
 		return "index";
 	}
 	
@@ -65,6 +75,8 @@ public class JspController {
 	@RequestMapping(value="/자유게시판")
 	public String 자유게시판(HttpServletResponse response, Model model) throws Exception{
 		response.addCookie(new Cookie("location", URLEncoder.encode("자유게시판", "UTF-8")));
+		model.addAttribute("list", BoardService.boardListService());
+//		System.out.println(BoardService.boardListService());
 		model.addAttribute("activeLocation", "community");
 		return "자유게시판";
 	}
@@ -74,6 +86,11 @@ public class JspController {
 		response.addCookie(new Cookie("location", "BBS"));
 		model.addAttribute("activeLocation", "service");
 		return "BBS";
+	}
+	@RequestMapping(value="/글목록")
+	public String 글목록(HttpServletResponse response) throws Exception{
+		response.addCookie(new Cookie("location", "response"));
+		return "글목록";
 	}
 
 	@RequestMapping(value="/contact")
@@ -124,13 +141,15 @@ public class JspController {
 		System.out.println(guildListService.selectOne(guildName));
 		mav.addObject("activeLocation", "community");
 		mav.addObject("guildInfo", guildListService.selectOne(guildName));
+		
+		mav.addObject("guildMaster", guildListService.guildMaster(guildName));
+		mav.addObject("guildMemberCount", guildListService.guildMemberCount(guildName));
+		mav.addObject("guildMemberList", guildListService.guildMemberList(guildName));
+		
 		mav.setViewName("single-guild");
 		return mav;
 	}
 	
-//	@RequestMapping
-//	public void guildJoinForm(Model model) throws Exception {
-//	}
 
 	@RequestMapping(value="/login")
 	public String login() throws Exception{
@@ -179,7 +198,7 @@ public class JspController {
 		}
 	}
 
-	@RequestMapping(value="/test")
+	@RequestMapping(value="/test")// 로그인 하는 기능
 	@ResponseBody
 	public String test(String userId, String userPw, Model model) throws Exception{
 		if(userService.idCheck(userId) == null) {
@@ -223,10 +242,9 @@ public class JspController {
 		return "redirect:/index";
 	}
 	
-	@RequestMapping(value="/testView")
-	public String testView(@CookieValue(value="location", required=false) Cookie location) throws Exception {
+	@RequestMapping(value="/testView")// 로그인 후 페이지로 이동하는 기능
+	public String testView(@CookieValue(value="location", required=false)Cookie location) throws Exception {
 		if(location != null) {
-			System.out.println();
 			return "redirect:/" + location.getValue();
 		}
 		return "test";

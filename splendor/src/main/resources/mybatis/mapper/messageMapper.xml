@@ -14,7 +14,36 @@
     	)
     </select>
     
-    <select id="selectAll" resultType="java.util.List">
+    <select id="readMessage" parameterType="String">
+    	update message_log set mess_is_show=1 where mess_num=#{mess_num}
+    </select>
+    
+    <select id="selectOneMessage" parameterType="String" resultType="MessageLog">
+    	select * from message_log where mess_num=#{mess_num}
+    </select>
+    
+    <select id="messageList" resultType="MessageLog" parameterType="String">
+    	select * from message_log where mess_receiver=#{receiver} 
+    	order by mess_send_date desc
+    </select>
+    
+    <select id="senderList" resultMap="has" parameterType="String">
+    	select mess_num, mess_sender, mess_send_date, mess_is_show 
+    	from message_log 
+    	where mess_receiver=#{receiver} 
+    	order by mess_send_date desc
+    </select>
+    
+    <select id="selectAll" resultType="MessageLog">
     	select * from message_log
     </select>
+    
+    
+    
+    <resultMap type="java.util.HashMap" id="has">
+    	<result javaType="java.lang.String" column="mess_num" property="mess_num"/>
+    	<result javaType="java.lang.String" column="mess_sender" property="mess_sender"/>
+    	<result javaType="java.lang.String" column="mess_send_date" property="mess_send_date"/>
+    	<result javaType="java.lang.String" column="mess_is_show" property="mess_is_show"/>
+    </resultMap>
 </mapper>

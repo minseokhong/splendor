@@ -1,13 +1,20 @@
 package com.rng.splendor.db.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.rng.splendor.db.dto.MessageLog;
 import com.rng.splendor.db.dto.UserData;
+import com.rng.splendor.db.service.MessageService;
 import com.rng.splendor.db.service.UserService;
+
+import net.minidev.json.JSONArray;
+import net.minidev.json.JSONObject;
 
 @RestController
 @SessionAttributes("user")
@@ -15,6 +22,9 @@ public class CommonController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	MessageService msgService;
 	
 //	@RequestMapping("/")
 //	public String root_test() throws Exception {
@@ -49,7 +59,22 @@ public class CommonController {
 	
 	@RequestMapping("/sendMessage")
 	public void sendMessage(String mess_sender, String mess_receiver, String mess_content) {
-		System.out.println("\n\n=================================" + mess_sender + "==================\n\n");
+		MessageLog msg = new MessageLog();
+		msg.setMess_sender(mess_sender);
+		msg.setMess_receiver(mess_receiver);
+		msg.setMess_send_date(new Date());
+		msg.setMess_content(mess_content);
+		msgService.sendMessage(msg);
+	}
+	
+	@RequestMapping("/getSenderList")
+	public JSONArray getSenderList(String receiver) {
+		return msgService.getSenderJSON(receiver);
+	}
+	
+	@RequestMapping("/readMessage")
+	public JSONObject readMessage(String mess_num) {
+		return msgService.readMessage(mess_num);
 	}
 	
 }

@@ -3,33 +3,32 @@ package com.rng.splendor.db.dto;
 
 public class GuildMemberList {
 
-	private String guild_name;
-	private String guild_member;
-	private boolean guild_is_master;
-	
-	public String getGuild_name() {
-		return guild_name;
+	private String guildName;
+	private String guildMember;
+	private boolean guildIsMaster;
+	public String getGuildName() {
+		return guildName;
 	}
-	public void setGuild_name(String guild_name) {
-		this.guild_name = guild_name;
+	public void setGuildName(String guildName) {
+		this.guildName = guildName;
 	}
-	public String getGuild_member() {
-		return guild_member;
+	public String getGuildMember() {
+		return guildMember;
 	}
-	public void setGuild_member(String guild_member) {
-		this.guild_member = guild_member;
+	public void setGuildMember(String guildMember) {
+		this.guildMember = guildMember;
 	}
-	public boolean isGuild_is_master() {
-		return guild_is_master;
+	public boolean isGuildIsMaster() {
+		return guildIsMaster;
 	}
-	public void setGuild_is_master(boolean guild_is_master) {
-		this.guild_is_master = guild_is_master;
+	public void setGuildIsMaster(boolean guildIsMaster) {
+		this.guildIsMaster = guildIsMaster;
 	}
-	
 	@Override
 	public String toString() {
-		return "guild_member_list [guild_name=" + guild_name + ", guild_member=" + guild_member + ", guild_is_master="
-				+ guild_is_master + "]";
+		return "GuildMemberList [guildName=" + guildName + ", guildMember=" + guildMember + ", guildIsMaster="
+				+ guildIsMaster + "]";
 	}
+	
 	
 }
