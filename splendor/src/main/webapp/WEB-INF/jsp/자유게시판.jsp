@@ -50,10 +50,7 @@ $(document).ready(function(){
 		var chUser ='<c:out value = '${user}'/>';
 		if(chUser == ''){
 			alert('로그인이 필요합니다.');
-			
-		}else{
-			location.href="글목록";
-		}
+		}	
 		
 	})
 });
@@ -114,13 +111,17 @@ $(document).ready(function(){
                     </thead>
                     <tbody>
                     	<c:forEach var="l" items="${list}">
-                        <tr>
+                        <tr onclick=movepage(${l.board_num})>
                             <td>${l.board_num}</td>
                             <td>${l.board_title}</td>
                             <td>${l.board_writer}</td>
                             <td>${l.board_date}</td>
                             <td>${l.board_count}</td>
-
+<script>
+function()) {
+	
+}
+</script>
                         </tr>
                     	</c:forEach>
 

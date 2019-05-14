@@ -71,7 +71,7 @@
 			<thead>
 				<tr>
                     <th colspan="3"> 
-					    <h2 style="color:rgb(151, 137, 137); text-align: center; padding: 15px; color: 	black"> 글 제목</h2>
+					    <h2 style="color:rgb(151, 137, 137); text-align: center; padding: 15px; color: 	black"> ${detail.board_title}</h2>
 					</th>
 				</tr>
 			</thead>
@@ -80,12 +80,12 @@
                     	<td height="30">
                     	글쓴이:
                     	<span class="member" style="color: #4169E1">
-                    		사천사
+                    		${detail.board_writer}
                     	</span>
                     	날짜:
-                    	<span class="dateTime" style="color: #4169E1">2019-05-09</span>
+                    	<span class="dateTime" style="color: #4169E1">${detail.board_date}</span>
                     	조회:
-                    	<span class="boardcount" style="color: #4169E1">22</span>
+                    	<span class="boardcount" style="color: #4169E1">${detail.board_count}</span>
                     	</td>
                     	
                        
@@ -94,7 +94,9 @@
                         
                     <tr>
                         <td colspan="3"> 
-                        	<textarea rows="15" cols="10" placeholder="내용을 입력하세요. " name="content" class="form-control" id="boardContent" style="background-color: white"></textarea>
+                        	<textarea rows="15" cols="10"  name="content" class="form-control" id="boardContent" style="background-color: white">
+                        		${detail.board_content}
+                        	</textarea>
                         </td>
                     </tr>
                     

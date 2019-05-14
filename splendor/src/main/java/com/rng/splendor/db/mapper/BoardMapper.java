@@ -14,7 +14,7 @@ public interface BoardMapper {
 	
 	public void deleteBoard(int boardNum)throws Exception; //게시물 삭제
 	
-	public BoardData selectBoardByNum(BoardData boardData) throws Exception; //게시물 조회
+	public BoardData boardDetail(int board_num) throws Exception; //게시물 조회
 	
 	
 	
