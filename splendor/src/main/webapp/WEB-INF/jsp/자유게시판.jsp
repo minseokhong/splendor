@@ -10,10 +10,6 @@
    <link rel="icon" href="img/joystick.png" type="image/png">
 	<title>R.N.G Games</title>
    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="css1/bootstrap.css">
-     
-
-
    <link rel="stylesheet" href="css/bootstrap.css">
    <link rel="stylesheet" href="vendors/linericon/style.css">
    <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -71,7 +67,6 @@ $(document).ready(function(){
 <body>
 
    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-   <script src="js/bootstrap.js"></script>
    		
    		<!--================Header Menu Area =================-->
     <c:set var="user" value="${user }"></c:set>
@@ -117,11 +112,6 @@ $(document).ready(function(){
                             <td>${l.board_writer}</td>
                             <td>${l.board_date}</td>
                             <td>${l.board_count}</td>
-<script>
-function()) {
-	
-}
-</script>
                         </tr>
                     	</c:forEach>
 

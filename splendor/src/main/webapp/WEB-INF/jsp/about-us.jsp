@@ -111,7 +111,7 @@
                         <div class="col-lg-12">
                         <div class="col-lg-12">
                            <div class="feature-img">
-                              <img class="img-fluid" src="img/blog/feature-img2.jpg" alt="">
+<!--                               <img class="img-fluid" src="img/blog/feature-img2.jpg" alt=""> -->
                            </div>                           
                         </div>
                         <div class="col-lg-9 col-md-9 blog_details">
@@ -160,10 +160,10 @@
 
                            <div class="row">
                               <div class="col-6">
-                                 <img class="img-fluid" src="img/blog/feature-img2.jpg" alt="">
+<!--                                  <img class="img-fluid" src="img/blog/feature-img2.jpg" alt=""> -->
                               </div>
                               <div class="col-6">
-                                 <img class="img-fluid" src="img/blog/feature-img2.jpg" alt="">
+<!--                                  <img class="img-fluid" src="img/blog/feature-img2.jpg" alt=""> -->
                               </div>   
                               <div class="col-lg-12 mt-25">
                               	<h2>2인플 혹은 4인플이라면?</h2>
@@ -182,10 +182,10 @@
                            </div>
                            <div class="row">
                               <div class="col-6">
-                                 <img class="img-fluid" src="img/blog/feature-img2.jpg" alt="">
+<!--                                  <img class="img-fluid" src="img/blog/feature-img2.jpg" alt=""> -->
                               </div>
                               <div class="col-6">
-                                 <img class="img-fluid" src="img/blog/feature-img2.jpg" alt="">
+<!--                                  <img class="img-fluid" src="img/blog/feature-img2.jpg" alt=""> -->
                               </div>   
                               <div class="col-lg-12 mt-25">
                               	<h2 style="color:#DB7093 ">※많이 해보기※</h2>
