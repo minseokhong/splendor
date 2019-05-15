@@ -27,7 +27,6 @@ const NUM_DISPLAY = 4;
 
 io.on('connection', (socket) => {
 	/******************************** ROOM STUFF ********************************/
-	// socket.emit('alert', 'info', 'Welcome! You can join to room or create room. Click "?" button for game information.');
 	socket.emit('show rooms', rooms);
 
 	socket.on('new room', (roomName, password) => {
