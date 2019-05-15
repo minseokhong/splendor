@@ -3,13 +3,72 @@
 
 <mapper namespace="com.rng.splendor.db.mapper.BoardMapper">
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+	
+	<select id="selectBoardList" parameterType="com.rng.splendor.db.service.BoardService" resultType="com.rng.splendor.db.service.BoardService">
+		select * from board_data
+=======
+	<select id="insertBoard" parameterType="BoardData">
+=======
 	<insert id="insertBoard" parameterType="com.rng.splendor.db.dto.BoardData">
+>>>>>>> branch 'master' of https://github.com/minseokhong/splendor.git
 		INSERT INTO board_data(board_writer,board_date, board_is_show,
 		board_type, board_count, board_like, board_dislike, 
 		board_title, board_content) 
+<<<<<<< HEAD
+		VALUES('aaa' , '2019-05-20','1',3, 3, 3, 3,#{board_title},#{board_content})
+>>>>>>> branch 'master' of https://github.com/minseokhong/splendor.git
+	</select>
+=======
 		VALUES('aaa' , now(),'1',3, 3, 3, 3,#{board_title},#{board_content})
 	</insert>
+>>>>>>> branch 'master' of https://github.com/minseokhong/splendor.git
 	
+<<<<<<< HEAD
+	
+	<insert id="insertBoard" parameterType="BoardData">
+		insert into board_data(
+			board_writer, 
+			board_date, 
+			board_is_show, 
+			board_title, 
+			board_content, 
+			board_type, 
+			board_count, 
+			board_like, 
+			board_dislike) 
+		values(
+		#{board_writer},
+		now(), 
+		#{board_is_show}, 
+		#{board_title}, 
+		#{board_content}, 
+		#{board_type}, 
+		#{board_count}, 
+		#{board_like},
+		#{board_dislkie})
+	</insert>
+	
+	<update id="updateBoard" parameterType="BoardData">
+		update board_data set
+			board_title = #{board_title},
+			board_content = #{board_content},
+			board_date = now()
+		where board_num = #{board_num}	
+	</update>
+	
+	<delete id = "deleteBoard" parameterType="BoardData">
+		delete from board_data 
+		where board_num = #{board_num}	
+	</delete>
+	
+	<select id ="selectBoardByNum" parameterType="com.rng.splendor.db.service.BoardService" resultType="com.rng.splendor.db.service.BoardService">
+		select * from board_data
+		where board_num = #{board_num}	
+	</select>
+		
+=======
 	<select id="selectBoardList" resultType="com.rng.splendor.db.dto.BoardData">
 		SELECT * FROM board_data
 	</select>
@@ -26,5 +85,6 @@
 <!-- 		, 1, 53, 0, 0 -->
 <!-- 		) -->
 <!-- 	</select> -->
+>>>>>>> branch 'master' of https://github.com/minseokhong/splendor.git
 
 </mapper>
