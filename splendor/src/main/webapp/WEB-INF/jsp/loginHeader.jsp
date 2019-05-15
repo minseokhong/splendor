@@ -1,21 +1,23 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<script
-  src="https://code.jquery.com/jquery-3.4.0.js"
-  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-  crossorigin="anonymous"></script>
-  
-  <script type="text/javascript">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.js"
+	integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+	crossorigin="anonymous"></script>
+<script src="js/message.js"></script>
+
+<script type="text/javascript">
+	
   	$(document).ready(function() {
   		
-			$('.${activeLocation }').addClass('active');
+		$('.${activeLocation }').addClass('active');
 			
   		$.ajax({
   			url : 'http://localhost:8000/getSenderList', 
@@ -25,463 +27,613 @@
   			}, 
   			dataType : "json", 
   			success : function(data) {
-					console.log(data);
+				console.log(data);
+				var amount = 0;
   				data.forEach(msgMeta => {
-						var isNew = '';
-						if(msgMeta.mess_is_show == 0) {
-							isNew = '"new"';
-						}
-						$('.ÂÊÁö_³»¿ë').append(
-							$('<div></div>').addClass('msg1 messStyle1').append(
-								$('<div></div>').addClass('messStyle2').append(
-									$('<img src="/img/no_profile.png"></img>').addClass('messStyle3')
-								), 
-								$('<div></div>').addClass('msg_click messStyle4').attr('onclick', 'msg_click('+msgMeta.mess_num+')').append(
-									$('<div>'+isNew+'<div>').addClass('mess'+msgMeta.mess_num+' messIsNew'), 
-									$("<div>'"+msgMeta.mess_sender+"'´Ô<br>¿¡°Ô ÂÊÁö°¡ µµÂøÇß½À´Ï´Ù.</div>").addClass('messStyle5'), 
-									$('<div>'+msgMeta.mess_send_date+'</div>').addClass('messStyle6')
-								), 
-								$('<div></div>').addClass('messStyle7').append(
-									$('<button type="button" class="close" id="close" aria-label="Close"></button>').addClass('messStyle8').append(
-										$('<span aria-hidden="true">&times;</span>')
-									)
-								)
-							)
-						)
-					});
+					var isNew = '';
+					if(msgMeta.mess_is_show == 0) {
+						amount++;
+						isNew = '"new"';
+					}
+					$('.ìª½ì§€_ë‚´ìš©').append(
+						addMsgTemplate(msgMeta, isNew, msgMeta.mess_send_date)
+					)
+					if(amount != 0) {
+						$('#alert-amount').text(amount);
+					}
+				});
   			}, 
   			error : function() {
-  				alert("ÂÊÁö µ¥ÀÌÅÍ¸¦ °¡Á®¿À´Â µ¥ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+  				alert("ìª½ì§€ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¤ëŠ”ë° ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
   			}
   		});
   		
+  		connect();
+  		
   	});
-	</script>
-	<style type="text/css">
-		.messStyle1 {
-			padding: 5%;
-			height: 30%;
-			border: 1px solid;
-		}
-		.messStyle2 {
-			/* float: left; */
-			position: relative;
-			display: inline-block;
-			width: 30%;
-			margin-right: 5%;
-			height: 100%;
-		}
-		.messStyle3 {
-			position: absolute;
-			top: auto;
-			margin-right: 5%;
-		}
-		.messStyle4 {
-			/* float: left; */
-			position: relative;
-			color: black;
-			display: inline-block;
-			width: 60%;
-			font-size: 12px;
-		}
-		.messStyle5 {
-			width: 100%;
-			/* line-height: 27px; */
-			cursor: pointer;
-		}
-		.messStyle6 {
-			margin-top: 9px;
-			color: #777777;
-		}
-		.messStyle7 {
-			/* float: right; */
-			position: relative;
-			display: inline-block;
-			width: 5%;
-			height: 100%;
-			font-size: 12px;
-		}
-		.messStyle8 {
-			position: absolute;
-			right: 0;
-			top: -5px;
-		}
-		.messIsNew {
-			position: absolute;
-			width: 145px;
-			top: -5px;
-			text-align: right;
-			color: rgb(201, 168, 22);
-		}
-	</style>
+
+  	var stompClient = null;
+
+  	function setConnected(connected) {
+  	    $("#connect").prop("disabled", connected);
+  	    $("#disconnect").prop("disabled", !connected);
+  	    if (connected) {
+  	        $("#conversation").show();
+  	    }
+  	    else {
+  	        $("#conversation").hide();
+  	    }
+  	    $("#greetings").html("");
+  	}
+
+  	function connect() {
+  	    var socket = new SockJS('/websocket');
+  	    stompClient = Stomp.over(socket);
+  	    stompClient.connect({}, function (frame) {
+  	        setConnected(true);
+  	        console.log('Connected: ' + frame);
+  	        stompClient.subscribe('/alert/${user.user_name}', function (message) {
+  	            alertAndAddMessage(JSON.parse(message.body));
+  	        });
+  	    });
+  	}
+
+  	//function disconnect() {
+//  	    if (stompClient !== null) {
+//  	        stompClient.disconnect();
+//  	    }
+//  	    setConnected(false);
+//  	    console.log("Disconnected");
+  	//}
+
+  	function sendName() {
+  	    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
+  	}
+
+  	function alertAndAddMessage(msgMeta) {
+  		alert("ìƒˆ ë©”ì‹œì§€ê°€ ë„ì°©í–ˆìŠµë‹ˆë‹¤!");
+		var amount = $('#alert-amount').text();
+  		if(amount == '' || amount == null) {
+			  $('#alert-amount').text('1');
+		  } else {
+			$('#alert-amount').text(amount*1 + 1)
+		  }
+		$('.ìª½ì§€_ë‚´ìš©').prepend(
+			addMsgTemplate(msgMeta, '"new"', msgMeta.mess_send_date)
+		)
+  	}
+
+  	$(function () {
+  	    $("form").on('submit', function (e) {
+  	        e.preventDefault();
+  	    });
+  	    $( "#connect" ).click(function() { connect(); });
+  	    $( "#disconnect" ).click(function() { disconnect(); });
+  	    $( "#send" ).click(function() { sendName(); });
+  	});
 	
+	function addMsgTemplate(msgMeta, isNew, sendDate) {
+		sendDate = parseDateFormat(sendDate);
+		
+		return $('<div></div>').addClass('msg1 messStyle1').append(
+					$('<div></div>').addClass('messStyle2').append(
+						$('<img src="/img/no_profile.png"></img>').addClass('messStyle3')
+					), 
+					$('<div></div>').addClass('msg_click messStyle4').attr('onclick', 'msg_click('+msgMeta.mess_num+')').append(
+						$('<div>'+isNew+'<div>').addClass('mess'+msgMeta.mess_num+' messIsNew'), 
+						$("<div>'"+msgMeta.mess_sender+"'ë‹˜<br>ì—ê²Œ ìª½ì§€ê°€ ë„ì°©í–ˆìŠµë‹ˆë‹¤.</div>").addClass('messStyle5'), 
+						$('<div>'+sendDate+'</div>').addClass('messStyle6')
+					), 
+					$('<div></div>').addClass('messStyle7').append(
+						$('<button type="button" class="close" id="close" aria-label="Close"></button>').addClass('messStyle8').append(
+							$('<span aria-hidden="true">&times;</span>')
+						)
+					)
+				)
+	}
+
+	function parseDateFormat(date) {
+		var yyyy = date.substring(0, 4);
+		var MM = date.substring(5, 7);
+		var dd = date.substring(8, 10);
+		var hh = date.substring(11, 13);
+		var mm = date.substring(14, 16);
+		var ss = date.substring(17, 19);
+
+		return yyyy+'-'+MM+'-'+dd+' '+hh+':'+mm+':'+ss;
+	}
+
+	</script>
+<style type="text/css">
+.messStyle1 {
+	padding: 5%;
+	height: 30%;
+	border: 1px solid;
+}
+
+.messStyle2 {
+	float: left;
+	position: relative;
+	display: inline-block;
+	width: 30%;
+	margin-right: 5%;
+	height: 100%;
+}
+
+.messStyle3 {
+	position: absolute;
+	top: auto;
+	margin-right: 5%;
+}
+
+.messStyle4 {
+	float: left;
+	position: relative;
+	color: black;
+	display: inline-block;
+	width: 60%;
+	font-size: 12px;
+}
+
+.messStyle5 {
+	width: 100%;
+	/* line-height: 27px; */
+	cursor: pointer;
+}
+
+.messStyle6 {
+	margin-top: 9px;
+	color: #777777;
+}
+
+.messStyle7 {
+	/* float: right; */
+	position: relative;
+	display: inline-block;
+	width: 5%;
+	height: 100%;
+	font-size: 12px;
+}
+
+.messStyle8 {
+	position: absolute;
+	right: 0;
+	top: -5px;
+}
+
+.messIsNew {
+	position: absolute;
+	width: 145px;
+	top: -5px;
+	text-align: right;
+	color: rgb(201, 168, 22);
+}
+
+#alert-amount {
+	display: inline-block;
+	position: relative;
+	top: -1px;
+	left: 47px;
+    border-radius: 3em;
+    padding: .1em  .2em;
+    line-height: 1.25em;
+	color: black;
+	background-color: hsl(51, 85%, 43%);
+    border: 1px solid #ffd700;
+    font-size: .8em;
+	font-weight: 600;
+    text-align: center;
+	z-index: 1;
+	
+	
+
+}
+</style>
+
 </head>
 <body>
-<!--================Header Menu Area =================-->
+	<!--================Header Menu Area =================-->
 	<header class="header_area">
-		<div class="main_menu">
-			<nav class="navbar navbar-expand-lg navbar-light">
-				<div class="container">
-				
-					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index" style="text-align: center; color: #777777;"><img class="logo" src="img/joystick.png" alt="">R.N.G<aside>
-                        
-                    </aside></a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_nav justify-content-center">
-							<li class="nav-item submenu dropdown">
-							<li class="nav-item index"><a class="nav-link" href="index">È¨ÆäÀÌÁö</a></li>
-							<li class="nav-item about-us"><a class="nav-link" href="about-us">°ÔÀÓ¼Ò°³</a></li>
-							<li class="nav-item screenshot"><a class="nav-link" href="screenshot">½ºÅ©¸°¼¦</a></li>
-							<li class="nav-item community submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Ä¿¹Â´ÏÆ¼</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="guild">±æµå</a></li>
-									<li class="nav-item"><a class="nav-link" href="ÀÚÀ¯°Ô½ÃÆÇ">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
-								</ul>
-							</li>
-							<li class="nav-item service submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">°í°´¼¾ÅÍ</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="BBS">FAQ</a></li>
-									<li class="nav-item"><a class="nav-link" href="³ª¹®ÀÇ">1:1¹®ÀÇ</a></li>
-								</ul>
-							</li>
-						</ul>
-						
-						<a class="notification"><img src="/img/notification.png" title="¾Ë¸²"></a>
+	<div class="main_menu">
+		<nav class="navbar navbar-expand-lg navbar-light">
+		<div class="container">
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<a class="navbar-brand logo_h" href="index"
+				style="text-align: center; color: #777777;"><img class="logo"
+				src="img/joystick.png" alt="">R.N.G<aside> </aside></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse offset"
+				id="navbarSupportedContent">
+				<ul class="nav navbar-nav menu_nav justify-content-center">
+					<li class="nav-item submenu dropdown">
+					<li class="nav-item index"><a class="nav-link" href="index">í™ˆí˜ì´ì§€</a></li>
+					<li class="nav-item about-us"><a class="nav-link"
+						href="about-us">ê²Œì„ì†Œê°œ</a></li>
+					<li class="nav-item screenshot"><a class="nav-link"
+						href="screenshot">ìŠ¤í¬ë¦°ìƒ·</a></li>
+					<li class="nav-item community submenu dropdown"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"
+						role="button" aria-haspopup="true" aria-expanded="false">ì»¤ë®¤ë‹ˆí‹°</a>
+						<ul class="dropdown-menu">
+							<li class="nav-item"><a class="nav-link" href="guild">ê¸¸ë“œ</a></li>
+							<li class="nav-item"><a class="nav-link" href="ììœ ê²Œì‹œíŒ">ììœ ê²Œì‹œíŒ</a></li>
+						</ul></li>
+					<li class="nav-item service submenu dropdown"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"
+						role="button" aria-haspopup="true" aria-expanded="false">ê³ ê°ì„¼í„°</a>
+						<ul class="dropdown-menu">
+							<li class="nav-item"><a class="nav-link" href="BBS">FAQ</a></li>
+							<li class="nav-item"><a class="nav-link" href="ë‚˜ë¬¸ì˜">1:1ë¬¸ì˜</a></li>
+						</ul></li>
+				</ul>
+				<span id="alert-amount"></span>
+				<a class="notification"><img src="/img/notification.png"
+					title="ì•Œë¦¼"></a>
 
 
-						<div class="message-box" style="border: 1px solid black; z-index: 1;">
-							<div style="background-color: rgb(205, 216, 54); height: 40%; text-align: center;">
-								<button type="button" class="close" id="close_ÂÊÁöÈ®ÀÎÃ¢" aria-label="Close"
-								style="position: absolute; right: 0; top: 2%; right: 5%;">
-										<span aria-hidden="true">&times;</span>
-								</button>
-									
-								<img src="/img/jihyo.jpg" 
-								style="position: absolute; width: 30%; left: 35%; top: 9%;">
-							</div>
-							<div style="position: relative; background-color: white; height: 60%; text-align: center;">
-								<div style="margin-left: 5%; height: 20%; font-size: 20px;">
-									from. <div
-									id="mess_sender_area" style="display: inline-block; width: 60%; height: 80%; font-size: 15px; border: none; margin-top: 5%;"> À±Çöºó</div> 
-									
-								</div>
+				<div class="message-box"
+					style="border: 1px solid black; z-index: 1;">
+					<div
+						style="background-color: rgb(205, 216, 54); height: 40%; text-align: center;">
+						<button type="button" class="close" id="close_ìª½ì§€í™•ì¸ì°½"
+							aria-label="Close"
+							style="position: absolute; right: 0; top: 2%; right: 5%;">
+							<span aria-hidden="true">&times;</span>
+						</button>
 
-								<div style="position: absolute; margin-left: 15%; width: 80%; height: 60%;">
-									<div id="mess_content_area" cols="30" rows="10"
-									style="font-size: 10px; text-align: left; height: 60%; border: none; margin-top: 8%; margin-right: 10%; overflow-y: scroll;">
-										<!-- ¾È³ç Çöºó¾Æ ^^ Àß Áö³»Áö????
-										Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem similique tenetur molestiae, quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? -->
-									</div>
-								</div>
-								<div style="position: absolute; bottom: 10%; text-align: center; width: 100%;">
-									<input class="´äÀåÇÏ±â" type="button" value="´äÀåÇÏ±â" sender=""
-									style="background-color: white; color: rgb(205, 216, 54); border: none; cursor: pointer;">
-
-								</div>
-							</div>
-						</div>
-
-
-						<div class="a2" style="border: 1px solid black;">
-							<div 
-							style="display: inline-block; height: 8%; text-align: center; width: 100%; background-color: white;">
-								<div class="ÂÊÁö" style="display: inline-block; background-color: lightgreen; width: 49%; height: 100%; ">ÂÊÁö</div>
-								<div class="¾Ë¸²" style="display: inline-block; background-color: skyBlue; width: 49%; height: 100%;">¾Ë¸²</div>
-							</div>
-
-							<div class="ÂÊÁö_³»¿ë" style="background-color: lightgreen; height: 92%; overflow-y: scroll;">
-
-								<div param="³ª¾ß³ª" class="msg1" style="padding: 5%; height: 30%; border: 1px solid;">
-									<div style="position: relative; display: inline-block; float: left; width: 30%; margin-right: 5%; height: 100%;">
-										<img src="/img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;">
-									</div>
-									<div class="msg_click" param="³ª¾ß³ª" style="display: inline-block; width: 60%; float: left; font-size: 12px;">
-										<a style="color: black; width: 100%; cursor: pointer;">
-											ÁöÈ¿' ´Ô<br>¿¡°Ô ÂÊÁö°¡ µµÂøÇß½À´Ï´Ù.
-										</a>
-										<div style="margin-top: 10px">2018.9.9___17:16</div>
-									</div>
-									<div style="position: relative; display: inline-block; float: right; width: 5%; height: 100%; font-size: 12px;">
-											<button type="button" class="close" id="close" aria-label="Close"
-											style="position: absolute; right: 0; top: -5px">
-													<span aria-hidden="true">&times;</span>
-											</button>
-									</div>
-								</div>
-
-								<div class="msg1">
-									<div>
-										<img src="/img/jihyo.jpg">
-									</div>
-									<div class="msg_click" mess_no="gdgd">
-										<a>
-											ÁöÈ¿' ´Ô<br>¿¡°Ô ÂÊÁö°¡ µµÂøÇß½À´Ï´Ù.
-										</a>
-										<div>2018.9.9___17:16</div>
-									</div>
-									<div>
-											<button type="button" id="close" aria-label="Close">
-													<span aria-hidden="true">&times;</span>
-											</button>
-									</div>
-								</div>
-
-								<div class="msg1" style="padding: 5%; height: 30%; border: 1px solid;">
-									<div style="position: relative; display: inline-block; float: left; width: 30%; margin-right: 5%; height: 100%;">
-										<img src="/img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;">
-									</div>
-									<div style="display: inline-block; width: 50%; float: left; font-size: 12px;">
-										<a class="msg_click" style="color: black; width: 100%; cursor: pointer;">
-											ÁöÈ¿' ´Ô¿¡°Ô ÂÊÁö°¡ µµÂøÇß½À´Ï´Ù.
-										</a>
-										<div>2018.9.9___17:16</div>
-									</div>
-									<div style="position: relative; display: inline-block; float: right; width: 5%; height: 100%; font-size: 12px;">
-											<button type="button" class="close" id="close" aria-label="Close"
-											style="position: absolute; right: 0; top: -5px">
-													<span aria-hidden="true">&times;</span>
-											</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 30%; border: 1px solid;">
-									<div style="position: relative; display: inline-block; width: 30%; margin-right: 5%; height: 100%;">
-										<img src="/img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;">
-									</div>
-									<div style="display: inline-block; width: 50%; font-size: 12px; cursor: pointer;">
-										<a href="" style="color: black; width: 100%;">
-											'ÁöÈ¿' ´Ô¿¡°Ô ÂÊÁö°¡ µµÂøÇß½À´Ï´Ù.
-										</a>
-										<br>2018.9.9___17:16
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%; font-size: 12px;">
-											<button type="button" class="close" id="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
-													<span aria-hidden="true">&times;</span>
-											</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 30%; border: 1px solid;">
-									<div style="position: relative; display: inline-block; width: 30%; margin-right: 5%; height: 100%;">
-										<img src="img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;">
-									</div>
-									<div style="display: inline-block; width: 50%; font-size: 12px;">
-										<a href="" style="color: black; width: 100%; cursor: pointer;">
-											'ÁöÈ¿' ´Ô¿¡°Ô ÂÊÁö°¡ µµÂøÇß½À´Ï´Ù.
-										</a>
-										<br>2018.9.9___17:16
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%; font-size: 12px;">
-											<button type="button" class="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
-													<span aria-hidden="true">&times;</span>
-											</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 30%; border: 1px solid;">
-									<div style="position: relative; display: inline-block; width: 30%; margin-right: 5%; height: 100%;">
-										<img src="img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;">
-									</div>
-									<div style="display: inline-block; width: 50%; font-size: 12px;">
-										<a href="" style="color: black; width: 100%; cursor: pointer;">
-											'ÁöÈ¿' ´Ô¿¡°Ô ÂÊÁö°¡ µµÂøÇß½À´Ï´Ù.
-										</a>
-										<br>2018.9.9___17:16
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%; font-size: 12px;">
-										<button type="button" class="close" aria-label="Close"
-										style="position: absolute; right: 0; top: 0px">
-												<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 30%; border: 1px solid;">
-									<div style="position: relative; display: inline-block; width: 30%; margin-right: 5%; height: 100%;">
-										<img src="img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;">
-									</div>
-									<div style="display: inline-block; width: 50%; font-size: 12px;">
-										<a href="" style="color: black; width: 100%; cursor: pointer;">
-											'ÁöÈ¿' ´Ô¿¡°Ô ÂÊÁö°¡ µµÂøÇß½À´Ï´Ù.
-										</a>
-										<br>2018.9.9___17:16
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%; font-size: 12px;">
-										<button type="button" class="close" aria-label="Close"
-										style="position: absolute; right: 0; top: 0px">
-												<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-							</div>
-
-							
-							<div class="¾Ë¸²_³»¿ë" style="display: none; background-color: skyBlue; height: 92%; text-align: center; overflow-y: scroll;">
-
-								<div style="padding: 5%; height: 19%; border: none; font-size: 13px;">
-									<div style="display: inline-block; width: 90%">
-										<a href="" style="color: black; cursor: pointer;">
-											'À±Çöºó' ´ÔÀÌ ´ñ±ÛÀ» ´Ş¾Ò½À´Ï´Ù.<br>
-											2019.2.4___19:01
-										</a>
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%;">
-										<button type="button" class="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 19%; border: none; font-size: 13px;">
-									<div style="display: inline-block; width: 90%">
-										<a href="" style="color: black; cursor: pointer;">
-											'À±Çöºó' ´ÔÀÌ ´ñ±ÛÀ» ´Ş¾Ò½À´Ï´Ù.<br>
-											2019.2.4___19:01
-										</a>
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%;">
-										<button type="button" class="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 19%; border: none; font-size: 13px;">
-									<div style="display: inline-block; width: 90%">
-										<a href="" style="color: black; cursor: pointer;">
-											'À±Çöºó' ´ÔÀÌ ´ñ±ÛÀ» ´Ş¾Ò½À´Ï´Ù.<br>
-											2019.2.4___19:01
-										</a>
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%;">
-										<button type="button" class="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 19%; border: none; font-size: 13px;">
-									<div style="display: inline-block; width: 90%">
-										<a href="" style="color: black; cursor: pointer;">
-											'À±Çöºó' ´ÔÀÌ ´ñ±ÛÀ» ´Ş¾Ò½À´Ï´Ù.<br>
-											2019.2.4___19:01
-										</a>
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%;">
-										<button type="button" class="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 19%; border: none; font-size: 13px;">
-									<div style="display: inline-block; width: 90%">
-										<a href="" style="color: black; cursor: pointer;">
-											'À±Çöºó' ´ÔÀÌ ´ñ±ÛÀ» ´Ş¾Ò½À´Ï´Ù.<br>
-											2019.2.4___19:01
-										</a>
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%;">
-										<button type="button" class="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 19%; border: none; font-size: 13px;">
-									<div style="display: inline-block; width: 90%">
-										<a href="" style="color: black; cursor: pointer;">
-											'À±Çöºó' ´ÔÀÌ ´ñ±ÛÀ» ´Ş¾Ò½À´Ï´Ù.<br>
-											2019.2.4___19:01
-										</a>
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%;">
-										<button type="button" class="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-
-								<div style="padding: 5%; height: 19%; border: none; font-size: 13px;">
-									<div style="display: inline-block; width: 90%">
-										<a href="" style="color: black; cursor: pointer;">
-											'À±Çöºó' ´ÔÀÌ ´ñ±ÛÀ» ´Ş¾Ò½À´Ï´Ù.<br>
-											2019.2.4___19:01
-										</a>
-									</div>
-									<div style="position: relative; display: inline-block; width: 5%; height: 100%;">
-										<button type="button" class="close" aria-label="Close"
-											style="position: absolute; right: 0; top: 0px">
-											<span aria-hidden="true">&times;</span>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-
-
-
-						<a class="mail"><img src="img/mail.png" title="ÂÊÁö"></a>
-
-						<div class="a1" style="border: 1px solid black;">
-							<div style="background-color: rgb(168, 9, 49); height: 40%; text-align: center;">
-								<button type="button" class="close" id="close_ÂÊÁöº¸³»±â" aria-label="Close"
-									style="position: absolute; right: 0; top: 2%; right: 5%;">
-											<span aria-hidden="true">&times;</span>
-									</button>
-<!-- 								<img src="img/jihyo.jpg"  -->
-								<img src="${user.user_image }"
-								style="position: absolute; width: 30%; left: 35%; top: 9%;">
-							</div>
-							<div style="background-color: white; height: 60%; text-align: center;">
-								<div style="margin-left: 5%; height: 20%; font-size: 20px;">
-									to. <input id="msg_receiver" type="text" placeholder="¹Ş´Â»ç¶÷ÀÇ ´Ğ³×ÀÓÀ» ÀÔ·ÂÇÏ¼¼¿ä." 
-									onfocus="this.placeholder = ''" onblur="this.placeholder = '¹Ş´Â»ç¶÷ÀÇ ´Ğ³×ÀÓÀ» ÀÔ·ÂÇÏ¼¼¿ä.'"
-									style="width: 80%; height: 80%; font-size: 15px; border: none; margin-top: 5%;">
-								</div>
-
-								<div style="margin-left: 10%; height: 60%;">
-									<textarea id="msg_content" cols="30" rows="10" placeholder="³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä." 
-									onfocus="this.placeholder = ''" onblur="this.placeholder = '³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä.'"
-									style="font-size: 10px; width: 80%; height: 60%; border: none; margin-top: 8%; margin-right: 10%;"></textarea>
-									</textarea>
-									<div id="msg_send_result" style="margin-top: 5px; margin-right: 40px; text-align: right; color: green; font-size: 6px;"></div>
-								</div>
-								<div>
-									<input type="button" value="º¸³»±â" 
-									style="text-align: right; background-color: white; color: rgb(168, 9, 49); border: none; cursor: pointer;" onclick=sendMessage();>
-
-								</div>
-							</div>
-						</div>
-
-                        <a class="avatar" href="profile"><img src="img/avatar.png" title="ÇÁ·ÎÇÊ ¼³Á¤"></a>
-                        <a class="cancel" href="logoutForm"><img src="img/cancel.png" title="·Î±×¾Æ¿ô"></a>
+						<img src="/img/jihyo.jpg"
+							style="position: absolute; width: 30%; left: 35%; top: 9%;">
 					</div>
-				</div>¤·
-			</nav>
+					<div
+						style="position: relative; background-color: white; height: 60%; text-align: center;">
+						<div style="margin-left: 5%; height: 20%; font-size: 20px;">
+							from.
+							<div id="mess_sender_area"
+								style="display: inline-block; width: 60%; height: 80%; font-size: 15px; border: none; margin-top: 5%;">
+								ìœ¤í˜„ë¹ˆ</div>
+
+						</div>
+
+						<div
+							style="position: absolute; margin-left: 15%; width: 80%; height: 60%;">
+							<div id="mess_content_area" cols="30" rows="10"
+								style="font-size: 10px; text-align: left; height: 60%; border: none; margin-top: 8%; margin-right: 10%; overflow-y: scroll;">
+								<!-- ì•ˆë…• í˜„ë¹ˆì•„ ^^ ì˜ ì§€ë‚´ì§€????
+										Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem similique tenetur molestiae, quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? quasi consectetur quidem odit incidunt reiciendis natus accusamus, fuga consequuntur in. Eos vel beatae, incidunt necessitatibus in ipsum? -->
+							</div>
+						</div>
+						<div
+							style="position: absolute; bottom: 10%; text-align: center; width: 100%;">
+							<input class="ë‹µì¥í•˜ê¸°" type="button" value="ë‹µì¥í•˜ê¸°" sender=""
+								style="background-color: white; color: rgb(205, 216, 54); border: none; cursor: pointer;">
+
+						</div>
+					</div>
+				</div>
+
+
+				<div class="a2" style="border: 1px solid black;">
+					<div
+						style="display: inline-block; height: 8%; text-align: center; width: 100%; background-color: white;">
+						<div class="ìª½ì§€"
+							style="display: inline-block; background-color: lightgreen; width: 49%; height: 100%;">ìª½ì§€</div>
+						<div class="ì•Œë¦¼"
+							style="display: inline-block; background-color: skyBlue; width: 49%; height: 100%;">ì•Œë¦¼</div>
+					</div>
+
+					<div class="ìª½ì§€_ë‚´ìš©"
+						style="background-color: lightgreen; height: 92%; overflow-y: scroll;">
+
+<!-- 						<div param="ë‚˜ì•¼ë‚˜" class="msg1" -->
+<!-- 							style="padding: 5%; height: 30%; border: 1px solid;"> -->
+<!-- 							<div -->
+<!-- 								style="position: relative; display: inline-block; float: left; width: 30%; margin-right: 5%; height: 100%;"> -->
+<!-- 								<img src="/img/jihyo.jpg" width="100%" -->
+<!-- 									style="position: absolute; top: auto; margin-right: 5%;"> -->
+<!-- 							</div> -->
+<!-- 							<div class="msg_click" param="ë‚˜ì•¼ë‚˜" -->
+<!-- 								style="display: inline-block; width: 60%; float: left; font-size: 12px;"> -->
+<!-- 								<a style="color: black; width: 100%; cursor: pointer;"> ì§€íš¨' -->
+<!-- 									ë‹˜<br>ì—ê²Œ ìª½ì§€ê°€ ë„ì°©í–ˆìŠµë‹ˆë‹¤. -->
+<!-- 								</a> -->
+<!-- 								<div style="margin-top: 10px">2018.9.9___17:16</div> -->
+<!-- 							</div> -->
+<!-- 							<div -->
+<!-- 								style="position: relative; display: inline-block; float: right; width: 5%; height: 100%; font-size: 12px;"> -->
+<!-- 								<button type="button" class="close" id="close" -->
+<!-- 									aria-label="Close" -->
+<!-- 									style="position: absolute; right: 0; top: -5px"> -->
+<!-- 									<span aria-hidden="true">&times;</span> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+
+<!-- 						<div class="msg1"> -->
+<!-- 							<div> -->
+<!-- 								<img src="/img/jihyo.jpg"> -->
+<!-- 							</div> -->
+<!-- 							<div class="msg_click" mess_no="gdgd"> -->
+<!-- 								<a> -->
+<!-- 									ì§€íš¨' ë‹˜<br>ì—ê²Œ ìª½ì§€ê°€ ë„ì°©í–ˆìŠµë‹ˆë‹¤. -->
+<!-- 								</a> -->
+<!-- 								<div>2018.9.9___17:16</div> -->
+<!-- 							</div> -->
+<!-- 							<div> -->
+<!-- 									<button type="button" id="close" aria-label="Close"> -->
+<!-- 											<span aria-hidden="true">&times;</span> -->
+<!-- 									</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+
+<!-- 						<div class="msg1" style="padding: 5%; height: 30%; border: 1px solid;"> -->
+<!-- 							<div style="position: relative; display: inline-block; float: left; width: 30%; margin-right: 5%; height: 100%;"> -->
+<!-- 								<img src="/img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;"> -->
+<!-- 							</div> -->
+<!-- 							<div style="display: inline-block; width: 50%; float: left; font-size: 12px;"> -->
+<!-- 								<a class="msg_click" style="color: black; width: 100%; cursor: pointer;"> -->
+<!-- 									ì§€íš¨' ë‹˜ì—ê²Œ ìª½ì§€ê°€ ë„ì°©í–ˆìŠµë‹ˆë‹¤. -->
+<!-- 								</a> -->
+<!-- 								<div>2018.9.9___17:16</div> -->
+<!-- 							</div> -->
+<!-- 							<div style="position: relative; display: inline-block; float: right; width: 5%; height: 100%; font-size: 12px;"> -->
+<!-- 									<button type="button" class="close" id="close" aria-label="Close" -->
+<!-- 									style="position: absolute; right: 0; top: -5px"> -->
+<!-- 											<span aria-hidden="true">&times;</span> -->
+<!-- 									</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+
+<!-- 						<div style="padding: 5%; height: 30%; border: 1px solid;"> -->
+<!-- 							<div style="position: relative; display: inline-block; width: 30%; margin-right: 5%; height: 100%;"> -->
+<!-- 								<img src="/img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;"> -->
+<!-- 							</div> -->
+<!-- 							<div style="display: inline-block; width: 50%; font-size: 12px; cursor: pointer;"> -->
+<!-- 								<a href="" style="color: black; width: 100%;"> -->
+<!-- 									'ì§€íš¨' ë‹˜ì—ê²Œ ìª½ì§€ê°€ ë„ì°©í–ˆìŠµë‹ˆë‹¤. -->
+<!-- 								</a> -->
+<!-- 								<br>2018.9.9___17:16 -->
+<!-- 							</div> -->
+<!-- 							<div style="position: relative; display: inline-block; width: 5%; height: 100%; font-size: 12px;"> -->
+<!-- 									<button type="button" class="close" id="close" aria-label="Close" -->
+<!-- 									style="position: absolute; right: 0; top: 0px"> -->
+<!-- 											<span aria-hidden="true">&times;</span> -->
+<!-- 									</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+
+<!-- 						<div style="padding: 5%; height: 30%; border: 1px solid;"> -->
+<!-- 							<div style="position: relative; display: inline-block; width: 30%; margin-right: 5%; height: 100%;"> -->
+<!-- 								<img src="img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;"> -->
+<!-- 							</div> -->
+<!-- 							<div style="display: inline-block; width: 50%; font-size: 12px;"> -->
+<!-- 								<a href="" style="color: black; width: 100%; cursor: pointer;"> -->
+<!-- 									'ì§€íš¨' ë‹˜ì—ê²Œ ìª½ì§€ê°€ ë„ì°©í–ˆìŠµë‹ˆë‹¤. -->
+<!-- 								</a> -->
+<!-- 								<br>2018.9.9___17:16 -->
+<!-- 							</div> -->
+<!-- 							<div style="position: relative; display: inline-block; width: 5%; height: 100%; font-size: 12px;"> -->
+<!-- 									<button type="button" class="close" aria-label="Close" -->
+<!-- 									style="position: absolute; right: 0; top: 0px"> -->
+<!-- 											<span aria-hidden="true">&times;</span> -->
+<!-- 									</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+
+<!-- 						<div style="padding: 5%; height: 30%; border: 1px solid;"> -->
+<!-- 							<div style="position: relative; display: inline-block; width: 30%; margin-right: 5%; height: 100%;"> -->
+<!-- 								<img src="img/jihyo.jpg" width="100%" style="position: absolute; top: auto; margin-right: 5%;"> -->
+<!-- 							</div> -->
+<!-- 							<div style="display: inline-block; width: 50%; font-size: 12px;"> -->
+<!-- 								<a href="" style="color: black; width: 100%; cursor: pointer;"> -->
+<!-- 									'ì§€íš¨' ë‹˜ì—ê²Œ ìª½ì§€ê°€ ë„ì°©í–ˆìŠµë‹ˆë‹¤. -->
+<!-- 								</a> -->
+<!-- 								<br>2018.9.9___17:16 -->
+<!-- 							</div> -->
+<!-- 							<div style="position: relative; display: inline-block; width: 5%; height: 100%; font-size: 12px;"> -->
+<!-- 								<button type="button" class="close" aria-label="Close" -->
+<!-- 								style="position: absolute; right: 0; top: 0px"> -->
+<!-- 										<span aria-hidden="true">&times;</span> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+
+<!-- 						<div style="padding: 5%; height: 30%; border: 1px solid;"> -->
+<!-- 							<div -->
+<!-- 								style="position: relative; display: inline-block; width: 30%; margin-right: 5%; height: 100%;"> -->
+<!-- 								<img src="img/jihyo.jpg" width="100%" -->
+<!-- 									style="position: absolute; top: auto; margin-right: 5%;"> -->
+<!-- 							</div> -->
+<!-- 							<div style="display: inline-block; width: 50%; font-size: 12px;"> -->
+<!-- 								<a href="" style="color: black; width: 100%; cursor: pointer;"> -->
+<!-- 									'ì§€íš¨' ë‹˜ì—ê²Œ ìª½ì§€ê°€ ë„ì°©í–ˆìŠµë‹ˆë‹¤. </a> <br>2018.9.9___17:16 -->
+<!-- 							</div> -->
+<!-- 							<div -->
+<!-- 								style="position: relative; display: inline-block; width: 5%; height: 100%; font-size: 12px;"> -->
+<!-- 								<button type="button" class="close" aria-label="Close" -->
+<!-- 									style="position: absolute; right: 0; top: 0px"> -->
+<!-- 									<span aria-hidden="true">&times;</span> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+					</div>
+
+
+					<div class="ì•Œë¦¼_ë‚´ìš©"
+						style="display: none; background-color: skyBlue; height: 92%; text-align: center; overflow-y: scroll;">
+
+						<div
+							style="padding: 5%; height: 19%; border: none; font-size: 13px;">
+							<div style="display: inline-block; width: 90%">
+								<a href="" style="color: black; cursor: pointer;"> 'ìœ¤í˜„ë¹ˆ' ë‹˜ì´
+									ëŒ“ê¸€ì„ ë‹¬ì•˜ìŠµë‹ˆë‹¤.<br> 2019.2.4___19:01
+								</a>
+							</div>
+							<div
+								style="position: relative; display: inline-block; width: 5%; height: 100%;">
+								<button type="button" class="close" aria-label="Close"
+									style="position: absolute; right: 0; top: 0px">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
+
+						<div
+							style="padding: 5%; height: 19%; border: none; font-size: 13px;">
+							<div style="display: inline-block; width: 90%">
+								<a href="" style="color: black; cursor: pointer;"> 'ìœ¤í˜„ë¹ˆ' ë‹˜ì´
+									ëŒ“ê¸€ì„ ë‹¬ì•˜ìŠµë‹ˆë‹¤.<br> 2019.2.4___19:01
+								</a>
+							</div>
+							<div
+								style="position: relative; display: inline-block; width: 5%; height: 100%;">
+								<button type="button" class="close" aria-label="Close"
+									style="position: absolute; right: 0; top: 0px">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
+
+						<div
+							style="padding: 5%; height: 19%; border: none; font-size: 13px;">
+							<div style="display: inline-block; width: 90%">
+								<a href="" style="color: black; cursor: pointer;"> 'ìœ¤í˜„ë¹ˆ' ë‹˜ì´
+									ëŒ“ê¸€ì„ ë‹¬ì•˜ìŠµë‹ˆë‹¤.<br> 2019.2.4___19:01
+								</a>
+							</div>
+							<div
+								style="position: relative; display: inline-block; width: 5%; height: 100%;">
+								<button type="button" class="close" aria-label="Close"
+									style="position: absolute; right: 0; top: 0px">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
+
+						<div
+							style="padding: 5%; height: 19%; border: none; font-size: 13px;">
+							<div style="display: inline-block; width: 90%">
+								<a href="" style="color: black; cursor: pointer;"> 'ìœ¤í˜„ë¹ˆ' ë‹˜ì´
+									ëŒ“ê¸€ì„ ë‹¬ì•˜ìŠµë‹ˆë‹¤.<br> 2019.2.4___19:01
+								</a>
+							</div>
+							<div
+								style="position: relative; display: inline-block; width: 5%; height: 100%;">
+								<button type="button" class="close" aria-label="Close"
+									style="position: absolute; right: 0; top: 0px">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
+
+						<div
+							style="padding: 5%; height: 19%; border: none; font-size: 13px;">
+							<div style="display: inline-block; width: 90%">
+								<a href="" style="color: black; cursor: pointer;"> 'ìœ¤í˜„ë¹ˆ' ë‹˜ì´
+									ëŒ“ê¸€ì„ ë‹¬ì•˜ìŠµë‹ˆë‹¤.<br> 2019.2.4___19:01
+								</a>
+							</div>
+							<div
+								style="position: relative; display: inline-block; width: 5%; height: 100%;">
+								<button type="button" class="close" aria-label="Close"
+									style="position: absolute; right: 0; top: 0px">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
+
+						<div
+							style="padding: 5%; height: 19%; border: none; font-size: 13px;">
+							<div style="display: inline-block; width: 90%">
+								<a href="" style="color: black; cursor: pointer;"> 'ìœ¤í˜„ë¹ˆ' ë‹˜ì´
+									ëŒ“ê¸€ì„ ë‹¬ì•˜ìŠµë‹ˆë‹¤.<br> 2019.2.4___19:01
+								</a>
+							</div>
+							<div
+								style="position: relative; display: inline-block; width: 5%; height: 100%;">
+								<button type="button" class="close" aria-label="Close"
+									style="position: absolute; right: 0; top: 0px">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
+
+						<div
+							style="padding: 5%; height: 19%; border: none; font-size: 13px;">
+							<div style="display: inline-block; width: 90%">
+								<a href="" style="color: black; cursor: pointer;"> 'ìœ¤í˜„ë¹ˆ' ë‹˜ì´
+									ëŒ“ê¸€ì„ ë‹¬ì•˜ìŠµë‹ˆë‹¤.<br> 2019.2.4___19:01
+								</a>
+							</div>
+							<div
+								style="position: relative; display: inline-block; width: 5%; height: 100%;">
+								<button type="button" class="close" aria-label="Close"
+									style="position: absolute; right: 0; top: 0px">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+				<a class="mail"><img src="img/mail.png" title="ìª½ì§€"></a>
+
+				<div class="a1" style="border: 1px solid black;">
+					<div
+						style="background-color: rgb(168, 9, 49); height: 40%; text-align: center;">
+						<button type="button" class="close" id="close_ìª½ì§€ë³´ë‚´ê¸°"
+							aria-label="Close"
+							style="position: absolute; right: 0; top: 2%; right: 5%;">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<!-- 								<img src="img/jihyo.jpg"  -->
+						<img src="${user.user_image }"
+							style="position: absolute; width: 30%; left: 35%; top: 9%;">
+					</div>
+					<div
+						style="background-color: white; height: 60%; text-align: center;">
+						<div style="margin-left: 5%; height: 20%; font-size: 20px;">
+							to. <input id="msg_receiver" type="text"
+								placeholder="ë°›ëŠ”ì‚¬ëŒì˜ ë‹‰ë„¤ì„ì„ ì…ë ¥í•˜ì„¸ìš”." onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'ë°›ëŠ”ì‚¬ëŒì˜ ë‹‰ë„¤ì„ì„ ì…ë ¥í•˜ì„¸ìš”.'"
+								style="width: 80%; height: 80%; font-size: 15px; border: none; margin-top: 5%;">
+						</div>
+
+						<div style="margin-left: 10%; height: 60%;">
+							<textarea id="msg_content" cols="30" rows="10"
+								placeholder="ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”." onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”.'"
+								style="font-size: 10px; width: 80%; height: 60%; border: none; margin-top: 8%; margin-right: 10%;"></textarea>
+							</textarea>
+							<div id="msg_send_result"
+								style="margin-top: 5px; margin-right: 40px; text-align: right; color: green; font-size: 6px;"></div>
+						</div>
+						<div>
+							<input type="button" value="ë³´ë‚´ê¸°"
+								style="text-align: right; background-color: white; color: rgb(168, 9, 49); border: none; cursor: pointer;"
+								onclick=sendMessage();>
+
+						</div>
+					</div>
+				</div>
+
+				<a class="avatar" href="profile"><img src="img/avatar.png"
+					title="í”„ë¡œí•„ ì„¤ì •"></a> <a class="cancel" href="logoutForm"><img
+					src="img/cancel.png" title="ë¡œê·¸ì•„ì›ƒ"></a>
+			</div>
 		</div>
+		</nav>
+	</div>
 	</header>
 
 	<!--================Header Menu Area =================-->
@@ -499,22 +651,22 @@
 		});
 
 
-		$('.ÂÊÁö').hover(function() {
-			$('.ÂÊÁö').css('background-color', 'white');
-			$('.ÂÊÁö_³»¿ë').css('display', 'block');
-			$('.¾Ë¸²_³»¿ë').css('display', 'none');
-			$('.ÂÊÁö_³»¿ë').css('background-color', 'lightgreen');
+		$('.ìª½ì§€').hover(function() {
+			$('.ìª½ì§€').css('background-color', 'white');
+			$('.ìª½ì§€_ë‚´ìš©').css('display', 'block');
+			$('.ì•Œë¦¼_ë‚´ìš©').css('display', 'none');
+			$('.ìª½ì§€_ë‚´ìš©').css('background-color', 'lightgreen');
 		}, function() {
-			$('.ÂÊÁö').css('background-color', 'lightgreen');
+			$('.ìª½ì§€').css('background-color', 'lightgreen');
 		});
 
-		$('.¾Ë¸²').hover(function() {
-			$('.¾Ë¸²').css('background-color', 'white');
-			$('.ÂÊÁö_³»¿ë').css('display', 'none');
-			$('.¾Ë¸²_³»¿ë').css('display', 'block');
-			$('.¾Ë¸²_³»¿ë').css('background-color', 'white');
+		$('.ì•Œë¦¼').hover(function() {
+			$('.ì•Œë¦¼').css('background-color', 'white');
+			$('.ìª½ì§€_ë‚´ìš©').css('display', 'none');
+			$('.ì•Œë¦¼_ë‚´ìš©').css('display', 'block');
+			$('.ì•Œë¦¼_ë‚´ìš©').css('background-color', 'white');
 		}, function() {
-			$('.¾Ë¸²').css('background-color', 'white');
+			$('.ì•Œë¦¼').css('background-color', 'white');
 		});
 
 		$('#close').click(function() {
@@ -522,12 +674,12 @@
 			$('.msg1').remove();
 		});
 
-		$('#close_ÂÊÁöÈ®ÀÎÃ¢').click(function() {
+		$('#close_ìª½ì§€í™•ì¸ì°½').click(function() {
 			// $('.msg1').hide();
 			$('.message-box').hide();
 		});
 
-		$('#close_ÂÊÁöº¸³»±â').click(function() {
+		$('#close_ìª½ì§€ë³´ë‚´ê¸°').click(function() {
 			// $('.msg1').hide();
 			$('#msg_receiver').val('');
 			$('#msg_content').val('');
@@ -538,37 +690,50 @@
 			$('.message-box').show('fast');
 		});
 
-		$('.´äÀåÇÏ±â').on('click', function() {
+		$('.ë‹µì¥í•˜ê¸°').on('click', function() {
 			$('#msg_receiver').val($(this).attr('sender'));
 			$('.a1').slideToggle('fast');
 		});
 
 		$(".cancel").click(function() {
-			alert("·Î±×¾Æ¿ô µÇ¾ú½À´Ï´Ù. ¾È³çÈ÷°¡¼¼¿ä.~~")
+			alert("ë¡œê·¸ì•„ì›ƒ ë˜ì—ˆìŠµë‹ˆë‹¤. ì•ˆë…•íˆê°€ì„¸ìš”.~~")
 		});
 		
 		function sendMessage() {
-	    	$.ajax({
-	    		type : "POST", 
-	    		url : "http://localhost:8000/sendMessage", 
-	    		data : {
-	    			mess_sender : '${user.user_name }', 
-	    			mess_receiver : $('#msg_receiver').val(), 
-	    			mess_content : $('#msg_content').val()
-	    		}, 
-	    		success : function() {
-	    			$('#msg_receiver').val('');
-	    			$('#msg_content').val('');
-					$('#msg_send_result').text('¸Ş½ÃÁö¸¦ Àü¼ÛÇÏ¿´½À´Ï´Ù.');
-					setTimeout(function() {
-						$('#msg_send_result').text('');
-						$('.a1').slideToggle('fast');
-					}, 1000);
-	    		}
-	    		, error : function() {
-	    			alert("ÀÚ³×.. ¸Ş½ÃÁö¸¦ º¸³»´Âµ¥ ½ÇÆĞÇÏ¿´´Ù.. ¹Ì¾ÈÇÏ³×..");
-	    		}
-	    	})
+			stompClient.send("/msg/sendMessage", {}, JSON.stringify({
+				'mess_sender': '${user.user_name }', 
+				'mess_receiver' : $('#msg_receiver').val(), 
+				'mess_content' : $('#msg_content').val()
+				}));
+				$('#msg_receiver').val('');
+				$('#msg_content').val('');
+				$('#msg_send_result').text('ë©”ì‹œì§€ë¥¼ ì „ì†¡í•˜ì˜€ìŠµë‹ˆë‹¤.');
+				setTimeout(function() {
+					$('#msg_send_result').text('');
+					$('.a1').slideToggle('fast');
+				}, 500);
+
+	    	// $.ajax({
+	    	// 	type : "POST", 
+	    	// 	url : "http://localhost:8000/sendMessage", 
+	    	// 	data : {
+	    	// 		mess_sender : '${user.user_name }', 
+	    	// 		mess_receiver : $('#msg_receiver').val(), 
+	    	// 		mess_content : $('#msg_content').val()
+	    	// 	}, 
+	    	// 	success : function() {
+	    	// 		$('#msg_receiver').val('');
+	    	// 		$('#msg_content').val('');
+			// 		$('#msg_send_result').text('ë©”ì‹œì§€ë¥¼ ì „ì†¡í•˜ì˜€ìŠµë‹ˆë‹¤.');
+			// 		setTimeout(function() {
+			// 			$('#msg_send_result').text('');
+			// 			$('.a1').slideToggle('fast');
+			// 		}, 1000);
+	    	// 	}
+	    	// 	, error : function() {
+	    	// 		alert("ìë„¤.. ë©”ì‹œì§€ë¥¼ ë³´ë‚´ëŠ”ë° ì‹¤íŒ¨í•˜ì˜€ë‹¤.. ë¯¸ì•ˆí•˜ë„¤..");
+	    	// 	}
+	    	// });
 		};
 
 		function msg_click(mess_num) {
@@ -580,14 +745,23 @@
 				}, 
 				dataType : "json", 
 				success : function(msg) {
+					if($('.mess'+mess_num).text() == '"new"') {
+						var amount = $('#alert-amount').text();
+						if(amount == 1) {
+							$('#alert-amount').text("");
+						} else {
+							$('#alert-amount').text(amount*1 - 1);
+						}
+					}
+
 					$('#mess_sender_area').text(msg.mess_sender);
 					$('#mess_content_area').text(msg.mess_content);
-					$('.´äÀåÇÏ±â').attr("sender", msg.mess_sender);
+					$('.ë‹µì¥í•˜ê¸°').attr("sender", msg.mess_sender);
 					$('.message-box').show('fast');
 					$('.mess'+mess_num).text('')
 				}, 
 				error : function() {
-					alert('¸Ş½ÃÁö ·Îµù ½ÇÆĞ!!!!!ÇŞ¶°')
+					alert('ë©”ì‹œì§€ ë¡œë”© ì‹¤íŒ¨!!!!!í–‡ë– ')
 				}
 			});
 		}

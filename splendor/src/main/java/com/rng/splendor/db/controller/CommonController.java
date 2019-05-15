@@ -57,15 +57,15 @@ public class CommonController {
 		model.addAttribute("user", userData);
 	}
 	
-	@RequestMapping("/sendMessage")
-	public void sendMessage(String mess_sender, String mess_receiver, String mess_content) {
-		MessageLog msg = new MessageLog();
-		msg.setMess_sender(mess_sender);
-		msg.setMess_receiver(mess_receiver);
-		msg.setMess_send_date(new Date());
-		msg.setMess_content(mess_content);
-		msgService.sendMessage(msg);
-	}
+//	@RequestMapping("/sendMessage")
+//	public void sendMessage(String mess_sender, String mess_receiver, String mess_content) {
+//		MessageLog msg = new MessageLog();
+//		msg.setMess_sender(mess_sender);
+//		msg.setMess_receiver(mess_receiver);
+//		msg.setMess_send_date(new Date());
+//		msg.setMess_content(mess_content);
+//		msgService.sendMessage(msg);
+//	}
 	
 	@RequestMapping("/getSenderList")
 	public JSONArray getSenderList(String receiver) {
