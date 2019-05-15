@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Splendor</title>
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="styles.css" />
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Playfair+Display+SC" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		 crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+		 crossorigin="anonymous">
+		<!-- Scripts -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		 crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		 crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		 crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.0/sweetalert2.all.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+	</head>
+
+	<body>
+		<div class="top-left-corner text-center">
+			<button id="showChat" class="btn btn-secondary" data-toggle="modal" data-target="#chatModal">
+				<i class="fa fa-users"></i>
+			</button>
+		</div>
+
+		<div class="lower-top-left-corner text-center">
+			<button id="leaveRoom" class="btn btn-secondary" hidden>
+				<i class="fas fa-power-off"></i>
+			</button>
+		</div>
+
+		<div class="top-right-corner text-center">
+			<button id="questions" class="btn btn-secondary" data-toggle="modal" data-target="#questionsModal">
+				<i class="fas fa-question"></i>
+			</button>
+		</div>
+
+		<div id="greeting" class="d-flex align-items-center centered">
+			<div class="container-fluid">
+				<div class="row justify-content-center">
+					<h1>Splendor</h1>
+				</div>
+				<div class="row justify-content-center">
+					<button type="button" class="btn btn-primary" id="newRoom">방 만들기</button>
+					<button type="button" class="btn btn-primary" id="newGame" hidden>게임 시작</button>
+					<button type="button" class="btn btn-info" id="showNobles" data-toggle="modal" data-target="#noblesModal" hidden>귀족 보기</button>
+				</div>
+				<div id="roomDiv" class="row justify-content-center">
+					<table id="roomTable" width="80%" center>
+						<thead id="roomRabel">
+							<th width="70%">방 이름</th>
+							<th width="15%">인원</th>
+							<th width="15%"><button type="button" class="btn btn-primary" id="refresh"><i class="fas fa-redo"></i></button></th>
+						</thead>
+
+					</table>
+				</div>
+				<div id="scoreboard" hidden>
+					<div id="rabel" class="row justify-content-center">
+						<div class="isb">플레이어</div>
+						<div class="isb">점수</div>
+						<div class="isb">
+							<img src="./assets/tiles/gold_tile.png" alt="goldTokens">
+							/
+							<img src="./assets/gems/gold.png" alt="gold">
+						</div>
+						<div class="isb">
+							<img src="./assets/tiles/diamond_tile.png" alt="diamondTokens">
+							/
+							<img src="./assets/gems/diamond.png" alt="diamond">
+						</div>
+						<div class="isb">
+							<img src="./assets/tiles/sapphire_tile.png" alt="sapphireTokens">
+							/
+							<img src="./assets/gems/sapphire.png" alt="sapphire">
+						</div>
+						<div class="isb">
+							<img src="./assets/tiles/emerald_tile.png" alt="emeraldTokens">
+							/
+							<img src="./assets/gems/emerald.png" alt="emerald">
+						</div>
+						<div class="isb">
+							<img src="./assets/tiles/ruby_tile.png" alt="rubyTokens">
+							/
+							<img src="./assets/gems/ruby.png" alt="ruby">
+						</div>
+						<div class="isb">
+							<img src="./assets/tiles/onyx_tile.png" alt="onyxTokens">
+							/
+							<img src="./assets/gems/onyx.png" alt="onyx">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="gameArea" class="container-fluid" hidden>
+			<div class="row justify-content-md-center">
+				<!-- Deck Container -->
+				<div id="cards" class="col-md-10 text-center" hidden>
+					<h3>카드</h3>
+					<div class="row">
+						<div class="col-md-3">
+							<div id="deck3" class="row no-gutters justify-content-center">
+								<img class="playing-card pcb" src="./assets/cards/deck3.jpg" alt="III">
+							</div>
+						</div>
+						<div class="col-md-9">
+							<div id="deck3Cards" class="row">
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div id="deck2" class="row no-gutters justify-content-center">
+								<img class="playing-card pcb" src="./assets/cards/deck2.jpg" alt="II">
+							</div>
+						</div>
+						<div class="col-md-9">
+							<div id="deck2Cards" class="row">
+
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<div id="deck1" class="row no-gutters justify-content-center">
+								<img class="playing-card pcb" src="./assets/cards/deck1.jpg" alt="I">
+							</div>
+						</div>
+						<div class="col-md-9">
+							<div id="deck1Cards" class="row">
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-2 text-center" id="tokens" style="float: right;" hidden>
+					<h3>보석 토큰</h3>
+					<div id="goldTokens" class="col">
+					</div>
+					<div id="diamondTokens" class="col">
+					</div>
+					<div id="sapphireTokens" class="col">
+					</div>
+					<div id="emeraldTokens" class="col">
+					</div>
+					<div id="rubyTokens" class="col">
+					</div>
+					<div id="onyxTokens" class="col">
+					</div>
+				</div>
+			</div>
+			<div id="tokensInHand" class="row text-center">
+				<div id="diamondtih" class="col">
+
+				</div>
+				<div id="sapphiretih" class="col">
+
+				</div>
+				<div id="emeraldtih" class="col">
+
+				</div>
+				<div id="rubytih" class="col">
+
+				</div>
+				<div id="onyxtih" class="col">
+
+				</div>
+				<div id="goldtih" class="col">
+
+				</div>
+			</div>
+			<div id="cardsInHand" class="row text-center">
+				<div id="diamondcih" class="col">
+
+				</div>
+				<div id="sapphirecih" class="col">
+
+				</div>
+				<div id="emeraldcih" class="col">
+
+				</div>
+				<div id="rubycih" class="col">
+
+				</div>
+				<div id="onyxcih" class="col">
+
+				</div>
+				<div id="reservedcih" class="col">
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Modals -->
+		<div id="noblesModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="nobleLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="nobleLabel">
+							<strong>귀족</strong>
+						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<div id="nobles" class="row no-gutters justify-content-md-center">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="tokensModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="tokenLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header text-center">
+						<h5 class="modal-title" id="tokenLabel">
+							<strong>토큰 제거</strong>
+						</h5>
+					</div>
+					<div class="modal-body">
+						<div id="tokensToRemove" class="row no-gutters justify-content-md-center">
+
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button id="removeTokens" type="button" class="btn btn-secondary">토큰 제거</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="questionsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="questionsLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 id="questionsLabel" class="modal-title">
+							<strong>게임 정보</strong>
+						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<ul class="modal-list">
+							<li>처음 플레이하거나, 룰을 다시 보고 싶다면, 
+								<a href="/assets/Splendor_kor.pdf" target="_blank">여기</a>
+								(
+								<a href="/assets/Rules_Splendor_US.pdf" target="_blank">영문</a>
+								)를 누르세요!</li>
+							<li>카드를 예약하려면 SHIFT 키를 누르고 클릭하세요.</li>
+							<li>2개의 토큰을 한 번에 가져가려면, SHIFT 키를 누르고 클릭하세요. 혹은, 그냥 토큰 더미를 두 번 클릭하세요.</li>
+							<li>당신이 나가거나 연결이 끊긴다면, 방의 게임이 종료됩니다. 탈주하지 마세요.</li>
+							<li>원 제작자의 
+								<a href="https://github.com/chanceoneal/Splendor/issues" rel="author" target="_blank">Github</a>.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="chatModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="onlineLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="chatLabel">
+							<strong>대화</strong>
+						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<ul class="list-group" id="messages"></ul>
+						<div id="messageInput" class="input-group">
+							<input id="m" type="text" class="form-control">
+							<span class="input-group-btn">
+								<button class="btn btn-primary" type="button" id="messageButton">Send</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="index.js"></script>
+	</body>
+
+</html>

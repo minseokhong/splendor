@@ -1,0 +1,206 @@
+{
+	"deck1": {
+		"card1": {
+			"type": "onyx",
+			"points": 0,
+			"price": {
+				"diamond": 0,
+				"sapphire": 0,
+				"emerald": 1,
+				"ruby": 3,
+				"onyx": 1
+			}
+		},
+		"card2": {
+			"type": "onyx",
+			"points": 0,
+			"price": {
+				"diamond": 0,
+				"sapphire": 0,
+				"emerald": 2,
+				"ruby": 1,
+				"onyx": 0
+			}
+		},
+		"card3": {
+			"type": "onyx",
+			"points": 0,
+			"price": {
+				"diamond": 0,
+				"sapphire": 0,
+				"emerald": 3,
+				"ruby": 0,
+				"onyx": 0
+			}
+		},
+		"card4": {
+			"type": "onyx",
+			"points": 0,
+			"price": {
+				"diamond": 1,
+				"sapphire": 1,
+				"emerald": 1,
+				"ruby": 1,
+				"onyx": 0
+			}
+		},
+		"card5": {
+			"type": "onyx",
+			"points": 0,
+			"price": {
+				"diamond": 1,
+				"sapphire": 2,
+				"emerald": 1,
+				"ruby": 1,
+				"onyx": 0
+			}
+		},
+		"card6": {
+			"type": "onyx",
+			"points": 0,
+			"price": {
+				"diamond": 2,
+				"sapphire": 0,
+				"emerald": 2,
+				"ruby": 0,
+				"onyx": 0
+			}
+		},
+		"card7": {
+			"type": "onyx",
+			"points": 0,
+			"price": {
+				"diamond": 2,
+				"sapphire": 2,
+				"emerald": 0,
+				"ruby": 1,
+				"onyx": 0
+			}
+		},
+		"card8": {
+			"type": "onyx",
+			"points": 1,
+			"price": {
+				"diamond": 0,
+				"sapphire": 4,
+				"emerald": 0,
+				"ruby": 0,
+				"onyx": 0
+			}
+		}
+	},
+	"deck2": {
+		"card1": {
+			"type": "onyx",
+			"points": 1,
+			"price": {
+				"diamond": 3,
+				"sapphire": 0,
+				"emerald": 3,
+				"ruby": 0,
+				"onyx": 2
+			}
+		},
+		"card2": {
+			"type": "onyx",
+			"points": 1,
+			"price": {
+				"diamond": 3,
+				"sapphire": 2,
+				"emerald": 2,
+				"ruby": 0,
+				"onyx": 0
+			}
+		},
+		"card3": {
+			"type": "onyx",
+			"points": 2,
+			"price": {
+				"diamond": 0,
+				"sapphire": 1,
+				"emerald": 4,
+				"ruby": 2,
+				"onyx": 0
+			}
+		},
+		"card4": {
+			"type": "onyx",
+			"points": 2,
+			"price": {
+				"diamond": 0,
+				"sapphire": 0,
+				"emerald": 5,
+				"ruby": 3,
+				"onyx": 0
+			}
+		},
+		"card5": {
+			"type": "onyx",
+			"points": 2,
+			"price": {
+				"diamond": 5,
+				"sapphire": 0,
+				"emerald": 0,
+				"ruby": 0,
+				"onyx": 0
+			}
+		},
+		"card6": {
+			"type": "onyx",
+			"points": 3,
+			"price": {
+				"diamond": 0,
+				"sapphire": 0,
+				"emerald": 0,
+				"ruby": 0,
+				"onyx": 6
+			}
+		}
+	},
+	"deck3": {
+		"card1": {
+			"type": "onyx",
+			"points": 3,
+			"price": {
+				"diamond": 3,
+				"sapphire": 3,
+				"emerald": 5,
+				"ruby": 3,
+				"onyx": 0
+			}
+		},
+		"card2": {
+			"type": "onyx",
+			"points": 4,
+			"price": {
+				"diamond": 0,
+				"sapphire": 0,
+				"emerald": 0,
+				"ruby": 7,
+				"onyx": 0
+			}
+		},
+		"card3": {
+			"type": "onyx",
+			"points": 4,
+			"price": {
+				"diamond": 0,
+				"sapphire": 0,
+				"emerald": 3,
+				"ruby": 6,
+				"onyx": 3
+			}
+		},
+		"card4": {
+			"type": "onyx",
+			"points": 5,
+			"price": {
+				"diamond": 0,
+				"sapphire": 0,
+				"emerald": 0,
+				"ruby": 7,
+				"onyx": 3
+			}
+		}
+	}
+}
