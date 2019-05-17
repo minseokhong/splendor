@@ -143,7 +143,16 @@
                                         <div class="post_tag">
                                         </div>
                                         <ul class="guild_meta list" >
-                                            <li style="text-align: center;"><img src="img/jihyo.jpg" style="width: 80%"></li>
+                                        	<c:if test="${item.guildName eq '일리네어'}">
+	                                            <li style="text-align: center;"><img src="img/일리네어.jpg" style="width: 80%"></li>
+                                        	</c:if>
+                                        	<c:if test="${item.guildName eq 'AOMG'}">
+	                                            <li style="text-align: center;"><img src="img/aomg.jpg" style="width: 80%"></li>
+                                        	</c:if>
+                                        	<c:if test="${item.guildName eq 'migos길드'}">
+	                                            <li style="text-align: center;"><img src="img/미고스길드.jpg" style="width: 80%"></li>
+                                        	</c:if>
+                                        	
                                             <li style="height: 20px;"></li>
                                             <li><a href="#">${item.guildMember }<i class="lnr lnr-user"></i></a></li>
 <!--                                             <li><a href="#">12명<i class="lnr lnr-home"></i></a></li> -->

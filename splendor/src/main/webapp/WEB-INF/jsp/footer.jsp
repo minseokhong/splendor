@@ -17,11 +17,11 @@
                      <h4>추천 게임사이트</h4>
                   </div>
                   <ul>
-                     <li style="padding-bottom:0px"><a href="http://kr.zxgame9.com/">zxGame9</a></li>
-                     <li style="padding-bottom:0px"><a href="https://norara.dreamx.com/">점심먹고노라라</a></li>
-                     <li style="padding-bottom:0px"><a href="http://flash365.dreamx.com/game/zboard.php?id=game">플래시365</a></li>
-                     <li style="padding-bottom:0px"><a href="http://fg.gameangel.com/">게임엔젤</a></li>
-                     <li style="padding-bottom:0px"><a href="http://www.arcadeprehacks.com/">ArcadePrehacks</a></li>
+                     <li style="padding-bottom:0px"><a href="http://kr.zxgame9.com/" target="name" >zxGame9</a></li>
+                     <li style="padding-bottom:0px"><a href="https://norara.dreamx.com/" target="name">점심먹고노라라</a></li>
+                     <li style="padding-bottom:0px"><a href="http://flash365.dreamx.com/game/zboard.php?id=game" target="name">플래시365</a></li>
+                     <li style="padding-bottom:0px"><a href="http://fg.gameangel.com/" target="name">게임엔젤</a></li>
+                     <li style="padding-bottom:0px"><a href="http://www.arcadeprehacks.com/" target="name">ArcadePrehacks</a></li>
                    
                   </ul>
                </aside>
