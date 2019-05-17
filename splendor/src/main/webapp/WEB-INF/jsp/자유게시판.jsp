@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>​
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>​
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -56,6 +56,7 @@ $(document).ready(function(){
 
 <body>
 
+
    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
    		
    		<!--================Header Menu Area =================-->
@@ -100,13 +101,13 @@ $(document).ready(function(){
                     	
                     </c:if>
                     	<c:forEach var="l" items="${list}">
-
+					
                     		<c:if test="${user == null}">
                     				<tr onclick="alert('로그인하세요')">
     	                	        	<td>${l.board_num}</td>
         	        	            	<td>${l.board_title}</td>
             		                	<td>${l.board_writer}</td>
-            	    	            	<td>${l.board_date}</td>
+            	    	            	<td><fmt:formatDate value="${l.board_date}" pattern="yyyy.MM.dd hh:mm" />	</td>
         	            	        	<td>${l.board_count}</td>
     		                    	</tr>
                     		</c:if>
@@ -115,19 +116,10 @@ $(document).ready(function(){
     	                	        	<td>${l.board_num}</td>
         	        	            	<td>${l.board_title}</td>
             		                	<td>${l.board_writer}</td>
-            	    	            	<td>${l.board_date}</td>
+            	    	            	<td><fmt:formatDate value="${l.board_date}" pattern="yyyy.MM.dd hh:mm" /></td>
         	            	        	<td>${l.board_count}</td>
     		                    	</tr>
                     		</c:if>
-
-                        <tr onclick=movepage(${l.board_num})>
-                            <td>${l.board_num}</td>
-                            <td>${l.board_title}</td>
-                            <td>${l.board_writer}</td>
-                            <td>${l.board_date}</td>
-                            <td>${l.board_count}</td>
-                        </tr>
-
                     	</c:forEach>
 
                     </tbody>
