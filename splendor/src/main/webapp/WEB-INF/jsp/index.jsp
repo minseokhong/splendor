@@ -480,8 +480,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>자유게시판</h2>
-						<h1>자유게시판</h1>
+						<h2>길드</h2>
+						<h1>길드</h1>
 					</div>
 				</div>
 			</div>
@@ -489,11 +489,11 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/jihyo.jpg" alt="">
+							<img class="img-fluid" src="img/일리네어.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">홈페이지 ui가 너무 예뻐유 ㅜㅜ</a>
-							<p>게임도 정말 인상적이네유 ㅜㅜ </p>
+							<a class="title" href="guild">일리네어</a>
+							<p>스플랜더 돈벌어 왕창걸어 워! </p>
 							<div class="date">
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
 								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
@@ -505,10 +505,10 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/guild_img2.png" alt="">
+							<img class="img-fluid" src="img/미고스길드.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">Portable Fashion for women</a>
+							<a class="title" href="guild">migos길드</a>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
 							<div class="date">
@@ -522,12 +522,11 @@
 				<div class="col-lg-4 hidden-md">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/guild_img3.png" alt="">
+							<img class="img-fluid" src="img/aomg.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">Portable Fashion for women</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+							<a class="title" href="guild">AOMG</a>
+							<p>스플랜더 3시정모 안올시 길원박탈 소소하게 모여서 스플랜더 즐겨요ㅎㅎ</p>
 							<div class="date">
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
 								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
@@ -809,9 +808,9 @@
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="single-screenshot">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="img/머니머니.png" alt="">
+								<img class="img-fluid w-100" src="img/방만듬.png" alt="">
 								<div class="content">
-									<a class="pop-up-image" href="img/머니머니.png">
+									<a class="pop-up-image" href="img/방만듬.png">
 										<i class="lnr lnr-eye"></i>
 									</a>
 								</div>
@@ -820,9 +819,9 @@
 						<div class="col-lg-12">
 							<div class="single-screenshot">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="img/screenshot_img3.png" alt="">
+								<img class="img-fluid w-100" src="img/내가이겼스.png" alt="">
 								<div class="content">
-									<a class="pop-up-image" href="img/screenshot_img3.png">
+									<a class="pop-up-image" href="img/내가이겼스.png">
 										<i class="lnr lnr-eye"></i>
 									</a>
 								</div>
@@ -833,9 +832,18 @@
 				<div class="col-lg-4 hidden-md hidden-sm">
 					<div class="single-screenshot">
 						<div class="overlay"></div>
-						<img class="img-fluid w-100" src="img/screenshot_img4.png" alt="">
+						<img class="img-fluid w-100" src="img/머니머니.png" alt="">
 						<div class="content">
-							<a class="pop-up-image" href="img/screenshot_img4.png">
+							<a class="pop-up-image" href="머니머니.png">
+								<i class="lnr lnr-eye"></i>
+							</a>
+						</div>
+					</div>
+					<div class="single-screenshot">
+						<div class="overlay"></div>
+						<img class="img-fluid w-100" src="img/실제.png" alt="">
+						<div class="content">
+							<a class="pop-up-image" href="실제.png">
 								<i class="lnr lnr-eye"></i>
 							</a>
 						</div>
@@ -907,11 +915,11 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/실제.png" alt="">
+							<img class="img-fluid" src="img/일리네어.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">홈페이지 ui가 너무 예뻐유 ㅜㅜ</a>
-							<p>게임도 정말 인상적이네유 ㅜㅜ </p>
+							<a class="title" href="guild">일리네어</a>
+							<p>스플랜더 돈벌어 왕창걸어 워! </p>
 							<div class="date">
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
 								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
@@ -923,10 +931,10 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/guild_img2.png" alt="">
+							<img class="img-fluid" src="img/미고스길드.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">Portable Fashion for women</a>
+							<a class="title" href="guild">migos길드</a>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
 							<div class="date">
@@ -940,12 +948,11 @@
 				<div class="col-lg-4 hidden-md">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/guild_img3.png" alt="">
+							<img class="img-fluid" src="img/aomg.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">Portable Fashion for women</a>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+							<a class="title" href="guild">AOMG</a>
+							<p>스플랜더 3시정모 안올시 길원박탈 소소하게 모여서 스플랜더 즐겨요ㅎㅎ</p>
 							<div class="date">
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
 								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
