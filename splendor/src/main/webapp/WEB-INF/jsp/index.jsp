@@ -898,8 +898,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>자유게시판</h2>
-						<h1>자유게시판</h1>
+						<h2>길드</h2>
+						<h1>길드</h1>
 					</div>
 				</div>
 			</div>
@@ -907,7 +907,7 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/jihyo.jpg" alt="">
+							<img class="img-fluid" src="img/실제.png" alt="">
 						</div>
 						<div class="guild_content">
 							<a class="title" href="guild">홈페이지 ui가 너무 예뻐유 ㅜㅜ</a>
