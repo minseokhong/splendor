@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>​
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -99,7 +100,7 @@ $(document).ready(function(){
                     	
                     </c:if>
                     	<c:forEach var="l" items="${list}">
-<<<<<<< HEAD
+
                     		<c:if test="${user == null}">
                     				<tr onclick="alert('로그인하세요')">
     	                	        	<td>${l.board_num}</td>
@@ -118,7 +119,7 @@ $(document).ready(function(){
         	            	        	<td>${l.board_count}</td>
     		                    	</tr>
                     		</c:if>
-=======
+
                         <tr onclick=movepage(${l.board_num})>
                             <td>${l.board_num}</td>
                             <td>${l.board_title}</td>
@@ -126,7 +127,7 @@ $(document).ready(function(){
                             <td>${l.board_date}</td>
                             <td>${l.board_count}</td>
                         </tr>
->>>>>>> branch 'master' of https://github.com/minseokhong/splendor.git
+
                     	</c:forEach>
 
                     </tbody>
