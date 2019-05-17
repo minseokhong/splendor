@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -35,10 +35,10 @@
   			var content =  $('#boardContent');
   			
   			if(title.val() == ''){
-  				alert('Á¦¸ñÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.');
+  				alert('ì œëª©ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.');
   				title.focus();
   			}else if(content.val() == ''){
-  				alert('³»¿ë±ÛÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä.');
+  				alert('ë‚´ìš©ê¸€ì„ ì‘ì„±í•´ì£¼ì„¸ìš”.');
   				content.focus();
   			} else {
   				write(title.val(), content.val());
@@ -61,8 +61,8 @@
   			},
   			success : function(data) {
   				if(data == 'true') {
-  					alert('±Û ÀÛ¼º ¿Ï·á!');
-  					location.href = 'ÀÚÀ¯°Ô½ÃÆÇ';
+  					alert('ê¸€ ì‘ì„± ì™„ë£Œ!');
+  					location.href = 'ììœ ê²Œì‹œíŒ';
   				}
   			}
 //   			error : function() {
@@ -98,10 +98,10 @@
             <div class="container">
                 <div class="banner_content text-center">
                     <div class="page_link">
-                        <a href="index">È¨ÆäÀÌÁö</a>
-                        <a href="freeboard">ÀÚÀ¯°Ô½ÃÆÇ</a>
+                        <a href="index">í™ˆí˜ì´ì§€</a>
+                        <a href="freeboard">ììœ ê²Œì‹œíŒ</a>
                     </div>
-                    <h2>ÀÚÀ¯°Ô½ÃÆÇ</h2>
+                    <h2>ììœ ê²Œì‹œíŒ</h2>
                 </div>
             </div>
         </div>
@@ -120,22 +120,22 @@
 			<thead>
 				<tr>
                     <th colspan="2"> 
-					    <h2 style="color:rgb(151, 137, 137); text-align: center; padding: 15px;"> ±Û ÀÛ¼º</h2>
+					    <h2 style="color:rgb(151, 137, 137); text-align: center; padding: 15px;"> ê¸€ ì‘ì„±</h2>
 					</th>
 				</tr>
 			</thead>
             <tbody>
 
                     <tr>
-                    	<td class="align-middle">Á¦¸ñ</td>
+                    	<td class="align-middle">ì œëª©</td>
                         <td class="align-middle">
-                        	<input type="text" placeholder="Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä. " name="subject" class="form-control" id="boardTitle" />
+                        	<input type="text" placeholder="ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”. " name="subject" class="form-control" id="boardTitle" />
                         </td>
                     </tr>
 
                         
                     <tr>
-                    	<td class="align-middle">ÆÄÀÏ</td>
+                    	<td class="align-middle">íŒŒì¼</td>
                         <td class="text-left align-middle">
                         	<input type=file name='file1' style='display: none, background-color: red;'>
                             <img src='img/pictures.png' align="right" width="30" height="35" name='find' id='find'
@@ -148,7 +148,7 @@
                     </tr>
                     <tr>
                         <td colspan="2"> 
-                        	<textarea rows="15" cols="10" placeholder="³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä. " name="content" class="form-control" id="boardContent"></textarea>
+                        	<textarea rows="15" cols="10" placeholder="ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”. " name="content" class="form-control" id="boardContent"></textarea>
                         </td>
                     </tr>
                     
@@ -156,14 +156,14 @@
 
                     <tr>
                         <td colspan="2" class="text-left"> 
-	                        <secret>ºñ¹Ğ±Û</secret>¡¡
-	                        <input type="checkbox" id="secretcheck" name="ºñ¹Ğ±Û" />
+	                        <secret>ë¹„ë°€ê¸€</secret>ã€€
+	                        <input type="checkbox" id="secretcheck" name="ë¹„ë°€ê¸€" />
                     	</td>
                     </tr>
                     <tr>
                         <td colspan="2"> 
-                        	<input type="submit" value="µî¡¡·Ï" class="btn btn-primary pull-right large" />
-                            <input type="button" value="Ãë¡¡¼Ò" onclick="location.href='ÀÚÀ¯°Ô½ÃÆÇ'" class="btn btn-primary pull-left large" />
+                        	<input type="submit" value="ë“±ã€€ë¡" class="btn btn-primary pull-right large" />
+                            <input type="button" value="ì·¨ã€€ì†Œ" onclick="location.href='ììœ ê²Œì‹œíŒ'" class="btn btn-primary pull-left large" />
 
                         </td>
                     </tr>

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
    <!-- Required meta tags -->
-   <meta charset="utf-8">
+   <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <link rel="icon" href="img/joystick.png" type="image/png">
 	<title>R.N.G Games</title>
@@ -74,26 +74,26 @@
                     <tbody>
                         <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
                             <td>Q.</td>
-                            <td style="font-weight: bold; color: blueviolet; ">[°èÁ¤¹®ÀÇ]</td>
-                            <td style="text-align: left">¾ÆÀÌµð/ºñ¹Ð¹øÈ£°¡ ±â¾ï³ªÁö ¾Ê¾Æ¿ä. ¾î¶»°Ô Ã£À» ¼ö ÀÖ³ª¿ä?</td>
+                            <td style="font-weight: bold; color: blueviolet; ">[ê³„ì •ë¬¸ì˜]</td>
+                            <td style="text-align: left">ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ê°€ ê¸°ì–µë‚˜ì§€ ì•Šì•„ìš”. ì–´ë–»ê²Œ ì°¾ì„ ìˆ˜ ìžˆë‚˜ìš”?</td>
                         </tr>
                         <tr>
                             <td colspan="3" class="hiddenRow">
-                                <div class="accordian-body collapse" id="demo1" style="text-align: center; color:cornflowerblue"> »ý¼ºÇÑ ¾ÆÀÌµð¿Í ºñ¹Ð¹øÈ£¸¦ ÀØ¾î¹ö¸° °æ¿ì 
-                                    È¨ÆäÀÌÁö Ã¹ È­¸éÀÇ [ID/PW Ã£±â] ¹öÆ°À» Å¬¸¯ ÈÄ º»ÀÎ ÀÎÁõÀ» ÅëÇÏ¿© 
-                                    »ý¼ºµÈ ¸ðµç ¾ÆÀÌµð¸¦ Ã£À» ¼ö ÀÖ½À´Ï´Ù.</div> 
+                                <div class="accordian-body collapse" id="demo1" style="text-align: center; color:cornflowerblue"> ìƒì„±í•œ ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ ìžŠì–´ë²„ë¦° ê²½ìš° 
+                                    í™ˆíŽ˜ì´ì§€ ì²« í™”ë©´ì˜ [ID/PW ì°¾ê¸°] ë²„íŠ¼ì„ í´ë¦­ í›„ ë³¸ì¸ ì¸ì¦ì„ í†µí•˜ì—¬ 
+                                    ìƒì„±ëœ ëª¨ë“  ì•„ì´ë””ë¥¼ ì°¾ì„ ìˆ˜ ìžˆìŠµë‹ˆë‹¤.</div> 
                             </td>
                         </tr>
 
                         <tr data-toggle="collapse" data-target="#demo2" class="accordion-toggle">
                             <td>Q.</td>
-                            <td style="font-weight: bold; color: blueviolet;">[°èÁ¤¹®ÀÇ]</td>
-                            <td style="text-align: left">ºñ¹Ð¹øÈ£´Â ¾î¶»°Ô º¯°æÇÏ³ª¿ä?</td>
+                            <td style="font-weight: bold; color: blueviolet;">[ê³„ì •ë¬¸ì˜]</td>
+                            <td style="text-align: left">ë¹„ë°€ë²ˆí˜¸ëŠ” ì–´ë–»ê²Œ ë³€ê²½í•˜ë‚˜ìš”?</td>
                         </tr>
                         <tr>
                             <td colspan="3" class="hiddenRow">
-                                <div class="accordian-body collapse" id="demo2" style="text-align: center; color:cornflowerblue"> »ý¼ºÇÑ ¾ÆÀÌµð¿Í ºñ¹Ð¹øÈ£¸¦ ÀØ¾î¹ö¸° °æ¿ì 
-                                    È¨ÆäÀÌÁö Ã¹ È­¸éÀÇ [Á¤º¸ ¼öÁ¤]À» Å¬¸¯ÇÑ ÈÄ [ºñ¹Ð¹øÈ£ º¯°æ] ¸Þ´º¿¡¼­ º¯°æÇÒ ¼ö ÀÖ½À´Ï´Ù.
+                                <div class="accordian-body collapse" id="demo2" style="text-align: center; color:cornflowerblue"> ìƒì„±í•œ ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ ìžŠì–´ë²„ë¦° ê²½ìš° 
+                                    í™ˆíŽ˜ì´ì§€ ì²« í™”ë©´ì˜ [ì •ë³´ ìˆ˜ì •]ì„ í´ë¦­í•œ í›„ [ë¹„ë°€ë²ˆí˜¸ ë³€ê²½] ë©”ë‰´ì—ì„œ ë³€ê²½í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
                                 </div> 
                             </td>
                         </tr>
@@ -101,73 +101,73 @@
 
                         <tr data-toggle="collapse" data-target="#demo3" class="accordion-toggle">
                             <td>Q.</td>
-                            <td style="font-weight: bold; color: blueviolet;">[°èÁ¤¹®ÀÇ]</td>
-                            <td style="text-align: left">°³ÀÎÁ¤º¸ ¼öÁ¤ÇÏ·Á¸é ¾î¶»°Ô ÇÏ³ª¿ä?</td>
+                            <td style="font-weight: bold; color: blueviolet;">[ê³„ì •ë¬¸ì˜]</td>
+                            <td style="text-align: left">ê°œì¸ì •ë³´ ìˆ˜ì •í•˜ë ¤ë©´ ì–´ë–»ê²Œ í•˜ë‚˜ìš”?</td>
                         </tr>
                         <tr>
                             <td colspan="3" class="hiddenRow">
                                 <div class="accordian-body collapse" id="demo3" style="text-align: center; color:cornflowerblue">
-                                    ·Î±×ÀÎ È­¸é¿¡¼­ [Á¤º¸ ¼öÁ¤]À» Å¬¸¯ÇÑ ÈÄ [°³ÀÎÁ¤º¸ º¯°æ] ¸Þ´º¿¡¼­ º¯°æÇÒ ¼ö ÀÖ½À´Ï´Ù.
+                                    ë¡œê·¸ì¸ í™”ë©´ì—ì„œ [ì •ë³´ ìˆ˜ì •]ì„ í´ë¦­í•œ í›„ [ê°œì¸ì •ë³´ ë³€ê²½] ë©”ë‰´ì—ì„œ ë³€ê²½í•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.
                                 </div> 
                             </td>
                         </tr>
                         
                         <tr data-toggle="collapse" data-target="#demo4" class="accordion-toggle">
                              <td>Q.</td>
-                             <td style="font-weight: bold; color: blueviolet;">[°èÁ¤¹®ÀÇ]</td>
-                            <td style="text-align: left">°èÁ¤ Å»Åð´Â ¾î¶»°Ô ÇÏ³ª¿ä?</td>
+                             <td style="font-weight: bold; color: blueviolet;">[ê³„ì •ë¬¸ì˜]</td>
+                            <td style="text-align: left">ê³„ì • íƒˆí‡´ëŠ” ì–´ë–»ê²Œ í•˜ë‚˜ìš”?</td>
                         </tr>
                         <tr>
                             <td colspan="3" class="hiddenRow">
                                 <div class="accordian-body collapse" id="demo4" style="text-align: center; color:cornflowerblue">
-                                    È¨ÆäÀÌÁö Ã¹ È­¸éÀÇ [Á¤º¸ ¼öÁ¤]À» Å¬¸¯ÇÑ ÈÄ [È¸¿øÅ»Åð] ¸Þ´º¿¡¼­ º»ÀÎ ÀÎÁõÀ» ÅëÇØ Å»ÅðÇÒ ¼ö ÀÖÀ¸¸ç,
-                                     ½ÅÃ» Áï½Ã Ã³¸®µÇ¿À´Ï ½ÅÁßÈ÷ ÆÇ´ÜÇÏ½Å ÈÄ ½ÅÃ»ÇØÁÖ½Ã±â¸¦ ¹Ù¶ø´Ï´Ù.
+                                    í™ˆíŽ˜ì´ì§€ ì²« í™”ë©´ì˜ [ì •ë³´ ìˆ˜ì •]ì„ í´ë¦­í•œ í›„ [íšŒì›íƒˆí‡´] ë©”ë‰´ì—ì„œ ë³¸ì¸ ì¸ì¦ì„ í†µí•´ íƒˆí‡´í•  ìˆ˜ ìžˆìœ¼ë©°,
+                                     ì‹ ì²­ ì¦‰ì‹œ ì²˜ë¦¬ë˜ì˜¤ë‹ˆ ì‹ ì¤‘ížˆ íŒë‹¨í•˜ì‹  í›„ ì‹ ì²­í•´ì£¼ì‹œê¸°ë¥¼ ë°”ëžë‹ˆë‹¤.
                                 </div> 
                             </td>
                         </tr>
 
                         <tr data-toggle="collapse" data-target="#demo5" class="accordion-toggle">
                             <td>Q.</td>
-                            <td style="font-weight: bold; color: blueviolet;">[°èÁ¤¹®ÀÇ]</td>
-                            <td style="text-align: left">Å»ÅðÇÑ °èÁ¤À» º¹±¸ÇÒ ¼ö ÀÖ³ª¿ä?</td>
+                            <td style="font-weight: bold; color: blueviolet;">[ê³„ì •ë¬¸ì˜]</td>
+                            <td style="text-align: left">íƒˆí‡´í•œ ê³„ì •ì„ ë³µêµ¬í•  ìˆ˜ ìžˆë‚˜ìš”?</td>
                         </tr>
                         <tr>
                             <td colspan="3" class="hiddenRow">
                                 <div class="accordian-body collapse" id="demo5" style="text-align: center; color:cornflowerblue">
-                                    Å»Åð ÁøÇàÈÄ °èÁ¤ÀÌ º¹±¸µÇÁö¾Ê½À´Ï´Ù ½ÅÁßÇÑ ¼±ÅÃ ºÎÅ¹µå¸³´Ï´Ù.
+                                    íƒˆí‡´ ì§„í–‰í›„ ê³„ì •ì´ ë³µêµ¬ë˜ì§€ì•ŠìŠµë‹ˆë‹¤ ì‹ ì¤‘í•œ ì„ íƒ ë¶€íƒë“œë¦½ë‹ˆë‹¤.
                                 </div> 
                             </td>
                         </tr>
                         <tr data-toggle="collapse" data-target="#demo7" class="accordion-toggle">
                                 <td>Q.</td>
-                                <td style="font-weight: bold; color: rgb(118, 192, 7);">[½ÇÇà¹®ÀÇ]</td>
-                                <td style="text-align: left">°ÇÀÇ »çÇ×ÀÌ ÀÖ¾î¿ä!</td>
+                                <td style="font-weight: bold; color: rgb(118, 192, 7);">[ì‹¤í–‰ë¬¸ì˜]</td>
+                                <td style="text-align: left">ê±´ì˜ ì‚¬í•­ì´ ìžˆì–´ìš”!</td>
                         </tr>
                         <tr>
                             <td colspan="3" class="hiddenRow">
                                 <div class="accordian-body collapse" id="demo7" style="text-align: center; color:cornflowerblue">
-                                    R.N.G¿¡ ¹«ÇÑÇÑ ¾ÖÁ¤À» º¸¿©ÁÖ½Ã´Â È¸¿ø´Ô²² Áø½ÉÀ¸·Î °¨»çÇÕ´Ï´Ù.
-                                    ´õ ÁÁÀº R.N.G°¡ µÇ±â À§ÇØ °ÇÀÇ ¹× °³¼± »çÇ×ÀÌ ÀÖÀ¸½Ã´Ù¸é
-                                    ¾ðÁ¦µç Çü½Ä¿¡ ±¸¾Ö ¾øÀÌ °í°´¼¾ÅÍ·Î º¸³»ÁÖ¼¼¿ä~¢¾
-                                    º¸³»ÁÖ½Ã´Â ¸¹Àº ÁÁÀº ÀÇ°ßµéÀº °ÔÀÓ¿¡ ¹Ý¿µµÉ ¼ö ÀÖµµ·Ï ³ë·ÂÇÏ°Ú½À´Ï´Ù!
+                                    R.N.Gì— ë¬´í•œí•œ ì• ì •ì„ ë³´ì—¬ì£¼ì‹œëŠ” íšŒì›ë‹˜ê»˜ ì§„ì‹¬ìœ¼ë¡œ ê°ì‚¬í•©ë‹ˆë‹¤.
+                                    ë” ì¢‹ì€ R.N.Gê°€ ë˜ê¸° ìœ„í•´ ê±´ì˜ ë° ê°œì„  ì‚¬í•­ì´ ìžˆìœ¼ì‹œë‹¤ë©´
+                                    ì–¸ì œë“  í˜•ì‹ì— êµ¬ì•  ì—†ì´ ê³ ê°ì„¼í„°ë¡œ ë³´ë‚´ì£¼ì„¸ìš”~â™¥
+                                    ë³´ë‚´ì£¼ì‹œëŠ” ë§Žì€ ì¢‹ì€ ì˜ê²¬ë“¤ì€ ê²Œìž„ì— ë°˜ì˜ë  ìˆ˜ ìžˆë„ë¡ ë…¸ë ¥í•˜ê² ìŠµë‹ˆë‹¤!
                                 </div> 
                             </td>
                         </tr>       
                         <tr data-toggle="collapse" data-target="#demo6" class="accordion-toggle">
                             <td>Q.</td>
-                            <td style="font-weight: bold; color: red;">[½Å°íÁ¢¼ö]</td>
-                            <td style="text-align: left">ÀÌ¿ë Á¦ÇÑµÇ¾ú´Ù°í ÇÏ´Âµ¥ ¿Ö Á¦ÇÑÀÌ µÈ°Ç°¡¿ä?</td>
+                            <td style="font-weight: bold; color: red;">[ì‹ ê³ ì ‘ìˆ˜]</td>
+                            <td style="text-align: left">ì´ìš© ì œí•œë˜ì—ˆë‹¤ê³  í•˜ëŠ”ë° ì™œ ì œí•œì´ ëœê±´ê°€ìš”?</td>
                         </tr>
                         <tr>
                             <td colspan="3" class="hiddenRow">
                                 <div class="accordian-body collapse" id="demo6" style="text-align: center; color:cornflowerblue">
-                                        ÀÌ¿ë¾à°ü ¹× ¿î¿µÁ¤Ã¥¿¡ ±Ù°ÅÇÏ¿© ºÎÀûÀýÇÑ °ÔÀÓ ÀÌ¿ë ½Ã
-                                        ÇØ´ç °èÁ¤Àº °ÔÀÓ ÀÌ¿ëÀÌ Á¦ÇÑµÉ ¼ö ÀÖ½À´Ï´Ù.<br>
-                                        Á¤È®ÇÑ È®ÀÎÀ» À§ÇÏ¿© °í°´´ÔÀÇ °ÔÀÓ ´Ð³×ÀÓÀ» ±âÀçÇÏ¿©
-                                        [ °í°´¼¾ÅÍ > 1:1 ¹®ÀÇ ]¸¦ ÅëÇÏ¿© Á¢¼öÇÏ¿© ÁÖ½Å´Ù¸é È®ÀÎ ÈÄ ¾È³» µå¸®°Ú½À´Ï´Ù.<br>
+                                        ì´ìš©ì•½ê´€ ë° ìš´ì˜ì •ì±…ì— ê·¼ê±°í•˜ì—¬ ë¶€ì ì ˆí•œ ê²Œìž„ ì´ìš© ì‹œ
+                                        í•´ë‹¹ ê³„ì •ì€ ê²Œìž„ ì´ìš©ì´ ì œí•œë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤.<br>
+                                        ì •í™•í•œ í™•ì¸ì„ ìœ„í•˜ì—¬ ê³ ê°ë‹˜ì˜ ê²Œìž„ ë‹‰ë„¤ìž„ì„ ê¸°ìž¬í•˜ì—¬
+                                        [ ê³ ê°ì„¼í„° > 1:1 ë¬¸ì˜ ]ë¥¼ í†µí•˜ì—¬ ì ‘ìˆ˜í•˜ì—¬ ì£¼ì‹ ë‹¤ë©´ í™•ì¸ í›„ ì•ˆë‚´ ë“œë¦¬ê² ìŠµë‹ˆë‹¤.<br>
                                         
-                                        ´Ù¸¸, ÇØ´ç °èÁ¤ÀÇ º»ÀÎÀÌ Á÷Á¢ ¹®ÀÇ¸¦ Á¢¼öÇØ¾ß¸¸
-                                        ¾È³»¸¦ µå¸± ¼ö ÀÖÀ¸´Ï ÀÌ Á¡ Âü°í ºÎÅ¹ µå¸³´Ï´Ù.
+                                        ë‹¤ë§Œ, í•´ë‹¹ ê³„ì •ì˜ ë³¸ì¸ì´ ì§ì ‘ ë¬¸ì˜ë¥¼ ì ‘ìˆ˜í•´ì•¼ë§Œ
+                                        ì•ˆë‚´ë¥¼ ë“œë¦´ ìˆ˜ ìžˆìœ¼ë‹ˆ ì´ ì  ì°¸ê³  ë¶€íƒ ë“œë¦½ë‹ˆë‹¤.
                                     </div> 
                                 </td>
                             </tr>
@@ -177,7 +177,7 @@
                 
             </div>
                     <div>
-                        <a class="primary_btn pull-right" href="³ª¹®ÀÇ">1:1¹®ÀÇ</a>
+                        <a class="primary_btn pull-right" href="ë‚˜ë¬¸ì˜">1:1ë¬¸ì˜</a>
                     </div>
         </div>
         <!--================Blog Area =================-->

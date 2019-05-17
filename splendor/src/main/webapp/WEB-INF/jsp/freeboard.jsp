@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
         <!-- Required meta tags -->
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="icon" href="img/joystick.png" type="image/png">
 	    <title>R.N.G Games</title>
@@ -38,7 +38,7 @@
 				<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
 				<div class="container">
 					<div class="banner_content text-center">
-						<h2>¿⁄¿Ø∞‘Ω√∆«</h2>
+						<h2>ÏûêÏú†Í≤åÏãúÌåê</h2>
 					</div>
 				</div>
             </div>
@@ -56,10 +56,10 @@
                                     <div class="col-md-3">
                                         <div class="guild_info text-right">
                                              <ul class="guild_meta list">
-                                                 <li><a href="#">¿±«ˆ∫Û<i class="lnr lnr-user"></i></a></li>
+                                                 <li><a href="#">Ïú§ÌòÑÎπà<i class="lnr lnr-user"></i></a></li>
                                                  <li><a href="#">2019.4.3<i class="lnr lnr-calendar-full"></i></a></li>
                                                  <li><a href="#">123 Views<i class="lnr lnr-eye"></i></a></li>
-                                                 <li><a href="#">6∞≥<i class="lnr lnr-bubble"></i></a></li>
+                                                 <li><a href="#">6Í∞ú<i class="lnr lnr-bubble"></i></a></li>
                                              </ul>
                                          </div>
      
@@ -67,11 +67,11 @@
                                      <div class="col-md-9">
                                          <div class="guild_post">
                                              <div class="guild_details">
-                                                 <a href="single-guild" style="color: black;"><h4>¿⁄¿Ø∞‘Ω√∆« ¡¶∏Ò</h4></a>
+                                                 <a href="single-guild" style="color: black;"><h4>ÏûêÏú†Í≤åÏãúÌåê Ï†úÎ™©</h4></a>
                                              </div>
                                              <!-- <ul class="guild_meta list">
-                                                 <li><i class="lnr lnr-user"></i><a href="#">¿€º∫¿⁄</a></li>
-                                                 <li><i class="lnr lnr-calendar-full"></i><a href="#">¿€º∫≥Ø¬•</a></li>
+                                                 <li><i class="lnr lnr-user"></i><a href="#">ÏûëÏÑ±Ïûê</a></li>
+                                                 <li><i class="lnr lnr-calendar-full"></i><a href="#">ÏûëÏÑ±ÎÇ†Ïßú</a></li>
                                              </ul> -->
                                          </div>
                                      </div>

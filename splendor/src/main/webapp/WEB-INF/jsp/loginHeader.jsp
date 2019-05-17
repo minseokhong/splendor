@@ -2,9 +2,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+	
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <audio id="alertSound" src="img/alert.mp3" preload="metadata"></audio>
 <script src="/webjars/sockjs-client/sockjs.min.js"></script>
@@ -21,7 +19,9 @@
 	
   	$(document).ready(function() {
   		
-		$('.${activeLocation }').addClass('active');// 사용자의 현재 웹페이지 위치에 따라 헤더 부분에 active 표시를 위한 메서드
+  		if('.${activeLocation }' != '.') {
+			$('.${activeLocation }').addClass('active');// 사용자의 현재 웹페이지 위치에 따라 헤더 부분에 active 표시를 위한 메서드
+  		}
 		
   		$.ajax({// 페이지 로드 이후 바로 사용자의 쪽지 목록 데이터를 ajax로 가져오기
   			url : 'http://localhost:8000/getSenderList', 
@@ -320,8 +320,6 @@
 }
 </style>
 
-</head>
-<body>
 	<!--================Header Menu Area =================-->
 	<header class="header_area">
 	<div class="main_menu">
@@ -803,5 +801,3 @@
 		});
 		
 	</script>
-</body>
-</html>

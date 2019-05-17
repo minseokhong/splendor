@@ -1,10 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>R.N.G Gmaes</title>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script
   src="https://code.jquery.com/jquery-3.4.0.js"
   integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
@@ -16,12 +13,13 @@
 //  			$('.nav-link').click(function() {
 //  				alert('a');
 //  			});
+ 			if('.${activeLocation }' != ".") {
+ 	 			$('.${activeLocation }').addClass('active');
+ 			}// ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ headerë¡œ ë³´ë‚¸ ê°’ì„ ì½ì–´ì„œ ì½ì€ ê°’ê³¼ í´ëž˜ìŠ¤ëª…ì´ ê°™ì€ liíƒœê·¸ í´ëž˜ìŠ¤ë¥¼ ì°¾ìŠµë‹ˆë‹¤.
+ 														// ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ headerë¡œ ë³´ë‚¸ ê°’ì€ ('index'ë‚˜ 'about-us', 'screenshot ë“±ë“±ì˜ ë¬¸ìžì—´ì„ ë‹´ê³  ìžˆìŠµë‹ˆë‹¤.')
+ 														// ì°¾ì€ íƒœê·¸ì— activeë¼ëŠ” í´ëž˜ìŠ¤ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤. ((ex) 64ë²ˆ ë¼ì¸ì˜ li íƒœê·¸ì— active í´ëž˜ìŠ¤ë¥¼ ì¶”ê°€í•©ë‹ˆë‹¤.)
  			
- 			$('.${activeLocation }').addClass('active');// ÄÁÆ®·Ñ·¯¿¡¼­ header·Î º¸³½ °ªÀ» ÀÐ¾î¼­ ÀÐÀº °ª°ú Å¬·¡½º¸íÀÌ °°Àº liÅÂ±× Å¬·¡½º¸¦ Ã£½À´Ï´Ù.
- 														// ÄÁÆ®·Ñ·¯¿¡¼­ header·Î º¸³½ °ªÀº ('index'³ª 'about-us', 'screenshot µîµîÀÇ ¹®ÀÚ¿­À» ´ã°í ÀÖ½À´Ï´Ù.')
- 														// Ã£Àº ÅÂ±×¿¡ active¶ó´Â Å¬·¡½º¸¦ Ãß°¡ÇÕ´Ï´Ù. ((ex) 64¹ø ¶óÀÎÀÇ li ÅÂ±×¿¡ active Å¬·¡½º¸¦ Ãß°¡ÇÕ´Ï´Ù.)
- 			
-<%-- 	 			<% //by. µµÇü... Á¦°¡ °øºÎÇÏ·Á°í ³öµÐ ±¸¹®ÀÔ´Ï´Ù. ÁÖ¼® Áö¿ìÁö ¸»°í ³öµÖÁÖ¼¼¿ä. ¤Ð¤Ð~~~ --%>
+<%-- 	 			<% //by. ë„í˜•... ì œê°€ ê³µë¶€í•˜ë ¤ê³  ë†”ë‘” êµ¬ë¬¸ìž…ë‹ˆë‹¤. ì£¼ì„ ì§€ìš°ì§€ ë§ê³  ë†”ë‘¬ì£¼ì„¸ìš”. ã… ã… ~~~ --%>
 // 	 				String location = null;
 // 	 				if(request.getCookies() != null) {
 // 	 					for(Cookie tmp : request.getCookies()) {
@@ -40,11 +38,7 @@
 			
  		});
  	
- 	</script> 
-  
-  
-</head>
-<body>
+ 	</script>
 
 <header class="header_area">
 		<div class="main_menu">
@@ -60,36 +54,33 @@
 					</button>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent" >
-						<ul class="nav navbar-nav menu_nav justify-content-center"style ="width:70%">
-<!-- 						li ÅÂ±×ÀÇ Å¬·¡½º ¸í¿¡ ¹Ì¸® ÄÁÆ®·Ñ·¯¿¡¼­ ¹Þ¾Æ¿Ã µ¥ÀÌÅÍ ¹®ÀÚ¿Í °°Àº ÀÌ¸§ÀÇ Å¬·¡½º¸¦ Ãß°¡ÇØ ³õ¾Ò½À´Ï´Ù. index µîÀÇ Å¬·¡½º´Â Å¬·¡½º ¼±ÅÃÀÚ·Î ¼±ÅÃÇÒ ¼ö ÀÖ½À´Ï´Ù. -->
-							<li class="nav-item index"><a class="nav-link" href="index">È¨ÆäÀÌÁö</a></li>
-							<li class="nav-item about-us"><a class="nav-link" href="about-us">°ÔÀÓ¼Ò°³</a></li>
-							<li class="nav-item screenshot"><a class="nav-link" href="screenshot">½ºÅ©¸°¼¦</a></li>
+						<ul class="nav navbar-nav menu_nav justify-content-center" style ="width:70%">
+<!-- 						li íƒœê·¸ì˜ í´ëž˜ìŠ¤ ëª…ì— ë¯¸ë¦¬ ì»¨íŠ¸ë¡¤ëŸ¬ì—ì„œ ë°›ì•„ì˜¬ ë°ì´í„° ë¬¸ìžì™€ ê°™ì€ ì´ë¦„ì˜ í´ëž˜ìŠ¤ë¥¼ ì¶”ê°€í•´ ë†“ì•˜ìŠµë‹ˆë‹¤. index ë“±ì˜ í´ëž˜ìŠ¤ëŠ” í´ëž˜ìŠ¤ ì„ íƒìžë¡œ ì„ íƒí•  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. -->
+							<li class="nav-item index"><a class="nav-link" href="index">í™ˆíŽ˜ì´ì§€</a></li>
+							<li class="nav-item about-us"><a class="nav-link" href="about-us">ê²Œìž„ì†Œê°œ</a></li>
+							<li class="nav-item screenshot"><a class="nav-link" href="screenshot">ìŠ¤í¬ë¦°ìƒ·</a></li>
 							<li class="nav-item community submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Ä¿¹Â´ÏÆ¼</a>
+								 aria-expanded="false">ì»¤ë®¤ë‹ˆí‹°</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="guild">±æµå</a></li>
-									<li class="nav-item"><a class="nav-link" href="ÀÚÀ¯°Ô½ÃÆÇ">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
+									<li class="nav-item"><a class="nav-link" href="guild">ê¸¸ë“œ</a></li>
+									<li class="nav-item"><a class="nav-link" href="ìžìœ ê²Œì‹œíŒ">ìžìœ ê²Œì‹œíŒ</a></li>
 								</ul>
 							</li>
 							<li class="nav-item service submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false">°í°´¼¾ÅÍ</a>
+								aria-expanded="false">ê³ ê°ì„¼í„°</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="BBS">FAQ</a></li>
-									<li class="nav-item"><a class="nav-link" href="³ª¹®ÀÇ">1:1¹®ÀÇ</a></li>
+									<li class="nav-item"><a class="nav-link" href="ë‚˜ë¬¸ì˜">1:1ë¬¸ì˜</a></li>
 								</ul>
 							</li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right" > 
-							<a href="login" class="primary_btn">·Î±×ÀÎ</a>
+							<a href="login" class="primary_btn">ë¡œê·¸ì¸</a>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</div>
 	</header>
-
-</body>
-</html>

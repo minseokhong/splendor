@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
         <!-- Required meta tags -->
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" href="img/joystick.png" type="image/png">
 		<title>R.N.G Games</title>
@@ -37,7 +37,7 @@
 				<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
 				<div class="container">
 					<div class="banner_content text-center">
-						<h2>Ω∫≈©∏∞º¶ ∞∂∑Ø∏Æ</h2>
+						<h2>Ïä§ÌÅ¨Î¶∞ÏÉ∑ Í∞§Îü¨Î¶¨</h2>
 					</div>
 				</div>
 			</div>
@@ -50,8 +50,8 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="main_title">
-							<h2>Ω∫≈©∏∞ª˛ª˛ª˛</h2>
-							<h1>Ω∫≈©∏∞º¶</h1>
+							<h2>Ïä§ÌÅ¨Î¶∞ÏÉ§ÏÉ§ÏÉ§</h2>
+							<h1>Ïä§ÌÅ¨Î¶∞ÏÉ∑</h1>
 						</div>
 					</div>
 				</div>
@@ -61,9 +61,9 @@
 							<div class="col-lg-6 col-md-6 col-sm-6">
 								<div class="single-screenshot">
 									<div class="overlay"></div>
-									<img class="img-fluid w-100" src="img/≥ª∞°¿Ã∞ÂΩ∫.png" alt="">
+									<img class="img-fluid w-100" src="img/ÎÇ¥Í∞ÄÏù¥Í≤ºÏä§.png" alt="">
 									<div class="content">
-										<a class="pop-up-image" href="img/≥ª∞°¿Ã∞ÂΩ∫.png">
+										<a class="pop-up-image" href="img/ÎÇ¥Í∞ÄÏù¥Í≤ºÏä§.png">
 											<i class="lnr lnr-eye"></i>
 										</a>
 									</div>
@@ -72,9 +72,9 @@
 							<div class="col-lg-6 col-md-6 col-sm-6">
 								<div class="single-screenshot">
 									<div class="overlay"></div>
-									<img class="img-fluid w-100" src="img/πÊ∏∏µÎ.png" alt="">
+									<img class="img-fluid w-100" src="img/Î∞©ÎßåÎì¨.png" alt="">
 									<div class="content">
-										<a class="pop-up-image" href="img/πÊ∏∏µÎ.png">
+										<a class="pop-up-image" href="img/Î∞©ÎßåÎì¨.png">
 											<i class="lnr lnr-eye"></i>
 										</a>
 									</div>
@@ -83,9 +83,9 @@
 							<div class="col-lg-12">
 								<div class="single-screenshot">
 									<div class="overlay"></div>
-									<img class="img-fluid w-100" src="img/≥ª≈œ.png" alt="">
+									<img class="img-fluid w-100" src="img/ÎÇ¥ÌÑ¥.png" alt="">
 									<div class="content">
-										<a class="pop-up-image" href="img/≥ª≈œ.png">
+										<a class="pop-up-image" href="img/ÎÇ¥ÌÑ¥.png">
 											<i class="lnr lnr-eye"></i>
 										</a>
 									</div>
@@ -96,18 +96,18 @@
 					<div class="col-lg-4 hidden-md hidden-sm">
 						<div class="single-screenshot">
 							<div class="overlay"></div>
-							<img class="img-fluid w-100" src="img/∏”¥œ∏”¥œ.png" alt="">
+							<img class="img-fluid w-100" src="img/Î®∏ÎãàÎ®∏Îãà.png" alt="">
 							<div class="content">
-								<a class="pop-up-image" href="img/∏”¥œ∏”¥œ.png">
+								<a class="pop-up-image" href="img/Î®∏ÎãàÎ®∏Îãà.png">
 									<i class="lnr lnr-eye"></i>
 								</a>
 							</div>
 						</div>
 						<div class="single-screenshot">
 							<div class="overlay"></div>
-							<img class="img-fluid w-100" src="img/Ω«¡¶.png" alt="">
+							<img class="img-fluid w-100" src="img/Ïã§Ï†ú.png" alt="">
 							<div class="content">
-								<a class="pop-up-image" href="img/Ω«¡¶.png">
+								<a class="pop-up-image" href="img/Ïã§Ï†ú.png">
 									<i class="lnr lnr-eye"></i>
 								</a>
 							</div>

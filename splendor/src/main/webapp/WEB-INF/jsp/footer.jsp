@@ -1,12 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>R.N.G Gmaes</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <footer class="footer_area section_gap_top" style="padding-top:10px; padding-bottom:10px">
       <div class="container" style="padding-top: 10px; padding-bottom: 10px">
@@ -14,13 +9,13 @@
             <div class="col-lg-3 col-sm-6">
                <aside class="f_widget ab_widget" >
                   <div class="f_title">
-                     <h4>��õ ���ӻ���Ʈ</h4>
+                     <h4>추천 게임사이트</h4>
                   </div>
                   <ul>
                      <li style="padding-bottom:0px"><a href="http://kr.zxgame9.com/" target="name" >zxGame9</a></li>
-                     <li style="padding-bottom:0px"><a href="https://norara.dreamx.com/" target="name">���ɸ԰�����</a></li>
-                     <li style="padding-bottom:0px"><a href="http://flash365.dreamx.com/game/zboard.php?id=game" target="name">�÷���365</a></li>
-                     <li style="padding-bottom:0px"><a href="http://fg.gameangel.com/" target="name">���ӿ���</a></li>
+                     <li style="padding-bottom:0px"><a href="https://norara.dreamx.com/" target="name">점심먹고노라라</a></li>
+                     <li style="padding-bottom:0px"><a href="http://flash365.dreamx.com/game/zboard.php?id=game" target="name">플래시365</a></li>
+                     <li style="padding-bottom:0px"><a href="http://fg.gameangel.com/" target="name">게임엔젤</a></li>
                      <li style="padding-bottom:0px"><a href="http://www.arcadeprehacks.com/" target="name">ArcadePrehacks</a></li>
                    
                   </ul>
@@ -29,14 +24,14 @@
             <div class="col-lg-3 col-sm-6">
                <aside class="f_widget ab_widget">
                   <div class="f_title">
-                     <h4>��� �̸���</h4>
+                     <h4>운영진 이메일</h4>
                   </div>
                   <ul>
                      <li style="padding-bottom:0px"><a href="#">didlshadk97@nate.com</a></li>
-                     <li style="padding-bottom:0px"><a href="#">������</a></li>
-                     <li style="padding-bottom:0px"><a href="#">�ֹμ�</a></li>
-                     <li style="padding-bottom:0px"><a href="#">ȫ�μ�</a></li>
-                     <li style="padding-bottom:0px"><a href="#">�赵��</a></li>
+                     <li style="padding-bottom:0px"><a href="#">윤현빈</a></li>
+                     <li style="padding-bottom:0px"><a href="#">주민섭</a></li>
+                     <li style="padding-bottom:0px"><a href="#">홍민석</a></li>
+                     <li style="padding-bottom:0px"><a href="#">김도형</a></li>
                   </ul>
                </aside>
             </div>
@@ -73,6 +68,3 @@
          </div>
       </div>
    </footer>
-
-</body>
-</html>

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
    <!-- Required meta tags -->
-   <meta charset="utf-8">
+   <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    <link rel="icon" href="/img/joystick.png" type="image/png">
 	<title>R.N.G Games</title>
@@ -33,17 +33,17 @@
 	<script>
 		$(document).ready(function() {
 			$('#loginForm').submit(function(e) {
-				e.preventDefault();//ÆäÀÌÁö ÀÌµ¿ ¸·¾ÆÁÜ
+				e.preventDefault();//í˜ì´ì§€ ì´ë™ ë§‰ì•„ì¤Œ
 				
 				var id = $('#userId');
 				var pw = $('#userPw');
 				
 				if(id.val() == '') {
-					alert('¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!');
+					alert('ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!');
 					id.focus();
 					
 				} else if(pw.val() == '') {
-					alert('ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!');
+					alert('ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!');
 					pw.focus();
 					
 				} else {
@@ -52,29 +52,29 @@
 			})
 		});
 		
-// 		1. ¾ÆÀÌµğ¶û ºñ¹øÀ» GET / POST ¹æ½ÄÀ¸·Î ³Ñ±ä´Ù
-// 		2. ¾îµğ·Î ³Ñ±â´À³Ä
-// 		3. ³Ñ°Ü¼­ ¾î¶² °á°ú°ªÀ» ¹Ş¾Æ¿Ã°Ç°¡
-// 		4. ·Î±×ÀÎ ¼º°ø / ½ÇÆĞ ¿©ºÎ¿¡µû¶ó¼­ ¾î¶² ¾×¼ÇÀ» ÁÙ°Ç°¡
+// 		1. ì•„ì´ë””ë‘ ë¹„ë²ˆì„ GET / POST ë°©ì‹ìœ¼ë¡œ ë„˜ê¸´ë‹¤
+// 		2. ì–´ë””ë¡œ ë„˜ê¸°ëŠëƒ
+// 		3. ë„˜ê²¨ì„œ ì–´ë–¤ ê²°ê³¼ê°’ì„ ë°›ì•„ì˜¬ê±´ê°€
+// 		4. ë¡œê·¸ì¸ ì„±ê³µ / ì‹¤íŒ¨ ì—¬ë¶€ì—ë”°ë¼ì„œ ì–´ë–¤ ì•¡ì…˜ì„ ì¤„ê±´ê°€
 		
 		function login(id, pw) {
 			$.ajax({
 				type : "GET",
 				url : "http://localhost:8000/test",
-				dataType : "text",				//	°á°ú¸¦ ¹ŞÀ» µ¥ÀÌÅÍ Å¸ÀÔ
+				dataType : "text",				//	ê²°ê³¼ë¥¼ ë°›ì„ ë°ì´í„° íƒ€ì…
 				data : {
 					userId: id,
-					userPw: pw //userId¸¦ controller¿¡¼­ ±×´ë·Î»ç¿ë
+					userPw: pw //userIdë¥¼ controllerì—ì„œ ê·¸ëŒ€ë¡œì‚¬ìš©
 				},
 				success : function(data) {
 					if (data == 'true') {
-						alert(id + ' ´Ô È¯¿µÇÕ´Ï´Ù ^.^')
+						alert(id + ' ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤ ^.^')
 						
 						location.href = 'testView';
 					} else {
 						$('#userId').val('');
 						$('#userPw').val('');
-						alert('ÀÌ¸ŞÀÏ ¹× ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');
+						alert('ì´ë©”ì¼ ë° ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');
 					}
 				}
 			});
@@ -120,30 +120,30 @@
                      <!-- Collect the nav links, forms, and other content for toggling -->
                      <div class="collapse navbar-collapse offset" id="navbarSupportedContent" >
                         <ul class="nav navbar-nav menu_nav justify-content-center"style ="width:70%">
-                           <li class="nav-item active"><a class="nav-link" href="index">È¨ÆäÀÌÁö</a></li>
-                           <li class="nav-item"><a class="nav-link" href="about-us">°ÔÀÓ¼Ò°³</a></li>
-                           <li class="nav-item"><a class="nav-link" href="screenshot">½ºÅ©¸°¼¦</a></li>
+                           <li class="nav-item active"><a class="nav-link" href="index">í™ˆí˜ì´ì§€</a></li>
+                           <li class="nav-item"><a class="nav-link" href="about-us">ê²Œì„ì†Œê°œ</a></li>
+                           <li class="nav-item"><a class="nav-link" href="screenshot">ìŠ¤í¬ë¦°ìƒ·</a></li>
                            <li class="nav-item submenu dropdown">
                               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">Ä¿¹Â´ÏÆ¼</a>
+                               aria-expanded="false">ì»¤ë®¤ë‹ˆí‹°</a>
                               <ul class="dropdown-menu">
-                                 <li class="nav-item"><a class="nav-link" href="guild">±æµå</a></li>
-                                 <li class="nav-item"><a class="nav-link" href="ÀÚÀ¯°Ô½ÃÆÇ">ÀÚÀ¯°Ô½ÃÆÇ</a></li>
-                                 <li class="nav-item"><a class="nav-link" href="elements">°øÁö»çÇ×</a>
+                                 <li class="nav-item"><a class="nav-link" href="guild">ê¸¸ë“œ</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="ììœ ê²Œì‹œíŒ">ììœ ê²Œì‹œíŒ</a></li>
+                                 <li class="nav-item"><a class="nav-link" href="elements">ê³µì§€ì‚¬í•­</a>
                               </ul>
                            </li>
                            <li class="nav-item submenu dropdown">
                               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                              aria-expanded="false">°í°´¼¾ÅÍ</a>
+                              aria-expanded="false">ê³ ê°ì„¼í„°</a>
                               <ul class="dropdown-menu">
                                  <li class="nav-item"><a class="nav-link" href="BBS">FAQ</a></li>
-                                 <li class="nav-item"><a class="nav-link" href="³ª¹®ÀÇ">1:1¹®ÀÇ</a></li>
-                                 <li class="nav-item"><a class="nav-link" href=";;">½Å°í</a>
+                                 <li class="nav-item"><a class="nav-link" href="ë‚˜ë¬¸ì˜">1:1ë¬¸ì˜</a></li>
+                                 <li class="nav-item"><a class="nav-link" href=";;">ì‹ ê³ </a>
                               </ul>
                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" > 
-                           <a href="login" class="primary_btn">·Î±×ÀÎ</a>
+                           <a href="login" class="primary_btn">ë¡œê·¸ì¸</a>
                         </ul>
                      </div>
                   </div>
@@ -163,32 +163,32 @@
             <div class="col-lg-7 col-12">
                <div class="jumbotron">
                   <form id="loginForm"> 
-                  <!--actionÀ» id·Î ¹Ù²Û´Ù  -->
-                     <h3 style="text-align: center;">½ºÇÃ·£´õ ·Î±×ÀÎ</h3>
+                  <!--actionì„ idë¡œ ë°”ê¾¼ë‹¤  -->
+                     <h3 style="text-align: center;">ìŠ¤í”Œëœë” ë¡œê·¸ì¸</h3>
                      <div style="width:100%; height:30px;">
                         
                      </div>
                      <div class="form-group">
-                        <input type="text" class="form-control" placeholder="ÀÌ¸ŞÀÏ" id="userId" name="userId" maxlength="20">
+                        <input type="text" class="form-control" placeholder="ì´ë©”ì¼" id="userId" name="userId" maxlength="20">
                      </div>
                      <div class="form-group">
-                        <input type="password" class="form-control" placeholder="ºñ¹Ğ¹øÈ£" id="userPw" name="userPw" maxlength="20" autocomplete="off">
+                        <input type="password" class="form-control" placeholder="ë¹„ë°€ë²ˆí˜¸" id="userPw" name="userPw" maxlength="20" autocomplete="off">
                      </div>
 <!--  -->
                      <div style="width:100%; height:30px;"></div>
 <!--  -->
                      <div  style="width:100%; height:100px; text-align: center" >
-                        <input type="submit" class="btn btn-primary" value="·Î±×ÀÎ" style="border: 1px solid; width: 200px">
-                        <input type="button" class="btn btn-primary" value="È¸¿ø°¡ÀÔ" style="border: 1px solid;  width: 200px" onclick="location.href='join'">
+                        <input type="submit" class="btn btn-primary" value="ë¡œê·¸ì¸" style="border: 1px solid; width: 200px">
+                        <input type="button" class="btn btn-primary" value="íšŒì›ê°€ì…" style="border: 1px solid;  width: 200px" onclick="location.href='join'">
 
                      </div>
 
                      <div id="search" class="col-lg-7 col-12">
-                        <a style="position:absolute; bottom:0px;" href="write.js" >¾ÆÀÌµğÃ£±â / ºñ¹Ğ¹øÈ£Ã£±â </a>
+                        <a style="position:absolute; bottom:0px;" href="write.js" >ì•„ì´ë””ì°¾ê¸° / ë¹„ë°€ë²ˆí˜¸ì°¾ê¸° </a>
                      </div>
-					 <!-- ³×ÀÌ¹ö¾ÆÀÌµğ·Î·Î±×ÀÎ ¹öÆ° ³ëÃâ ¿µ¿ª -->
+					 <!-- ë„¤ì´ë²„ì•„ì´ë””ë¡œë¡œê·¸ì¸ ë²„íŠ¼ ë…¸ì¶œ ì˜ì—­ -->
 					 <div id="naver_id_login" style="margin-bottom: auto; position: relative; width: 5%" class="pull-right"></div>
-					 <!-- //³×ÀÌ¹ö¾ÆÀÌµğ·Î·Î±×ÀÎ ¹öÆ° ³ëÃâ ¿µ¿ª -->
+					 <!-- //ë„¤ì´ë²„ì•„ì´ë””ë¡œë¡œê·¸ì¸ ë²„íŠ¼ ë…¸ì¶œ ì˜ì—­ -->
 					 <script type="text/javascript">
 					  var naver_id_login = new naver_id_login("kJZ3dXggDV9mMHj928wu", "http://localhost:8000/naver-callback", false);
 					  var state = naver_id_login.getUniqState();
@@ -198,8 +198,8 @@
 // 					  naver_id_login.setPopup();
 					  naver_id_login.init_naver_id_login();
 					 </script>
-                     <a href="https://www.kakaocorp.com/service/KakaoTalk"><img src="img/Ä«Ä«¿ÀÅåapi.png" style="margin-bottom: auto; position: relative; width: 5%" class="pull-right"></a>
-                     <a href="http://www.google.com"><img src="img/±¸±Ûapi.png" style="margin-bottom: auto; position: relative; width: 5%" class="pull-right"></a>
+                     <a href="https://www.kakaocorp.com/service/KakaoTalk"><img src="img/ì¹´ì¹´ì˜¤í†¡api.png" style="margin-bottom: auto; position: relative; width: 5%" class="pull-right"></a>
+                     <a href="http://www.google.com"><img src="img/êµ¬ê¸€api.png" style="margin-bottom: auto; position: relative; width: 5%" class="pull-right"></a>
                   </form>
                </div>
             </div>

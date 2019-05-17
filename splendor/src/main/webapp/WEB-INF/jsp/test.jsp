@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -43,12 +43,12 @@
 						<div class="home_left_img">
                             <!-- <img class="img-fluid" src="img/banner/home-left.png" alt=""> -->
                             <ul class="home_info">
-                                <li class="home_info2"><h1>´Ğ³×ÀÓ : </h1><h2>${user.user_name }</h2></li>
-                                <li class="home_info2"><h1>·©Å· : </h1><h2> </h2></li>
-                                <li class="home_info2"><h1>½ÂÁ¡ : </h1><h2> </h2></li>
-                                <li class="home_info2"><h1>±æµå¸í : </h1><h2> </h2></li>
-<!--                                 <li class="home_info2"><h1>±æµå ·©Å· : </h1><h2>45À§</h2></li> -->
-                                <li class="home_info2"><h1>±æµå ·©Å· : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>ë‹‰ë„¤ì„ : </h1><h2>${user.user_name }</h2></li>
+                                <li class="home_info2"><h1>ë­í‚¹ : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>ìŠ¹ì  : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>ê¸¸ë“œëª… : </h1><h2> </h2></li>
+<!--                                 <li class="home_info2"><h1>ê¸¸ë“œ ë­í‚¹ : </h1><h2>45ìœ„</h2></li> -->
+                                <li class="home_info2"><h1>ê¸¸ë“œ ë­í‚¹ : </h1><h2> </h2></li>
                                 
 
                             </ul>
@@ -65,7 +65,7 @@
 								hell~
 							</h2>
 							<p>
-								³²³à³ë¼Ò ºÒ¹®ÇÏ°í ÇÔ²² Áñ±æ ¼ö ÀÖ´Â ±× °ÔÀÓ! ½ºÇÃ·£´õ¸¦ ÅëÇØ ±æµå¸¦ ¿î¿µÇÏ°í °æÀïÀ» ÅëÇØ ¼¼°è ÃÖ°í°¡ µÇ¾îº¸¼¼¿ä!
+								ë‚¨ë…€ë…¸ì†Œ ë¶ˆë¬¸í•˜ê³  í•¨ê»˜ ì¦ê¸¸ ìˆ˜ ìˆëŠ” ê·¸ ê²Œì„! ìŠ¤í”Œëœë”ë¥¼ í†µí•´ ê¸¸ë“œë¥¼ ìš´ì˜í•˜ê³  ê²½ìŸì„ í†µí•´ ì„¸ê³„ ìµœê³ ê°€ ë˜ì–´ë³´ì„¸ìš”!
 							</p>
 							<div class="d-flex align-items-center">
 								<!-- <a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?v=vParh5wE-tM">
@@ -75,7 +75,7 @@
 									<img class="play-img" src="img/casino.png">
 								</a>
 								<div class="watch_video text-uppercase">
-									<-°ÔÀÓ ½ÃÀÛ
+									<-ê²Œì„ ì‹œì‘
 								</div>
 							</div>
 						</div>
@@ -92,10 +92,10 @@
 			<div class="row about_content align-items-center">
 				<div class="col-lg-6">
 					<div class="section_content">
-						<h6>°ÔÀÓ ¼Ò°³</h6>
-						<h1>½ºÇÃ·£´õ¶õ <br>¿ä·± °ÔÀÓ ÀÔ´Ï´Ù.</h1>
-						<p>¿·¿¡ °ÔÀÓ°ü·Ã À¯Æ©ºê ¿µ»óÀÌ ³ª¿À°í ¾Æ·¡ ¹öÆ°Àº °ÔÀÓ ¹æ½ÄÀ» ±Û·Î Ç®¾î ÀÚ¼¼ÇÏ°Ô ¼³¸íÇÑ ¸Ş´º ÀÔ´Ï´Ù.</p>
-						<a class="primary_btn" href="#">´õ ¾Ë¾Æº¸±â</a>
+						<h6>ê²Œì„ ì†Œê°œ</h6>
+						<h1>ìŠ¤í”Œëœë”ë€ <br>ìš”ëŸ° ê²Œì„ ì…ë‹ˆë‹¤.</h1>
+						<p>ì˜†ì— ê²Œì„ê´€ë ¨ ìœ íŠœë¸Œ ì˜ìƒì´ ë‚˜ì˜¤ê³  ì•„ë˜ ë²„íŠ¼ì€ ê²Œì„ ë°©ì‹ì„ ê¸€ë¡œ í’€ì–´ ìì„¸í•˜ê²Œ ì„¤ëª…í•œ ë©”ë‰´ ì…ë‹ˆë‹¤.</p>
+						<a class="primary_btn" href="#">ë” ì•Œì•„ë³´ê¸°</a>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -166,19 +166,19 @@
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">
-							¸í¿¹ÀÇ Àü´ç
+							ëª…ì˜ˆì˜ ì „ë‹¹
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
 						 aria-selected="false">
-							ÃÖ°íÀÇ ±æµå
+							ìµœê³ ì˜ ê¸¸ë“œ
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
 						 aria-selected="true">
-							°øÁö»çÇ×
+							ê³µì§€ì‚¬í•­
 						</a>
 					</li>
 				</ul>
@@ -192,10 +192,10 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="section_content">
-									<h6>¸í¿¹ÀÇ Àü´ç</h6>
-									<h1>·©Å· 1À§ <br>'À±Çöºó' ´Ô </h1>
-									<p>¿À·ÎÁö ½Ç·ÂÀ¸·Î ·©Å· 1À§¿¡ µî±Ø ÇÏ½Å 'À±Çöºó'´Ô ÀÔ´Ï´Ù. ½Ç·ÂÀ» Å°¿ö ¾î¼­ ¶Ù¾î³Ñµµ·Ï ÇØº¸¼¼¿ä!</p>
-									<a class="primary_btn" href="#">·©Å· º¸·¯°¡±â</a>
+									<h6>ëª…ì˜ˆì˜ ì „ë‹¹</h6>
+									<h1>ë­í‚¹ 1ìœ„ <br>'ìœ¤í˜„ë¹ˆ' ë‹˜ </h1>
+									<p>ì˜¤ë¡œì§€ ì‹¤ë ¥ìœ¼ë¡œ ë­í‚¹ 1ìœ„ì— ë“±ê·¹ í•˜ì‹  'ìœ¤í˜„ë¹ˆ'ë‹˜ ì…ë‹ˆë‹¤. ì‹¤ë ¥ì„ í‚¤ì›Œ ì–´ì„œ ë›°ì–´ë„˜ë„ë¡ í•´ë³´ì„¸ìš”!</p>
+									<a class="primary_btn" href="#">ë­í‚¹ ë³´ëŸ¬ê°€ê¸°</a>
 								</div>
 							</div>
 						</div>
@@ -209,11 +209,11 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="section_content">
-									<h6>ÃÖ°íÀÇ ±æµå</h6>
-									<h1>ÃÖ°íÀÇ ½Ç·ÂÀÚµéÀÇ ¸ğÀÓ! <br>·©Å· 1À§ 'R.N.G' !!!</h1>
-									<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-										especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
-									<a class="primary_btn" href="#">±æµå·©Å· º¸·¯°¡±â</a>
+									<h6>ìµœê³ ì˜ ê¸¸ë“œ</h6>
+									<h1>ìµœê³ ì˜ ì‹¤ë ¥ìë“¤ì˜ ëª¨ì„! <br>ë­í‚¹ 1ìœ„ 'R.N.G' !!!</h1>
+									<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+										especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
+									<a class="primary_btn" href="#">ê¸¸ë“œë­í‚¹ ë³´ëŸ¬ê°€ê¸°</a>
 								</div>
 							</div>
 						</div>
@@ -227,10 +227,10 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="section_content">
-									<h6>°øÁö»çÇ×</h6>
-									<h1>1.15 ÆĞÄ¡»çÇ× <br>Ä«µå ½ºÅ² Ãâ½Ã...!!</h1>
-									<p>Ä«µå½ºÅ²ÀÌ °èÀı¿¡ ¸Â°Ô º¢²ÉÀ¸·Î º¯°æµÇ¾ú...</p>
-									<a class="primary_btn" href="#">ÀÚ¼¼È÷ º¸·¯°¡±â</a>
+									<h6>ê³µì§€ì‚¬í•­</h6>
+									<h1>1.15 íŒ¨ì¹˜ì‚¬í•­ <br>ì¹´ë“œ ìŠ¤í‚¨ ì¶œì‹œ...!!</h1>
+									<p>ì¹´ë“œìŠ¤í‚¨ì´ ê³„ì ˆì— ë§ê²Œ ë²šê½ƒìœ¼ë¡œ ë³€ê²½ë˜ì—ˆ...</p>
+									<a class="primary_btn" href="#">ìì„¸íˆ ë³´ëŸ¬ê°€ê¸°</a>
 								</div>
 							</div>
 						</div>
@@ -248,8 +248,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>½ºÅ©¸°»ş»ş»ş</h2>
-						<h1>½ºÅ©¸°¼¦</h1>
+						<h2>ìŠ¤í¬ë¦°ìƒ¤ìƒ¤ìƒ¤</h2>
+						<h1>ìŠ¤í¬ë¦°ìƒ·</h1>
 					</div>
 				</div>
 			</div>
@@ -313,8 +313,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>°í°´¼¾ÅÍ</h2>
-						<h1>°í°´¼¾ÅÍ</h1>
+						<h2>ê³ ê°ì„¼í„°</h2>
+						<h1>ê³ ê°ì„¼í„°</h1>
 					</div>
 				</div>
 			</div>
@@ -322,29 +322,29 @@
 				<div class="col-lg-5 col-md-5">
 					<div class="frequent_item">
 						<h3>FAQ</h3>
-						<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-							especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
+						<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+							especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
 					</div>
 				</div>
 				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 					<div class="frequent_item">
-						<h3>1:1 ¹®ÀÇ</h3>
-						<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-							especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
+						<h3>1:1 ë¬¸ì˜</h3>
+						<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+							especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
 					</div>
 				</div>
 				<div class="col-lg-5 col-md-5">
 					<div class="frequent_item">
-						<h3>¿À·ù½Å°í</h3>
-						<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-							especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
+						<h3>ì˜¤ë¥˜ì‹ ê³ </h3>
+						<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+							especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
 					</div>
 				</div>
 				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 					<div class="frequent_item">
-						<h3>±ÔÁ¤ ¹× Á¤Ã¥</h3>
-						<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-							especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
+						<h3>ê·œì • ë° ì •ì±…</h3>
+						<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+							especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
 					</div>
 				</div>
 				
@@ -359,8 +359,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>ÀÚÀ¯°Ô½ÃÆÇ</h2>
-						<h1>ÀÚÀ¯°Ô½ÃÆÇ</h1>
+						<h2>ììœ ê²Œì‹œíŒ</h2>
+						<h1>ììœ ê²Œì‹œíŒ</h1>
 					</div>
 				</div>
 			</div>
@@ -371,8 +371,8 @@
 							<img class="img-fluid" src="img/jihyo.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">È¨ÆäÀÌÁö ui°¡ ³Ê¹« ¿¹»µÀ¯ ¤Ì¤Ì</a>
-							<p>°ÔÀÓµµ Á¤¸» ÀÎ»óÀûÀÌ³×À¯ ¤Ì¤Ì </p>
+							<a class="title" href="guild">í™ˆí˜ì´ì§€ uiê°€ ë„ˆë¬´ ì˜ˆë»ìœ  ã…œã…œ</a>
+							<p>ê²Œì„ë„ ì •ë§ ì¸ìƒì ì´ë„¤ìœ  ã…œã…œ </p>
 							<div class="date">
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
 								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
@@ -427,7 +427,7 @@
 				<div class="col-lg-3 col-sm-6">
 					<aside class="f_widget ab_widget">
 						<div class="f_title">
-							<h4>À¯»ç °ÔÀÓ</h4>
+							<h4>ìœ ì‚¬ ê²Œì„</h4>
 						</div>
 						<ul>
 							<li><a href="#"></a>For Business</a></li><a href="#">
@@ -442,25 +442,25 @@
 				<div class="col-lg-3 col-sm-6">
 					<aside class="f_widget ab_widget">
 						<div class="f_title">
-							<h4>°³¹ßÀÚ</h4>
+							<h4>ê°œë°œì</h4>
 						</div>
 						<ul>
-							<li><a href="#"></a>±èµµÇü</a></li><a href="#">
-								<li><a href="#"></a>ÁÖ¹Î¼·
+							<li><a href="#"></a>ê¹€ë„í˜•</a></li><a href="#">
+								<li><a href="#"></a>ì£¼ë¯¼ì„­
 							</a></li>
-							<li><a href="#"></a>È«¹Î¼®</a></li>
-							<li><a href="#"></a>¹Ú¿µ¿í</a></li>
-							<li><a href="#"></a>À±Çöºó</a></li>
+							<li><a href="#"></a>í™ë¯¼ì„</a></li>
+							<li><a href="#"></a>ë°•ì˜ìš±</a></li>
+							<li><a href="#"></a>ìœ¤í˜„ë¹ˆ</a></li>
 						</ul>
 					</aside>
 				</div>
 				<div class="col-lg-3 col-sm-6">
 					<aside class="f_widget ab_widget">
 						<div class="f_title">
-							<h4>Ã£¾Æ¿À½Ã´Â±æ</h4>
+							<h4>ì°¾ì•„ì˜¤ì‹œëŠ”ê¸¸</h4>
 						</div>
 						<ul>
-							<li><a href="#"></a>¼­¿ï °­³²±¸...</a></li>
+							<li><a href="#"></a>ì„œìš¸ ê°•ë‚¨êµ¬...</a></li>
 						</ul>
 					</aside>
 				</div>
@@ -473,7 +473,7 @@
 <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
 All rights reserved | This template is made with 
 <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
-ÀÌ»óÀÔ´Ï´ç
+ì´ìƒì…ë‹ˆë‹¹
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
 					</div>
 				</div>
@@ -525,22 +525,22 @@ All rights reserved | This template is made with
 		});
 
 
-		$('.ÂÊÁö').hover(function() {
-			$('.ÂÊÁö').css('background-color', 'white');
-			$('.ÂÊÁö_³»¿ë').css('display', 'block');
-			$('.¾Ë¸²_³»¿ë').css('display', 'none');
-			$('.ÂÊÁö_³»¿ë').css('background-color', 'lightgreen');
+		$('.ìª½ì§€').hover(function() {
+			$('.ìª½ì§€').css('background-color', 'white');
+			$('.ìª½ì§€_ë‚´ìš©').css('display', 'block');
+			$('.ì•Œë¦¼_ë‚´ìš©').css('display', 'none');
+			$('.ìª½ì§€_ë‚´ìš©').css('background-color', 'lightgreen');
 		}, function() {
-			$('.ÂÊÁö').css('background-color', 'lightgreen');
+			$('.ìª½ì§€').css('background-color', 'lightgreen');
 		});
 
-		$('.¾Ë¸²').hover(function() {
-			$('.¾Ë¸²').css('background-color', 'white');
-			$('.ÂÊÁö_³»¿ë').css('display', 'none');
-			$('.¾Ë¸²_³»¿ë').css('display', 'block');
-			$('.¾Ë¸²_³»¿ë').css('background-color', 'white');
+		$('.ì•Œë¦¼').hover(function() {
+			$('.ì•Œë¦¼').css('background-color', 'white');
+			$('.ìª½ì§€_ë‚´ìš©').css('display', 'none');
+			$('.ì•Œë¦¼_ë‚´ìš©').css('display', 'block');
+			$('.ì•Œë¦¼_ë‚´ìš©').css('background-color', 'white');
 		}, function() {
-			$('.¾Ë¸²').css('background-color', 'white');
+			$('.ì•Œë¦¼').css('background-color', 'white');
 		});
 
 		$('#close').click(function() {
@@ -548,12 +548,12 @@ All rights reserved | This template is made with
 			$('.msg1').remove();
 		});
 
-		$('#close_ÂÊÁöÈ®ÀÎÃ¢').click(function() {
+		$('#close_ìª½ì§€í™•ì¸ì°½').click(function() {
 			// $('.msg1').hide();
 			$('.message-box').hide();
 		});
 
-		$('#close_ÂÊÁöº¸³»±â').click(function() {
+		$('#close_ìª½ì§€ë³´ë‚´ê¸°').click(function() {
 			// $('.msg1').hide();
 			$('.a1').hide();
 		});
@@ -562,7 +562,7 @@ All rights reserved | This template is made with
 			$('.message-box').show('fast');
 		});
 
-		$('.´äÀåÇÏ±â').on('click', function() {
+		$('.ë‹µì¥í•˜ê¸°').on('click', function() {
 			$('.a1').slideToggle('fast');
 		});
 

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="img/favicon.png" type="image/png">
     <title>R.N.G Games</title>
@@ -47,10 +47,10 @@
             <div class="container">
                 <div class="banner_content text-center">
                     <div class="page_link">
-                        <a href="index">È¨ÆäÀÌÁö</a>
-                        <a href="freeboard">ÀÚÀ¯°Ô½ÃÆÇ</a>
+                        <a href="index">í™ˆí˜ì´ì§€</a>
+                        <a href="freeboard">ììœ ê²Œì‹œíŒ</a>
                     </div>
-                    <h2>ÀÚÀ¯°Ô½ÃÆÇ</h2>
+                    <h2>ììœ ê²Œì‹œíŒ</h2>
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
         /* antiquewhite; */
        #F5F5F5;
          color:rgb(151, 137, 137);">
-         <a class="btn btn-primary" href="ÀÚÀ¯°Ô½ÃÆÇ" style="background-color: white; color: black">¸ñ·ÏÀ¸·Î</a>
+         <a class="btn btn-primary" href="ììœ ê²Œì‹œíŒ" style="background-color: white; color: black">ëª©ë¡ìœ¼ë¡œ</a>
         <form id="write_ok" method="post" encType="multipart/form-data">
         
         <table class="table table-bordered text-center">
@@ -78,13 +78,13 @@
             <tbody>
             		 <tr style="text-align: right">
                     	<td height="30">
-                    	±Û¾´ÀÌ:
+                    	ê¸€ì“´ì´:
                     	<span class="member" style="color: #4169E1">
                     		${detail.board_writer}
                     	</span>
-                    	³¯Â¥:
+                    	ë‚ ì§œ:
                     	<span class="dateTime" style="color: #4169E1">${detail.board_date}</span>
-                    	Á¶È¸:
+                    	ì¡°íšŒ:
                     	<span class="boardcount" style="color: #4169E1">${detail.board_count}</span>
                     	</td>
                     	
@@ -103,8 +103,8 @@
 
                     <tr>
                         <td colspan="3"> 
-                        	<input type="submit" value="ÁÁ¾Æ¿ä" class="btn btn-primary"  style="color:	#FF0000 ; background-color: white;"/>
-                            <input type="button" value="½È¾î¿ä" class="btn btn-primary " style="color:	#4169E1 ; background-color: white;" />
+                        	<input type="submit" value="ì¢‹ì•„ìš”" class="btn btn-primary"  style="color:	#FF0000 ; background-color: white;"/>
+                            <input type="button" value="ì‹«ì–´ìš”" class="btn btn-primary " style="color:	#4169E1 ; background-color: white;" />
 
                         </td>
                     </tr>

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<!-- Required meta tags -->
-	<meta charset="utf-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" href="img/joystick.png" type="image/png">
 	<title>R.N.G Games</title>
@@ -47,15 +47,15 @@
 					<div class="col-lg-6">
 						<div class="banner_content">
 							<h2>
-								Àü·«Àû ÇÃ·¹ÀÌ!<br>
+								ì „ëµì  í”Œë ˆì´!<br>
 								
 							</h2>
 							<h2 style="color: #CD5C5C">
-								½ºÇÃ·£´õ<br>
+								ìŠ¤í”Œëœë”<br>
 							
 							</h2>							
 							<p>
-								³²³à³ë¼Ò ºÒ¹®ÇÏ°í ÇÔ²² Áñ±æ ¼ö ÀÖ´Â ±× °ÔÀÓ! ½ºÇÃ·£´õ¸¦ ÅëÇØ ±æµå¸¦ ¿î¿µÇÏ°í °æÀïÀ» ÅëÇØ ¼¼°è ÃÖ°í°¡ µÇ¾îº¸¼¼¿ä!
+								ë‚¨ë…€ë…¸ì†Œ ë¶ˆë¬¸í•˜ê³  í•¨ê»˜ ì¦ê¸¸ ìˆ˜ ìˆëŠ” ê·¸ ê²Œì„! ìŠ¤í”Œëœë”ë¥¼ í†µí•´ ê¸¸ë“œë¥¼ ìš´ì˜í•˜ê³  ê²½ìŸì„ í†µí•´ ì„¸ê³„ ìµœê³ ê°€ ë˜ì–´ë³´ì„¸ìš”!
 							</p>
 							
 						</div>
@@ -76,10 +76,10 @@
 			<div class="row about_content align-items-center">
 				<div class="col-lg-6">
 					<div class="section_content">
-						<h6>°ÔÀÓ ¼Ò°³</h6>
-						<h1>Àü·«°ÔÀÓ ½ºÇÃ·£´õ<br>R.N.G¿¡¼­ Áñ°Üº¸¼¼¿ä.</h1>
-						<p>¿·¿¡ °ÔÀÓ°ü·Ã À¯Æ©ºê ¿µ»óÀÌ ³ª¿À°í ¾Æ·¡ ¹öÆ°Àº °ÔÀÓ ¹æ½ÄÀ» ±Û·Î Ç®¾î ÀÚ¼¼ÇÏ°Ô ¼³¸íÇÑ ¸Ş´º ÀÔ´Ï´Ù.</p>
-						<a class="primary_btn" href="about-us">´õ ¾Ë¾Æº¸±â</a>
+						<h6>ê²Œì„ ì†Œê°œ</h6>
+						<h1>ì „ëµê²Œì„ ìŠ¤í”Œëœë”<br>R.N.Gì—ì„œ ì¦ê²¨ë³´ì„¸ìš”.</h1>
+						<p>ì˜†ì— ê²Œì„ê´€ë ¨ ìœ íŠœë¸Œ ì˜ìƒì´ ë‚˜ì˜¤ê³  ì•„ë˜ ë²„íŠ¼ì€ ê²Œì„ ë°©ì‹ì„ ê¸€ë¡œ í’€ì–´ ìì„¸í•˜ê²Œ ì„¤ëª…í•œ ë©”ë‰´ ì…ë‹ˆë‹¤.</p>
+						<a class="primary_btn" href="about-us">ë” ì•Œì•„ë³´ê¸°</a>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -150,19 +150,19 @@
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">
-							¸í¿¹ÀÇ Àü´ç
+							ëª…ì˜ˆì˜ ì „ë‹¹
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
 						 aria-selected="false">
-							ÃÖ°íÀÇ ±æµå
+							ìµœê³ ì˜ ê¸¸ë“œ
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
 						 aria-selected="true">
-							°øÁö»çÇ×
+							ê³µì§€ì‚¬í•­
 						</a>
 					</li>
 				</ul>
@@ -176,10 +176,10 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="section_content">
-									<h6>¸í¿¹ÀÇ Àü´ç</h6>
-									<h1>·©Å· 1À§ <br>'À±Çöºó' ´Ô </h1>
-									<p>¿À·ÎÁö ½Ç·ÂÀ¸·Î ·©Å· 1À§¿¡ µî±Ø ÇÏ½Å 'À±Çöºó'´Ô ÀÔ´Ï´Ù. ½Ç·ÂÀ» Å°¿ö ¾î¼­ ¶Ù¾î³Ñµµ·Ï ÇØº¸¼¼¿ä!</p>
-									<a class="primary_btn" href="#">·©Å· º¸·¯°¡±â</a>
+									<h6>ëª…ì˜ˆì˜ ì „ë‹¹</h6>
+									<h1>ë­í‚¹ 1ìœ„ <br>'ìœ¤í˜„ë¹ˆ' ë‹˜ </h1>
+									<p>ì˜¤ë¡œì§€ ì‹¤ë ¥ìœ¼ë¡œ ë­í‚¹ 1ìœ„ì— ë“±ê·¹ í•˜ì‹  'ìœ¤í˜„ë¹ˆ'ë‹˜ ì…ë‹ˆë‹¤. ì‹¤ë ¥ì„ í‚¤ì›Œ ì–´ì„œ ë›°ì–´ë„˜ë„ë¡ í•´ë³´ì„¸ìš”!</p>
+									<a class="primary_btn" href="#">ë­í‚¹ ë³´ëŸ¬ê°€ê¸°</a>
 								</div>
 							</div>
 						</div>
@@ -193,11 +193,11 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="section_content">
-									<h6>ÃÖ°íÀÇ ±æµå</h6>
-									<h1>ÃÖ°íÀÇ ½Ç·ÂÀÚµéÀÇ ¸ğÀÓ! <br>·©Å· 1À§ 'R.N.G' !!!</h1>
-									<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-										especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
-									<a class="primary_btn" href="#">±æµå·©Å· º¸·¯°¡±â</a>
+									<h6>ìµœê³ ì˜ ê¸¸ë“œ</h6>
+									<h1>ìµœê³ ì˜ ì‹¤ë ¥ìë“¤ì˜ ëª¨ì„! <br>ë­í‚¹ 1ìœ„ 'R.N.G' !!!</h1>
+									<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+										especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
+									<a class="primary_btn" href="#">ê¸¸ë“œë­í‚¹ ë³´ëŸ¬ê°€ê¸°</a>
 								</div>
 							</div>
 						</div>
@@ -211,10 +211,10 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="section_content">
-									<h6>°øÁö»çÇ×</h6>
-									<h1>1.15 ÆĞÄ¡»çÇ× <br>Ä«µå ½ºÅ² Ãâ½Ã...!!</h1>
-									<p>Ä«µå½ºÅ²ÀÌ °èÀı¿¡ ¸Â°Ô º¢²ÉÀ¸·Î º¯°æµÇ¾ú...</p>
-									<a class="primary_btn" href="#">ÀÚ¼¼È÷ º¸·¯°¡±â</a>
+									<h6>ê³µì§€ì‚¬í•­</h6>
+									<h1>1.15 íŒ¨ì¹˜ì‚¬í•­ <br>ì¹´ë“œ ìŠ¤í‚¨ ì¶œì‹œ...!!</h1>
+									<p>ì¹´ë“œìŠ¤í‚¨ì´ ê³„ì ˆì— ë§ê²Œ ë²šê½ƒìœ¼ë¡œ ë³€ê²½ë˜ì—ˆ...</p>
+									<a class="primary_btn" href="#">ìì„¸íˆ ë³´ëŸ¬ê°€ê¸°</a>
 								</div>
 							</div>
 						</div>
@@ -232,8 +232,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>½ºÅ©¸°»ş»ş»ş</h2>
-						<h1>½ºÅ©¸°¼¦</h1>
+						<h2>ìŠ¤í¬ë¦°ìƒ¤ìƒ¤ìƒ¤</h2>
+						<h1>ìŠ¤í¬ë¦°ìƒ·</h1>
 					</div>
 				</div>
 			</div>
@@ -243,9 +243,9 @@
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="single-screenshot">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="img/³»ÅÏ.png" alt="">
+								<img class="img-fluid w-100" src="img/ë‚´í„´.png" alt="">
 								<div class="content">
-									<a class="pop-up-image" href="img/³»ÅÏ.png">
+									<a class="pop-up-image" href="img/ë‚´í„´.png">
 										<i class="lnr lnr-eye"></i>
 									</a>
 								</div>
@@ -254,9 +254,9 @@
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="single-screenshot">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="img/¹æ¸¸µë.png" alt="">
+								<img class="img-fluid w-100" src="img/ë°©ë§Œë“¬.png" alt="">
 								<div class="content">
-									<a class="pop-up-image" href="img/¹æ¸¸µë.png">
+									<a class="pop-up-image" href="img/ë°©ë§Œë“¬.png">
 										<i class="lnr lnr-eye"></i>
 									</a>
 								</div>
@@ -265,9 +265,9 @@
 						<div class="col-lg-12">
 							<div class="single-screenshot">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="img/³»°¡ÀÌ°å½º.png" alt="">
+								<img class="img-fluid w-100" src="img/ë‚´ê°€ì´ê²¼ìŠ¤.png" alt="">
 								<div class="content">
-									<a class="pop-up-image" href="img/³»°¡ÀÌ°å½º.png">
+									<a class="pop-up-image" href="img/ë‚´ê°€ì´ê²¼ìŠ¤.png">
 										<i class="lnr lnr-eye"></i>
 									</a>
 								</div>
@@ -278,18 +278,18 @@
 				<div class="col-lg-4 hidden-md hidden-sm">
 					<div class="single-screenshot">
 						<div class="overlay"></div>
-						<img class="img-fluid w-100" src="img/¸Ó´Ï¸Ó´Ï.png" alt="">
+						<img class="img-fluid w-100" src="img/ë¨¸ë‹ˆë¨¸ë‹ˆ.png" alt="">
 						<div class="content">
-							<a class="pop-up-image" href="¸Ó´Ï¸Ó´Ï.png">
+							<a class="pop-up-image" href="ë¨¸ë‹ˆë¨¸ë‹ˆ.png">
 								<i class="lnr lnr-eye"></i>
 							</a>
 						</div>
 					</div>
 					<div class="single-screenshot">
 						<div class="overlay"></div>
-						<img class="img-fluid w-100" src="img/½ÇÁ¦.png" alt="">
+						<img class="img-fluid w-100" src="img/ì‹¤ì œ.png" alt="">
 						<div class="content">
-							<a class="pop-up-image" href="½ÇÁ¦.png">
+							<a class="pop-up-image" href="ì‹¤ì œ.png">
 								<i class="lnr lnr-eye"></i>
 							</a>
 						</div>
@@ -437,8 +437,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>°í°´¼¾ÅÍ</h2>
-						<h1>°í°´¼¾ÅÍ</h1>
+						<h2>ê³ ê°ì„¼í„°</h2>
+						<h1>ê³ ê°ì„¼í„°</h1>
 					</div>
 				</div>
 			</div>
@@ -446,25 +446,25 @@
 				<div class="col-lg-5 col-md-5">
 					<div class="frequent_item">
 						<h3>FAQ</h3>
-						<p>¾ÆÀÌµğ¸¦ Ã£À»¼ö¾ø°Å³ª ºñ¹Ğ¹øÈ£¸¦ ÀÒ¾î¹ö¸®½Å°æ¿ì FAQÆäÀÌÁö¿¡¼­ È®ÀÎÇÏ¼¼¿ä. °èÁ¤¹®ÀÇ,½ÇÇà¹®ÀÇ,½Å°íÁ¢¼öÄ«Å×°í¸®°¡ÀÖ½À´Ï´Ù.</p>
+						<p>ì•„ì´ë””ë¥¼ ì°¾ì„ìˆ˜ì—†ê±°ë‚˜ ë¹„ë°€ë²ˆí˜¸ë¥¼ ìƒì–´ë²„ë¦¬ì‹ ê²½ìš° FAQí˜ì´ì§€ì—ì„œ í™•ì¸í•˜ì„¸ìš”. ê³„ì •ë¬¸ì˜,ì‹¤í–‰ë¬¸ì˜,ì‹ ê³ ì ‘ìˆ˜ì¹´í…Œê³ ë¦¬ê°€ìˆìŠµë‹ˆë‹¤.</p>
 					</div>
 				</div>
 				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 					<div class="frequent_item">
-						<h3>1:1 ¹®ÀÇ</h3>
-						<p>¹®ÀÇÇÏ±â ¾î·Á¿î»çÇ×ÀÌ³ª 1:1¹®ÀÇ°¡ ÇÊ¿äÇÏ½Å À¯ÀúºĞµéÀº 1:1¹®ÀÇ ÆäÀÌÁö¸¦ ÀÌ¿ëÇØÁÖ¼¼¿ä.½Å¼ÓÇÑ ´äº¯ÇÒ¼öÀÖµµ·Ï ³ë·ÂÇÏ°Ù½À´Ï´Ù.</p>
+						<h3>1:1 ë¬¸ì˜</h3>
+						<p>ë¬¸ì˜í•˜ê¸° ì–´ë ¤ìš´ì‚¬í•­ì´ë‚˜ 1:1ë¬¸ì˜ê°€ í•„ìš”í•˜ì‹  ìœ ì €ë¶„ë“¤ì€ 1:1ë¬¸ì˜ í˜ì´ì§€ë¥¼ ì´ìš©í•´ì£¼ì„¸ìš”.ì‹ ì†í•œ ë‹µë³€í• ìˆ˜ìˆë„ë¡ ë…¸ë ¥í•˜ê²ŸìŠµë‹ˆë‹¤.</p>
 					</div>
 				</div>
 				<div class="col-lg-5 col-md-5">
 					<div class="frequent_item">
-						<h3>¿À·ù½Å°í</h3>
-						<p>¿À·ù½Å°í´Â 1:1¹®ÀÇ¸¦ ÅëÇØ Á¢¼öºÎÅ¹µå¸³´Ï´Ù.</p>
+						<h3>ì˜¤ë¥˜ì‹ ê³ </h3>
+						<p>ì˜¤ë¥˜ì‹ ê³ ëŠ” 1:1ë¬¸ì˜ë¥¼ í†µí•´ ì ‘ìˆ˜ë¶€íƒë“œë¦½ë‹ˆë‹¤.</p>
 					</div>
 				</div>
 				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 					<div class="frequent_item">
-						<h3>±ÔÁ¤ ¹× Á¤Ã¥</h3>
-						<p>°ÔÀÓÀ» ÅëÇÑ À¯Àúµé°úÀÇ °ÇÀüÇÑ´ëÈ­¸¦ ±ÔÁ¤À¸·ÎÇÕ´Ï´Ù. µµ¹Ú¹×»ç±âÀ¯µµ ¿å¼³µîÀº »ï°¡ÇØÁÖ½Ã±â¹Ù¶ø´Ï´Ù.</p>
+						<h3>ê·œì • ë° ì •ì±…</h3>
+						<p>ê²Œì„ì„ í†µí•œ ìœ ì €ë“¤ê³¼ì˜ ê±´ì „í•œëŒ€í™”ë¥¼ ê·œì •ìœ¼ë¡œí•©ë‹ˆë‹¤. ë„ë°•ë°ì‚¬ê¸°ìœ ë„ ìš•ì„¤ë“±ì€ ì‚¼ê°€í•´ì£¼ì‹œê¸°ë°”ëë‹ˆë‹¤.</p>
 					</div>
 				</div>
 				
@@ -480,8 +480,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>±æµå</h2>
-						<h1>±æµå</h1>
+						<h2>ê¸¸ë“œ</h2>
+						<h1>ê¸¸ë“œ</h1>
 					</div>
 				</div>
 			</div>
@@ -489,11 +489,11 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/ÀÏ¸®³×¾î.jpg" alt="">
+							<img class="img-fluid" src="img/ì¼ë¦¬ë„¤ì–´.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">ÀÏ¸®³×¾î</a>
-							<p>½ºÇÃ·£´õ µ·¹ú¾î ¿ÕÃ¢°É¾î ¿ö! </p>
+							<a class="title" href="guild">ì¼ë¦¬ë„¤ì–´</a>
+							<p>ìŠ¤í”Œëœë” ëˆë²Œì–´ ì™•ì°½ê±¸ì–´ ì›Œ! </p>
 							<div class="date">
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
 								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
@@ -505,10 +505,10 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/¹Ì°í½º±æµå.jpg" alt="">
+							<img class="img-fluid" src="img/ë¯¸ê³ ìŠ¤ê¸¸ë“œ.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">migos±æµå</a>
+							<a class="title" href="guild">migosê¸¸ë“œ</a>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
 							<div class="date">
@@ -526,7 +526,7 @@
 						</div>
 						<div class="guild_content">
 							<a class="title" href="guild">AOMG</a>
-							<p>½ºÇÃ·£´õ 3½ÃÁ¤¸ğ ¾È¿Ã½Ã ±æ¿ø¹ÚÅ» ¼Ò¼ÒÇÏ°Ô ¸ğ¿©¼­ ½ºÇÃ·£´õ Áñ°Ü¿ä¤¾¤¾</p>
+							<p>ìŠ¤í”Œëœë” 3ì‹œì •ëª¨ ì•ˆì˜¬ì‹œ ê¸¸ì›ë°•íƒˆ ì†Œì†Œí•˜ê²Œ ëª¨ì—¬ì„œ ìŠ¤í”Œëœë” ì¦ê²¨ìš”ã…ã…</p>
 							<div class="date">
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
 								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
@@ -547,7 +547,7 @@
 				<div class="col-lg-6 col-md-6 col-sm-12">
 					<div class="newsletter_inner">
 						<h1>Subscribe Our Newsletter</h1>
-						<p>We won¡¯t send any kind of spam</p>
+						<p>We wonâ€™t send any kind of spam</p>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-12">
@@ -581,12 +581,12 @@
 						<div class="home_left_img">
                             <!-- <img class="img-fluid" src="img/banner/home-left.png" alt=""> -->
                             <ul class="home_info">
-                                <li class="home_info2"><h1>´Ğ³×ÀÓ : </h1><h2>${user.user_name }</h2></li>
-                                <li class="home_info2"><h1>·©Å· : </h1><h2> </h2></li>
-                                <li class="home_info2"><h1>½ÂÁ¡ : </h1><h2> </h2></li>
-                                <li class="home_info2"><h1>±æµå¸í : </h1><h2> </h2></li>
-<!--                                 <li class="home_info2"><h1>±æµå ·©Å· : </h1><h2>45À§</h2></li> -->
-                                <li class="home_info2"><h1>±æµå ·©Å· : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>ë‹‰ë„¤ì„ : </h1><h2>${user.user_name }</h2></li>
+                                <li class="home_info2"><h1>ë­í‚¹ : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>ìŠ¹ì  : </h1><h2> </h2></li>
+                                <li class="home_info2"><h1>ê¸¸ë“œëª… : </h1><h2> </h2></li>
+<!--                                 <li class="home_info2"><h1>ê¸¸ë“œ ë­í‚¹ : </h1><h2>45ìœ„</h2></li> -->
+                                <li class="home_info2"><h1>ê¸¸ë“œ ë­í‚¹ : </h1><h2> </h2></li>
                                 
 
                             </ul>
@@ -603,7 +603,7 @@
 								
 							</h2>
 							<p>
-								³²³à³ë¼Ò ºÒ¹®ÇÏ°í ÇÔ²² Áñ±æ ¼ö ÀÖ´Â ±× °ÔÀÓ! ½ºÇÃ·£´õ¸¦ ÅëÇØ ±æµå¸¦ ¿î¿µÇÏ°í °æÀïÀ» ÅëÇØ ¼¼°è ÃÖ°í°¡ µÇ¾îº¸¼¼¿ä!
+								ë‚¨ë…€ë…¸ì†Œ ë¶ˆë¬¸í•˜ê³  í•¨ê»˜ ì¦ê¸¸ ìˆ˜ ìˆëŠ” ê·¸ ê²Œì„! ìŠ¤í”Œëœë”ë¥¼ í†µí•´ ê¸¸ë“œë¥¼ ìš´ì˜í•˜ê³  ê²½ìŸì„ í†µí•´ ì„¸ê³„ ìµœê³ ê°€ ë˜ì–´ë³´ì„¸ìš”!
 							</p>
 							<div class="d-flex align-items-center">
 								<!-- <a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?v=vParh5wE-tM">
@@ -613,7 +613,7 @@
 									<img class="play-img" src="img/casino.png">
 								</a>
 								<div class="watch_video text-uppercase">
-									<-°ÔÀÓ ½ÃÀÛ
+									<-ê²Œì„ ì‹œì‘
 								</div>
 							</div>
 						</div>
@@ -630,10 +630,10 @@
 			<div class="row about_content align-items-center">
 				<div class="col-lg-6">
 					<div class="section_content">
-						<h6>°ÔÀÓ ¼Ò°³</h6>
-						<h1>Àü·«°ÔÀÓ ½ºÇÃ·£´õ<br>R.N.G¿¡¼­ Áñ°Üº¸¼¼¿ä.</h1>
-						<p>¿·¿¡ °ÔÀÓ°ü·Ã À¯Æ©ºê ¿µ»óÀÌ ³ª¿À°í ¾Æ·¡ ¹öÆ°Àº °ÔÀÓ ¹æ½ÄÀ» ±Û·Î Ç®¾î ÀÚ¼¼ÇÏ°Ô ¼³¸íÇÑ ¸Ş´º ÀÔ´Ï´Ù.</p>
-						<a class="primary_btn" href="about-us">´õ ¾Ë¾Æº¸±â</a>
+						<h6>ê²Œì„ ì†Œê°œ</h6>
+						<h1>ì „ëµê²Œì„ ìŠ¤í”Œëœë”<br>R.N.Gì—ì„œ ì¦ê²¨ë³´ì„¸ìš”.</h1>
+						<p>ì˜†ì— ê²Œì„ê´€ë ¨ ìœ íŠœë¸Œ ì˜ìƒì´ ë‚˜ì˜¤ê³  ì•„ë˜ ë²„íŠ¼ì€ ê²Œì„ ë°©ì‹ì„ ê¸€ë¡œ í’€ì–´ ìì„¸í•˜ê²Œ ì„¤ëª…í•œ ë©”ë‰´ ì…ë‹ˆë‹¤.</p>
+						<a class="primary_btn" href="about-us">ë” ì•Œì•„ë³´ê¸°</a>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -704,19 +704,19 @@
 				<ul class="nav nav-tabs" id="myTab" role="tablist">
 					<li class="nav-item">
 						<a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="false">
-							¸í¿¹ÀÇ Àü´ç
+							ëª…ì˜ˆì˜ ì „ë‹¹
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
 						 aria-selected="false">
-							ÃÖ°íÀÇ ±æµå
+							ìµœê³ ì˜ ê¸¸ë“œ
 						</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
 						 aria-selected="true">
-							°øÁö»çÇ×
+							ê³µì§€ì‚¬í•­
 						</a>
 					</li>
 				</ul>
@@ -730,10 +730,10 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="section_content">
-									<h6>¸í¿¹ÀÇ Àü´ç</h6>
-									<h1>·©Å· 1À§ <br>'À±Çöºó' ´Ô </h1>
-									<p>¿À·ÎÁö ½Ç·ÂÀ¸·Î ·©Å· 1À§¿¡ µî±Ø ÇÏ½Å 'À±Çöºó'´Ô ÀÔ´Ï´Ù. ½Ç·ÂÀ» Å°¿ö ¾î¼­ ¶Ù¾î³Ñµµ·Ï ÇØº¸¼¼¿ä!</p>
-									<a class="primary_btn" href="#">·©Å· º¸·¯°¡±â</a>
+									<h6>ëª…ì˜ˆì˜ ì „ë‹¹</h6>
+									<h1>ë­í‚¹ 1ìœ„ <br>'ìœ¤í˜„ë¹ˆ' ë‹˜ </h1>
+									<p>ì˜¤ë¡œì§€ ì‹¤ë ¥ìœ¼ë¡œ ë­í‚¹ 1ìœ„ì— ë“±ê·¹ í•˜ì‹  'ìœ¤í˜„ë¹ˆ'ë‹˜ ì…ë‹ˆë‹¤. ì‹¤ë ¥ì„ í‚¤ì›Œ ì–´ì„œ ë›°ì–´ë„˜ë„ë¡ í•´ë³´ì„¸ìš”!</p>
+									<a class="primary_btn" href="#">ë­í‚¹ ë³´ëŸ¬ê°€ê¸°</a>
 								</div>
 							</div>
 						</div>
@@ -747,11 +747,11 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="section_content">
-									<h6>ÃÖ°íÀÇ ±æµå</h6>
-									<h1>ÃÖ°íÀÇ ½Ç·ÂÀÚµéÀÇ ¸ğÀÓ! <br>·©Å· 1À§ 'R.N.G' !!!</h1>
-									<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-										especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
-									<a class="primary_btn" href="#">±æµå·©Å· º¸·¯°¡±â</a>
+									<h6>ìµœê³ ì˜ ê¸¸ë“œ</h6>
+									<h1>ìµœê³ ì˜ ì‹¤ë ¥ìë“¤ì˜ ëª¨ì„! <br>ë­í‚¹ 1ìœ„ 'R.N.G' !!!</h1>
+									<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+										especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
+									<a class="primary_btn" href="#">ê¸¸ë“œë­í‚¹ ë³´ëŸ¬ê°€ê¸°</a>
 								</div>
 							</div>
 						</div>
@@ -765,10 +765,10 @@
 							</div>
 							<div class="col-lg-6">
 								<div class="section_content">
-									<h6>°øÁö»çÇ×</h6>
-									<h1>1.15 ÆĞÄ¡»çÇ× <br>Ä«µå ½ºÅ² Ãâ½Ã...!!</h1>
-									<p>Ä«µå½ºÅ²ÀÌ °èÀı¿¡ ¸Â°Ô º¢²ÉÀ¸·Î º¯°æµÇ¾ú...</p>
-									<a class="primary_btn" href="#">ÀÚ¼¼È÷ º¸·¯°¡±â</a>
+									<h6>ê³µì§€ì‚¬í•­</h6>
+									<h1>1.15 íŒ¨ì¹˜ì‚¬í•­ <br>ì¹´ë“œ ìŠ¤í‚¨ ì¶œì‹œ...!!</h1>
+									<p>ì¹´ë“œìŠ¤í‚¨ì´ ê³„ì ˆì— ë§ê²Œ ë²šê½ƒìœ¼ë¡œ ë³€ê²½ë˜ì—ˆ...</p>
+									<a class="primary_btn" href="#">ìì„¸íˆ ë³´ëŸ¬ê°€ê¸°</a>
 								</div>
 							</div>
 						</div>
@@ -786,8 +786,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>½ºÅ©¸°»ş»ş»ş</h2>
-						<h1>½ºÅ©¸°¼¦</h1>
+						<h2>ìŠ¤í¬ë¦°ìƒ¤ìƒ¤ìƒ¤</h2>
+						<h1>ìŠ¤í¬ë¦°ìƒ·</h1>
 					</div>
 				</div>
 			</div>
@@ -797,9 +797,9 @@
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="single-screenshot">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="img/³»ÅÏ.png" alt="">
+								<img class="img-fluid w-100" src="img/ë‚´í„´.png" alt="">
 								<div class="content">
-									<a class="pop-up-image" href="img/³»ÅÏ.png">
+									<a class="pop-up-image" href="img/ë‚´í„´.png">
 										<i class="lnr lnr-eye"></i>
 									</a>
 								</div>
@@ -808,9 +808,9 @@
 						<div class="col-lg-6 col-md-6 col-sm-6">
 							<div class="single-screenshot">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="img/¹æ¸¸µë.png" alt="">
+								<img class="img-fluid w-100" src="img/ë°©ë§Œë“¬.png" alt="">
 								<div class="content">
-									<a class="pop-up-image" href="img/¹æ¸¸µë.png">
+									<a class="pop-up-image" href="img/ë°©ë§Œë“¬.png">
 										<i class="lnr lnr-eye"></i>
 									</a>
 								</div>
@@ -819,9 +819,9 @@
 						<div class="col-lg-12">
 							<div class="single-screenshot">
 								<div class="overlay"></div>
-								<img class="img-fluid w-100" src="img/³»°¡ÀÌ°å½º.png" alt="">
+								<img class="img-fluid w-100" src="img/ë‚´ê°€ì´ê²¼ìŠ¤.png" alt="">
 								<div class="content">
-									<a class="pop-up-image" href="img/³»°¡ÀÌ°å½º.png">
+									<a class="pop-up-image" href="img/ë‚´ê°€ì´ê²¼ìŠ¤.png">
 										<i class="lnr lnr-eye"></i>
 									</a>
 								</div>
@@ -832,18 +832,18 @@
 				<div class="col-lg-4 hidden-md hidden-sm">
 					<div class="single-screenshot">
 						<div class="overlay"></div>
-						<img class="img-fluid w-100" src="img/¸Ó´Ï¸Ó´Ï.png" alt="">
+						<img class="img-fluid w-100" src="img/ë¨¸ë‹ˆë¨¸ë‹ˆ.png" alt="">
 						<div class="content">
-							<a class="pop-up-image" href="¸Ó´Ï¸Ó´Ï.png">
+							<a class="pop-up-image" href="ë¨¸ë‹ˆë¨¸ë‹ˆ.png">
 								<i class="lnr lnr-eye"></i>
 							</a>
 						</div>
 					</div>
 					<div class="single-screenshot">
 						<div class="overlay"></div>
-						<img class="img-fluid w-100" src="img/½ÇÁ¦.png" alt="">
+						<img class="img-fluid w-100" src="img/ì‹¤ì œ.png" alt="">
 						<div class="content">
-							<a class="pop-up-image" href="½ÇÁ¦.png">
+							<a class="pop-up-image" href="ì‹¤ì œ.png">
 								<i class="lnr lnr-eye"></i>
 							</a>
 						</div>
@@ -860,8 +860,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>°í°´¼¾ÅÍ</h2>
-						<h1>°í°´¼¾ÅÍ</h1>
+						<h2>ê³ ê°ì„¼í„°</h2>
+						<h1>ê³ ê°ì„¼í„°</h1>
 					</div>
 				</div>
 			</div>
@@ -869,29 +869,29 @@
 				<div class="col-lg-5 col-md-5">
 					<div class="frequent_item">
 						<h3>FAQ</h3>
-						<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-							especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
+						<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+							especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
 					</div>
 				</div>
 				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 					<div class="frequent_item">
-						<h3>1:1 ¹®ÀÇ</h3>
-						<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-							especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
+						<h3>1:1 ë¬¸ì˜</h3>
+						<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+							especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
 					</div>
 				</div>
 				<div class="col-lg-5 col-md-5">
 					<div class="frequent_item">
-						<h3>¿À·ù½Å°í</h3>
-						<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-							especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
+						<h3>ì˜¤ë¥˜ì‹ ê³ </h3>
+						<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+							especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
 					</div>
 				</div>
 				<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 					<div class="frequent_item">
-						<h3>±ÔÁ¤ ¹× Á¤Ã¥</h3>
-						<p>inappropriate behavior is often laughed off as ¡°boys will be boys,¡± women face higher conduct standards
-							especially in the workplace. That¡¯s why it¡¯s crucial that as women.</p>
+						<h3>ê·œì • ë° ì •ì±…</h3>
+						<p>inappropriate behavior is often laughed off as â€œboys will be boys,â€ women face higher conduct standards
+							especially in the workplace. Thatâ€™s why itâ€™s crucial that as women.</p>
 					</div>
 				</div>
 				
@@ -906,8 +906,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main_title">
-						<h2>±æµå</h2>
-						<h1>±æµå</h1>
+						<h2>ê¸¸ë“œ</h2>
+						<h1>ê¸¸ë“œ</h1>
 					</div>
 				</div>
 			</div>
@@ -915,11 +915,11 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/ÀÏ¸®³×¾î.jpg" alt="">
+							<img class="img-fluid" src="img/ì¼ë¦¬ë„¤ì–´.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">ÀÏ¸®³×¾î</a>
-							<p>½ºÇÃ·£´õ µ·¹ú¾î ¿ÕÃ¢°É¾î ¿ö! </p>
+							<a class="title" href="guild">ì¼ë¦¬ë„¤ì–´</a>
+							<p>ìŠ¤í”Œëœë” ëˆë²Œì–´ ì™•ì°½ê±¸ì–´ ì›Œ! </p>
 							<div class="date">
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
 								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>
@@ -931,10 +931,10 @@
 				<div class="col-lg-4 col-md-6">
 					<div class="guild_items">
 						<div class="guild_img_box">
-							<img class="img-fluid" src="img/¹Ì°í½º±æµå.jpg" alt="">
+							<img class="img-fluid" src="img/ë¯¸ê³ ìŠ¤ê¸¸ë“œ.jpg" alt="">
 						</div>
 						<div class="guild_content">
-							<a class="title" href="guild">migos±æµå</a>
+							<a class="title" href="guild">migosê¸¸ë“œ</a>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 								dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
 							<div class="date">
@@ -952,7 +952,7 @@
 						</div>
 						<div class="guild_content">
 							<a class="title" href="guild">AOMG</a>
-							<p>½ºÇÃ·£´õ 3½ÃÁ¤¸ğ ¾È¿Ã½Ã ±æ¿ø¹ÚÅ» ¼Ò¼ÒÇÏ°Ô ¸ğ¿©¼­ ½ºÇÃ·£´õ Áñ°Ü¿ä¤¾¤¾</p>
+							<p>ìŠ¤í”Œëœë” 3ì‹œì •ëª¨ ì•ˆì˜¬ì‹œ ê¸¸ì›ë°•íƒˆ ì†Œì†Œí•˜ê²Œ ëª¨ì—¬ì„œ ìŠ¤í”Œëœë” ì¦ê²¨ìš”ã…ã…</p>
 							<div class="date">
 								<a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>2019.4.2 </a>
 								<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 15</a>

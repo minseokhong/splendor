@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
         <!-- Required meta tags -->
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" href="img/joystick.png" type="image/png">
 		<title>R.N.G Games</title>
@@ -128,8 +128,8 @@
 									<div class="section_content">
 										<h6>About Us</h6>
 										<h1>We Believe that <br>Interior beauty Lasts Long</h1>
-										<p>inappropriate behavior is often laughed off as °∞boys will be boys,°± women face higher conduct standards
-											especially in the workplace. That°Øs why it°Øs crucial that as women.</p>
+										<p>inappropriate behavior is often laughed off as ‚Äúboys will be boys,‚Äù women face higher conduct standards
+											especially in the workplace. That‚Äôs why it‚Äôs crucial that as women.</p>
 										<a class="primary_btn" href="#">Learn More</a>
 									</div>
 								</div>
@@ -146,8 +146,8 @@
 									<div class="section_content">
 										<h6>About Us</h6>
 										<h1>We Believe that <br>Interior beauty Lasts Long</h1>
-										<p>inappropriate behavior is often laughed off as °∞boys will be boys,°± women face higher conduct standards
-											especially in the workplace. That°Øs why it°Øs crucial that as women.</p>
+										<p>inappropriate behavior is often laughed off as ‚Äúboys will be boys,‚Äù women face higher conduct standards
+											especially in the workplace. That‚Äôs why it‚Äôs crucial that as women.</p>
 										<a class="primary_btn" href="#">Learn More</a>
 									</div>
 								</div>
@@ -164,8 +164,8 @@
 									<div class="section_content">
 										<h6>About Us</h6>
 										<h1>We Believe that <br>Interior beauty Lasts Long</h1>
-										<p>inappropriate behavior is often laughed off as °∞boys will be boys,°± women face higher conduct standards
-											especially in the workplace. That°Øs why it°Øs crucial that as women.</p>
+										<p>inappropriate behavior is often laughed off as ‚Äúboys will be boys,‚Äù women face higher conduct standards
+											especially in the workplace. That‚Äôs why it‚Äôs crucial that as women.</p>
 										<a class="primary_btn" href="#">Learn More</a>
 									</div>
 								</div>
@@ -192,43 +192,43 @@
 					<div class="col-lg-5 col-md-5">
 						<div class="frequent_item">
 							<h3>We Believe that Interior beauty Lasts Long</h3>
-							<p>inappropriate behavior is often laughed off as °∞boys will be boys,°± women face higher conduct standards
-								especially in the workplace. That°Øs why it°Øs crucial that as women.</p>
+							<p>inappropriate behavior is often laughed off as ‚Äúboys will be boys,‚Äù women face higher conduct standards
+								especially in the workplace. That‚Äôs why it‚Äôs crucial that as women.</p>
 						</div>
 					</div>
 					<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 						<div class="frequent_item">
 							<h3>We Believe that Interior beauty Lasts Long</h3>
-							<p>inappropriate behavior is often laughed off as °∞boys will be boys,°± women face higher conduct standards
-								especially in the workplace. That°Øs why it°Øs crucial that as women.</p>
+							<p>inappropriate behavior is often laughed off as ‚Äúboys will be boys,‚Äù women face higher conduct standards
+								especially in the workplace. That‚Äôs why it‚Äôs crucial that as women.</p>
 						</div>
 					</div>
 					<div class="col-lg-5 col-md-5">
 						<div class="frequent_item">
 							<h3>We Believe that Interior beauty Lasts Long</h3>
-							<p>inappropriate behavior is often laughed off as °∞boys will be boys,°± women face higher conduct standards
-								especially in the workplace. That°Øs why it°Øs crucial that as women.</p>
+							<p>inappropriate behavior is often laughed off as ‚Äúboys will be boys,‚Äù women face higher conduct standards
+								especially in the workplace. That‚Äôs why it‚Äôs crucial that as women.</p>
 						</div>
 					</div>
 					<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 						<div class="frequent_item">
 							<h3>We Believe that Interior beauty Lasts Long</h3>
-							<p>inappropriate behavior is often laughed off as °∞boys will be boys,°± women face higher conduct standards
-								especially in the workplace. That°Øs why it°Øs crucial that as women.</p>
+							<p>inappropriate behavior is often laughed off as ‚Äúboys will be boys,‚Äù women face higher conduct standards
+								especially in the workplace. That‚Äôs why it‚Äôs crucial that as women.</p>
 						</div>
 					</div>
 					<div class="col-lg-5 col-md-5">
 						<div class="frequent_item last-child">
 							<h3>We Believe that Interior beauty Lasts Long</h3>
-							<p>inappropriate behavior is often laughed off as °∞boys will be boys,°± women face higher conduct standards
-								especially in the workplace. That°Øs why it°Øs crucial that as women.</p>
+							<p>inappropriate behavior is often laughed off as ‚Äúboys will be boys,‚Äù women face higher conduct standards
+								especially in the workplace. That‚Äôs why it‚Äôs crucial that as women.</p>
 						</div>
 					</div>
 					<div class="offset-lg-2 col-lg-5 offset-md-2 col-md-5">
 						<div class="frequent_item last-child">
 							<h3>We Believe that Interior beauty Lasts Long</h3>
-							<p>inappropriate behavior is often laughed off as °∞boys will be boys,°± women face higher conduct standards
-								especially in the workplace. That°Øs why it°Øs crucial that as women.</p>
+							<p>inappropriate behavior is often laughed off as ‚Äúboys will be boys,‚Äù women face higher conduct standards
+								especially in the workplace. That‚Äôs why it‚Äôs crucial that as women.</p>
 						</div>
 					</div>
 				</div>
@@ -243,7 +243,7 @@
 					<div class="col-lg-6 col-md-6 col-sm-12">
 						<div class="newsletter_inner">
 							<h1>Subscribe Our Newsletter</h1>
-							<p>We won°Øt send any kind of spam</p>
+							<p>We won‚Äôt send any kind of spam</p>
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6 col-sm-12">
