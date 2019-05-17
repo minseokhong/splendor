@@ -33,13 +33,11 @@ public class MessageService {
 	public JSONObject readMessage(String mess_num) {// 메시지 읽기
 		MessageLog message = getOneMessage(mess_num);
 		
-		
 		//메시지를 json 타입으로 만들기 위해 변환
 		HashMap<String, String> messageMap = new HashMap<>();
 
 		messageMap.put("mess_sender", message.getMess_sender());
 		messageMap.put("mess_content", message.getMess_content());
-		
 		
 		//메시지가 읽지 않음 상태이면 읽음으로 업데이트
 		if(!message.isMess_is_show()) {
@@ -60,9 +58,9 @@ public class MessageService {
 	public JSONObject hashMapToJSON(Map<String, ?> map) {// 받은 데이터를 json 타입으로 변환하는 메서드
 		JSONObject jsonObject = new JSONObject();
 		for(String key : map.keySet()) {
-			if(key != null && key.equals("mess")) {
-				jsonObject.put(key, parseDateFormat((Date) map.get(key)));
-			} else
+//			if(key != null && key.equals("mess_send_date")) {
+//				jsonObject.put(key, parseDateFormat((Date) map.get(key)));
+//			} else
 				jsonObject.put(key, map.get(key));
 		}
 		return jsonObject;

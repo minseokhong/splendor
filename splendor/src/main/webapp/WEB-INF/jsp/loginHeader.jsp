@@ -6,20 +6,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<audio id="alertSound" src="img/alert.mp3" preload="metadata"></audio>
 <script src="/webjars/sockjs-client/sockjs.min.js"></script>
 <script src="/webjars/stomp-websocket/stomp.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.0.js"
 	integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
 	crossorigin="anonymous"></script>
 <script src="js/message.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="js/jquery.jrumble.1.3.min.js"></script> 
+
 
 <script type="text/javascript">
 	
   	$(document).ready(function() {
   		
-		$('.${activeLocation }').addClass('active');
-			
-  		$.ajax({
+		$('.${activeLocation }').addClass('active');// 사용자의 현재 웹페이지 위치에 따라 헤더 부분에 active 표시를 위한 메서드
+		
+  		$.ajax({// 페이지 로드 이후 바로 사용자의 쪽지 목록 데이터를 ajax로 가져오기
   			url : 'http://localhost:8000/getSenderList', 
   			type : 'POST', 
   			data : {
@@ -27,7 +31,6 @@
   			}, 
   			dataType : "json", 
   			success : function(data) {
-				console.log(data);
 				var amount = 0;
   				data.forEach(msgMeta => {
 					var isNew = '';
@@ -38,60 +41,38 @@
 					$('.쪽지_내용').append(
 						addMsgTemplate(msgMeta, isNew, msgMeta.mess_send_date)
 					)
-					if(amount != 0) {
-						$('#alert-amount').text(amount);
-					}
 				});
+				if(amount != 0) {
+					$('#alert-amount').text(amount);
+					// rumbleAlertArea();
+					doRumbleAndInterval();
+				}
   			}, 
   			error : function() {
   				alert("쪽지 데이터를 가져오는데 실패하였습니다.");
   			}
   		});
-  		
-  		connect();
+		
+  		connect();// 웹소켓 서버 연결을 위한 메서드
   		
   	});
-
+	
+  	// 이후로는 모두 메시지 전송 관련 메서드
   	var stompClient = null;
-
-  	function setConnected(connected) {
-  	    $("#connect").prop("disabled", connected);
-  	    $("#disconnect").prop("disabled", !connected);
-  	    if (connected) {
-  	        $("#conversation").show();
-  	    }
-  	    else {
-  	        $("#conversation").hide();
-  	    }
-  	    $("#greetings").html("");
-  	}
 
   	function connect() {
   	    var socket = new SockJS('/websocket');
   	    stompClient = Stomp.over(socket);
   	    stompClient.connect({}, function (frame) {
-  	        setConnected(true);
-  	        console.log('Connected: ' + frame);
+//   	        setConnected(true);
+//   	        console.log('Connected: ' + frame);
   	        stompClient.subscribe('/alert/${user.user_name}', function (message) {
-  	            alertAndAddMessage(JSON.parse(message.body));
+  	            alertAndAddNewMessage(JSON.parse(message.body));
   	        });
   	    });
   	}
 
-  	//function disconnect() {
-//  	    if (stompClient !== null) {
-//  	        stompClient.disconnect();
-//  	    }
-//  	    setConnected(false);
-//  	    console.log("Disconnected");
-  	//}
-
-  	function sendName() {
-  	    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
-  	}
-
-  	function alertAndAddMessage(msgMeta) {
-  		alert("새 메시지가 도착했습니다!");
+  	function alertAndAddNewMessage(msgMeta) {
 		var amount = $('#alert-amount').text();
   		if(amount == '' || amount == null) {
 			  $('#alert-amount').text('1');
@@ -100,8 +81,70 @@
 		  }
 		$('.쪽지_내용').prepend(
 			addMsgTemplate(msgMeta, '"new"', msgMeta.mess_send_date)
-		)
+		);
+		
+  		$('#alertSound')[0].play();
+		// rumbleAlertArea();
+		doRumbleAndInterval();
   	}
+
+//   	function setConnected(connected) {
+//   	    $("#connect").prop("disabled", connected);
+//   	    $("#disconnect").prop("disabled", !connected);
+//   	    if (connected) {
+//   	        $("#conversation").show();
+//   	    }
+//   	    else {
+//   	        $("#conversation").hide();
+//   	    }
+//   	    $("#greetings").html("");
+//   	}
+
+//   	function disconnect() {
+//  	    if (stompClient !== null) {
+//  	        stompClient.disconnect();
+//  	    }
+//  	    setConnected(false);
+//  	    console.log("Disconnected");
+//   	}
+	
+	function sendMessage() {
+		stompClient.send("/msg/sendMessage", {}, JSON.stringify({
+			'mess_sender': '${user.user_name }', 
+			'mess_receiver' : $('#msg_receiver').val(), 
+			'mess_content' : $('#msg_content').val()
+			}));
+			$('#msg_receiver').val('');
+			$('#msg_content').val('');
+			$('#msg_send_result').text('메시지를 전송하였습니다.');
+			
+			setTimeout(function() {
+				$('#msg_send_result').text('');
+				$('.a1').slideToggle('fast');
+			}, 500);
+
+    	// $.ajax({
+    	// 	type : "POST", 
+    	// 	url : "http://localhost:8000/sendMessage", 
+    	// 	data : {
+    	// 		mess_sender : '${user.user_name }', 
+    	// 		mess_receiver : $('#msg_receiver').val(), 
+    	// 		mess_content : $('#msg_content').val()
+    	// 	}, 
+    	// 	success : function() {
+    	// 		$('#msg_receiver').val('');
+    	// 		$('#msg_content').val('');
+		// 		$('#msg_send_result').text('메시지를 전송하였습니다.');
+		// 		setTimeout(function() {
+		// 			$('#msg_send_result').text('');
+		// 			$('.a1').slideToggle('fast');
+		// 		}, 1000);
+    	// 	}
+    	// 	, error : function() {
+    	// 		alert("자네.. 메시지를 보내는데 실패하였다.. 미안하네..");
+    	// 	}
+    	// });
+	};
 
   	$(function () {
   	    $("form").on('submit', function (e) {
@@ -111,6 +154,21 @@
   	    $( "#disconnect" ).click(function() { disconnect(); });
   	    $( "#send" ).click(function() { sendName(); });
   	});
+
+	function rumbleAlertArea() {
+		$('.notification').jrumble();
+		$('.notification').trigger('startRumble');
+		setTimeout(function() {
+			$('.notification').trigger('stopRumble');
+		}, 600);
+	}
+
+	var rumbleInterval = 0;
+
+	function doRumbleAndInterval() {
+		rumbleAlertArea();
+		return rumbleInterval = setInterval(rumbleAlertArea, 3000);
+	}
 	
 	function addMsgTemplate(msgMeta, isNew, sendDate) {
 		sendDate = parseDateFormat(sendDate);
@@ -130,6 +188,38 @@
 						)
 					)
 				)
+	}
+
+	function msg_click(mess_num) {
+		$.ajax({
+			type : "POST", 
+			url : "http://localhost:8000/readMessage", 
+			data : {
+				mess_num : mess_num
+			}, 
+			dataType : "json", 
+			success : function(msg) {
+				if($('.mess'+mess_num).text() == '"new"') {
+					var amount = $('#alert-amount').text();
+					if(amount == 1) {
+						clearInterval(rumbleInterval);
+						$('#alert-amount').text("");
+					} else {
+						$('#alert-amount').text(amount*1 - 1);
+					}
+				}
+
+				$('#mess_sender_area').text(msg.mess_sender);
+				$('#mess_content_area').text(msg.mess_content);
+				$('.답장하기').attr("sender", msg.mess_sender);
+				$('.mess'+mess_num).text('')
+				$('.message-box').show('fast');
+
+			}, 
+			error : function() {
+				alert('메시지 로딩 실패!!!!!햇떠')
+			}
+		});
 	}
 
 	function parseDateFormat(date) {
@@ -275,8 +365,8 @@
 						</ul></li>
 				</ul>
 				<span id="alert-amount"></span>
-				<a class="notification"><img src="/img/notification.png"
-					title="알림"></a>
+				<div class="notification"><img src="/img/notification.png"
+					title="알림"></div>
 
 
 				<div class="message-box"
@@ -637,7 +727,6 @@
 	</header>
 
 	<!--================Header Menu Area =================-->
-	<script src="/js/jquery-3.2.1.min.js"></script>
 	<script>
 
 		$('.mail').on('click', function() {
@@ -691,80 +780,26 @@
 		});
 
 		$('.답장하기').on('click', function() {
-			$('#msg_receiver').val($(this).attr('sender'));
-			$('.a1').slideToggle('fast');
+				$('#msg_receiver').val($(this).attr('sender'));
+				$('#msg_content').val('');
+				$('.a1').slideToggle('fast');
+				$('#msg_content').focus();
 		});
 
 		$(".cancel").click(function() {
-			alert("로그아웃 되었습니다. 안녕히가세요.~~")
+			alert("로그아웃 되었습니다. 안녕히가세요.~~");
 		});
 		
-		function sendMessage() {
-			stompClient.send("/msg/sendMessage", {}, JSON.stringify({
-				'mess_sender': '${user.user_name }', 
-				'mess_receiver' : $('#msg_receiver').val(), 
-				'mess_content' : $('#msg_content').val()
-				}));
+		$("html").click(function(e) {
+			if(!$(e.target).parents(".notification").length && !$(e.target).parents(".mail").length 
+			&& !$(e.target).parents(".a2").length && !$(e.target).parents(".a1").length && !$(e.target).parents(".message-box").length) {
+				$('.a1').css("display", "none");
 				$('#msg_receiver').val('');
 				$('#msg_content').val('');
-				$('#msg_send_result').text('메시지를 전송하였습니다.');
-				setTimeout(function() {
-					$('#msg_send_result').text('');
-					$('.a1').slideToggle('fast');
-				}, 500);
-
-	    	// $.ajax({
-	    	// 	type : "POST", 
-	    	// 	url : "http://localhost:8000/sendMessage", 
-	    	// 	data : {
-	    	// 		mess_sender : '${user.user_name }', 
-	    	// 		mess_receiver : $('#msg_receiver').val(), 
-	    	// 		mess_content : $('#msg_content').val()
-	    	// 	}, 
-	    	// 	success : function() {
-	    	// 		$('#msg_receiver').val('');
-	    	// 		$('#msg_content').val('');
-			// 		$('#msg_send_result').text('메시지를 전송하였습니다.');
-			// 		setTimeout(function() {
-			// 			$('#msg_send_result').text('');
-			// 			$('.a1').slideToggle('fast');
-			// 		}, 1000);
-	    	// 	}
-	    	// 	, error : function() {
-	    	// 		alert("자네.. 메시지를 보내는데 실패하였다.. 미안하네..");
-	    	// 	}
-	    	// });
-		};
-
-		function msg_click(mess_num) {
-			$.ajax({
-				type : "POST", 
-				url : "http://localhost:8000/readMessage", 
-				data : {
-					mess_num : mess_num
-				}, 
-				dataType : "json", 
-				success : function(msg) {
-					if($('.mess'+mess_num).text() == '"new"') {
-						var amount = $('#alert-amount').text();
-						if(amount == 1) {
-							$('#alert-amount').text("");
-						} else {
-							$('#alert-amount').text(amount*1 - 1);
-						}
-					}
-
-					$('#mess_sender_area').text(msg.mess_sender);
-					$('#mess_content_area').text(msg.mess_content);
-					$('.답장하기').attr("sender", msg.mess_sender);
-					$('.message-box').show('fast');
-					$('.mess'+mess_num).text('')
-				}, 
-				error : function() {
-					alert('메시지 로딩 실패!!!!!햇떠')
-				}
-			});
-		}
+				$('.a2').css("display", "none");
+				$('.message-box').css("display", "none");
+			}
+		});
 		
 	</script>
 </body>

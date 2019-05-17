@@ -30,7 +30,6 @@ public class MsgController {
 	@MessageMapping("/sendMessage")
 	@SendToUser
 	public void sendMessage(MessageLog message) throws Exception {
-		System.out.println(message);
 		msgService.sendMessage(message);
 		msgTemplate.convertAndSend("/alert/" + message.getMess_receiver(), message);
 	}
