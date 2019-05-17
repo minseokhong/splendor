@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.rng.splendor.db.dto.MessageLog;
 import com.rng.splendor.db.dto.UserData;
 import com.rng.splendor.db.service.MessageService;
 import com.rng.splendor.db.service.UserService;

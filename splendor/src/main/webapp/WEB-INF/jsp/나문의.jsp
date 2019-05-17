@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -40,7 +40,7 @@
 		<div class="container">
 			<div class="banner_content text-center">
 
-				<h2>1:1¹®ÀÇ</h2>
+				<h2>1:1ë¬¸ì˜</h2>
 
 			</div>
 		</div>
@@ -60,7 +60,7 @@
 				<div class="contact_info">
 					<div class="info_item">
 						<i class="lnr lnr-home"></i>
-						<h6>´ëÇÑ¹Î±¹</h6>
+						<h6>ëŒ€í•œë¯¼êµ­</h6>
 						<p style="color: cadetblue">seoul</p>
 					</div>
 
@@ -69,7 +69,7 @@
 						<h6>
 							<a href="#">didlshadk97@nate.com</a>
 						</h6>
-						<p style="color: brown">¿î¿µÀÚ ÀÌ¸ÞÀÏ</p>
+						<p style="color: brown">ìš´ì˜ìž ì´ë©”ì¼</p>
 					</div>
 				</div>
 			</div>
@@ -77,26 +77,26 @@
 
 				<div class="form-group">
 					<input type="email" class="form-control" id="email" name="email"
-						placeholder="´Ð³×ÀÓÀÔ·ÂÇØÁÖ¼¼¿ä.">
+						placeholder="ë‹‰ë„¤ìž„ìž…ë ¥í•´ì£¼ì„¸ìš”.">
 				</div>
 				<form class="row contact_form" action="contact_process.php"
 					method="post" id="contactForm" novalidate="novalidate">
 					<div class="col-md-6">
 						<select style="border: 1px solid;">
-							<option>ÀüÃ¼</option>
-							<option>½Å°í</option>
-							<option>¹ö±×</option>
-							<option>±âÅ¸</option>
+							<option>ì „ì²´</option>
+							<option>ì‹ ê³ </option>
+							<option>ë²„ê·¸</option>
+							<option>ê¸°íƒ€</option>
 						</select>
 						<div class="form-group">
 							<textarea class="form-control" name="message" id="message"
-								rows="1" placeholder="¹®ÀÇ»çÇ× ÀÔ·ÂÇØÁÖ¼¼¿ä."
+								rows="1" placeholder="ë¬¸ì˜ì‚¬í•­ ìž…ë ¥í•´ì£¼ì„¸ìš”."
 								style="border: 1px solid; height: 300px;"></textarea>
 						</div>
 					</div>
 					<div class="col-md-6"></div>
 					<div class="col-md-12 text-right">
-						<button type="submit" value="submit" class="primary_btn">¹®ÀÇÇÏ±â</button>
+						<button type="submit" value="submit" class="primary_btn">ë¬¸ì˜í•˜ê¸°</button>
 					</div>
 				</form>
 			</div>
@@ -152,6 +152,7 @@
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/popper.js"></script>
+	<script src="js/jquery.jrumble.1.3.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/stellar.js"></script>
 	<script src="js/jquery.magnific-popup.min.js"></script>

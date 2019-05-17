@@ -217,6 +217,7 @@
         
         
         <!-- Optional JavaScript -->
+		<script src="js/jquery.jrumble.1.3.min.js"></script>
         <!-- naver-api js -->
 </body>
 </html>

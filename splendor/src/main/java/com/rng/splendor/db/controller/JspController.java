@@ -1,5 +1,4 @@
 package com.rng.splendor.db.controller;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -7,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,7 +106,6 @@ public class JspController {
 	@RequestMapping(value="/clicktopost")//수정해보자
 	public String clicktopost(HttpServletResponse response,int board_num, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "response"));
-		System.out.println("/\n\n///////////////////////////"+board_num);
 		model.addAttribute("detail", BoardService.boardDetailService(board_num));
 	
 		return "clicktopost";
@@ -200,18 +197,18 @@ public class JspController {
 	@ResponseBody
 	public String join2(String userEmail, String userPw, String userPwC, String nickName) throws Exception {
 		UserData userData = new UserData();
-		System.out.println(userService.selectOneUser(nickName));
+//		System.out.println(userService.selectOneUser(nickName));
 		if(userService.selectOneUser(nickName) == null) {
 			if(userPw.equals(userPwC)) {
-				System.out.println("성공~!ㄴ");
+//				System.out.println("성공~!ㄴ");
 				userData.setUser_mail(userEmail);
 				userData.setUser_password(userPw);
 				userData.setUser_name(nickName);
 				userService.insertUser(userData);
-				System.out.println(userData);
+//				System.out.println(userData);
 				return "true";
 			} else {
-				System.out.println("패스유ㅝ드 틀림");
+//				System.out.println("패스유ㅝ드 틀림");
 				return "pwFalse";
 			}
 		} else {

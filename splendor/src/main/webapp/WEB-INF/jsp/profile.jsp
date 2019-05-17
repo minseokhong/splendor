@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -32,72 +32,72 @@
         <!--================Profile Area =================-->
         <section class="container" style="margin-bottom: 10%;">
                 <div class="profile_title_area">
-                    <div class="genric-btn e-large logging radius">«¡∑Œ«  º≥¡§</div>
+                    <div class="genric-btn e-large logging radius">ÌîÑÎ°úÌïÑ ÏÑ§Ï†ï</div>
                 </div>
                 <div class="profile_form_area radius">
-<!---------------------- æ∆∑°¬ ø° ≥ª∑¡∞°∏È form ≈¬±◊ action «œ≥™ ¥ı ¿÷Ω¿¥œ¥Ÿ. ∞∞¿Ã ¡ˆ¡§«ÿ¡÷ººø‰. -->
+<!---------------------- ÏïÑÎûòÏ™ΩÏóê ÎÇ¥Î†§Í∞ÄÎ©¥ form ÌÉúÍ∑∏ action ÌïòÎÇò Îçî ÏûàÏäµÎãàÎã§. Í∞ôÏù¥ ÏßÄÏ†ïÌï¥Ï£ºÏÑ∏Ïöî. -->
                     <form class="form-group" id="profile_form" action="" method="do">
                         <div class="profile_image_area">
-<!------------------------------ «¡∑Œ«  ¿ÃπÃ¡ˆ √∑∫Œ∆ƒ¿œ, name∏∏ ºˆ¡§«ÿ¡÷ººø‰. -->
-                            <!-- DBø°º≠ ∫“∑ØøÕº≠ «•Ω√«“ ¿ÃπÃ¡ˆ ∆ƒ¿œ¿« ∞Ê∑Œ¥¬ æ∆∑°¿« img ≈¬±◊ø° ¡ˆ¡§«ÿ¡÷ººø‰. -->
+<!------------------------------ ÌîÑÎ°úÌïÑ Ïù¥ÎØ∏ÏßÄ Ï≤®Î∂ÄÌååÏùº, nameÎßå ÏàòÏ†ïÌï¥Ï£ºÏÑ∏Ïöî. -->
+                            <!-- DBÏóêÏÑú Î∂àÎü¨ÏôÄÏÑú ÌëúÏãúÌï† Ïù¥ÎØ∏ÏßÄ ÌååÏùºÏùò Í≤ΩÎ°úÎäî ÏïÑÎûòÏùò img ÌÉúÍ∑∏Ïóê ÏßÄÏ†ïÌï¥Ï£ºÏÑ∏Ïöî. -->
                             <input name="file" type="file" id="profile_image_input" hidden="hidden">
                             <div class="profile_image_div">
-<!---------------------------------- «¡∑Œ«  ¿ÃπÃ¡ˆ »≠∏Èø° ∂ÁøÔ ¿ÃπÃ¡ˆ øµø™, name∏∏ ºˆ¡§«ÿ¡÷ººø‰. -->
+<!---------------------------------- ÌîÑÎ°úÌïÑ Ïù¥ÎØ∏ÏßÄ ÌôîÎ©¥Ïóê ÎùÑÏö∏ Ïù¥ÎØ∏ÏßÄ ÏòÅÏó≠, nameÎßå ÏàòÏ†ïÌï¥Ï£ºÏÑ∏Ïöî. -->
                                 <img name="img" class="profile_image" src="img/no_profile.png">
                             </div>
-                            <p>°ÿ ≈¨∏Ø«œø© ¿ÃπÃ¡ˆ ±≥√º.</p>
+                            <p>‚Äª ÌÅ¥Î¶≠ÌïòÏó¨ Ïù¥ÎØ∏ÏßÄ ÍµêÏ≤¥.</p>
                         </div>
                         <div class="introduce_area">
-                            <div class="genric-btn e-large logging radius">¿⁄±‚º“∞≥ ^.^</div>
-<!------------------------------ ¿⁄±‚º“∞≥ ±€ ¿€º∫∂ı, name∏∏ ºˆ¡§«ÿ¡÷ººø‰. -->
-                            <textarea name="content" class="form-control" id="introduce_content_textarea" placeholder="≥ªøÎ¿ª ¿‘∑¬«ÿ ¡÷ººø‰."></textarea>
+                            <div class="genric-btn e-large logging radius">ÏûêÍ∏∞ÏÜåÍ∞ú ^.^</div>
+<!------------------------------ ÏûêÍ∏∞ÏÜåÍ∞ú Í∏Ä ÏûëÏÑ±ÎûÄ, nameÎßå ÏàòÏ†ïÌï¥Ï£ºÏÑ∏Ïöî. -->
+                            <textarea name="content" class="form-control" id="introduce_content_textarea" placeholder="ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•Ìï¥ Ï£ºÏÑ∏Ïöî."></textarea>
                         </div>
                         <div class="btn-area" id="change_profile_only_area">
-                            <span class="genric-btn info large radius" onclick=returnPage();>µπæ∆∞°±‚</span>
-                            <span class="genric-btn info large radius" id="open_change_password_btn" onclick=openChangePasswordArea()>∫Òπ–π¯»£ ∫Ø∞Ê</span>
-                            <span class="genric-btn success large radius" id="submit_without_password" value="ºˆ¡§«œ±‚" onclick=submitWithoutPassword();>ºˆ¡§«œ±‚</span>
+                            <span class="genric-btn info large radius" onclick=returnPage();>ÎèåÏïÑÍ∞ÄÍ∏∞</span>
+                            <span class="genric-btn info large radius" id="open_change_password_btn" onclick=openChangePasswordArea()>ÎπÑÎ∞ÄÎ≤àÌò∏ Î≥ÄÍ≤Ω</span>
+                            <span class="genric-btn success large radius" id="submit_without_password" value="ÏàòÏ†ïÌïòÍ∏∞" onclick=submitWithoutPassword();>ÏàòÏ†ïÌïòÍ∏∞</span>
                         </div>
                         <div class="change_password_area" id="change_password_area" style="display: none;">
                             <!-- <div class="introduce_area">
-                                <div class="genric-btn e-large logging radius">∫Òπ–π¯»£ ∫Ø∞Ê</div>
+                                <div class="genric-btn e-large logging radius">ÎπÑÎ∞ÄÎ≤àÌò∏ Î≥ÄÍ≤Ω</div>
                             </div> -->
                             <div class="form-inline">
                                 <img class="img-fluid" src="img/join/password_.png">
-<!---------------------------------- ø¿∏Æ¡ˆ≥Œ ∆–Ω∫øˆµÂ. name∏∏ ºˆ¡§«ÿº≠ ªÁøÎ«ÿ¡÷ººø‰. -->
-                                <input name="password" type="password" class="form-control" id="password" placeholder="±‚¡∏ ∫Òπ–π¯»£∏¶ ¿‘∑¬«ÿ¡÷ººø‰." onkeyup="checkPassword(value)" onchange="checkPassword(value)">
+<!---------------------------------- Ïò§Î¶¨ÏßÄÎÑê Ìå®Ïä§ÏõåÎìú. nameÎßå ÏàòÏ†ïÌï¥ÏÑú ÏÇ¨Ïö©Ìï¥Ï£ºÏÑ∏Ïöî. -->
+                                <input name="password" type="password" class="form-control" id="password" placeholder="Í∏∞Ï°¥ ÎπÑÎ∞ÄÎ≤àÌò∏Î•º ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî." onkeyup="checkPassword(value)" onchange="checkPassword(value)">
                                 <div class="result_div">
-                                    <p class="result_sp" id="check_password_result">ø©±‚¥¬ ∞·∞˙ «•Ω√</p>
+                                    <p class="result_sp" id="check_password_result">Ïó¨Í∏∞Îäî Í≤∞Í≥º ÌëúÏãú</p>
                                 </div>
                             </div>
                             <div class="form-inline">
                                 <img class="img-fluid" src="img/join/password.png">
-<!---------------------------------- ªı ∆–Ω∫øˆµÂ. name∏∏ ºˆ¡§«ÿº≠ ªÁøÎ«ÿ¡÷ººø‰. -->
-                                <input name="new_password" type="password" class="form-control" id="new_password" placeholder="ªı ∫Òπ–π¯»£∏¶ ¿‘∑¬«ÿ¡÷ººø‰." onkeyup="checkNewPassword(value)" onchange="checkNewPassword(value)">
+<!---------------------------------- ÏÉà Ìå®Ïä§ÏõåÎìú. nameÎßå ÏàòÏ†ïÌï¥ÏÑú ÏÇ¨Ïö©Ìï¥Ï£ºÏÑ∏Ïöî. -->
+                                <input name="new_password" type="password" class="form-control" id="new_password" placeholder="ÏÉà ÎπÑÎ∞ÄÎ≤àÌò∏Î•º ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî." onkeyup="checkNewPassword(value)" onchange="checkNewPassword(value)">
                                 <div class="result_div">
                                     <p class="result_sp" id="check_new_password_result"></p>
                                 </div>
                             </div>
                             <div class="form-inline">
                                 <img class="img-fluid" src="img/join/password.png">
-                                <input name="new_password_confirm" type="password" class="form-control" id="new_password_confirm" placeholder="ªı ∫Òπ–π¯»£∏¶ ¥ŸΩ√ ¿‘∑¬«ÿ¡÷ººø‰." onkeyup="checkNewPasswordConfirm(value)" onchange="checkNewPasswordConfirm(value)">
+                                <input name="new_password_confirm" type="password" class="form-control" id="new_password_confirm" placeholder="ÏÉà ÎπÑÎ∞ÄÎ≤àÌò∏Î•º Îã§Ïãú ÏûÖÎ†•Ìï¥Ï£ºÏÑ∏Ïöî." onkeyup="checkNewPasswordConfirm(value)" onchange="checkNewPasswordConfirm(value)">
                                 <div class="result_div">
                                     <p class="result_sp" id="check_new_password_confirm_result"></p>
                                 </div>
                             </div>
                             <div class="btn-area">
-                                <span class="genric-btn info large radius" id="close_change_password_btn" onclick=closeChangePasswordArea()>∫Ø∞Ê √Îº“</span>
-                                <input type="submit" class="genric-btn success large radius" value="∫Ø∞Ê«œ±‚"></input>
+                                <span class="genric-btn info large radius" id="close_change_password_btn" onclick=closeChangePasswordArea()>Î≥ÄÍ≤Ω Ï∑®ÏÜå</span>
+                                <input type="submit" class="genric-btn success large radius" value="Î≥ÄÍ≤ΩÌïòÍ∏∞"></input>
                             </div>
                         </div>
                     </form>
- <!--------------------- ¿ß¬  77∂Û¿Œ form≈¬±◊ action∞˙ µø¿œ«œ∞‘ ºˆ¡§¿Ã « ø‰«‘ -->
+ <!--------------------- ÏúÑÏ™Ω 77ÎùºÏù∏ formÌÉúÍ∑∏ actionÍ≥º ÎèôÏùºÌïòÍ≤å ÏàòÏ†ïÏù¥ ÌïÑÏöîÌï® -->
                     <form class="form-group" action="" method="do">
                         <div class="leave_toggle_area" id="leave_toggle_area">
-                            <div class="genric-btn small info radius" id="leave_toggle_button" onclick="$('.bubble').toggle()";>»∏ø¯ ≈ª≈</div>
+                            <div class="genric-btn small info radius" id="leave_toggle_button" onclick="$('.bubble').toggle()";>ÌöåÏõê ÌÉàÌá¥</div>
                             <div class="bubble" style="display: none;">
-                                <div>¡¯¬• ≈ª≈«“∑°???</div>
-                                <input name="password" class="form-control" type="password" placeholder="∆–Ω∫øˆµÂ ¿‘∑¬">
-                                <button class="genric-btn success small radius">§∑§∑≈ª≈</button>
+                                <div>ÏßÑÏßú ÌÉàÌá¥Ìï†Îûò???</div>
+                                <input name="password" class="form-control" type="password" placeholder="Ìå®Ïä§ÏõåÎìú ÏûÖÎ†•">
+                                <button class="genric-btn success small radius">„Öá„ÖáÌÉàÌá¥</button>
                             </div>
                         </div>
                     </form>
@@ -117,10 +117,11 @@
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/popper.js"></script>
+		<script src="js/jquery.jrumble.1.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/stellar.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="js/jquery.magnific-popup.min.js"></script>
         <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
         <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
         <script src="vendors/isotope/isotope-min.js"></script>
