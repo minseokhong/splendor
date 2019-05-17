@@ -1,5 +1,7 @@
 package com.rng.splendor.db.dto;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class BoardData {
@@ -33,6 +35,7 @@ public class BoardData {
 	public void setBoard_writer(String board_writer) {
 		this.board_writer = board_writer;
 	}
+	
 	public Date getBoard_date() {
 		return board_date;
 	}

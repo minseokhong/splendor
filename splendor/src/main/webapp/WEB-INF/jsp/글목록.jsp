@@ -94,9 +94,8 @@
                         
                     <tr>
                         <td colspan="3"> 
-                        	<textarea rows="15" cols="10"  name="content" class="form-control" id="boardContent" style="background-color: white">
-                        		${detail.board_content}
-                        	</textarea>
+                        
+                        		<p style="padding-top: 20px; ">${detail.board_content}</p>
                         </td>
                     </tr>
                     

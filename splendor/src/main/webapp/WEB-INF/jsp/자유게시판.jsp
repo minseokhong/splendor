@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>​
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,17 +38,6 @@ $(document).ready(function(){
 			location.href="writeform";
 		}
 	
-	})
-});
-
-$(document).ready(function(){
-	$('#contents').on('click',function(e){
-		e.preventDefault();
-		var chUser ='<c:out value = '${user}'/>';
-		if(chUser == ''){
-			alert('로그인이 필요합니다.');
-		}	
-		
 	})
 });
 
@@ -104,8 +94,32 @@ $(document).ready(function(){
 
                         </tr>
                     </thead>
+                    
                     <tbody>
+                    <c:if test="${user == null}">
+                    	
+                    </c:if>
                     	<c:forEach var="l" items="${list}">
+
+                    		<c:if test="${user == null}">
+                    				<tr onclick="alert('로그인하세요')">
+    	                	        	<td>${l.board_num}</td>
+        	        	            	<td>${l.board_title}</td>
+            		                	<td>${l.board_writer}</td>
+            	    	            	<td>${l.board_date}</td>
+        	            	        	<td>${l.board_count}</td>
+    		                    	</tr>
+                    		</c:if>
+                    		<c:if test="${user != null}">
+	                        		<tr  onclick="location.href='http://localhost:8000/clicktopost?board_num=${l.board_num}'">
+    	                	        	<td>${l.board_num}</td>
+        	        	            	<td>${l.board_title}</td>
+            		                	<td>${l.board_writer}</td>
+            	    	            	<td>${l.board_date}</td>
+        	            	        	<td>${l.board_count}</td>
+    		                    	</tr>
+                    		</c:if>
+
                         <tr onclick=movepage(${l.board_num})>
                             <td>${l.board_num}</td>
                             <td>${l.board_title}</td>
@@ -113,6 +127,7 @@ $(document).ready(function(){
                             <td>${l.board_date}</td>
                             <td>${l.board_count}</td>
                         </tr>
+
                     	</c:forEach>
 
                     </tbody>

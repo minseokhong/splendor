@@ -3,6 +3,15 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+	host : '192.168.0.47',
+	user : 'gameserver',
+	password : 'game',
+	port : 3306,
+	database : 'member'
+});
+
 const diamondJSON = require('./public/assets/json/diamond.json');
 const sapphireJSON = require('./public/assets/json/sapphire.json');
 const emeraldJSON = require('./public/assets/json/emerald.json');
@@ -14,7 +23,11 @@ const nobles = [
 ];
 const nobleSrc = '/assets/nobles/';
 
-app.get("/", (req, res) => {
+// app.get("/", (req, res) => {
+// 	res.sendFile(__dirname + "/public/index.html");
+// });
+
+app.get(/id=/, (req, res) => {
 	res.sendFile(__dirname + "/public/index.html");
 });
 
@@ -27,7 +40,6 @@ const NUM_DISPLAY = 4;
 
 io.on('connection', (socket) => {
 	/******************************** ROOM STUFF ********************************/
-	// socket.emit('alert', 'info', 'Welcome! You can join to room or create room. Click "?" button for game information.');
 	socket.emit('show rooms', rooms);
 
 	socket.on('new room', (roomName, password) => {
@@ -149,6 +161,14 @@ io.on('connection', (socket) => {
 		createDecks(room);
 		checkTokens(room);
 
+		connection.connect((err) => {
+			if (err) console.error(err);
+		});
+
+		room.startDate = timeStamp();
+
+		connection.end();
+
 		// Display cards
 		for (let i = 0; i < NUM_DISPLAY; i++) {
 			io.in(room.roomName).emit('display card', 'deck1', room.deck1.pop());
@@ -195,6 +215,8 @@ io.on('connection', (socket) => {
 		socket.points = 0;
 		socket.cards = 0;
 	});
+
+	
 
 	/************************************ CARD STUFF ************************************/
 	// Factor 'get card' and 'reserve card'
@@ -477,7 +499,38 @@ function isPlayerTurn(id, room) {
 }
 
 function gameOver(room, disconnect) {
+	io.in(room.roomName).emit('clear board');
+	io.in(room.roomName).emit('clear nobles');
+
 	if (!disconnect) {
+		connection.connect((err) => {
+			if (err) console.error(err);
+		});
+
+		let gameNum;
+		room.endDate = timeStamp();
+		
+		connection.query('insert into game_list (game_num, game_type, game_start_date, game_end_date) values (0, "spd", ' + room.startDate + ', ' + room.endDate + ')', (err, result) => {
+			if (err) throw err;
+			else gameNum = result.insertId;
+		});
+
+		
+		for (var player in room.players) {
+			var userName = room.players[player].userName;
+			var score = room.players[player].score;
+
+			setTimeout(() => {
+				connection.query('insert into game_log (game_num, game_player, game_score) values (' + gameNum + ', "' + userName + '", ' + score + ')', (err) => {
+					if (err) throw err;
+				});
+			}, 500);
+		}
+
+		setTimeout(() => {
+			connection.end();
+		}, 2000);
+
 		io.in(room.roomName).emit('leave from room');
 		delete rooms[room.roomName];
 	} else {
@@ -515,10 +568,15 @@ function gameOver(room, disconnect) {
 		});
 
 		io.in(room.roomName).emit('refresh socket');
-		io.in(room.roomName).emit('clear board');
-		io.in(room.roomName).emit('clear nobles');
 		io.in(room.roomName).emit('enter room', room.roomName);
 	}
+}
+
+function timeStamp() {
+	connection.query('select sysdate()', (err, result) => {
+		if (err) throw err;
+		else return result[0]['sysdate()'];
+	});
 }
 
 /**************************************** CARD STUFF ***************************************/

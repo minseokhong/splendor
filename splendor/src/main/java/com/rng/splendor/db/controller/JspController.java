@@ -72,7 +72,12 @@ public class JspController {
 		model.addAttribute("activeLocation", "service");
 		return "나문의";
 	}
-	
+//	@RequestMapping(value="clicktopost1")
+//	public  String clicktopost1(String board_num) {
+//		System.out.println(board_num);
+//		return clicktopost1;
+//	}
+//	
 	
 	@RequestMapping(value="/자유게시판")
 	public String 자유게시판(HttpServletResponse response, Model model) throws Exception{
@@ -89,12 +94,21 @@ public class JspController {
 		model.addAttribute("activeLocation", "service");
 		return "BBS";
 	}
-	@RequestMapping(value="/글목록")//수정해보자
-	public String 글목록(HttpServletResponse response,int board_num, Model model) throws Exception{
+//	@RequestMapping(value="/글목록")//수정해보자
+//	public String 글목록(HttpServletResponse response,int board_num, Model model) throws Exception{
+//		response.addCookie(new Cookie("location", "response"));
+//		System.out.println("/\n\n///////////////////////////"+board_num);
+//		model.addAttribute("detail", BoardService.boardDetailService(board_num));
+//	
+//		return "글목록";
+//	}
+	
+	@RequestMapping(value="/clicktopost")//수정해보자
+	public String clicktopost(HttpServletResponse response,int board_num, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "response"));
 		model.addAttribute("detail", BoardService.boardDetailService(board_num));
 	
-		return "글목록";
+		return "clicktopost";
 	}
 
 	@RequestMapping(value="/contact")
@@ -275,10 +289,6 @@ public class JspController {
 		return "true";
 	}
 	
-	@RequestMapping(value="/clicktopost")
-	public String clicktopost() throws Exception{
-		return "clicktopost";
-	}
 
 	@RequestMapping(value="/create-guild")
 	public String create_guild() throws Exception{

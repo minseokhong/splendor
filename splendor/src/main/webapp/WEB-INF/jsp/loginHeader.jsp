@@ -364,6 +364,7 @@
 							<li class="nav-item"><a class="nav-link" href="나문의">1:1문의</a></li>
 						</ul></li>
 				</ul>
+				<div class="primary_btn" onclick="location.href='http://192.168.0.34:3000/id=${user.user_name }'">GameStart</div>
 				<span id="alert-amount"></span>
 				<div class="notification"><img src="/img/notification.png"
 					title="알림"></div>
