@@ -44,17 +44,6 @@ $(document).ready(function(){
 	})
 });
 
-$(document).ready(function(){
-	$('#contents').on('click',function(e){
-		e.preventDefault();
-		var chUser ='<c:out value = '${user}'/>';
-		if(chUser == ''){
-			alert('로그인이 필요합니다.');
-		}	
-		
-	})
-});
-
 
 
 </script>
@@ -109,20 +98,30 @@ $(document).ready(function(){
 
                         </tr>
                     </thead>
+                    
                     <tbody>
+                    <c:if test="${user == null}">
+                    	
+                    </c:if>
                     	<c:forEach var="l" items="${list}">
-                        <tr onclick=movepage(${l.board_num})>
-                            <td>${l.board_num}</td>
-                            <td>${l.board_title}</td>
-                            <td>${l.board_writer}</td>
-                            <td>${l.board_date}</td>
-                            <td>${l.board_count}</td>
-<script>
-function()) {
-	
-}
-</script>
-                        </tr>
+                    		<c:if test="${user == null}">
+                    				<tr onclick="alert('로그인하세요')">
+    	                	        	<td>${l.board_num}</td>
+        	        	            	<td>${l.board_title}</td>
+            		                	<td>${l.board_writer}</td>
+            	    	            	<td>${l.board_date}</td>
+        	            	        	<td>${l.board_count}</td>
+    		                    	</tr>
+                    		</c:if>
+                    		<c:if test="${user != null}">
+	                        		<tr  onclick="location.href='http://localhost:8000/clicktopost?board_num=${l.board_num}'">
+    	                	        	<td>${l.board_num}</td>
+        	        	            	<td>${l.board_title}</td>
+            		                	<td>${l.board_writer}</td>
+            	    	            	<td>${l.board_date}</td>
+        	            	        	<td>${l.board_count}</td>
+    		                    	</tr>
+                    		</c:if>
                     	</c:forEach>
 
                     </tbody>
