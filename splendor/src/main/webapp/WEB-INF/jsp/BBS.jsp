@@ -10,10 +10,6 @@
    <link rel="icon" href="img/joystick.png" type="image/png">
 	<title>R.N.G Games</title>
    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="css1/bootstrap.css">
-     
-
-
    <link rel="stylesheet" href="css/bootstrap.css">
    <link rel="stylesheet" href="vendors/linericon/style.css">
    <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -42,7 +38,6 @@
 
 <body>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="js/bootstrap.js"></script>
     
     	<!--================Header Menu Area =================-->
     <c:set var="user" value="${user }"></c:set>

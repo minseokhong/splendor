@@ -10,10 +10,6 @@
    <link rel="icon" href="img/joystick.png" type="image/png">
 	<title>R.N.G Games</title>
    <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="css1/bootstrap.css">
-     
-
-
    <link rel="stylesheet" href="css/bootstrap.css">
    <link rel="stylesheet" href="vendors/linericon/style.css">
    <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -60,7 +56,6 @@ $(document).ready(function(){
 <body>
 
    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-   <script src="js/bootstrap.js"></script>
    		
    		<!--================Header Menu Area =================-->
     <c:set var="user" value="${user }"></c:set>
@@ -104,6 +99,7 @@ $(document).ready(function(){
                     	
                     </c:if>
                     	<c:forEach var="l" items="${list}">
+<<<<<<< HEAD
                     		<c:if test="${user == null}">
                     				<tr onclick="alert('로그인하세요')">
     	                	        	<td>${l.board_num}</td>
@@ -122,6 +118,15 @@ $(document).ready(function(){
         	            	        	<td>${l.board_count}</td>
     		                    	</tr>
                     		</c:if>
+=======
+                        <tr onclick=movepage(${l.board_num})>
+                            <td>${l.board_num}</td>
+                            <td>${l.board_title}</td>
+                            <td>${l.board_writer}</td>
+                            <td>${l.board_date}</td>
+                            <td>${l.board_count}</td>
+                        </tr>
+>>>>>>> branch 'master' of https://github.com/minseokhong/splendor.git
                     	</c:forEach>
 
                     </tbody>

@@ -1,5 +1,7 @@
 package com.rng.splendor.db.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +26,7 @@ public class MessageService {
 	}
 	
 	public void sendMessage(MessageLog messageLog) {// 메시지 보내기
+		messageLog.setMess_send_date(new Date());
 		msgMapper.insertMessage(messageLog);
 	}
 	
@@ -57,7 +60,10 @@ public class MessageService {
 	public JSONObject hashMapToJSON(Map<String, ?> map) {// 받은 데이터를 json 타입으로 변환하는 메서드
 		JSONObject jsonObject = new JSONObject();
 		for(String key : map.keySet()) {
-			jsonObject.put(key, map.get(key));
+			if(key != null && key.equals("mess")) {
+				jsonObject.put(key, parseDateFormat((Date) map.get(key)));
+			} else
+				jsonObject.put(key, map.get(key));
 		}
 		return jsonObject;
 	}
@@ -68,6 +74,10 @@ public class MessageService {
 			senderList.add(hashMapToJSON(tmp));
 		}
 		return senderList;
+	}
+	
+	public String parseDateFormat(Date date) {
+		return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(date);
 	}
 
 }

@@ -14,6 +14,51 @@
 		SELECT * FROM board_data
 	</select>
 	
+<!-- 	<select id="selectBoardList" parameterType="com.rng.splendor.db.service.BoardService" resultType="com.rng.splendor.db.service.BoardService"> -->
+<!-- 		select * from board_data -->
+<!-- 	</select> -->
+
+<!-- 	<insert id="insertBoard" parameterType="BoardData"> -->
+<!-- 		insert into board_data( -->
+<!-- 			board_writer,  -->
+<!-- 			board_date,  -->
+<!-- 			board_is_show,  -->
+<!-- 			board_title,  -->
+<!-- 			board_content,  -->
+<!-- 			board_type,  -->
+<!-- 			board_count,  -->
+<!-- 			board_like,  -->
+<!-- 			board_dislike)  -->
+<!-- 		values( -->
+<!-- 		#{board_writer}, -->
+<!-- 		now(),  -->
+<!-- 		#{board_is_show},  -->
+<!-- 		#{board_title},  -->
+<!-- 		#{board_content},  -->
+<!-- 		#{board_type},  -->
+<!-- 		#{board_count},  -->
+<!-- 		#{board_like}, -->
+<!-- 		#{board_dislkie}) -->
+<!-- 	</insert> -->
+	
+	<update id="updateBoard" parameterType="BoardData">
+		update board_data set
+			board_title = #{board_title},
+			board_content = #{board_content},
+			board_date = now()
+		where board_num = #{board_num}	
+	</update>
+	
+	<delete id = "deleteBoard" parameterType="BoardData">
+		delete from board_data 
+		where board_num = #{board_num}	
+	</delete>
+	
+	<select id ="selectBoardByNum" parameterType="com.rng.splendor.db.service.BoardService" resultType="com.rng.splendor.db.service.BoardService">
+		select * from board_data
+		where board_num = #{board_num}	
+	</select>
+	
 	<select id="boardDetail" parameterType="int" resultType="com.rng.splendor.db.dto.BoardData">
 		SELECT * FROM board_data WHERE board_num = #{board_num}
 	
