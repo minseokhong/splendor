@@ -77,6 +77,7 @@
 				userPwC: password_confirm,
 				nickName: nickname
 			},
+			timeout : 100, 
 			success : function(data) {
 				if (data == 'true') {
 					alert(nickname + ' 님 회원가입이 완료되었습니다.');
@@ -93,6 +94,39 @@
 	  	  			$('#password_confirm').val('');
 	  	  			$('#password').focus();
 				}
+			}, 
+			error : function() {
+				$.ajax({
+//		 			type : "GET", 비밀번호가 있으니깐 post로 수정 합니다.
+					type : "POST", 
+					url : "http://121.138.121.114:8000/join2",
+					dataType : "text",				//	결과를 받을 데이터 타입
+					data : {
+						userEmail: email,
+						userPw: password,
+						userPwC: password_confirm,
+						nickName: nickname
+					},
+					success : function(data) {
+						if (data == 'true') {
+							alert(nickname + ' 님 회원가입이 완료되었습니다.');
+							
+							location.href = 'joinView';
+						} else if(data == 'nickFalse') {
+							alert('이미 등록된 닉네임 입니다.')
+			  	  			$('#nickname').val('');
+							$('#nickname').focus();
+							
+						} else if(data == 'pwFalse') {
+							alert('비밀번호가 일치하지 않습니다.');
+			  	  			$('#password').val('');
+			  	  			$('#password_confirm').val('');
+			  	  			$('#password').focus();
+						}
+					}
+				});
+			}
+				
 			}
 		});
 	}

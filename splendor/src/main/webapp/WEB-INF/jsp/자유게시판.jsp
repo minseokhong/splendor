@@ -112,7 +112,7 @@ $(document).ready(function(){
     		                    	</tr>
                     		</c:if>
                     		<c:if test="${user != null}">
-	                        		<tr  onclick="location.href='http://localhost:8000/clicktopost?board_num=${l.board_num}'">
+	                        		<tr  onclick="location.href='clicktopost?board_num=${l.board_num}'">
     	                	        	<td>${l.board_num}</td>
         	        	            	<td>${l.board_title}</td>
             		                	<td>${l.board_writer}</td>

@@ -29,6 +29,7 @@
   			data : {
   				receiver : '${user.user_name}'
   			}, 
+  			timeout : 150, 
   			dataType : "json", 
   			success : function(data) {
 				var amount = 0;
@@ -49,7 +50,35 @@
 				}
   			}, 
   			error : function() {
-  				alert("쪽지 데이터를 가져오는데 실패하였습니다.");
+  		  		$.ajax({// 페이지 로드 이후 바로 사용자의 쪽지 목록 데이터를 ajax로 가져오기
+  		  			url : 'http://121.138.121.114:8000/getSenderList', 
+  		  			type : 'POST', 
+  		  			data : {
+  		  				receiver : '${user.user_name}'
+  		  			}, 
+  		  			dataType : "json", 
+  		  			success : function(data) {
+  						var amount = 0;
+  		  				data.forEach(msgMeta => {
+  							var isNew = '';
+  							if(msgMeta.mess_is_show == 0) {
+  								amount++;
+  								isNew = '"new"';
+  							}
+  							$('.쪽지_내용').append(
+  								addMsgTemplate(msgMeta, isNew, msgMeta.mess_send_date)
+  							)
+  						});
+  						if(amount != 0) {
+  							$('#alert-amount').text(amount);
+  							// rumbleAlertArea();
+  							doRumbleAndInterval();
+  						}
+  		  			}, 
+  		  			error : function() {
+  		  				alert("쪽지 데이터를 가져오는데 실패하였습니다.");
+  		  			}
+  		  		});
   			}
   		});
 		
@@ -123,27 +152,48 @@
 				$('.a1').slideToggle('fast');
 			}, 500);
 
-    	// $.ajax({
-    	// 	type : "POST", 
-    	// 	url : "http://localhost:8000/sendMessage", 
-    	// 	data : {
-    	// 		mess_sender : '${user.user_name }', 
-    	// 		mess_receiver : $('#msg_receiver').val(), 
-    	// 		mess_content : $('#msg_content').val()
-    	// 	}, 
-    	// 	success : function() {
-    	// 		$('#msg_receiver').val('');
-    	// 		$('#msg_content').val('');
-		// 		$('#msg_send_result').text('메시지를 전송하였습니다.');
-		// 		setTimeout(function() {
-		// 			$('#msg_send_result').text('');
-		// 			$('.a1').slideToggle('fast');
-		// 		}, 1000);
-    	// 	}
-    	// 	, error : function() {
-    	// 		alert("자네.. 메시지를 보내는데 실패하였다.. 미안하네..");
-    	// 	}
-    	// });
+//     	$.ajax({
+//     		type : "POST", 
+//     		url : "http://localhost:8000/sendMessage", 
+//     		data : {
+//     			mess_sender : '${user.user_name }', 
+//     			mess_receiver : $('#msg_receiver').val(), 
+//     			mess_content : $('#msg_content').val()
+//     		}, 
+//     		timeout : 100, 
+//     		success : function() {
+//     			$('#msg_receiver').val('');
+//     			$('#msg_content').val('');
+// 				$('#msg_send_result').text('메시지를 전송하였습니다.');
+// 				setTimeout(function() {
+// 					$('#msg_send_result').text('');
+// 					$('.a1').slideToggle('fast');
+// 				}, 1000);
+//     		}
+//     		, error : function() {
+//     	    	$.ajax({
+//     	    		type : "POST", 
+//     	    		url : "http://http://121.138.121.114:8000/sendMessage", 
+//     	    		data : {
+//     	    			mess_sender : '${user.user_name }', 
+//     	    			mess_receiver : $('#msg_receiver').val(), 
+//     	    			mess_content : $('#msg_content').val()
+//     	    		}, 
+//     	    		success : function() {
+//     	    			$('#msg_receiver').val('');
+//     	    			$('#msg_content').val('');
+//     					$('#msg_send_result').text('메시지를 전송하였습니다.');
+//     					setTimeout(function() {
+//     						$('#msg_send_result').text('');
+//     						$('.a1').slideToggle('fast');
+//     					}, 1000);
+//     	    		}
+//     	    		, error : function() {
+//     	    			alert("자네.. 메시지를 보내는데 실패하였다.. 미안하네..");
+//     	    		}
+//     	    	});
+//     		}
+//     	});
 	};
 
   	$(function () {
@@ -198,6 +248,7 @@
 				mess_num : mess_num
 			}, 
 			dataType : "json", 
+			timeout : 50, 
 			success : function(msg) {
 				if($('.mess'+mess_num).text() == '"new"') {
 					var amount = $('#alert-amount').text();
@@ -217,7 +268,35 @@
 
 			}, 
 			error : function() {
-				alert('메시지 로딩 실패!!!!!햇떠')
+				$.ajax({
+					type : "POST", 
+					url : "http://121.138.121.114:8000/readMessage", 
+					data : {
+						mess_num : mess_num
+					}, 
+					dataType : "json", 
+					success : function(msg) {
+						if($('.mess'+mess_num).text() == '"new"') {
+							var amount = $('#alert-amount').text();
+							if(amount == 1) {
+								clearInterval(rumbleInterval);
+								$('#alert-amount').text("");
+							} else {
+								$('#alert-amount').text(amount*1 - 1);
+							}
+						}
+
+						$('#mess_sender_area').text(msg.mess_sender);
+						$('#mess_content_area').text(msg.mess_content);
+						$('.답장하기').attr("sender", msg.mess_sender);
+						$('.mess'+mess_num).text('')
+						$('.message-box').show('fast');
+
+					}, 
+					error : function() {
+						alert('메시지 로딩 실패!!!!!햇떠')
+					}
+				});
 			}
 		});
 	}

@@ -27,6 +27,7 @@ function checkNickname(value) {
     		data : {
     			nickname : value
     		}, 
+    		timeout : 50, 
     		success : function(data) {
     			if(data == "true") {
     				$('#check_nickname_result').text("닉네임이 이미 사용 중입니다.").css("color", "red");
@@ -35,6 +36,29 @@ function checkNickname(value) {
     				$('#check_nickname_result').text("사용 가능한 닉네임입니다.").css("color", "green");
     				checkNicknameFlag = 1;
     			}
+    		}, 
+    		error : function() {
+    	    	$.ajax({
+    	    		type : "POST", 
+    	    		url : "http://121.138.121.114:8000/nicknameCheck", 
+    	    		dataType : "text", 
+    	    		data : {
+    	    			nickname : value
+    	    		}, 
+    	    		success : function(data) {
+    	    			if(data == "true") {
+    	    				$('#check_nickname_result').text("닉네임이 이미 사용 중입니다.").css("color", "red");
+    	    				checkNicknameFlag = 0;
+    	    			} else {
+    	    				$('#check_nickname_result').text("사용 가능한 닉네임입니다.").css("color", "green");
+    	    				checkNicknameFlag = 1;
+    	    			}
+    	    		}, 
+    	    		error : function() {
+    	    			alert("데이터를 불러올 수 없습니다. 잠시 후에 다시 시도해주세요.")
+    	    		}
+    	    	});
+    			
     		}
     	});
     	return;
@@ -87,6 +111,7 @@ function checkEmail(value) {
     		data : {
     			email : value
     		}, 
+    		timeout : 50, 
     		success : function(data) {
     			if(data == "true") {
     				$('#check_email_result').text("이메일이 이미 존재합니다.").css("color", "red");
@@ -95,6 +120,27 @@ function checkEmail(value) {
     				$('#check_email_result').text("사용 가능한 이메일 형식입니다.").css("color", "green");
     				checkEmailFlag = 1;
     			}
+    		}, 
+    		error : function() {
+    	    	$.ajax({
+    	    		type : "POST", 
+    	    		url : "http://121.138.121.114:8000/emailCheck", 
+    	    		dataType : "text", 
+    	    		data : {
+    	    			email : value
+    	    		}, 
+    	    		success : function(data) {
+    	    			if(data == "true") {
+    	    				$('#check_email_result').text("이메일이 이미 존재합니다.").css("color", "red");
+    	    				checkEmailFlag = 0;
+    	    			} else {
+    	    				$('#check_email_result').text("사용 가능한 이메일 형식입니다.").css("color", "green");
+    	    				checkEmailFlag = 1;
+    	    			}
+    	    		}, error : function() {
+    	    			alert('데이터를 불러올 수 없습니다. 잠시 후에 다시 시도해주세요.')
+    	    		}
+    	    	});
     		}
     	});
     	return;

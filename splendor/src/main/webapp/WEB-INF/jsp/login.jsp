@@ -66,6 +66,7 @@
 					userId: id,
 					userPw: pw //userId를 controller에서 그대로사용
 				},
+				timeout : 100, 
 				success : function(data) {
 					if (data == 'true') {
 						alert(id + ' 님 환영합니다 ^.^')
@@ -76,6 +77,31 @@
 						$('#userPw').val('');
 						alert('이메일 및 비밀번호가 일치하지 않습니다.');
 					}
+				}, 
+				error : function() {
+					$.ajax({
+						type : "GET",
+		 				url : "http://121.138.121.114:8000/test",
+						dataType : "text",				//	결과를 받을 데이터 타입
+						data : {
+							userId: id,
+							userPw: pw //userId를 controller에서 그대로사용
+						},
+						success : function(data) {
+							if (data == 'true') {
+								alert(id + ' 님 환영합니다 ^.^')
+								
+								location.href = 'testView';
+							} else {
+								$('#userId').val('');
+								$('#userPw').val('');
+								alert('이메일 및 비밀번호가 일치하지 않습니다.');
+							}
+						}, 
+						error : function() {
+							alert('데이터 로딩에 실패하였습니다. 잠시후에 다시 시도해주세요.')
+						}
+					});
 				}
 			});
 		}
