@@ -36,21 +36,29 @@
                 </div>
                 <div class="profile_form_area radius">
 <!---------------------- 아래쪽에 내려가면 form 태그 action 하나 더 있습니다. 같이 지정해주세요. -->
-                    <form class="form-group" id="profile_form" action="" method="do">
+                    <form class="form-group" id="profile_form" action="updateProfile" method="post" enctype="multipart/form-data">
                         <div class="profile_image_area">
 <!------------------------------ 프로필 이미지 첨부파일, name만 수정해주세요. -->
                             <!-- DB에서 불러와서 표시할 이미지 파일의 경로는 아래의 img 태그에 지정해주세요. -->
+                            <input name="name" type="text" hidden="hidden" value="${user.user_name }">
                             <input name="file" type="file" id="profile_image_input" hidden="hidden">
                             <div class="profile_image_div">
 <!---------------------------------- 프로필 이미지 화면에 띄울 이미지 영역, name만 수정해주세요. -->
-                                <img name="img" class="profile_image" src="img/no_profile.png">
+								<c:choose>
+									<c:when test="${user.user_image == null}">
+										<img name="img" class="profile_image" src="/img/no_profile.png">
+									</c:when>
+									<c:otherwise>
+	                                	<img name="img" class="profile_image" src="downloadImage?file_name=${user.user_image }">
+									</c:otherwise>
+								</c:choose>
                             </div>
                             <p>※ 클릭하여 이미지 교체.</p>
                         </div>
                         <div class="introduce_area">
                             <div class="genric-btn e-large logging radius">자기소개 ^.^</div>
 <!------------------------------ 자기소개 글 작성란, name만 수정해주세요. -->
-                            <textarea name="content" class="form-control" id="introduce_content_textarea" placeholder="내용을 입력해 주세요."></textarea>
+                            <textarea name="introduce" class="form-control" id="introduce_content_textarea" placeholder="내용을 입력해 주세요.">${user.user_introduce }</textarea>
                         </div>
                         <div class="btn-area" id="change_profile_only_area">
                             <span class="genric-btn info large radius" onclick=returnPage();>돌아가기</span>
@@ -64,7 +72,7 @@
                             <div class="form-inline">
                                 <img class="img-fluid" src="img/join/password_.png">
 <!---------------------------------- 오리지널 패스워드. name만 수정해서 사용해주세요. -->
-                                <input name="password" type="password" class="form-control" id="password" placeholder="기존 비밀번호를 입력해주세요." onkeyup="checkPassword(value)" onchange="checkPassword(value)">
+                                <input name="originalPassword" type="password" class="form-control" id="password" placeholder="기존 비밀번호를 입력해주세요." onkeyup="checkPassword(value)" onchange="checkPassword(value)">
                                 <div class="result_div">
                                     <p class="result_sp" id="check_password_result">여기는 결과 표시</p>
                                 </div>
@@ -72,7 +80,7 @@
                             <div class="form-inline">
                                 <img class="img-fluid" src="img/join/password.png">
 <!---------------------------------- 새 패스워드. name만 수정해서 사용해주세요. -->
-                                <input name="new_password" type="password" class="form-control" id="new_password" placeholder="새 비밀번호를 입력해주세요." onkeyup="checkNewPassword(value)" onchange="checkNewPassword(value)">
+                                <input name="newPassword" type="password" class="form-control" id="new_password" placeholder="새 비밀번호를 입력해주세요." onkeyup="checkNewPassword(value)" onchange="checkNewPassword(value)">
                                 <div class="result_div">
                                     <p class="result_sp" id="check_new_password_result"></p>
                                 </div>
@@ -91,7 +99,7 @@
                         </div>
                     </form>
  <!--------------------- 위쪽 77라인 form태그 action과 동일하게 수정이 필요함 -->
-                    <form class="form-group" action="" method="do">
+                    <form class="form-group" action="updateProfile" method="post">
                         <div class="leave_toggle_area" id="leave_toggle_area">
                             <div class="genric-btn small info radius" id="leave_toggle_button" onclick="$('.bubble').toggle()";>회원 탈퇴</div>
                             <div class="bubble" style="display: none;">

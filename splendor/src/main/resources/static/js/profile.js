@@ -27,7 +27,7 @@ function checkFileType(file) {
         // var parentFile = file.parentNode;
         // var node = parentFile.replaceChild(file.cloneNode(true), file);
         
-        // $('#profile_image_input').val('');
+         $('#profile_image_input').val('');
 
         return false;
     }

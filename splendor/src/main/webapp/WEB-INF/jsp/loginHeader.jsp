@@ -140,6 +140,7 @@
 	function sendMessage() {
 		stompClient.send("/msg/sendMessage", {}, JSON.stringify({
 			'mess_sender': '${user.user_name }', 
+			'mess_sender_image': '${user.user_image}', 
 			'mess_receiver' : $('#msg_receiver').val(), 
 			'mess_content' : $('#msg_content').val()
 			}));
@@ -222,12 +223,16 @@
 	
 	function addMsgTemplate(msgMeta, isNew, sendDate) {
 		sendDate = parseDateFormat(sendDate);
+		var src = "downloadImage?file_name=" + msgMeta.mess_sender_image;
+		if(msgMeta.mess_sender_image == null || msgMeta.mess_sender_image == "" || msgMeta.mess_sender_image == 'undefined') {
+			src = "/img/no_profile.png"
+		}
 		
 		return $('<div></div>').addClass('msg1 messStyle1').append(
 					$('<div></div>').addClass('messStyle2').append(
-						$('<img src="/img/no_profile.png"></img>').addClass('messStyle3')
+						$('<img></img>').attr("src", src).addClass('messStyle3')
 					), 
-					$('<div></div>').addClass('msg_click messStyle4').attr('onclick', 'msg_click('+msgMeta.mess_num+')').append(
+					$('<div></div>').addClass('msg_click messStyle4').attr('onclick', 'msg_click('+msgMeta.mess_num+', "'+src+'")').append(
 						$('<div>'+isNew+'<div>').addClass('mess'+msgMeta.mess_num+' messIsNew'), 
 						$("<div>'"+msgMeta.mess_sender+"'님<br>에게 쪽지가 도착했습니다.</div>").addClass('messStyle5'), 
 						$('<div>'+sendDate+'</div>').addClass('messStyle6')
@@ -240,7 +245,7 @@
 				)
 	}
 
-	function msg_click(mess_num) {
+	function msg_click(mess_num, src) {
 		$.ajax({
 			type : "POST", 
 			url : "http://localhost:8000/readMessage", 
@@ -262,6 +267,7 @@
 
 				$('#mess_sender_area').text(msg.mess_sender);
 				$('#mess_content_area').text(msg.mess_content);
+				$('#sender_image_area').attr('src', src);
 				$('.답장하기').attr("sender", msg.mess_sender);
 				$('.mess'+mess_num).text('')
 				$('.message-box').show('fast');
@@ -441,7 +447,8 @@
 							<li class="nav-item"><a class="nav-link" href="나문의">1:1문의</a></li>
 						</ul></li>
 				</ul>
-				<div class="primary_btn" onclick="location.href='http://192.168.0.34:3000/id=${user.user_name }'">GameStart</div>
+				<div class="primary_btn" onclick="location.href='http://192.168.0.34:3000/id=${user.user_name }'" 
+				style="padding: 0 5px; border-radius:15px; font-size: 15px; white-space: nowrap;">GAME START</div>
 				<span id="alert-amount"></span>
 				<div class="notification"><img src="/img/notification.png"
 					title="알림"></div>
@@ -457,7 +464,7 @@
 							<span aria-hidden="true">&times;</span>
 						</button>
 
-						<img src="/img/jihyo.jpg"
+						<img id="sender_image_area" src="/img/jihyo.jpg"
 							style="position: absolute; width: 30%; left: 35%; top: 9%;">
 					</div>
 					<div
@@ -764,8 +771,7 @@
 							style="position: absolute; right: 0; top: 2%; right: 5%;">
 							<span aria-hidden="true">&times;</span>
 						</button>
-						<!-- 								<img src="img/jihyo.jpg"  -->
-						<img src="${user.user_image }"
+														<img src="/img/jihyo.jpg"
 							style="position: absolute; width: 30%; left: 35%; top: 9%;">
 					</div>
 					<div
@@ -795,7 +801,7 @@
 					</div>
 				</div>
 
-				<a class="avatar" href="profile"><img src="img/avatar.png"
+				<a class="avatar" href="profile?user_name=${user.user_name }"><img src="img/avatar.png"
 					title="프로필 설정"></a> <a class="cancel" href="logoutForm"><img
 					src="img/cancel.png" title="로그아웃"></a>
 			</div>

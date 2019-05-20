@@ -1,9 +1,13 @@
 package com.rng.splendor.db.service;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.rng.splendor.db.dto.UserData;
 import com.rng.splendor.db.mapper.UserMapper;
@@ -42,6 +46,30 @@ public class UserService {
 	
 	public List<String> nameCheck() {
 		return userMapper.selectNameCheck();
+	}
+	
+	public UserData updateProfile(String name, MultipartFile file, String introduce, String originalPassword, String newPassword) throws Exception {
+		UserData user = userMapper.selectOneUser(name);
+		if(file != null && file.getContentType().substring(0, 5).equals("image")) {
+			File uploadFolder = new File("D:\\upload");
+			if(!uploadFolder.exists()) {
+				uploadFolder.mkdirs();
+			}
+			String user_image = "user_image-" + UUID.randomUUID().toString();
+			File targetInServerFile = new File("D:\\upload", user_image);
+			FileCopyUtils.copy(file.getBytes(), targetInServerFile);
+			user.setUser_image(user_image);
+		}
+		if(introduce != null) {
+			user.setUser_introduce(introduce);
+		}
+		if(originalPassword != null && newPassword != null) {
+			if(originalPassword.equals(user.getUser_password())) {
+				user.setUser_password(newPassword);
+			}
+		}
+		userMapper.updateUser(user);
+		return user;
 	}
 	
 	

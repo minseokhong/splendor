@@ -1,5 +1,6 @@
 package com.rng.splendor.db.controller;
 
+import java.io.File;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
@@ -9,14 +10,19 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 
 import com.rng.splendor.db.dto.BoardData;
 import com.rng.splendor.db.dto.GuildList;
@@ -175,7 +181,8 @@ public class JspController {
 	}
 
 	@RequestMapping(value="/profile")
-	public String profile() throws Exception{
+	public String profile(String user_name, Model model) throws Exception{
+		model.addAttribute("user", userService.selectOneUser(user_name));
 		return "profile";
 	}
 
@@ -334,5 +341,24 @@ public class JspController {
 	@RequestMapping(value="/naver-callback")
 	public String naver_callback() throws Exception{
 		return "naver-callback";
+	}
+	
+	@RequestMapping("/updateProfile")
+	public String updateProfile (
+			String name, 
+			@RequestParam(value="file", required=false) MultipartFile file, 
+			@RequestParam(value="introduce", required=false) String introduce, 
+			@RequestParam(value="originalPassword", required=false) String originalPassword, 
+			@RequestParam(value="newPassword", required=false) String newPassword, 
+			Model model
+			) throws Exception {
+		model.addAttribute("user", userService.updateProfile(name, file, introduce, originalPassword, newPassword));
+		
+		return "profile";
+	}
+	
+	@RequestMapping("/downloadImage")
+	public View downloadImg(String file_name) throws Exception {
+		return new DownloadView(new File("D:\\upload\\" + file_name));
 	}
 }

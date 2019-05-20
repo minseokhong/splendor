@@ -28,9 +28,9 @@
     </select>
     
     <select id="senderList" resultMap="has" parameterType="String">
-    	select mess_num, mess_sender, mess_send_date, mess_is_show 
-    	from message_log 
-    	where mess_receiver=#{receiver} 
+    	select m.mess_num, m.mess_sender, u.user_image, m.mess_send_date, m.mess_is_show 
+    	from message_log m left join user_data u on m.mess_sender=u.user_name 
+    	where m.mess_receiver=#{receiver} 
     	order by mess_send_date desc
     </select>
     
@@ -43,6 +43,7 @@
     <resultMap type="java.util.HashMap" id="has">
     	<result javaType="java.lang.String" column="mess_num" property="mess_num"/>
     	<result javaType="java.lang.String" column="mess_sender" property="mess_sender"/>
+    	<result javaType="java.lang.String" column="user_image" property="mess_sender_image"/>
     	<result javaType="java.util.Date" column="mess_send_date" property="mess_send_date"/>
     	<result javaType="java.lang.String" column="mess_is_show" property="mess_is_show"/>
     </resultMap>

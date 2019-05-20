@@ -23,4 +23,9 @@
     	SELECT user_name FROM user_data 
     </select>
     
+    <update id="updateUser" parameterType="userData">
+    	update user_data set 
+    	user_image=#{user_image}, user_introduce=#{user_introduce}, user_password=#{user_password} where user_name=#{user_name}
+    </update>
+    
 </mapper>

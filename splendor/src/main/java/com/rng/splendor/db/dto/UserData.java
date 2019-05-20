@@ -8,6 +8,7 @@ public class UserData {
 	private String user_mail;
 	private String user_password;
 	private String user_image;
+	private String user_introduce;
 	private String API_token;
 	private boolean is_admin;
 	private boolean is_banned;
@@ -38,6 +39,12 @@ public class UserData {
 	}
 	public void setUser_image(String user_image) {
 		this.user_image = user_image;
+	}
+	public String getUser_introduce() {
+		return user_introduce;
+	}
+	public void setUser_introduce(String user_introduce) {
+		this.user_introduce = user_introduce;
 	}
 	public String getAPI_token() {
 		return API_token;
@@ -78,9 +85,9 @@ public class UserData {
 	
 	@Override
 	public String toString() {
-		return "user_data [user_name=" + user_name + ", user_mail=" + user_mail + ", user_password=" + user_password
-				+ ", user_image=" + user_image + ", API_token=" + API_token + ", is_admin=" + is_admin + ", is_banned="
-				+ is_banned + ", ban_period=" + ban_period + ", ban_count=" + ban_count + ", ban_reason=" + ban_reason
-				+ "]";
+		return "UserData [user_name=" + user_name + ", user_mail=" + user_mail + ", user_password=" + user_password
+				+ ", user_image=" + user_image + ", user_introduce=" + user_introduce + ", API_token=" + API_token
+				+ ", is_admin=" + is_admin + ", is_banned=" + is_banned + ", ban_period=" + ban_period + ", ban_count="
+				+ ban_count + ", ban_reason=" + ban_reason + "]";
 	}
 }

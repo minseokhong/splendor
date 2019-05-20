@@ -609,7 +609,7 @@
 								<!-- <a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?v=vParh5wE-tM">
 									<span></span>
 								</a> -->
-								<a class='play' href="Splendor-master/Splendor-master/public/index">
+								<a class='play' href='http://192.168.0.34:3000/id=${user.user_name }'>
 									<img class="play-img" src="img/casino.png">
 								</a>
 								<div class="watch_video text-uppercase">

@@ -64,17 +64,37 @@
 					conPlay : conPlay,
 					conWinRate : conWinRate
 				},
+				timeout : 100, 
 				success : function(data) {
 					if(data == 'true') {
 						location.href = 'guild';
 						alert('성공~~');
 					}
 				}
-				
-				
-				
-				
-				
+				, error : function() {
+					$.ajax({
+						type : "GET",
+						url : "http://121.138.121.114:8000/createGuildForm",
+						dataType : "text",
+						data : {
+							guildName : guildName,
+							guildComm : guildComm,
+							guildLogo : guildLogo,
+							conScore : conScore,
+							conPlay : conPlay,
+							conWinRate : conWinRate
+						},
+						success : function(data) {
+							if(data == 'true') {
+								location.href = 'guild';
+								alert('성공~~');
+							}
+						}
+						, error : function() {
+							alert("길드 데이터 서버가 응답하지 않습니다. 잠시후에 다시 시도해주세요.")
+						}
+					})
+				}
 			})
 		}
 	</script>
