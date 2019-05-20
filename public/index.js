@@ -712,7 +712,7 @@ $(() => {
 
 	function getUsername() {
 		var url = window.location.href.split("/");
-		var username = url[url.findIndex(string => string.startsWith("id="))].slice(3);
+		var username = decodeURI(url[url.findIndex(string => string.startsWith("id="))].slice(3));
 		return username;
 	}
 });
