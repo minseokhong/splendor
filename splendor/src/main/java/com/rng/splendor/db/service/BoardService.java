@@ -26,5 +26,14 @@ public class BoardService {
 		return boardMapper.boardDetail(board_num);
 	}
 	
+	public BoardData readBoard(int board_num) throws Exception {
+		BoardData board = boardDetailService(board_num);
+		
+		board.setBoard_count(board.getBoard_count() + 1);
+		boardMapper.readBoard(board);
+		
+		return  board;
+	}
+	
 
 }

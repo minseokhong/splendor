@@ -142,6 +142,10 @@ $(document).ready(function(){
                                   <li class="page-item"><a href="#" class="page-link">02</a></li>
                                   <li class="page-item"><a href="#" class="page-link">03</a></li>
                                   <li class="page-item"><a href="#" class="page-link">04</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">05</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">06</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">07</a></li>
+                                  <li class="page-item"><a href="#" class="page-link">08</a></li>
                                   <li class="page-item"><a href="#" class="page-link">09</a></li>
                                   <li class="page-item">
                                       <a href="#" class="page-link" aria-label="Next">

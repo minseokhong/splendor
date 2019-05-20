@@ -90,12 +90,12 @@
                 
                     <div class="col-lg-4">
                         <div class="categories_post">
-                            <img src="img/guild/cat-post/cat-post-3.jpg" alt="post">
+                            <img src="img/일리네어.jpg" alt="post">
                             <div class="categories_details">
                                 <div class="categories_text">
                                     <a href="single-guild"><h5>1st</h5></a>
                                     <div class="border_line"></div>
-                                    <p>메가박스</p>
+                                    <p>일리네어</p>
                                 </div>
                             </div>
                         </div>
@@ -103,24 +103,24 @@
                     
                     <div class="col-lg-4">
                         <div class="categories_post">
-                            <img src="img/guild/cat-post/cat-post-2.jpg" alt="post">
+                            <img src="img/미고스길드.jpg" alt="post">
                             <div class="categories_details">
                                 <div class="categories_text">
                                     <a href="single-guild"><h5>2nd</h5></a>
                                     <div class="border_line"></div>
-                                    <p>삼성전자</p>
+                                    <p>migos길드</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="categories_post">
-                            <img src="img/guild/cat-post/cat-post-1.jpg" alt="post">
+                            <img src="img/aomg.jpg" alt="post">
                             <div class="categories_details">
                                 <div class="categories_text">
                                     <a href="single-guild"><h5>3rd</h5></a>
                                     <div class="border_line"></div>
-                                    <p>캠프</p>
+                                    <p>aomg</p>
                                 </div>
                             </div>
                         </div>

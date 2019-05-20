@@ -30,18 +30,17 @@
   <script>
   	$(document).ready(function(){
   		$('#write_ok').submit(function(e){
-  			e.preventDefault();
   			var title = $('#boardTitle');
   			var content =  $('#boardContent');
   			
   			if(title.val() == ''){
+  	  			e.preventDefault();
   				alert('제목을 입력해주세요.');
   				title.focus();
   			}else if(content.val() == ''){
+  	  			e.preventDefault();
   				alert('내용글을 작성해주세요.');
   				content.focus();
-  			} else {
-  				write(title.val(), content.val());
   			}
   			
   			
@@ -50,27 +49,27 @@
   		
   	});
   	
-   	function write(title, content){
-  		$.ajax({
-  			type : "POST",
-  			url:"http://localhost:8000/writeform2",
-  			dataType : "text",
-  			data : {
-  				boardTitle : title,
-  				boardContent : content
-  			},
-  			success : function(data) {
-  				if(data == 'true') {
-  					alert('글 작성 완료!');
-  					location.href = '자유게시판';
-  				}
-  			}
-//   			error : function() {
-//   				alert('asdasd');
+//    	function write(title, content){
+//   		$.ajax({
+//   			type : "POST",
+//   			url:"http://localhost:8000/writeform2",
+//   			dataType : "text",
+//   			data : {
+//   				boardTitle : title,
+//   				boardContent : content
+//   			},
+//   			success : function(data) {
+//   				if(data == 'true') {
+//   					alert('글 작성 완료!');
+//   					location.href = '자유게시판';
+//   				}
 //   			}
-  		})
+// //   			error : function() {
+// //   				alert('asdasd');
+// //   			}
+//   		})
   		
-  	}
+//   	}
   	 
   	
   	
@@ -115,7 +114,7 @@
         /* antiquewhite; */
         #e6e6e6;
          color:rgb(151, 137, 137);">
-        <form id="write_ok" method="post" encType="multipart/form-data">
+        <form id="write_ok" method="post" action="writeform2" encType="multipart/form-data">
         <table class="table table-bordered text-center">
 			<thead>
 				<tr>
@@ -129,7 +128,8 @@
                     <tr>
                     	<td class="align-middle">제목</td>
                         <td class="align-middle">
-                        	<input type="text" placeholder="제목을 입력하세요. " name="subject" class="form-control" id="boardTitle" />
+                        	<input type="text" hidden="hidden" name="board_writer" value="${user.user_name }">
+                        	<input type="text" placeholder="제목을 입력하세요. " name="board_title" class="form-control" id="boardTitle" />
                         </td>
                     </tr>
 
@@ -148,7 +148,7 @@
                     </tr>
                     <tr>
                         <td colspan="2"> 
-                        	<textarea rows="15" cols="10" placeholder="내용을 입력하세요. " name="content" class="form-control" id="boardContent"></textarea>
+                        	<textarea rows="15" cols="10" placeholder="내용을 입력하세요. " name="board_content" class="form-control" id="boardContent"></textarea>
                         </td>
                     </tr>
                     

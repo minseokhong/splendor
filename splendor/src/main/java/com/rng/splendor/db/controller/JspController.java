@@ -112,7 +112,7 @@ public class JspController {
 	@RequestMapping(value="/clicktopost")//수정해보자
 	public String clicktopost(HttpServletResponse response,int board_num, Model model) throws Exception{
 		response.addCookie(new Cookie("location", "response"));
-		model.addAttribute("detail", BoardService.boardDetailService(board_num));
+		model.addAttribute("detail", BoardService.readBoard(board_num));
 	
 		return "clicktopost";
 	}
@@ -281,21 +281,29 @@ public class JspController {
 	}
 
 	@RequestMapping(value="/writeform")
-	public String writeform() throws Exception{
+	public String writeform(Model model) throws Exception{
+		model.addAttribute("list", BoardService.boardListService());
 		return "writeform";
 	}
 	
-	@RequestMapping(value="/writeform2")
-	@ResponseBody
-	public String writeform(String boardTitle, String boardContent) throws Exception{
-		
-		BoardData boardData = new BoardData();
-		boardData.setBoard_title(boardTitle);
-		boardData.setBoard_content(boardContent);
-		BoardService.insertBoard(boardData);
-		return "true";
-	}
+//	@RequestMapping(value="/writeform2")
+//	@ResponseBody
+//	public String writeform(String boardTitle, String boardContent) throws Exception{
+//		
+//		BoardData boardData = new BoardData();
+//		boardData.setBoard_title(boardTitle);
+//		boardData.setBoard_content(boardContent);
+//		BoardService.insertBoard(boardData);
+//		return "true";
+//	}
 	
+	@RequestMapping(value="/writeform2")
+	public String writeform(BoardData boardData, Model model) throws Exception{
+		model.addAttribute("list", BoardService.boardListService());
+		boardData.setBoard_date(new Date());
+		BoardService.insertBoard(boardData);
+		return "redirect:/" + URLEncoder.encode("자유게시판", "UTF-8");
+	}
 
 	@RequestMapping(value="/create-guild")
 	public String create_guild() throws Exception{

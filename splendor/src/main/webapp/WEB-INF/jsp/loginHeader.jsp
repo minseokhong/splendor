@@ -294,6 +294,7 @@
 
 						$('#mess_sender_area').text(msg.mess_sender);
 						$('#mess_content_area').text(msg.mess_content);
+						$('#sender_image_area').attr('src', src);
 						$('.답장하기').attr("sender", msg.mess_sender);
 						$('.mess'+mess_num).text('')
 						$('.message-box').show('fast');
@@ -771,7 +772,7 @@
 							style="position: absolute; right: 0; top: 2%; right: 5%;">
 							<span aria-hidden="true">&times;</span>
 						</button>
-														<img src="/img/jihyo.jpg"
+														<img 
 							style="position: absolute; width: 30%; left: 35%; top: 9%;">
 					</div>
 					<div

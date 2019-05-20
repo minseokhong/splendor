@@ -191,7 +191,7 @@
                            
                                 <input type="button" value="목　록"
                                 style=" width:100px; background-color: dodgerblue; border-radius: 5px; border: 0; outline: 0; color: white"
-                                ; onclick="location.href=''" class="pull-left large" />
+                                ; onclick="location.href='자유게시판'" class="pull-left large" />
                             
                                 <input type="button" value="삭　제"
                                 style=" width:100px; margin-left: 10px; background-color: dodgerblue; border-radius: 5px; border: 0; outline: 0; color: white"

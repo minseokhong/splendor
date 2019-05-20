@@ -66,7 +66,7 @@
 					userId: id,
 					userPw: pw //userId를 controller에서 그대로사용
 				},
-				timeout : 100, 
+				timeout : 150, 
 				success : function(data) {
 					if (data == 'true') {
 						alert(id + ' 님 환영합니다 ^.^')

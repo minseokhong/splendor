@@ -10,6 +10,8 @@
     	#{mess_receiver}, 
     	#{mess_send_date}, 
     	0, 
+    	0, 
+    	0, 
     	#{mess_content}
     	)
     </insert>
